@@ -41,7 +41,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Recalé (DEC-008, 2026-08-22). L’ancien YAML `paris-600d-placeholder.yaml` reste comme archive.
 **Symptôme (historique) :** Paris (48,8566° N, 2,3522° E) jusqu’au GPS réel.
 **Site actuel :** Tournefeuille, 43,582389° N, 1,350944° E — [tournefeuille-2026.md](lieux/tournefeuille-2026.md). MAX ~10,5° / 06:12:55 CEST ; moonset 07:20:26 CEST ; U4 sous l’horizon.
-**Reste ouvert :** élévation 155 m approx. ; horizon local ouest–SO non levé ; **optiques à repréciser** (28 mm ne tient pas U1→moonset).
+**Reste ouvert :** élévation 155 m approx. ; horizon local ouest–SO non levé. Parc optique listé (DEC-009) ; formes de prise de vue encore à trancher.
 
 ---
 
@@ -72,9 +72,9 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-008 : Trépied fixe — filé sur les poses umbra
 
-**Statut :** Conséquence géométrique (même dérive sidérale que SEM DEC-011).
-**Symptôme :** à 280 mm APS-C, ~4,5 px/s (≈ 14″/s). Une pose umbra de 1–4 s produit 5–18 px de filé. SEM limitait la totalité solaire à 1 s ; l'umbra lunaire est beaucoup plus sombre.
-**Action :** documenter le plafond de pose vs SNR dans le scénario 600D. Une monture suivie n'est pas dans le matériel Frías ; ne pas la supposer.
+**Statut :** Valable pour les **chapelets** sur trépied fixe (DEC-009). Le gros plan 600D est désormais sur **monture équatoriale** (750 mm) : le filé sidéral ne s’applique plus à ce corps, sous réserve de mise en station.
+**Symptôme (trépied fixe) :** à 280 mm APS-C, ~4,5 px/s (≈ 14″/s). Une pose umbra de 1–4 s produit 5–18 px de filé. À 60 mm : ~1 px/s ; à 15–25 mm : négligeable pour 1–4 s.
+**Action :** plafond de pose vs SNR uniquement sur le boîtier chapelet (trépied). Sur l’équatoriale : juger l’erreur périodique / mise en station, pas la dérive diurne. Le simulateur `simulate_fov.py` (caméra fixe) ne décrit **pas** le 750 mm suivi.
 
 ---
 
@@ -95,3 +95,11 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Transféré de SEM KI-018 (totalité solaire tombée dans un trou de 239 s).
 **Symptôme :** un intervallomètre calé « pile » sur un contact échoue dès que le run part en retard.
 **Action :** prévoir un **déclenchement manuel dédié au maximum** (et autour de U1 si besoin). Noter l'heure de départ réelle. L'intervalle du chapelet ne doit pas être le seul filet pour l'instant critique.
+
+---
+
+## KI-012 : Multiplicateurs sur le 750 mm — pas équivalents
+
+**Statut :** À valider sur le train optique réel (bague EF du télescope).
+**Symptôme :** Canon Extender EF 1.4× II (1050 mm, f/7,1) vs doubleur Hoya prévu pour **Olympus Zuiko** (1500 mm, f/10). Montage, tirage et piqué ne sont pas interchangeables ; le Hoya a déjà donné de bons résultats mais est jugé moins qualitatif.
+**Action :** ne pas traiter 1,4× / 2× comme de simples coefficients dans un YAML FOV fixe. Tester le jeu de bagues avant J−7. Au f/10, budget de pose et seeing limitent plus que le cadre.

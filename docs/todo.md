@@ -2,9 +2,7 @@
 
 ## En cours
 
-- [ ] **Préciser les optiques** — DEC-007 encore provisoire ; 28 mm ne tient pas U1→moonset à Tournefeuille (max ~21 mm si pointage MAX, ~25 mm si milieu U1–SET)
-- [ ] **Scénario 600D-Tele** — cadrage fixe vs recentrage ; 280 mm ≈ 16 min autour du MAX ; plafond de pose vs filé (~4,5 px/s) ; LEM si Mac compatible, sinon intervallomètre
-- [ ] **Scénario 100D chapelet** — focale après choix d’optique ; intervalle ~1,5–2 Ø ; AEB ; **déclenchement manuel dédié au MAX** (pas de coïncidence horaire)
+- [ ] **Formes de prise de vue** — branche dédiée après push : 600D @ 750 mm (EQ, ± multiplicateurs) + chapelet 15-85 / 60 mm / 70–200 sur l’autre boîtier ; LEM vs intervallomètre
 - [ ] **Test Mac LEM** — l'appli démarre-t-elle (macOS ≤ Mojave) ? 600D / 100D vus en USB ?
 
 ## Bloqué
@@ -24,4 +22,5 @@ _(aucune tâche bloquée)_
 - [x] **Miroir HTML LEM + build PDF** (2026-08-22) — `scripts/mirror.sh`, `scripts/build-pdf.sh`
 - [x] **Simulateur FOV lunaire** (2026-08-22) — noyau SEM transféré, overlay ombre, placeholder Paris — DEC-006
 - [x] **Recaler le site Tournefeuille** (2026-08-22) — GPS, contacts UTC, YAML + fiche + simu FOV — DEC-008
-- [x] **Dépôt git local + origin** (2026-08-22) — premier commit ; `origin` = github.com/hl-ply-eu/lunar-eclipse-maestro (pas de push)
+- [x] **Dépôt git local + origin** (2026-08-22) — premier commit ; `origin` = github.com/hl-ply-eu/lunar-eclipse-maestro
+- [x] **Parc optique** (2026-08-22) — télescope 750 mm EQ + chapelets 15-85 / 60 / 70–200 — DEC-009 ; DEC-007 archivé

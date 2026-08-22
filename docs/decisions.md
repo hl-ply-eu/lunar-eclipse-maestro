@@ -65,7 +65,7 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 **Justification :** pas de re-mesure FOV en degrés ; la focale wide dépend du trajet lunaire local (moonset).
 **Rejeté :** figer 28 mm avant d'avoir le site réel.
 
-Au recalage Tournefeuille, 28 mm **sort** du cadre U1→moonset (trajet ~40°). Focale wide indicative seulement — le jeu d’optiques sera reprécisé ; pas de DEC de focale tant que ce n’est pas tranché.
+**Statut :** remplacé par [DEC-009](#dec-009--parc-optique-tournefeuille-2026-08-22) (télescope 750 mm + parc chapelet). Le couple 280 mm / 15-85 n’est plus le défaut.
 
 ---
 
@@ -75,3 +75,29 @@ Au recalage Tournefeuille, 28 mm **sort** du cadre U1→moonset (trajet ~40°). 
 **Décision :** site unique **Tournefeuille** (43°34′56.6″ N, 1°21′03.4″ E ; 43,582389° N, 1,350944° E). YAML [`scripts/config/tournefeuille-600d.yaml`](../scripts/config/tournefeuille-600d.yaml) ; fiche [lieux/tournefeuille-2026.md](lieux/tournefeuille-2026.md). Contacts locaux = UTC observateur + 2 h (CEST), y compris moonset 05:20:26 UTC. Élévation YAML 155 m (approx.).
 **Justification :** GPS réel ; moonset Skyfield DE421 = −0,05° à l’heure fournie ; U4/P4 sous l’horizon.
 **Rejeté :** rester sur Paris ; interpoler un moonset générique « France ».
+
+---
+
+## DEC-009 : Parc optique Tournefeuille (2026-08-22)
+
+**Contexte :** DEC-007 calquait Frías (600D @ 280 mm trépied fixe + 100D @ 15-85). Le matériel réel pour le 28 août est plus large, et une monture **équatoriale** est disponible.
+**Décision :** inventorier sans figer encore les scénarios (étude des formes de prise de vue = branche suivante).
+
+**Gros plan (600D) — suivi**
+
+| Optique | Focale | Ouverture | Monture | Notes |
+|---------|--------|-----------|---------|-------|
+| Télescope 150 mm | **750 mm** | f/5 | Équatoriale | Corps de séance principal 600D |
+| + Canon Extender EF 1.4× II | 1050 mm | f/7,1 | idem | Option ; qualité Canon |
+| + doubleur Hoya (Zuiko / Olympus) | 1500 mm | f/10 | idem | Option ; probablement moins qualitatif, bons résultats passés |
+
+**Chapelet — l’un des deux boîtiers (600D ou 100D), trépied fixe**
+
+| Optique | Plage | Ouverture | Notes |
+|---------|-------|-----------|-------|
+| Canon EF-S 15-85 mm f/3,5–5,6 IS USM | 15–85 mm | un peu basse en bout de plage | Souplesse ; U1→moonset tient vers 18–25 mm (voir fiche lieu) |
+| Canon EF-S 60 mm f/2,8 USM Macro | 60 mm | f/2,8 | Très qualitatif ; trop long pour U1→moonset en un cadrage (~40°) |
+| Canon EF 70–200 mm f/4 L USM | 70–200 mm | f/4 | Très qualitatif ; chapelet serré / recentrages, pas le trajet complet |
+
+**Justification :** le 750 mm suivi change le problème (plus de trajectoire capteur, KI-008 ne s’applique pas à ce corps) ; le 70–200 redevient une option **chapelet**, plus le télé 600D par défaut.
+**Rejeté :** garder 280 mm + ×1,4 comme unique gros plan ; figer 28 mm sur le 15-85 ; étudier les formes de prise de vue dans cette branche.

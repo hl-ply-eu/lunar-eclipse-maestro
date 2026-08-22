@@ -42,9 +42,9 @@ lunar-eclipse-maestro/
 ## Matériel visé par le Getting Started
 
 - Éclipse **lunaire quasi-totale du 28 août 2026** (magnitude umbrale 0,93), **France**
-- **Canon EOS 600D** + 70–200 mm f/4 + extender ×1,4 (280 mm)
-- **Canon EOS 100D** + EF-S 15-85 mm (chapelet paysage) — focale à repréciser (28 mm trop long pour U1→moonset)
 - Site : **Tournefeuille** (43,582389° N, 1,350944° E) — [fiche](docs/lieux/tournefeuille-2026.md)
+- **600D** + télescope 150 mm f/5 (**750 mm**) sur monture équatoriale ; option 1,4× Canon ou doubleur Hoya
+- **Chapelet** (600D ou 100D) : EF-S 15-85 mm, EF-S 60 mm f/2,8 Macro, ou EF 70–200 mm f/4 L — [DEC-009](docs/decisions.md)
 
 ## Projet frère
 

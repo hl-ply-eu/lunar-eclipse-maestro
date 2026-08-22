@@ -4,7 +4,7 @@ Guide opérationnel pour [Lunar Eclipse Maestro](http://xjubier.free.fr/en/site_
 
 L’aide officielle (© Xavier Jubier) reste la référence : [miroir local](../mirror/index.html) après `./scripts/mirror.sh`, ou [en ligne](http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs2/btoc1.html).
 
-**Statut :** site recalé **Tournefeuille** ([DEC-008](decisions.md), [fiche lieu](lieux/tournefeuille-2026.md)). Horaires en **CEST** (UTC+2). Optiques encore provisoires (DEC-007).
+**Statut :** site recalé **Tournefeuille** ([DEC-008](decisions.md), [fiche lieu](lieux/tournefeuille-2026.md)). Horaires en **CEST** (UTC+2). Parc optique : [DEC-009](decisions.md) (formes de prise de vue encore à étudier).
 
 ---
 
@@ -25,14 +25,18 @@ Régime « objet bas puis coucher », proche de Frías le 12 août (soleil ~8°)
 
 ---
 
-## 2. Matériel visé (DEC-007, à repréciser)
+## 2. Matériel visé (DEC-009)
 
-| Boîtier | Optique | Rôle prévu |
-|---------|---------|------------|
-| **600D-Tele** | 70–200 mm f/4 + ×1,4 → **280 mm** f/5,6 | Gros plan du disque / morsure umbrale (~16 min autour du MAX) |
-| **100D-Wide** | EF-S 15-85 mm | Chapelet paysage U1→moonset — **28 mm trop long** ici (max ~21 mm si pointage MAX, ~25 mm si milieu U1–SET) |
+Capteur identique sur les deux boîtiers : APS-C 22,3 × 14,9 mm, 5184 × 3456 px. Pas de filtre solaire.
 
-Capteur identique : APS-C 22,3 × 14,9 mm, 5184 × 3456 px. Pas de filtre solaire. Trépieds **fixes** (pas de suivi dans le matériel Frías) → filé ~4,5 px/s à 280 mm ([KI-008](known-issues.md)).
+| Rôle | Boîtier | Optique | Monture |
+|------|---------|---------|---------|
+| **Gros plan** | 600D | Télescope 150 mm f/5 → **750 mm** ; option 1,4× Canon (1050 mm) ou doubleur Hoya Zuiko (1500 mm, [KI-012](known-issues.md)) | **Équatoriale** (suivi) |
+| **Chapelet** | 600D *ou* 100D | EF-S 15-85 mm f/3,5–5,6 (souple, un peu fermé) ; EF-S **60 mm f/2,8** Macro ; EF **70–200 mm f/4 L** | Trépied **fixe** |
+
+Le 70–200 n’est plus le télé 600D par défaut. U1→moonset (~40°) ne tient que sur le **15-85 vers 18–25 mm** ; 60 mm et 70–200 = chapelet plus court ou recentré. Filé sidéral : [KI-008](known-issues.md) (trépied seulement).
+
+Les **formes de prise de vue** (qui fait le chapelet, recentrages, usage des multiplicateurs) restent à trancher sur une branche dédiée.
 
 ---
 
@@ -75,9 +79,11 @@ Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 ## 5. Scénarios (à écrire — voir todo.md)
 
-**600D-Tele.** Cadrage unique verrouillé (dérive comme SEM) vs recentrages. Plafond de pose vs filé. Automatisation LEM seulement après test Mac.
+**600D @ 750 mm (EQ).** Suivi : cadrage du disque, pas de trajectoire capteur. Multiplicateurs optionnels (KI-012). LEM seulement après test Mac.
 
-**100D-Wide.** Chapelet à l’intervallomètre. Reprendre les leçons AEB ([chapelet-lecons-sem.md](chapelet-lecons-sem.md)) : retardateur « C », AEB armé en dernier. **Déclenchement manuel dédié au MAX** — ne pas miser sur une coïncidence d’intervalle ([KI-010](known-issues.md)).
+**Chapelet (l’autre boîtier).** 15-85 / 60 mm / 70–200. Reprendre les leçons AEB ([chapelet-lecons-sem.md](chapelet-lecons-sem.md)) : retardateur « C », AEB armé en dernier. **Déclenchement manuel dédié au MAX** ([KI-010](known-issues.md)).
+
+Détail des formes : branche dédiée (voir todo.md).
 
 Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’est **pas** le `chapelet_exposure.py` solaire (ND + extinction du disque).
 

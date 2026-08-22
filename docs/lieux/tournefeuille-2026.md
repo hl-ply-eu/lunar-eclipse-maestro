@@ -1,7 +1,7 @@
 # Tournefeuille — 28 août 2026
 
 Site retenu pour l’éclipse lunaire quasi-totale (DEC-008).
-Optiques encore **provisoires** (DEC-007) — à repréciser.
+Parc optique : [DEC-009](../decisions.md). Formes de prise de vue encore à étudier.
 
 ## Lieu
 
@@ -35,25 +35,22 @@ Le moonset fourni est cohérent avec DE421 (limbe à ~0°). U4 et P4 sont **apr�
 Le Soleil se lève pendant le moonset (sun alt +0,8° à 07:20) : ciel déjà clair, extinction
 et contraste umbra dégradés en fin de run.
 
-## Cadrage (indicatif, optiques à repréciser)
+## Cadrage (indicatif, DEC-009)
 
 Trajet angulaire **U1 → moonset ≈ 39,7°** (beaucoup plus long que C1→SET solaire à Frías).
 
-**600D-Tele** (70–200 + ×1,4 @ 280 mm, pointage MAX) :
+**600D + télescope 150 mm f/5 (750 mm), monture équatoriale** — suivi : la Lune reste au centre, l’ombre traverse le disque. `simulate_fov.py` (caméra fixe) **ne s’applique pas** à ce corps. FOV APS-C approx. : 1,70° × 1,14° (750 mm) ; 1,22° × 0,81° (1050 mm) ; 0,85° × 0,57° (1500 mm). Disque lunaire ~0,51°.
 
-- Lune entière dans le cadre ~**16 min** (06:05–06:21 CEST).
-- Auto-top limbe ~**06:01:28** CEST.
-- Un cadrage unique ne couvre pas U1 ni le coucher : recentrages ou second corps de séance.
+**Chapelet trépied fixe** — U1→moonset, marges ≥ 10 %, APS-C paysage, EF-S 15-85 :
 
-**100D-Wide** (EF-S 15-85, marges ≥ 10 % sur le disque, APS-C paysage) :
+| Pointage | Focale max ≥ 10 % | 24 mm | 28 mm | 60 mm | 70–200 |
+|----------|-------------------|-------|-------|-------|--------|
+| MAX (06:12:55) | **21 mm** | limbe haut ~5 % | sort | sort | sort |
+| Milieu U1–SET (05:57:09) | **25 mm** | OK (~12 % vertical) | marge ~6 % | sort | sort |
 
-| Pointage | Focale max ≥ 10 % | 24 mm | 28 mm |
-|----------|-------------------|-------|-------|
-| MAX (06:12:55) | **21 mm** | limbe haut ~5 % | sort du cadre |
-| Milieu U1–SET (05:57:09) | **25 mm** | OK (~12 % vertical) | marge verticale ~6 % |
+60 mm et 70–200 restent utiles pour un chapelet **plus court** (autour du MAX) ou avec recentrages — à chiffrer sur la branche « formes de prise de vue ».
 
-28 mm (réglage solaire Frías) **ne tient pas** U1→moonset ici. Ne pas figer 18 / 21 / 24 mm
-tant que le jeu d’optiques n’est pas confirmé.
+Les PNG `output/fov/fov-70-200mm-*.png` datent encore de l’hypothèse Frías 280 mm fixe ; ne pas s’en servir pour le 750 mm suivi.
 
 ## Commandes
 
