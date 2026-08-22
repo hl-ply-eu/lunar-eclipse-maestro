@@ -41,7 +41,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Recalé (DEC-008, 2026-08-22). L’ancien YAML `paris-600d-placeholder.yaml` reste comme archive.
 **Symptôme (historique) :** Paris (48,8566° N, 2,3522° E) jusqu’au GPS réel.
 **Site actuel :** Tournefeuille, 43,582389° N, 1,350944° E — [tournefeuille-2026.md](lieux/tournefeuille-2026.md). MAX ~10,5° / 06:12:55 CEST ; moonset 07:20:26 CEST ; U4 sous l’horizon.
-**Reste ouvert :** élévation 155 m approx. ; horizon local ouest–SO non levé. Parc optique listé (DEC-009) ; formes de prise de vue encore à trancher.
+**Reste ouvert :** élévation 155 m approx. ; horizon local ouest–SO non levé. Parc DEC-009 ; formes DEC-010 (étude, pas plan de séance).
 
 ---
 
@@ -103,3 +103,27 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** À valider sur le train optique réel (bague EF du télescope).
 **Symptôme :** Canon Extender EF 1.4× II (1050 mm, f/7,1) vs doubleur Hoya prévu pour **Olympus Zuiko** (1500 mm, f/10). Montage, tirage et piqué ne sont pas interchangeables ; le Hoya a déjà donné de bons résultats mais est jugé moins qualitatif.
 **Action :** ne pas traiter 1,4× / 2× comme de simples coefficients dans un YAML FOV fixe. Tester le jeu de bagues avant J−7. Au f/10, budget de pose et seeing limitent plus que le cadre.
+
+---
+
+## KI-013 : Ambiance fixe et chapelet rampé s’excluent sur une expo
+
+**Statut :** Contrainte de l’étude des formes (DEC-010).
+**Symptôme :** un time-lapse d’ambiance exige une expo **constante** (l’assombrissement est le sujet). Un chapelet / une rampe LEM expose le disque et **efface** cette histoire. L’AEB 100D (±2 EV) ne couvre pas l’écart croissant/umbra (8–12 EV).
+**Action :** 100D = AEB pour le time-lapse (choix de vues / aube), 600D = rampe HDR du disque. Ne pas vendre « LEM sur le wide = les deux produits ». Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md).
+
+---
+
+## KI-014 : Umbra photographiable au MAX, plus après le crépuscule civil
+
+**Statut :** Géométrie Tournefeuille 28 août 2026 (Skyfield DE421).
+**Symptôme :** le MAX est à 06:13 CEST, proche de l’aube calendaire, ce qui suggère un ciel trop clair pour des poses umbra. En réalité le Soleil est encore à **−11,2°** (crépuscule nautique), à 179° d’azimut de la Lune.
+**Action :** poser l’umbra **U1 → ~06:40**. Dès le crépuscule civil (06:44, Lune à 5,6°) les poses longues ramassent l’aube. Après le lever (07:15) l’umbra est perdue ; le 100D AEB continue jusqu’au moonset pour l’ambiance. Ne pas conclure « MAX = jour ».
+
+---
+
+## KI-015 : Liseré turquoise — tons *moyens* du HDR, pas les extrêmes
+
+**Statut :** Connu (ozone / Chappuis) ; plus difficile en partielle 2026 qu’en totalité.
+**Symptôme :** bande cyan étroite (~2′) au bord de l’umbra, souvent manquée (œil ébloui par le croissant, ou stack à 2 vues seulement). Pas un liseré « vert » saturé.
+**Action :** 7 poses × 2 EV au 750 mm ; ne pas jeter les vues intermédiaires ; WB plutôt daylight. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11.

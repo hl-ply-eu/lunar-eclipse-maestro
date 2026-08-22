@@ -4,7 +4,7 @@ Guide opérationnel pour [Lunar Eclipse Maestro](http://xjubier.free.fr/en/site_
 
 L’aide officielle (© Xavier Jubier) reste la référence : [miroir local](../mirror/index.html) après `./scripts/mirror.sh`, ou [en ligne](http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs2/btoc1.html).
 
-**Statut :** site recalé **Tournefeuille** ([DEC-008](decisions.md), [fiche lieu](lieux/tournefeuille-2026.md)). Horaires en **CEST** (UTC+2). Parc optique : [DEC-009](decisions.md) (formes de prise de vue encore à étudier).
+**Statut :** site recalé **Tournefeuille** ([DEC-008](decisions.md), [fiche lieu](lieux/tournefeuille-2026.md)). Horaires en **CEST** (UTC+2). Parc : [DEC-009](decisions.md). Formes (étude) : [DEC-010](decisions.md), [formes-prise-de-vue.md](formes-prise-de-vue.md).
 
 ---
 
@@ -27,7 +27,7 @@ Régime « objet bas puis coucher », proche de Frías le 12 août (soleil ~8°)
 
 ## 2. Matériel visé (DEC-009)
 
-Capteur identique sur les deux boîtiers : APS-C 22,3 × 14,9 mm, 5184 × 3456 px. Pas de filtre solaire.
+Capteur **équivalent** sur les deux boîtiers (APS-C 22,3 × 14,9 mm, 5184 × 3456 px) : DxOMark RAW 65 vs 63, dynamique 11,5 vs 11,3 EV — écart négligeable ([formes-prise-de-vue.md](formes-prise-de-vue.md) §9). Pas de filtre solaire. Le 600D n’est pas « le meilleur capteur ».
 
 | Rôle | Boîtier | Optique | Monture |
 |------|---------|---------|---------|
@@ -36,7 +36,7 @@ Capteur identique sur les deux boîtiers : APS-C 22,3 × 14,9 mm, 5184 × 3456 p
 
 Le 70–200 n’est plus le télé 600D par défaut. U1→moonset (~40°) ne tient que sur le **15-85 vers 18–25 mm** ; 60 mm et 70–200 = chapelet plus court ou recentré. Filé sidéral : [KI-008](known-issues.md) (trépied seulement).
 
-Les **formes de prise de vue** (qui fait le chapelet, recentrages, usage des multiplicateurs) restent à trancher sur une branche dédiée.
+Hypothèse actuelle (DEC-010) : 600D @ 750 mm = HDR disque ; 100D @ 15-85 = time-lapse d’ambiance à expo fixe. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md).
 
 ---
 
@@ -77,13 +77,11 @@ Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 ---
 
-## 5. Scénarios (à écrire — voir todo.md)
+## 5. Formes (étude — DEC-010)
 
-**600D @ 750 mm (EQ).** Suivi : cadrage du disque, pas de trajectoire capteur. Multiplicateurs optionnels (KI-012). LEM seulement après test Mac.
+Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C** (600D, 750 mm ± 1,4×, HDR) + **forme A** (100D, time-lapse AEB peu avant U1 → moonset). LEM plutôt sur le 600D. Au MAX le Soleil est encore à −11° : l’umbra n’est pas noyée dans l’aube ([KI-014](known-issues.md)). Les 11,5 EV DxO du 600D **ne remplacent pas** le HDR disque ([formes §11](formes-prise-de-vue.md) : SNR labo ≠ dynamique propre ; croissant qui clippe ; fenêtre glissante ; span = (n−1)×pas).
 
-**Chapelet (l’autre boîtier).** 15-85 / 60 mm / 70–200. Reprendre les leçons AEB ([chapelet-lecons-sem.md](chapelet-lecons-sem.md)) : retardateur « C », AEB armé en dernier. **Déclenchement manuel dédié au MAX** ([KI-010](known-issues.md)).
-
-Détail des formes : branche dédiée (voir todo.md).
+**Déclenchement manuel dédié au MAX** sur le 600D ([KI-010](known-issues.md)), même si LEM tourne.
 
 Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’est **pas** le `chapelet_exposure.py` solaire (ND + extinction du disque).
 

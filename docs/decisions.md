@@ -101,3 +101,21 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 
 **Justification :** le 750 mm suivi change le problème (plus de trajectoire capteur, KI-008 ne s’applique pas à ce corps) ; le 70–200 redevient une option **chapelet**, plus le télé 600D par défaut.
 **Rejeté :** garder 280 mm + ×1,4 comme unique gros plan ; figer 28 mm sur le 15-85 ; étudier les formes de prise de vue dans cette branche.
+
+---
+
+## DEC-010 : Formes de prise de vue — hypothèses de travail (2026-08-22)
+
+**Contexte :** idées observateur (ambiance time-lapse, chapelet LEM, départ U1, HDR « vision humaine ») + parc DEC-009 + référence Cannat 21 janv. 2019 (lunette motorisée + 20 mm ambiance). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md).
+**Décision (étude, pas encore plan de séance) :**
+
+1. **100D = forme A** : time-lapse **AEB** (leçon Frías), **peu avant U1 → moonset**. L’AEB absorbe nuit → aube et offre le choix des vues ; ce n’est pas le HDR du disque.
+2. **600D = forme C** : télescope **750 mm** (cadrage confortable, dérive tolérée). **1,4× à tenter** (encore de la marge). Doubleur Hoya : très serré (~2 min à 1′/min) — seulement si la mise en station le permet.
+3. **LEM en priorité sur le 600D**. 100D autonome (intervallomètre + « C »).
+4. **Forme D (70–200 ± 1,4×)** : *remplace* A ou C si un premier plan Ouest le justifie — pas un troisième corps.
+5. **Umbra vs aube** : au MAX le Soleil est à **−11°** (crépuscule nautique, azimut opposé). Poses umbra réalistes jusqu’au crépuscule civil (~06:44). Ensuite le fond de ciel noie les poses longues. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §8.
+
+**Justification :** hypothèses observateur du 22 août au soir ; géométrie Skyfield Tournefeuille (soleil −11,2° au MAX, lever 07:15, moonset 07:20). Capteurs 600D / 100D **équivalents** en RAW DxO (65 vs 63, DR 11,5 vs 11,3 EV) : le split est ergonomique, pas un écart de silicium. Voir [formes-prise-de-vue.md](formes-prise-de-vue.md) §9. Les 11,5 EV labo **ne remplacent pas** le HDR disque : SNR DxO ≠ dynamique propre, croissant qui clippe, fenêtre glissante ; protocole **7 × 2 EV → span 12 EV** *(n−1)×pas*. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11.
+**Rejeté :** expo unique sans AEB sur le 100D (l’aube casse le run) ; doubleur comme plan A ; P1 dans le plan privilégié ; LEM sur le 100D comme plan A ; choisir le boîtier au foyer « parce qu’il est meilleur au DxO » ; une seule RAW « parce que 11,5 EV ».
+
+**Note OM System (2026-08-22) :** OM-3 / OM-5 II **sans test DxO publié**. Proxy labo = E-M1 II (80 / 12,8 EV / ISO 1312) ; PDR PhotonsToPhotos OM-3 9,64 / OM-5 II 9,79. Gain RAW ~+1 EV vs Rebel, poids surtout sur les zooms, **perte LEM**. Pas un changement *pour* le 28 août. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §10.

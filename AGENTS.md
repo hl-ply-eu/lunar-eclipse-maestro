@@ -17,6 +17,7 @@ lunar-eclipse-maestro/
 │   ├── getting-started-2026-france.md  # Guide principal (éclipse 28 août 2026, France)
 │   ├── methode-fov.md                  # Noyau géométrique transféré depuis SEM
 │   ├── chapelet-lecons-sem.md          # Leçons 100D / intervallomètre (pas le plan d'expo solaire)
+│   ├── formes-prise-de-vue.md          # Étude des formes (DEC-010)
 │   ├── decisions.md
 │   ├── todo.md
 │   ├── known-issues.md

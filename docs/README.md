@@ -12,6 +12,9 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   Ce qui se réutilise (AEB, intervallomètre, KI-018) ; ce qui ne se copie pas (ND solaire).
 - **[Tournefeuille 2026](lieux/tournefeuille-2026.md)**  
   GPS, contacts UTC/CEST, altitudes Skyfield, cadrage indicatif (DEC-008).
+- **[Formes de prise de vue](formes-prise-de-vue.md)**  
+  Étude : ambiance, HDR disque, aube, 600D vs 100D (DxO), OM-3 / OM-5 II,
+  pourquoi 11,5 EV labo n’éliminent pas la rampe 7 × 2 EV.
 
 ## Mémoire projet
 

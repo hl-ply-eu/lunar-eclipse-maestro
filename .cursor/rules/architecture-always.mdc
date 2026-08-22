@@ -15,4 +15,4 @@ alwaysApply: true
 - Branche dédiée pour toute session agent significative — pas de modifications directes sur `main` / `master`.
 - Décisions structurantes → `docs/decisions.md` (DEC-NNN), pas uniquement dans le chat.
 - Projet frère : `solar-eclipse-maestro` — éclipses **solaires** (SEM, HDR couronne). Périmètres distincts ; y reprendre méthodes FOV validées, pas le pipeline HDR.
-- Site d'observation : **Tournefeuille** (DEC-008). Parc optique : télescope 150 mm f/5 (750 mm) sur équatoriale + chapelets 15-85 / 60 mm / 70–200 (DEC-009). YAML `scripts/config/tournefeuille-600d.yaml` (FOV trépied fixe seulement).
+- Site d'observation : **Tournefeuille** (DEC-008). Parc : 750 mm EQ + 15-85 / 60 / 70–200 (DEC-009). Formes : 600D HDR 750 mm (±1,4×) + 100D time-lapse AEB U1→set (DEC-010). Umbra encore posable au MAX (soleil −11°, KI-014). YAML FOV = trépied fixe seulement.
