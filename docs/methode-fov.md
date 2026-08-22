@@ -82,11 +82,11 @@ Inchangée : \(x\) vers la droite, \(y\) vers le bas. Lune en descente vers l’
 
 ## 3. Configuration et commande
 
-Fichier : `scripts/config/paris-600d-placeholder.yaml` (KI-005).
+Fichier : `scripts/config/tournefeuille-600d.yaml` (DEC-008). Archive Paris : `paris-600d-placeholder.yaml`.
 
 ```bash
 .venv/bin/python scripts/simulate_fov.py \
-  --config scripts/config/paris-600d-placeholder.yaml \
+  --config scripts/config/tournefeuille-600d.yaml \
   --out output/fov
 ```
 

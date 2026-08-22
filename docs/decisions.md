@@ -52,7 +52,7 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 ## DEC-006 : Simulateur FOV — noyau SEM transféré, cible Lune (2026-08-22)
 
 **Contexte :** méthodes validées dans `solar-eclipse-maestro` (DEC-008/009/010 SEM) : Skyfield + DE421, projection gnomonique, base caméra `right = forward × up`.
-**Décision :** copier le noyau géométrique dans `scripts/simulate_fov.py` de *ce* dépôt (pas d'import inter-repos) ; pointer la **Lune** ; contacts `p1` / `u1` / `max` / `u4` / `p4` / `set` ; overlay disque lunaire + ombres umbrale/pénombrale (cône géométrique, élargissement Danjon 2 %) ; auto-top sur le limbe lunaire ; fenêtre longue P1→moonset. Site YAML placeholder Paris jusqu'au GPS réel. Détail : [methode-fov.md](methode-fov.md).
+**Décision :** copier le noyau géométrique dans `scripts/simulate_fov.py` de *ce* dépôt (pas d'import inter-repos) ; pointer la **Lune** ; contacts `p1` / `u1` / `max` / `u4` / `p4` / `set` ; overlay disque lunaire + ombres umbrale/pénombrale (cône géométrique, élargissement Danjon 2 %) ; auto-top sur le limbe lunaire ; fenêtre longue P1→moonset. Site : [DEC-008](#dec-008--site-tournefeuille--28-août-2026-2026-08-22) (Tournefeuille). Détail : [methode-fov.md](methode-fov.md).
 **Justification :** géométrie déjà corrigée (inversion gauche/droite) et testée ; l'éclipse lunaire est le même problème de cadrage trépied fixe, objet bas puis coucher.
 **Rejeté :** interpoler uniquement les points Jubier ; pointer le Soleil (cible solaire SEM) ; importer le pipeline HDR couronne.
 
@@ -64,3 +64,14 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 **Décision :** **600D-Tele** : Canon 70–200 mm f/4 + extender ×1,4 (**280 mm** @ f/5,6) ; **100D-Wide** : EF-S 15-85 mm, focale de chapelet à recalculer pour U1→moonset (28 mm n'est qu'un point de départ solaire). Capteur APS-C identique 22,3 × 14,9 mm / 5184 × 3456.
 **Justification :** pas de re-mesure FOV en degrés ; la focale wide dépend du trajet lunaire local (moonset).
 **Rejeté :** figer 28 mm avant d'avoir le site réel.
+
+Au recalage Tournefeuille, 28 mm **sort** du cadre U1→moonset (trajet ~40°). Focale wide indicative seulement — le jeu d’optiques sera reprécisé ; pas de DEC de focale tant que ce n’est pas tranché.
+
+---
+
+## DEC-008 : Site Tournefeuille, 28 août 2026 (2026-08-22)
+
+**Contexte :** KI-005 (placeholder Paris) ; commune et GPS fournis par l’observateur.
+**Décision :** site unique **Tournefeuille** (43°34′56.6″ N, 1°21′03.4″ E ; 43,582389° N, 1,350944° E). YAML [`scripts/config/tournefeuille-600d.yaml`](../scripts/config/tournefeuille-600d.yaml) ; fiche [lieux/tournefeuille-2026.md](lieux/tournefeuille-2026.md). Contacts locaux = UTC observateur + 2 h (CEST), y compris moonset 05:20:26 UTC. Élévation YAML 155 m (approx.).
+**Justification :** GPS réel ; moonset Skyfield DE421 = −0,05° à l’heure fournie ; U4/P4 sous l’horizon.
+**Rejeté :** rester sur Paris ; interpoler un moonset générique « France ».

@@ -1,6 +1,5 @@
-# Placeholder — Paris until the real observing site GPS is known (KI-005).
+# Archive — placeholder Paris (KI-005). Site actif : tournefeuille-600d.yaml (DEC-008).
 # Contacts UTC are global; local CEST clock times. Moonset (set) is Paris-specific.
-# Recopy this file when the commune is known.
 
 site:
   name: Paris (placeholder)

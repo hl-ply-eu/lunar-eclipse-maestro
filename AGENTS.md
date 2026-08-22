@@ -30,7 +30,7 @@ lunar-eclipse-maestro/
 │   ├── mirror.sh
 │   ├── build-pdf.sh + build-pdf.py
 │   ├── simulate_fov.py                 # Trajectoire lunaire dans le champ (Skyfield DE421)
-│   └── config/paris-600d-placeholder.yaml
+│   └── config/tournefeuille-600d.yaml
 ├── AGENTS.md
 └── .cursor/                            # Rules, skills, commands Cursor
 ```
@@ -51,9 +51,9 @@ lunar-eclipse-maestro/
 # Regénérer le HTML/PDF consolidé (crée .venv/ si absent)
 ./scripts/build-pdf.sh
 
-# Simulation FOV (placeholder Paris jusqu'au GPS réel)
+# Simulation FOV (Tournefeuille, DEC-008)
 .venv/bin/python scripts/simulate_fov.py \
-  --config scripts/config/paris-600d-placeholder.yaml \
+  --config scripts/config/tournefeuille-600d.yaml \
   --out output/fov
 
 # Tests unitaires (géométrie FOV, pas de CR2)

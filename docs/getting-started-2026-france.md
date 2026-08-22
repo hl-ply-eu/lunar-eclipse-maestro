@@ -4,32 +4,33 @@ Guide opérationnel pour [Lunar Eclipse Maestro](http://xjubier.free.fr/en/site_
 
 L’aide officielle (© Xavier Jubier) reste la référence : [miroir local](../mirror/index.html) après `./scripts/mirror.sh`, ou [en ligne](http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs2/btoc1.html).
 
-**Statut :** stub d’initialisation (2026-08-22). Le site GPS n’est pas encore connu ([KI-005](known-issues.md)) — les horaires ci-dessous sont en **CEST** et les altitudes **à Paris**. Recaler dès la commune.
+**Statut :** site recalé **Tournefeuille** ([DEC-008](decisions.md), [fiche lieu](lieux/tournefeuille-2026.md)). Horaires en **CEST** (UTC+2). Optiques encore provisoires (DEC-007).
 
 ---
 
 ## 1. L’événement
 
-Éclipse **lunaire partielle profonde** (quasi-totale) : magnitude umbrale **0,93**. Pas de totalité. Contacts **identiques en UTC** partout ; visibilité locale = altitude + moonset.
+Éclipse **lunaire partielle profonde** (quasi-totale) : magnitude umbrale **0,93**. Pas de totalité. Contacts en **UTC** fournis pour le point 43°34′56.6″ N, 1°21′03.4″ E ; visibilité locale = altitude + moonset.
 
-| Contact | UTC | CEST (France) | Notes |
-|---------|-----|---------------|--------|
-| P1 (pénombre) | 01:23:32 | 03:23 | Ombre souvent peu visible au début |
-| U1 (ombre) | 02:33:25 | 04:33 | Début de la partielle umbrale |
-| MAX | 04:12:55 | **06:12** | ~96 % du disque dans l’umbra |
-| U4 | 05:52:13 | 07:52 | Souvent **sous l’horizon** en France |
-| P4 | 07:02:03 | 09:02 | Sous l’horizon |
+| Contact | UTC | CEST | Alt Lune | Notes |
+|---------|-----|------|----------|--------|
+| P1 (pénombre) | 01:23:59 | 03:24 | 31,6° | Ombre souvent peu visible au début |
+| O1 / U1 (ombre) | 02:33:52 | 04:34 | 24,5° | Début de la partielle umbrale |
+| MAX | 04:12:55 | **06:13** | **10,5°** | ~96 % du disque dans l’umbra |
+| Coucher | 05:20:26 | **07:20** | 0° | Fin de séance |
+| O2 / U4 | 05:52:03 | 07:52 | −6° | **Sous l’horizon** |
+| P2 / P4 | 07:01:47 | 09:02 | −18° | Sous l’horizon |
 
-À Paris : Lune ~8° au MAX, moonset ~07:09 CEST. C’est le même régime « objet bas puis coucher » que Frías le 12 août (soleil ~8°).
+Régime « objet bas puis coucher », proche de Frías le 12 août (soleil ~8°) mais Lune un peu plus haute au MAX qu’à Paris (~8°). Le Soleil se lève pendant le moonset.
 
 ---
 
-## 2. Matériel visé (DEC-007)
+## 2. Matériel visé (DEC-007, à repréciser)
 
 | Boîtier | Optique | Rôle prévu |
 |---------|---------|------------|
-| **600D-Tele** | 70–200 mm f/4 + ×1,4 → **280 mm** f/5,6 | Gros plan du disque / morsure umbrale |
-| **100D-Wide** | EF-S 15-85 mm | Chapelet paysage U1→moonset — **focale à calculer** une fois le site connu (28 mm n’est qu’un souvenir solaire) |
+| **600D-Tele** | 70–200 mm f/4 + ×1,4 → **280 mm** f/5,6 | Gros plan du disque / morsure umbrale (~16 min autour du MAX) |
+| **100D-Wide** | EF-S 15-85 mm | Chapelet paysage U1→moonset — **28 mm trop long** ici (max ~21 mm si pointage MAX, ~25 mm si milieu U1–SET) |
 
 Capteur identique : APS-C 22,3 × 14,9 mm, 5184 × 3456 px. Pas de filtre solaire. Trépieds **fixes** (pas de suivi dans le matériel Frías) → filé ~4,5 px/s à 280 mm ([KI-008](known-issues.md)).
 
@@ -55,16 +56,20 @@ Noyau géométrique validé sur l’éclipse solaire : [methode-fov.md](methode-
 
 ```bash
 .venv/bin/python scripts/simulate_fov.py \
-  --config scripts/config/paris-600d-placeholder.yaml \
+  --config scripts/config/tournefeuille-600d.yaml \
+  --out output/fov
+
+.venv/bin/python scripts/simulate_fov.py \
+  --config scripts/config/tournefeuille-100d-u1-set.yaml \
   --out output/fov
 ```
 
-- Pointage = **Lune** à l’événement YAML (`max` par défaut).
+- Pointage 600D = **Lune** au MAX ; chapelet 100D = milieu U1–SET (`u1set_aim`).
 - Overlay = disque lunaire + umbra/pénombre (pas croissant solaire).
-- Auto-top = limbe lunaire inférieur au bord haut du capteur.
-- Fenêtre longue autour du MAX (P1 → moonset), pas ±15 min.
+- Auto-top = limbe lunaire inférieur au bord haut du capteur (~06:01 CEST à 280 mm).
+- Fenêtre longue autour du MAX (P1 → moonset).
 
-Dès le GPS : copier le YAML, mettre à jour `site.*` et `eclipse.contacts_local.set`, relancer.
+Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 ---
 
@@ -80,8 +85,9 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 
 ## 6. Checklist minimale avant le 28 août
 
-- [ ] Commune / GPS renseignés, YAML recalé, FOV relancé
-- [ ] Horizon ouest–sud-ouest dégagé (moonset)
+- [x] Commune / GPS renseignés, YAML recalé, FOV relancé (Tournefeuille)
+- [ ] Horizon ouest–sud-ouest dégagé (moonset, azimut ~257°)
+- [ ] Optiques confirmées (focale wide U1→moonset)
 - [ ] Test LEM sur le Mac (démarrage + USB 600D)
 - [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M
 - [ ] Plan B 600D sans LEM (intervallomètre ou manuel)

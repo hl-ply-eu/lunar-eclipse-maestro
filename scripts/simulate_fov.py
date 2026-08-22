@@ -862,7 +862,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("scripts/config/paris-600d-placeholder.yaml"),
+        default=Path("scripts/config/tournefeuille-600d.yaml"),
         help="YAML configuration path.",
     )
     parser.add_argument(

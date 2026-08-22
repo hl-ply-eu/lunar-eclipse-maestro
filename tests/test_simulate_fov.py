@@ -134,9 +134,12 @@ def test_find_closest_top_time_when_no_crossing() -> None:
     assert closest == t0 + timedelta(seconds=20)
 
 
-def test_load_config_placeholder_paris() -> None:
-    config = sim.load_config(ROOT / "scripts/config/paris-600d-placeholder.yaml")
+def test_load_config_tournefeuille() -> None:
+    config = sim.load_config(ROOT / "scripts/config/tournefeuille-600d.yaml")
 
+    assert config.site.name == "Tournefeuille"
+    assert config.site.latitude_deg == 43.582389
+    assert config.site.longitude_deg == 1.350944
     assert config.simulation.ephemeris_path == "de421.bsp"
     assert config.framing.pointing_event == "max"
     assert "p1" in config.eclipse.contacts_local
@@ -145,6 +148,14 @@ def test_load_config_placeholder_paris() -> None:
     assert len(config.optics) == 3
     assert config.camera.sensor_width_mm == 22.3
     assert config.simulation.window_minutes >= 180
+    assert config.eclipse.contacts_local["set"].hour == 7
+    assert config.eclipse.contacts_local["set"].minute == 20
+
+
+def test_load_config_archive_paris_still_parses() -> None:
+    config = sim.load_config(ROOT / "scripts/config/paris-600d-placeholder.yaml")
+    assert "Paris" in config.site.name
+    assert "set" in config.eclipse.contacts_local
 
 
 def _moon_sample(when: datetime, moon_y: float, radius: float) -> sim.ProjectedSample:

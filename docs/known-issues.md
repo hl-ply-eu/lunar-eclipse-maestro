@@ -36,11 +36,12 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ---
 
-## KI-005 : Site d'observation — placeholder Paris
+## KI-005 : Site d'observation — Paris archivé, Tournefeuille actif
 
-**Statut :** En attente de la commune / GPS (2026-08-22).
-**Symptôme :** `scripts/config/paris-600d-placeholder.yaml` utilise Paris (48,8566° N, 2,3522° E). Altitude de la Lune au MAX, azimut et **moonset** changeront avec le site réel — en France le MAX est vers 06:12 CEST avec Lune déjà basse, et U4 est souvent **sous l'horizon**.
-**Action :** dès le GPS, copier le YAML, mettre à jour `site.*`, `contacts_local.set`, `validation_altaz_deg` ; relancer `simulate_fov.py`. Ne pas figer une focale wide avant ce recalage.
+**Statut :** Recalé (DEC-008, 2026-08-22). L’ancien YAML `paris-600d-placeholder.yaml` reste comme archive.
+**Symptôme (historique) :** Paris (48,8566° N, 2,3522° E) jusqu’au GPS réel.
+**Site actuel :** Tournefeuille, 43,582389° N, 1,350944° E — [tournefeuille-2026.md](lieux/tournefeuille-2026.md). MAX ~10,5° / 06:12:55 CEST ; moonset 07:20:26 CEST ; U4 sous l’horizon.
+**Reste ouvert :** élévation 155 m approx. ; horizon local ouest–SO non levé ; **optiques à repréciser** (28 mm ne tient pas U1→moonset).
 
 ---
 

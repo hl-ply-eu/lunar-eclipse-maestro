@@ -43,8 +43,8 @@ lunar-eclipse-maestro/
 
 - Éclipse **lunaire quasi-totale du 28 août 2026** (magnitude umbrale 0,93), **France**
 - **Canon EOS 600D** + 70–200 mm f/4 + extender ×1,4 (280 mm)
-- **Canon EOS 100D** + EF-S 15-85 mm (chapelet paysage) — focale à recalculer selon le site
-- Site GPS : **placeholder Paris** jusqu’à commune réelle
+- **Canon EOS 100D** + EF-S 15-85 mm (chapelet paysage) — focale à repréciser (28 mm trop long pour U1→moonset)
+- Site : **Tournefeuille** (43,582389° N, 1,350944° E) — [fiche](docs/lieux/tournefeuille-2026.md)
 
 ## Projet frère
 

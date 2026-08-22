@@ -10,6 +10,8 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   Noyau Skyfield DE421 + projection gnomonique transféré depuis SEM ; overlay ombre.
 - **[Leçons chapelet 100D (SEM)](chapelet-lecons-sem.md)**  
   Ce qui se réutilise (AEB, intervallomètre, KI-018) ; ce qui ne se copie pas (ND solaire).
+- **[Tournefeuille 2026](lieux/tournefeuille-2026.md)**  
+  GPS, contacts UTC/CEST, altitudes Skyfield, cadrage indicatif (DEC-008).
 
 ## Mémoire projet
 

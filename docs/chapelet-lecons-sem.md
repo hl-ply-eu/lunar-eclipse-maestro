@@ -25,7 +25,7 @@ Source SEM : DEC-013, KI-014, KI-018 ; fiche `docs/lieux/frias-100d-terrain-2026
 - `scripts/chapelet_exposure.py` (SEM) : rescale d’un **filtre ND solaire** + extinction Kasten-Young du **disque solaire** descendant. La Lune n’a pas de ND ; sa dynamique est une rampe umbra de plusieurs EV, pas +2 EV d’airmass.
 - Fixation AstroSolar à l’élastique, ND 3,8 vs 5,0.
 - Option « retirer le filtre à C2 » (pas de filtre ici).
-- Focale 28 mm figée : c’était le max C1→coucher **solaire** à Frías (DEC-010). Recalculer U1→moonset sur le site réel (marges ≥ 10 %).
+- Focale 28 mm figée : c’était le max C1→coucher **solaire** à Frías (DEC-010). À Tournefeuille, 28 mm **sort** du cadre U1→moonset (~40°) ; max indicatif 21 mm (pointage MAX) ou 25 mm (milieu U1–SET). Optiques à repréciser.
 
 ---
 

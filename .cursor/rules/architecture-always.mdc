@@ -15,4 +15,4 @@ alwaysApply: true
 - Branche dédiée pour toute session agent significative — pas de modifications directes sur `main` / `master`.
 - Décisions structurantes → `docs/decisions.md` (DEC-NNN), pas uniquement dans le chat.
 - Projet frère : `solar-eclipse-maestro` — éclipses **solaires** (SEM, HDR couronne). Périmètres distincts ; y reprendre méthodes FOV validées, pas le pipeline HDR.
-- Site d'observation France **placeholder Paris** jusqu'à GPS réel (KI-005).
+- Site d'observation : **Tournefeuille** (DEC-008, KI-005 recalé). YAML `scripts/config/tournefeuille-600d.yaml`. Optiques encore provisoires (DEC-007).
