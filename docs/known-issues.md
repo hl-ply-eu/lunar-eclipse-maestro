@@ -127,3 +127,19 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Connu (ozone / Chappuis) ; plus difficile en partielle 2026 qu’en totalité.
 **Symptôme :** bande cyan étroite (~2′) au bord de l’umbra, souvent manquée (œil ébloui par le croissant, ou stack à 2 vues seulement). Pas un liseré « vert » saturé.
 **Action :** 7 poses × 2 EV au 750 mm ; ne pas jeter les vues intermédiaires ; WB plutôt daylight. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11.
+
+---
+
+## KI-016 : 16 Go — le RAW AEB 100D ne tient pas 3 h
+
+**Statut :** Contrainte matériel observateur (2 cartes 16 Go, 2 accus / boîtier).
+**Symptôme :** 100D, « C » = 2 → 6 fichiers / impulsion. Sur 16 Go : ~620 CR2 vs ~2 470 JPEG Fine. À 90 s pendant 3 h : 720 fichiers (~17 Go en RAW, ~5 Go en JPEG). À 60 s : 1 080 fichiers, encore pire en RAW. Deux accus CIPA (380 × 2 = 760) couvrent 720 déclenchements (90 s), pas 1 080 (60 s).
+**Action :** 100D en **JPEG Fine + AEB** ; défaut **90 s** ; 60 s seulement avec swap d’accu **et** AEB réarmé (KI-009). 600D : RAW, ~70–90 CR2, 16 Go OK. Ne pas régler l’intervallomètre sur la *durée de film* voulue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13, [DEC-011](decisions.md).
+
+---
+
+## KI-017 : ISO « sports » ~800 ≠ moins de brackets HDR
+
+**Statut :** Confusion de métriques (DxO *Low-Light* / ISO-less DSO vs span de scène).
+**Symptôme :** prendre 793 / 843 (DxO Sports) ou le « best ISO 800 » ciel profond comme ISO de travail unique, et en déduire qu’on peut raccourcir le 7 × 2 EV — sauf si 1/4000 s clippe le croissant.
+**Action :** le contraste croissant/umbra ne dépend pas de l’ISO ; 800 **raccourcit les temps**, pas le nombre de vues. 1/4000 est trop lent à ISO 800 · f/5 **à U1**, pas au MAX. 100D : 800 aide le cycle AEB. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-012](decisions.md).

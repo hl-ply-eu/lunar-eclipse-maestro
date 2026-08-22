@@ -14,7 +14,9 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   GPS, contacts UTC/CEST, altitudes Skyfield, cadrage indicatif (DEC-008).
 - **[Formes de prise de vue](formes-prise-de-vue.md)**  
   Étude : ambiance, HDR disque, aube, 600D vs 100D (DxO), OM-3 / OM-5 II,
-  pourquoi 11,5 EV labo n’éliminent pas la rampe 7 × 2 EV.
+  pourquoi 11,5 EV labo n’éliminent pas la rampe 7 × 2 EV ; ISO 800 décale
+  les temps, pas le nombre de vues ; volume (§13) : JPEG 100D vs RAW 600D,
+  intervalle ≠ durée de film.
 
 ## Mémoire projet
 

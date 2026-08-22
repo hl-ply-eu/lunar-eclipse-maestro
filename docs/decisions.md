@@ -119,3 +119,34 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 **Rejeté :** expo unique sans AEB sur le 100D (l’aube casse le run) ; doubleur comme plan A ; P1 dans le plan privilégié ; LEM sur le 100D comme plan A ; choisir le boîtier au foyer « parce qu’il est meilleur au DxO » ; une seule RAW « parce que 11,5 EV ».
 
 **Note OM System (2026-08-22) :** OM-3 / OM-5 II **sans test DxO publié**. Proxy labo = E-M1 II (80 / 12,8 EV / ISO 1312) ; PDR PhotonsToPhotos OM-3 9,64 / OM-5 II 9,79. Gain RAW ~+1 EV vs Rebel, poids surtout sur les zooms, **perte LEM**. Pas un changement *pour* le 28 août. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §10.
+
+---
+
+## DEC-011 : Volume de prises — JPEG 100D, RAW 600D, pas 60–90 s (2026-08-22)
+
+**Contexte :** cartes **16 Go**, **2 batteries par boîtier** ; produit 100D = time-lapse d’ambiance (forme A), 600D = HDR disque (forme C). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13.
+**Décision (étude, pas encore calage terrain) :**
+
+1. **Intervalle 60–90 s** = pas de l’intervallomètre 100D, **pas** la durée du film. 3 h à 90 s → ~120 images/couche → **~5 s** à 25 fps / **~10 s** à 12 fps. Un film cible de 60–90 s exigerait un pas de 5–7 s, incompatible avec AEB « C » = 2.
+2. **100D en JPEG Fine + AEB** (« C » = 2 → 6 JPEG / impulsion). Défaut **90 s** (~720 fichiers, ~5 Go, 2× LP-E12 sans swap). **60 s** seulement si l’essai AEB montre une centrale assez courte *et* avec changement d’accu (réarmer l’AEB, KI-009).
+3. **600D en RAW** : 4 stacks 7 × 2 EV (U1+10, ~50 %, MAX, 06:30) + 1 vue milieu / 3–4 min → **~60–90 CR2**. 16 Go et 2× LP-E8 largement suffisants.
+4. Viser **~10–20 s de film** d’ambiance, pas une minute.
+
+**Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent ~720 déclenchements (90 s), pas 1 080 (60 s).
+**Rejeté :** RAW+JPEG sur le 100D ; RAW 100D à cadence time-lapse ; chasing un film de 60 s avec AEB nuit ; stacks 600D toutes les 30 s.
+
+---
+
+## DEC-012 : ISO 800 ne réduit pas le 7 × 2 EV (2026-08-22)
+
+**Contexte :** lecture possible de l’ISO DxO *Sports* (~793 / 843) comme « sensibilité optimale » des deux Rebel, d’où l’idée qu’un run à 800 ISO raccourcirait les brackets (sauf si 1/4000 s est trop lent pour la partie claire). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11.
+**Décision (étude) :**
+
+1. **Sports ~800** = plafond SNR 30 dB, pas l’ISO de max DR. La DR *Landscape* est au plus bas ISO ; elle est plate 100–400 puis **descend** à 800.
+2. Le « best ISO » ciel profond (zone ISO-less) est **800 sur le 600D**, **400 sur le 100D** — pour une pose longue de champ faible, pas pour un HDR de disque.
+3. ISO 800 **décale** la rampe de +3 EV (4 s → 0,5 s) ; le contraste croissant/umbra reste 8–12 EV → on **garde 7 × 2 EV**. LEM peut mixer ISO et vitesse ; on ne verrouille pas tout à 800 pour couper des vues.
+4. **1/4000 s** : trop lent pour le limbe encore plein à ISO 800 · f/5 (~1,3 IL de trop) → ISO **100–200** sur les vues courtes à **U1**. Au **MAX** (+4–5 EV vs pleine Lune) 1/4000 suffit ; ISO 400–800 tenable sur l’umbra.
+5. 100D AEB : ISO 800 aide le **plancher d’intervalle** (vue +2 EV plus courte), pas les 6 JPEG / impulsion.
+
+**Justification :** le span HDR est une propriété de la *scène* (Jubier / Espenak), pas du gain analogique. Les deux Rebel plafonnent à 1/4000 s.
+**Rejeté :** « ISO optimal 800 ⇒ moins de brackets » ; ISO 800 dès U1 sur les vues courtes du 750 mm.

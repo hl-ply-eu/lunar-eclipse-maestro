@@ -84,7 +84,9 @@ humaine » du disque. Ce HDR appartient au **600D @ 750 mm**, pas au wide.
 - Pour un time-lapse « histoire de lumière », se tenir à **une** couche du
   bracket (ou à une règle fixe). Mélanger les couches normalise l’aube et
   efface l’ambiance.
-- Intervalle time-lapse (10–30 s) ≠ intervalle chapelet (3–4 min). Un run
+- Intervalle time-lapse (souhait 10–30 s) ≠ intervalle chapelet (3–4 min).
+  Le pas *réalisable* avec AEB « C » = 2 est plutôt 60–90 s ; ce n’est pas
+  la durée du film ([§13](#13-volume-de-prises-deux-boîtiers)). Un run
   dense permet un chapelet en post (1 vue sur N).
 
 ### Forme B — Chapelet à rampe (LEM sur le *même* wide)
@@ -226,6 +228,15 @@ saut d’image)
 | Couleur | 22,1 bits | 21,8 bits | 0,3 bit |
 | Dynamique | 11,5 EV | 11,3 EV | **0,2 EV** |
 | ISO « sports » (SNR 30 dB) | 793 | 843 | ~0,1 EV |
+
+**L’ISO « sports » ~800 n’est pas l’ISO de travail optimal.** C’est le *plus haut*
+ISO auquel le capteur tient encore SNR 30 dB (mesure DxO *Low-Light*) — un
+**plafond d’action**, pas un sweet spot. La dynamique *Landscape* (11,5 / 11,3 EV)
+est mesurée au **plus bas ISO**. Sur ces 18 Mpx, la courbe DR est **plate de
+100 à 400** (bruit de lecture qui mange le gain analogique), puis elle
+**descend** : ISO 800 a *moins* de dynamique photographique que 100, pas plus
+([revue 600D](https://www.dxomark.com/canon-eos-600d-in-depth-review/)).
+« Meilleur ISO 800 » en ciel profond, c’est encore autre chose (§11, ISO-less).
 
 Insignifiant pour l’éclipse : même nombre de pixels sur la Lune à focale égale,
 même tenue des ombres, même bruit à ISO 800–1600. Les ISO natifs plus hauts
@@ -412,6 +423,48 @@ Pas un stack toutes les 30 s : **aux instants clés** (U1+10 min, ~50 %, MAX,
 suffit. Le 600D AEB ne remplace pas cette séquence : LEM ou bracketing manuel
 (MAX dédié, KI-010).
 
+### ISO 800 : ça raccourcit les temps, pas le nombre de vues
+
+Trois notions distinctes se recouvrent autour de « 800 » ([KI-017](known-issues.md),
+[DEC-012](decisions.md)) :
+
+| Sens de « ISO 800 » | Ce que c’est | Pour cette éclipse |
+|---------------------|--------------|-------------------|
+| DxO *Sports* 793 / 843 | Plus haut ISO encore « propre » à SNR 30 dB | Plafond, pas un réglage à viser |
+| « Best ISO » ciel profond ([table Canon](https://dslr-astrophotography.com/iso-values-canon-cameras/)) | Début de zone *ISO-less* : au-delà, le gain analogique n’améliore plus le bruit de lecture rapporté à la scène. **600D : 800** (DR Sensorgen ~10,2) ; **100D : 400** (10,5 à 400 / 9,9 à 800 — pas 800) | Utile pour *une* pose longue d’un champ faible (DSO). Le disque lunaire n’est pas ce problème. |
+| ISO de travail du stack HDR | Où on place la rampe 7 × 2 EV | Voir ci-dessous |
+
+Monter de 100 à 800, c’est **+3 EV d’amplification** : toute la rampe glisse
+de 3 IL vers des temps plus courts. Le **contraste de scène** croissant/umbra
+(8–12 EV, table Jubier plus haut) ne bouge pas. Le span à couvrir non plus.
+On garde **7 vues × 2 EV**. ISO 800 n’offre pas plus de dynamique par RAW
+(il en offre moins) : on ne passe pas à 5 vues « parce que le capteur est
+optimal à 800 ».
+
+Ce que ISO 800 **fait** : la plus longue du stack passe de 4 s à **0,5 s** —
+meilleur contre le ciel qui blanchit (KI-014) et plus rapide à enchaîner.
+LEM a le droit de **mélanger ISO et vitesse** le long de la rampe (c’est
+même le cas d’usage de la calculatrice Jubier) ; ce n’est pas « tout verrouiller
+à 800 et couper des brackets ».
+
+**Exception 1/4000 s** — les deux Rebel plafonnent là. Jubier, pleine Lune,
+ISO 100 · f/5,6 : **1/1000 s**. Au foyer f/5, ≈ 1/1250. À ISO 800 : ≈ **1/10 000 s**.
+1/4000 est alors **~1,3 IL trop lent** : le limbe encore plein (U1, début de
+partielle) **clippe**. L’exception est donc vraie **tôt**, pas au MAX :
+
+| Instant | Partie claire vs pleine Lune | À ISO 800 · f/5, plus courte du stack |
+|---------|------------------------------|----------------------------------------|
+| U1 (~pleine Lune + bite) | ~0 EV | 1/4000 **crame** (~1 IL de trop) → ISO **100–200** sur les vues courtes |
+| MAX (reliquat mag. 0,93) | +4 à +5 EV (Jubier 1/60–1/30 @ ISO 100) | 1/500–1/250 — **1/4000 suffit** ; ISO 400–800 tenable |
+
+Recette d’étude, forme C : **vues courtes à ISO 100–200 tant que le croissant
+est éblouissant** ; **vues umbra à ISO 400–800** pour rester sous ~1–2 s après
+06:13. Ce n’est pas une séquence plus courte, c’est la même à temps décalés.
+
+Sur le **100D** (AEB, ISO *fixe*, la vitesse varie) : ISO 800 **raccourcit le
+cycle** (la vue +2 EV n’est plus à 16 s si la centrale était à 4 s), donc aide
+le plancher 60–90 s du §13. Ça ne réduit pas les **6 JPEG** par impulsion.
+
 ### Le liseré bleu / turquoise (pas vraiment « vert »)
 
 Ce n’est pas un liseré chlorophylle. C’est la **bande turquoise** au *bord*
@@ -436,18 +489,150 @@ balance plutôt « lumière du jour », pas un WB trop chaud.
 
 ---
 
-## 12. Ouvert (prochaine passe)
+## 13. Volume de prises (deux boîtiers)
 
-**Prochaine session (autre agent) — volume de prises, deux boîtiers.** Combien
-de vues pour *couvrir* l’éclipse : cadence 100D AEB × durée (U1−ε → moonset,
-6 RAW / impulsion si « C » = 2) ; 600D : stacks 7 × 2 EV aux instants clés
-(U1+10, ~50 %, MAX, éventuellement 06:30) + vues « milieu » entre les stacks.
-Ne pas refaire le raisonnement span / DxO de ce §11. Sortie attendue : ordre
-de grandeur du volume RAW + un intervalle de travail, pas encore un script LEM.
+Pas un script LEM, pas un plan d’expo Jubier. Ordre de grandeur + intervalle de
+travail, avec le matériel annoncé : **cartes 16 Go**, **2 batteries par boîtier**.
+Le protocole 7 × 2 EV (span, DxO, liseré) reste au §11.
+
+Hypothèse : [DEC-011](decisions.md). Piège cartes : [KI-016](known-issues.md).
+
+### Intervalle ≠ durée de la vidéo
+
+**Intervalle 60–90 s** = pas de l’**intervallomètre** : temps entre deux
+impulsions (chaque impulsion = 6 fichiers si « C » = 2). Ce n’est **pas** la
+durée du film.
+
+La durée du time-lapse, pour **une** couche du bracket, est :
+
+**durée vidéo = (durée de séance / intervalle) / fps**
+
+Fenêtre 100D ~04:20 → 07:20 ≈ **180 min** (10 800 s).
+
+| Intervalle boîtier | Images (1 couche) | Film à 25 fps | Film à 12 fps |
+|--------------------|-------------------|---------------|---------------|
+| 20 s | 540 | 22 s | 45 s |
+| 30 s | 360 | 14 s | 30 s |
+| **60 s** | **180** | **7 s** | **15 s** |
+| **90 s** | **120** | **5 s** | **10 s** |
+| 3–4 min | 45–60 | 2–2,5 s | 4–5 s |
+
+Un film cible de **60–90 s** à 25 fps exigerait 1 500–2 250 images, donc un
+intervalle boîtier de **5–7 s** — incompatible avec AEB « C » = 2 et des poses
+nuit. L’ambiance 3 h → clip se *comprime* : viser **~10–20 s de film** (12 fps
+sur un pas 60–90 s, ou 25 fps sur un pas plus court si l’essai AEB le permet),
+pas une minute.
+
+Les 10–30 s du §4 restent un *souhait* time-lapse. Le plancher réel est le
+cycle AEB (ci-dessous).
+
+### Plancher AEB (« C » = 2)
+
+Chaque impulsion enchaîne **deux** cycles ±2 EV. En M, l’AEB joue sur la
+**vitesse**. Temps d’obturation d’une impulsion ≈ 2 × (t₋₂ + t₀ + t₊₂), plus
+vidage carte.
+
+Exemple, vue centrale 4 s : 1 s / 4 s / 16 s × 2 ≈ **42 s** d’obturation.
+Ajout dump + marge → intervalle utile **≳ 60 s**, souvent **~90 s**. Une
+cadence 20 s n’est possible que si la pose centrale est courte (type 1–2 s)
+*et* si l’écriture est rapide (JPEG, pas six CR2).
+
+D’où le candidat de travail : **90 s** (sûr accus + cycle) ; **60 s** si
+l’essai nuit montre une centrale assez courte et qu’on accepte un changement
+d’accu en cours de run ([KI-009](known-issues.md) : l’AEB s’efface à
+l’extinction — le réarmer **après** le swap).
+
+### 100D — JPEG ou RAW ? (ambiance → vidéo)
+
+Le produit est un **film d’ambiance** (et un chapelet sous-échantillonné), pas
+un HDR disque. Le 5184×3456 sera de toute façon réduit (1080p / 4K).
+
+| | JPEG Fine L (~6,4 Mo, ~2 470 vues / 16 Go) | RAW CR2 (~24 Mo, ~620 vues / 16 Go) |
+|--|-------------------------------------------|-------------------------------------|
+| 3 h × 6 fich. / impulsion à **90 s** (720 fich.) | **~4,6 Go** — tient | **~17 Go** — **déborde** 16 Go |
+| idem à **60 s** (1 080 fich.) | **~6,9 Go** — tient | **~26 Go** — déborde |
+| Écriture | rapide → aide le plancher d’intervalle | 6 CR2 : dump long |
+| Aube | l’AEB ±2 EV *est* le filet (choisir la couche) | plus de latitude si la centrale est fausse |
+| Ciel nuit | 8 bits : banding possible sur le fond | meilleur pour des stills d’expo |
+
+**Retenu pour le 100D : JPEG Fine + AEB**, WB daylight, une couche pour le
+film (règle : rester sur 0 EV tant que les hautes lumières tiennent, passer
+sur −2 EV à l’aube, éventuellement un court fondu — ne pas mélanger les
+couches image par image, ça normalise la lumière, [KI-013](known-issues.md)).
+
+Ce n’est pas « on jette la qualité » : à 18 Mpx, un Fine L reste largement
+au-dessus d’une Full HD. Le coût réel est le ciel 8 bits et l’impossibilité
+de récupérer une centrale trop loin — d’où l’essai AEB nuit + aube (backlog)
+pour caler t₀.
+
+**Rejeté :** RAW+JPEG (les deux poids, la carte meurt) ; RAW seul sur le 100D
+sauf à passer à 3–4 min (alors ce n’est plus un time-lapse, c’est un
+chapelet — 270–360 CR2 ≈ 7–9 Go, ça tient, mais le film fait 2–5 s).
+
+Le **600D reste en RAW** : le merge 7 × 2 EV a besoin des CR2.
+
+### 100D — volume (JPEG Fine, « C » = 2)
+
+| Intervalle | Impulsions / 3 h | Fichiers | Carte 16 Go | 2× LP-E12 (CIPA 380 × 2 = 760) |
+|------------|------------------|----------|-------------|-------------------------------|
+| 60 s | 180 | 1 080 | OK (~7 Go) | **juste** : 1 080 déclenchements > 760 CIPA |
+| **90 s** | **120** | **720** | OK (~5 Go) | **OK CIPA** (720 ≲ 760) |
+| 3–4 min | 45–60 | 270–360 | OK | large |
+
+CIPA compte 50 % de flash : sans flash, écran éteint, le réel est en général
+meilleur. **90 s** est le défaut qui tient avec **2 accus sans swap**. **60 s**
+= plus de film (~15 s à 12 fps au lieu de ~10 s) mais **changement d’accu**
+vers 05:30–05:40, AEB réarmé, ne plus éteindre ensuite.
+
+MAX manuel sur le wide si le trou d’intervalle est large ([KI-010](known-issues.md))
+— à 90 s ce n’est plus critique, une impulsion tombera à ±45 s du MAX.
+
+### 600D — stacks + vues entre les stacks
+
+Fenêtre umbra **U1 04:34 → ~06:40** (~126 min). Après 06:44 : croissant /
+silhouette seulement (KI-014). RAW, 16 Go largement suffisant.
+
+**4 stacks** × 7 RAW aux instants du §11 :
+
+| Instant | CEST (approx.) |
+|---------|----------------|
+| U1+10 min | 04:44 |
+| ~50 % (milieu U1–MAX) | 05:23 |
+| MAX | 06:13 |
+| 06:30 (encore nautique) | 06:30 |
+
+= **28 RAW**. Entre les stacks, **1 vue « milieu »** toutes les **3–4 min**
+(ou la rampe LEM si le Mac suit) : ~30 RAW. Total forme C : **~60–90 RAW**
+(~1,5–2 Go). 2× LP-E8 : sans enjeu (≪ 440 CIPA × 2).
+
+Pas un stack toutes les 30 s. Le MAX reste un déclenchement **dédié**
+(KI-010), même sous LEM.
+
+### Fourchette de séance
+
+| | Fichiers | Volume | Accus |
+|--|----------|--------|-------|
+| 100D JPEG Fine, **90 s**, « C » = 2 | ~720 | ~5 Go / 16 Go | 2 packs, sans swap |
+| 600D RAW, 4 stacks + milieu 3–4 min | ~70–90 | ~2 Go / 16 Go | 2 packs, large |
+| **Total** | **~800** | **~7 Go** (une 16 Go / boîtier) | 2+2 accus |
+
+(À 60 s sur le 100D : ~1 080 JPEG / ~7 Go, et un swap d’accu.)
+
+Ce n’est pas encore un script LEM ni un calage de t₀. L’essai AEB 100D
+nuit + aube décide si 60 s est tenable (pose centrale assez courte) ou si
+90 s reste le plancher. ISO 800 sur ce run (si la centrale nuit le permet)
+raccourcit surtout la vue +2 EV, donc le *cycle*, pas le nombre de fichiers
+([§11, ISO 800](#iso-800--ça-raccourcit-les-temps-pas-le-nombre-de-vues)).
+
+---
+
+## 14. Ouvert (prochaine passe)
 
 - [ ] Essai AEB 100D de nuit + aube simulée (même chaîne « C » que Frías) ;
-      caler la vue centrale pour la nuit, laisser ±2 EV absorber l’aube.
+      caler la vue centrale pour la nuit, laisser ±2 EV absorber l’aube ;
+      mesurer le plancher d’intervalle réel (60 vs 90 s).
 - [ ] Test Mac LEM + USB 600D ; tenter le 1,4× sur le 750 mm (dérive).
-- [ ] Brancher la calculatrice LEM / Jubier sur la séquence **7 × 2 EV** (f/5).
+- [ ] Brancher la calculatrice LEM / Jubier sur la séquence **7 × 2 EV** (f/5),
+      ISO mixte 100–200 (vues courtes, U1) / 400–800 (umbra).
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200).
 - [ ] Confirmer l’horizon réel (clôture de la fenêtre umbra vers 06:44).
