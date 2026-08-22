@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr-FR">
+
+<head>
+<!--[if IE]>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+ <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+ <meta http-equiv="Author" content="Xavier Jubier">
+ <meta http-equiv="Content-Language" content="fr">
+
+ <link rel="shortcut icon" href="../gfx/favicon.ico" type="image/x-icon">
+ <link rel="icon" href="../gfx/favicon.ico" type="image/ico">
+ <link rel="stylesheet" href="../sty/task_style_ss.css" type="text/css" media="all">
+
+ <title>Utiliser le GPS</title>
+</head>
+
+<body>
+
+<div id="banner">
+ <div id="LunarEclipseMaestroHelp">
+  <a href="../LunarEclipseMaestroHelp.html" class="bread">Aide Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+  &nbsp;>&nbsp;
+  <a href="../pgs2/btoc1.html" class="bread">Utiliser Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+ </div>
+</div>
+<div id="mainbox">
+ <div id="icon">
+  <img src="../gfx/LunarEclipseMaestro32.png" width="32" height="32" alt="Ic&ocirc;ne Lunar Eclipse Maestro">
+ </div>
+ <div id="pagetitle">
+  <h1>Utiliser le GPS</h1>
+ </div>
+ <p>
+  Pour visualiser la constellation des satellites GPS utilis&eacute;s et conna&icirc;tre leur rapport signal/bruit dans Lunar&nbsp;Eclipse&nbsp;Maestro vous devez ouvrir la fen&ecirc;tre <i>Satellites GPS</i>. Certains appareils, comme par exemple les GPSMap 76, peuvent ne pas &ecirc;tre en mesure de fournir la constellation de satellites utilis&eacute;e pour fournir la position et l&rsquo;heure.
+ </p>
+ <ol type="1">
+  <li>
+   Dans le menu <i>Configuration</i> s&eacute;lectionnez <i>Constellation GPS&hellip;</i><br>
+   <img src="../gfx/SatelliteWind.png" width="230" height="258" alt="Fen&ecirc;tre Constellation Satellite GPS">&nbsp;<img src="../gfx/Satellite24Wind.png" width="230" height="320" alt="Fen&ecirc;tre Constellation Satellite GPS Glonass">
+  </li>
+ </ol>
+ <p>
+  Quand un GPS est connect&eacute; &agrave; votre Mac, vous pouvez transf&eacute;rer les coordonn&eacute;es g&eacute;ographiques et l&rsquo;altitude fournies par celui-ci. Tous les GPS Garmin USB utilisant le <a href="c1sem46.html">protocole propri&eacute;taire Garmin PVT</a> (non test&eacute; avec un c&acirc;ble s&eacute;rie et un adaptateur s&eacute;rie-USB) sont support&eacute;s et fournissent un positionnement en temps r&eacute;el. Les r&eacute;cepteurs qui op&egrave;rent seulement en mode <i>stockage de masse</i> lorsqu&rsquo;ils sont connect&eacute;s ne peuvent pas fournir un positionnement en temps r&eacute;el (merci de lire attentivement <a href="https://support.garmin.com/support/searchSupport/case.faces?caseId=%7Bab389840-f51a-11dc-6b0f-000000000000%7D" target="_blank">mode Garmin Spanner</a>); cependant la derni&egrave;re position, lorsque le r&eacute;cepteur n&rsquo;&eacute;tait pas encore connect&eacute;, est stock&eacute;e dans l&rsquo;unit&eacute; et peut &ecirc;tre lue.<br>
+  Les mod&egrave;les recommand&eacute;s sont (d&eacute;sactivez le mode <i>stockage de masse</i> et r&eacute;glez l&rsquo;interface sur <i>GARMIN</i> pour les anciens mod&egrave;les et <i>Garmin Spanner</i> sur les plus r&eacute;cents):
+ </p>
+ <ul>
+  <li>s&eacute;rie GPS 18x (r&eacute;cepteur en forme de palet, le plus fiable et le moins cher)</li>
+  <li>s&eacute;rie eTrex (anciens mod&egrave;les comme les Legend H, Legend HCx, Summit Cx, Venture Cx ou Vista HCx)</li>
+  <li>GPSMap 60CSx, GPSMap 60CS ou GPSMap 60</li>
+  <li>GPSMap 62stc, GPSMap 62st, GPSMap 62sc, GPSMap 62s ou GPSMap 62 (microprogramme plus r&eacute;cent que 3.40)</li>
+  <li>GPSMap 64st, GPSMap 64s ou GPSMap 64</li>
+  <li>GPSMap 76CSx, GPSMap 76CS ou GPSMap 76C</li>
+  <li>GPSMap 78s, GPSMap 78sc ou GPSMap 78 (microprogramme plus r&eacute;cent que 3.40)</li>
+  <li>s&eacute;rie Oregon</li>
+  <li>s&eacute;rie Montana</li>
+  <li>s&eacute;rie Rino 6xx</li>
+ </ul>
+ <p>
+  Tous les r&eacute;cepteurs GPS respectant le standard NMEA&nbsp;0183 devraient aussi &ecirc;tre support&eacute;s. Pour configurer ces appareils connectez les d&rsquo;abord soit avec un <a href="http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs/c1sem72.html">adaptateur S&eacute;rie vers USB ou alors en Bluetooth</a>.<br>
+  Les mod&egrave;les recommand&eacute;s sont:
+ </p>
+ <ul>
+  <li>DUAL XGPS160 SkyPro (Bluetooth op&eacute;rant &agrave; 10Hz, donc jusqu&rsquo;&agrave; dix positions par seconde); il y a aussi un indicateur de niveau de batterie sur l&rsquo;affichage de la constellation des satellites</li>
+  <li>Garmin GLO (Bluetooth op&eacute;rant &agrave; 5Hz, donc jusqu&rsquo;&agrave; cinq positions par seconde)</li>
+  <li>Garmin 18x LVC ou PC</li>
+  <li>Qstarz BT-Q818X (Bluetooth op&eacute;rant &agrave; 5Hz, donc jusqu&rsquo;&agrave; cinq positions par seconde)</li>
+  <li>G-Mouse/DIYmall VK-162 (r&eacute;cepteur USB peu co&ucirc;teux, environ 15&euro; ou USD15)</li>
+ </ul>
+ <p>
+  Pour de plus amples informations allez voir <a href="c1sem3.html">Mettre &agrave; jour le lieu de l&rsquo;observateur</a>.
+ </p>
+ <p>
+  Avec Lunar&nbsp;Eclipse&nbsp;Maestro&nbsp;Pro et le GPS appropri&eacute;, le Mac peut utiliser le signal <i>Pulse-Per-Second</i> ou <i>PPS</i> pour d&eacute;terminer la correction &agrave; apporter &agrave; l&rsquo;horloge du Mac.
+ </p>
+ <p>
+  Pour les r&eacute;cepteurs qui op&egrave;rent seulement en mode <i>stockage de masse</i> lorsqu&rsquo;ils sont connect&eacute;s, seule la derni&egrave;re position, lorsque le r&eacute;cepteur n&rsquo;&eacute;tait pas encore connect&eacute;, peut &ecirc;tre lue. Les mod&egrave;les g&eacute;n&eacute;ralement concern&eacute;s sont:
+ </p>
+ <ul>
+  <li>s&eacute;rie eTrex (nouveaux mod&egrave;les comme les 10, 20 et 30)</li>
+  <li>s&eacute;rie N&uuml;vi</li>
+  <li>s&eacute;rie Z&#363;mo</li>
+  <li>s&eacute;rie D&#275;zl</li>
+  <li>s&eacute;rie Camper</li>
+ </ul>
+ <p>
+  Les r&eacute;glages recommand&eacute;s pour les trac&eacute;s sont indiqu&eacute;s ci-dessous.
+ </p>
+ <ol type="1">
+  <li>
+   L&rsquo;enregistrement des points de cheminement toutes les secondes n&rsquo;est g&eacute;n&eacute;ralement pas utile.<br>
+   <img src="../gfx/GarminOptionsTraces.png" width="160" height="240" alt="Garmin GPS Option R&eacute;glage Trace">
+  </li>
+ </ol>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr-FR">
+
+<head>
+<!--[if IE]>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+ <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+ <meta http-equiv="Author" content="Xavier Jubier">
+ <meta http-equiv="Content-Language" content="fr">
+
+ <script language="JavaScript" type="text/javascript">
+  <!--
+  function DHTMLSound(surl)
+  {
+   document.getElementById("playsound").innerHTML = '<embed src="' + surl + '" hidden="true" autostart="true" loop="false">';
+  }
+  //-->
+ </script>
+
+ <link rel="shortcut icon" href="../gfx/favicon.ico" type="image/x-icon">
+ <link rel="icon" href="../gfx/favicon.ico" type="image/ico">
+ <link rel="stylesheet" href="../sty/task_tbl_style.css" type="text/css" media="all">
+
+ <title>Aide Lunar Eclipse Maestro</title>
+</head>
+
+<body>
+
+<div id="banner">
+ <div id="LunarEclipseMaestroHelp">
+  <a href="../LunarEclipseMaestroHelp.html" class="bread">Aide Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+ </div>
+</div>
+<div id="mainbox">
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr align="left" valign="top">
+   <td width="3" height="28">&nbsp;</td>
+   <td valign="bottom" width="120"><font size="4"><b>Explorer l&rsquo;Aide Lunar&nbsp;Eclipse&nbsp;Maestro</b></font></td>
+   <td rowspan="3" valign="middle" width="24" style="background-image: url('../gfx/vertline2.gif');">&nbsp;</td>
+   <td rowspan="3" valign="middle" width="7">&nbsp;</td>
+   <td valign="bottom" width="32"><img src="../gfx/LunarEclipseMaestro32.png" width="32" height="32" alt="Ic&ocirc;ne LEM"></td>
+   <td valign="bottom" width="7">&nbsp;</td>
+   <td valign="bottom"><font size="4"><b>Format des Fichiers de Script</b></font></td>
+  </tr>
+  <tr align="left" valign="top">
+   <td width="3" height="22">&nbsp;</td>
+   <td width="120" height="22">&nbsp;</td>
+   <td colspan="5" height="22">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top">
+   <td width="3">&nbsp;</td>
+   <td width="120">
+    <p><a href="btoc1.html">Fonctionnalit&eacute;s</a></p>
+    <p><a href="btoc2.html">Fen&ecirc;tre Principale</a></p>
+    <p><a href="btoc3.html">Menus</a></p>
+    <p><a href="btoc4.html">Configuration Initiale</a></p>
+    <p><a href="btoc5.html">Pr&eacute;paratifs pour l&rsquo;Eclipse</a></p>
+    <p><a href="btoc6.html"><span style="color: #ff4500;">Format des Fichiers de Script</span></a></p>
+    <p><a href="btoc11.html">Configuration APN</a></p>
+    <p><a href="btoc7.html">Notes</a></p>
+    <p><a href="btoc8.html">D&eacute;pannage</a></p>
+    <p><a href="btoc9.html">Raccourcis et Astuces</a></p>
+    <p><a href="btoc10.html">Remerciements</a></p>
+   </td>
+   <td colspan="3">
+    <p>
+     Les diff&eacute;rents champs sont d&eacute;limit&eacute;s par une virgule. Toutes les colonnes vides doivent contenir un espace, sauf si c&rsquo;est un commentaire. Le point <b><i>.</i></b>, et non la virgule, est le s&eacute;parateur d&eacute;cimal (notation anglaise). Les lignes peuvent &ecirc;tre dans n&rsquo;importe quel ordre, &agrave; quelques exceptions pr&egrave;s (les heures sont calcul&eacute;es et tri&eacute;es en se basant sur les coordonn&eacute;es de votre lieu d&rsquo;observation). Un caract&egrave;re <b><i>#</i></b> en d&eacute;but de ligne, la premi&egrave;re colonne uniquement, indique que toute la ligne est un commentaire &agrave; ignorer. La plupart des actions sont destin&eacute;es aux appareils num&eacute;riques (APN), mais certaines sont r&eacute;serv&eacute;es aux cam&eacute;ras CCD SBIG.<br>
+     Le format g&eacute;n&eacute;ral d&rsquo;une ligne de script est:<br>
+     <b><tt>Action,Ev&eacute;nement ou date de r&eacute;f&eacute;rence,Signe du d&eacute;calage,Heure,Nom de l&rsquo;appareil,Vitesse d&rsquo;exposition,Ouverture,ISO,Temps de verrouillage du miroir,Qualit&eacute; image,Taille image,Incr&eacute;mental,Commentaire</tt></b>
+    </p>
+    <a name="takepic"></a>
+    <h4>Action</h4>
+    <ul>
+     <li>
+      TAKEPIC - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique et prends une photo. Mode <i>Manuel</i> (<i>M</i>) seulement.<br>
+      Exemple:&nbsp;<b><tt>TAKEPIC,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:27.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/2</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir">0.3</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Commentaire</span></tt></b><br>
+      Cette ligne de script prends une photo avec un appareil nomm&eacute; D300 au format RAW, 27 secondes avant le second contact, &agrave; 200 ISO, avec une ouverture de 7.1 &agrave; la demi-seconde en relevant le miroir pendant 0,3 seconde. Les r&eacute;glages d&rsquo;exposition sont incr&eacute;mentaux pour gagner du temps entre les expositions cons&eacute;cutives.
+      <a name="takebst"></a>
+     </li>
+     <li>
+      TAKEBST - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique et prends de multiples photos en rafale (3 par d&eacute;faut, maximum de 200 pour des expositions inf&eacute;rieures &agrave; 2 secondes et 960 pour plus de 2 secondes). Pour les Nikon et Canon passez directement la valeur enti&egrave;re du nombre de photos &agrave; prendre dans la colonne <i>Temps de verrouillage du mirroir</i> (*) ou utilisez <i>BURSTNB</i> (&agrave; ne plus utiliser) pour sp&eacute;cifier globalement le nombre de photos; sachez que pour les Canon le nombre de photos prises peut être légèrement différent de la valeur saisie car la vitesse de rafale varie un peu. Si la rafale est suffisamment longue, alors il est possible de changer les r&eacute;glages d&rsquo;exposition en plein milieu avec les APNs Nikon. Pour les APNs Sony, Panasonic, Fuji et Olympus la valeur repr&eacute;sente une dur&eacute;e sp&eacute;cifi&eacute;e en nombre d&eacute;cimal de secondes (les rafales sont limit&eacute;es &agrave; 10 secondes). Pour fonctionner avec le miroir relev&eacute; il suffit d&rsquo;utiliser les instructions <i>LVPSTART</i> et <i>LVPSTOP</i> pour encadrer l&rsquo;action; tous les bo&icirc;tiers Nikon sont compatibles, mais seuls les Canon plus r&eacute;cents que le EOS 50D ou le 5D MkII sont utilisables.<br>
+      Exemple:&nbsp;<b><tt>TAKEBST,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:02.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/1000</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Nombre de photos en rafale">10</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Commentaire</span></tt></b>
+      <a name="burstnb"></a>
+     </li>
+     <li>
+      BURSTNB - Sp&eacute;cifie le nombre de photos, de 1 &agrave; 960, &agrave; prendre en rafale avec <i>TAKEBST</i>. La valeur sp&eacute;cifi&eacute;e est globale au script et s&rsquo;applique &agrave; tous les appareils (&agrave; ne plus utiliser).<br>
+      Exemple:&nbsp;<b><tt>BURSTNB,10</tt></b>
+      <a name="chgexp"></a><a name="setexp"></a>
+     </li>
+     <li>
+      CHGEXP - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique. Mode <i>Manuel</i> (<i>M</i>) seulement. Aussi valide en mode <i>Movie</i> lorsque l&rsquo;exposition vid&eacute;o est r&eacute;gl&eacute;e sur manuelle. Sachez toutefois que tous les APNs n&rsquo;autorisent pas pour autant la modification des r&eacute;glages d&rsquo;exposition vid&eacute;o, par exemple les Nikon des s&eacute;ries D5xxx et D3xxx ne le permettent pas.<br>
+      Exemple:&nbsp;<b><tt>CHGEXP,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:26.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/5000</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Inutilis&eacute;">0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Commentaire</span></tt></b><br>
+      Utiliser SETEXP est possible aussi.
+      <a name="chgcmp"></a><a name="setcmp"></a>
+     </li>
+     <li>
+      CHGCMP - R&egrave;gle la compensation d&rsquo;exposition en IL de l&rsquo;appareil photo num&eacute;rique. Valeurs de -5,0 &agrave; +5,0 avec un pas de 0,3 ou 0,5&nbsp;IL.<br>
+      Exemple:&nbsp;<b><tt>CHGCMP,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:26.0</span>,<span title="Nom de l&rsquo;APN">D300</span>, , , ,<span title="Sous-exposition de 2,3&nbsp;IL">-2.3</span>, , , ,<span title="Commentaire">Commentaire</span></tt></b><br>
+      Utiliser SETCMP est possible aussi.
+      <a name="chgcssl"></a><a name="setcssl"></a>
+     </li>
+     <li>
+      CHGCSSL - R&egrave;gle la vitesse des rafales de l&rsquo;appareil photo num&eacute;rique Nikon &agrave; une valeur sp&eacute;cifique en images par seconde (seulement pour les Nikon poss&eacute;dant cette fonctionnalit&eacute;). Pour les Canon, Sony, Fuji et Olympus poss&eacute;dant cette fonctionnalit&eacute; vous ne pouvez choisir qu&rsquo;entre vitesse basse, g&eacute;n&eacute;ralement environ 3 images par seconde, et vitesse haute. Les APNs Nikon de la s&eacute;rie D5xxx ont seulement le choix entre basse et haute vitesse, ceux de la s&eacute;rie D3xxx ayant une vitesse unique. Il est recommand&eacute; de syst&eacute;matiquement sp&eacute;cifier la vitesse de la rafale avant <i>TAKEBST</i>.<br>
+      Exemple:&nbsp;<b><tt>CHGCSSL,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:03.0</span>,<span title="Nom de l&rsquo;APN">D4</span>, , ,<span title="Index de la vitesse (voir dans le menu de l&rsquo;appareil)">0</span>, , , , ,<span title="Commentaire">Vitesse maximum pour la rafale</span></tt></b><br>
+      Les valeurs enti&egrave;res valides d&eacute;pendent de l&rsquo;APN (0 &agrave; x vps, avec 0 pour la valeur maximum avec les APNs Nikon, et 3 ou 100 respectivement pour la basse et la haute vitesse avec les APNs Canon, Sony, Fuji et Olympus ainsi que les Nikon de la s&eacute;rie D5xxx). Les APNs Panasonic ne permettent pas de modifier le mode d&rsquo;entrainement, il est donc recommand&eacute; de le pr&eacute;r&eacute;gler manuellement avant la connection en rafale basse ou haute vitesse.<br>
+      Utiliser SETEXP est possible aussi.
+      <a name="chgcrop"></a><a name="setcrop"></a>
+     </li>
+     <li>
+      CHGCROP - S&eacute;lectionne la zone du capteur utilis&eacute;e par l&rsquo;appareil photo num&eacute;rique (pour les Nikon FX seulement).<br>
+      Exemple:&nbsp;<b><tt>CHGCROP,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:10.0</span>,<span title="Nom de l&rsquo;APN">D800</span>, , ,<span title="Zone de capture">0</span>, , , , ,<span title="Commentaire">Commentaire</span></tt></b><br>
+      Les valeurs enti&egrave;res valides d&eacute;pendent de l&rsquo;APN (pour les mod&egrave;les plein format: 0 = FX, 1 = DX, 2 = 5:4, 3 = 1,2, 4 = 1:1, 5 = 16:9; et maintenant les autres: 0 = DX, 1 = 1,3, 2 = 1:1, 3 = 16:9).<br>
+      Utiliser SETCROP est possible aussi.
+      <a name="chgbit"></a><a name="setbit"></a>
+     </li>
+     <li>
+      CHGBIT - S&eacute;lectionne le nombre de bits utilis&eacute;s pour les images par l&rsquo;appareil photo num&eacute;rique (seulement pour les Nikon poss&eacute;dant cette fonctionnalit&eacute;).<br>
+      Exemple:&nbsp;<b><tt>CHGBIT,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:10.0</span>,<span title="Nom de l&rsquo;APN">D800</span>, , ,<span title="Nombre de bits">14</span>, , , , ,<span title="Commentaire">Passage &agrave; 14 bits</span></tt></b><br>
+      Les valeurs enti&egrave;res valides d&eacute;pendent de l&rsquo;APN (14 = 14 bits, 12 = 12 bits).<br>
+      Utiliser SETBIT est possible aussi.
+      <a name="takebkt"></a>
+     </li>
+     <li>
+      TAKEBKT - R&egrave;gle la s&eacute;quence de bracketing de l&rsquo;appareil photo num&eacute;rique et prends les photos. Seulement pour les Nikon poss&eacute;dant cette fonctionnalit&eacute; (Canon n&rsquo;offre pas pour le moment cette possibilit&eacute;).<br>
+      Exemple:&nbsp;<b><tt>TAKEBKT,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:27.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/100</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir">0.3</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Commentaire</span></tt></b><br>
+      A utiliser avec BKTDATA.
+      <a name="bktdata"></a>
+     </li>
+     <li>
+      BKTDATA - Sp&eacute;cifie le nombre de vues, l&rsquo;incr&eacute;ment d&rsquo;exposition et le sens des expositions &agrave; utiliser avec <i>TAKEBKT</i> (seulement pour les Nikon poss&eacute;dant cette fonctionnalit&eacute;).<br>
+      Exemple:&nbsp;<b><tt>BKTDATA,<span title="Nombre d&rsquo;images">3</span>,<span title="Incr&eacute;ment d&rsquo;exposition en IL (stop)">0.7EV</span>,<span title="Sens d&rsquo;exposition">0uo</span></tt></b><br>
+      Le r&eacute;glage est global.
+      <a name="rampup"></a>
+     </li>
+     <li>
+      RAMPUP - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique et prends ensuite le plus rapidement possible une rampe ascendante de photos en adjustant automatiquement les r&eacute;glages.<br>
+      Syntaxe:&nbsp;<b><tt>RAMPUP,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">+</span>,<span title="Horaire">00:06.0</span>,<span title="Nom de l&rsquo;APN">D500</span>,<span title="Vitesse d&rsquo;exposition">1/1000</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir, meilleur de laisser le miroir relev&eacute;">0.0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Nombre de photos dans la s&eacute;quence">13</span>,<span title="Incr&eacute;ment d&rsquo;exposition en IL (stop)">1.0</span>,<span title="Commentaire">Comment</span></tt></b><br>
+      Exemple avec 13 images du 1/1000<sup>&egrave;me</sup> de seconde &agrave; 4 secondes en conservant le miroir relev&eacute;:<br>
+      <b><tt>LVPSTART,U2,+,00:04.0,D500, , , , , , , ,D&eacute;bute la photographie en mode Lv</tt><br>
+      <tt>RAMPUP,U2,+,00:06.0,D500,1/1000,7.1,200,0.0,RAW,None,Y,13,1.0,Rampe ascendante</tt><br>
+      <tt>LVPSTOP,U3,-,00:04.0,D500, , , , , , , ,Arr&ecirc;te la photographie en mode Lv</tt></b><br>
+      G&eacute;n&eacute;ralement il est pr&eacute;f&eacute;rable de travailler avec un incr&eacute;ment de un stop et d&rsquo;effectuer plusieures rampes d&rsquo;expositions. Les valeurs accept&eacute;es sont 0.3, 0.7, 1.0, 2.0 et 3.0.
+      <a name="rampdn"></a>
+     </li>
+     <li>
+      RAMPDN - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique et prends ensuite le plus rapidement possible une rampe descendante de photos en adjustant automatiquement les r&eacute;glages.<br>
+      Syntaxe:&nbsp;<b><tt>RAMPDN,<span title="Instant ou date de r&eacute;f&eacute;rence">MAX</span>,<span title="Signe du d&eacute;calage">+</span>,<span title="Horaire">00:04.0</span>,<span title="Nom de l&rsquo;APN">D500</span>,<span title="Vitesse d&rsquo;exposition">4.0</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir, meilleur de laisser le miroir relev&eacute;">0.0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Nombre de photos dans la s&eacute;quence">13</span>,<span title="Incr&eacute;ment d&rsquo;exposition en IL (stop)">1.0</span>,<span title="Commentaire">Comment</span></tt></b><br>
+      Exemple avec 13 images de 4 secondes au 1/1000<sup>&egrave;me</sup> de seconde en conservant le miroir relev&eacute;:<br>
+      <b><tt>LVPSTART,U2,+,00:04.0,D500, , , , , , , ,D&eacute;bute la photographie en mode Lv</tt><br>
+      <tt>RAMPDN,MAX,+,00:04.0,D500,4.0,7.1,200,0.0,RAW,None,Y,13,1.0,Rampe descendante</tt><br>
+      <tt>LVPSTOP,U3,-,00:04.0,D500, , , , , , , ,Arr&ecirc;te la photographie en mode Lv</tt></b><br>
+      G&eacute;n&eacute;ralement il est pr&eacute;f&eacute;rable de travailler avec un incr&eacute;ment de un stop et d&rsquo;effectuer plusieures rampes d&rsquo;expositions. Les valeurs accept&eacute;es sont 0.3, 0.7, 1.0, 2.0 et 3.0.
+      <a name="rampsud"></a>
+     </li>
+     <li>
+      RAMPSUD - R&egrave;gle l&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique et prends ensuite le plus rapidement possible une double rampe (ascendante puis descendante) de photos en adjustant automatiquement les r&eacute;glages.<br>
+      Syntaxe:&nbsp;<b><tt>RAMPSUD,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">+</span>,<span title="Horaire">00:06.0</span>,<span title="Nom de l&rsquo;APN">D500</span>,<span title="Vitesse d&rsquo;exposition">1/1000</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir, meilleur de laisser le miroir relev&eacute;">0.0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Nombre de photos dans la s&eacute;quence">13</span>,<span title="Incr&eacute;ment d&rsquo;exposition en IL (stop)">1.0</span>,<span title="Commentaire">Comment</span></tt></b><br>
+      Exemple avec 26 images du 1/1000<sup>&egrave;me</sup> de seconde &agrave; 4 secondes puis l&rsquo;inverse en conservant le miroir relev&eacute;:<br>
+      <b><tt>LVPSTART,U2,+,00:04.0,D500, , , , , , , ,D&eacute;bute la photographie en mode Lv</tt><br>
+      <tt>RAMPSUD,U2,+,00:06.0,D500,1/1000,7.1,200,0.0,RAW,None,Y,13,1.0,Rampe ascendante puis descendante</tt><br>
+      <tt>LVPSTOP,U3,-,00:04.0,D500, , , , , , , ,Arr&ecirc;te la photographie en mode Lv</tt></b><br>
+      G&eacute;n&eacute;ralement il est pr&eacute;f&eacute;rable de travailler avec un incr&eacute;ment de un stop et d&rsquo;effectuer plusieures rampes d&rsquo;expositions. Les valeurs accept&eacute;es sont 0.3, 0.7, 1.0, 2.0 et 3.0.
+      <a name="bulb"></a>
+     </li>
+     <li>
+      BULB - Effectue une exposition de longue dur&eacute;e (0,01 seconde &agrave; 60 minutes) en mode <i>Manuel</i> (<i>M</i>) seulement. Ne fonctionne pas avec tous les appareils Nikon et Canon, mais permet des expositions de dur&eacute;e arbitraire. Le mode Bulb (B) a une pr&eacute;cision d&rsquo;environ 1/100<sup>&egrave;</sup> de seconde, ce qui signifie que les expositions d&rsquo;une dur&eacute;e sup&eacute;rieure au 1/10<sup>&egrave;</sup> de seconde ne sont pas recommand&eacute;es. Quelques appareils, Canon 60D et 5D, ne peuvent pas m&eacute;langer des expositions bulb avec des expositions normales, vous aurez donc avec ces appareils &agrave; tourner manuellement le s&eacute;lecteur de mode sur Bulb (B) au lieu de Manuel (M). Parmi les appareils support&eacute;s on trouve les Nikon D500, D600, D610, D750, D800/D800E, D810/D810A, D850, Df, D4, D4s, D5 et les Canon EOS 1000D/Rebel XS/Kiss F, 1100D/Rebel T3/Kiss X50, 1200D/Rebel T5/Kiss X70, 1300D/Rebel T6/Kiss X80, 100D/Rebel SL1/Kiss X7, 200D/Rebel SL2/Kiss X9, 450D/Rebel XSi/Kiss X2, 500D/Rebel T1i/Kiss X3, 550D/Rebel T2i/Kiss X4, 600D/Rebel T3i/Kiss X5, 650D/Rebel T4i/Kiss X6i, 700D/Rebel T5i/Kiss X7i, 750D/Rebel T6i/Kiss X8i, 800D/Rebel T7i/Kiss X9i, 760D/Rebel T6s/8000D, 77D/9000D, 40D, 50D, 60D/60Da, 70D, 80D, 7D, 7D MkII, 6D, 6D MkII, 5D MkII, 5D MkIII, 5D MkIV, 5Ds/5DsR, 1D MkIII, 1Ds MkIII, 1D MkIV, 1D X, 1D X MkII.<br>
+      Exemple:&nbsp;<b><tt>BULB,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:27.0</span>,<span title="Nom de l&rsquo;APN">60D</span>,<span title="Dur&eacute;e d&rsquo;exposition en secondes">32.6</span>,<span title="Ouverture">7.1</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir">0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Commentaire</span></tt></b>
+      <a name="takedrk"></a>
+     </li>
+     <li>
+      TAKEDRK - Prends un dark avec la cam&eacute;ra CCD SBIG en utilisant la dur&eacute;e d&rsquo;exposition indiqu&eacute;e.<br>
+      Exemple:&nbsp;<b><tt>TAKEDRK,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:27.0</span>,<span title="Nom de la cam&eacute;ra CCD SBIG">ST-8300</span>,<span title="Dur&eacute;e d&rsquo;exposition">0.04</span>,<span title="Ouverture (pas utilis&eacute;)">7.1</span>,<span title="Sensibilit&eacute; ISO (pas utilis&eacute;)">200</span>,<span title="Temps de verrouillage du miroir (pas utilis&eacute;)">0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier (pas utilis&eacute;)">RAW</span>,<span title="Taille d&rsquo;image (pas utilis&eacute;)">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence (pas utilis&eacute;)">Y</span>,<span title="Commentaire">Commentaire; disponible seulement pour les cam&eacute;ras CCD SBIG</span></tt></b>
+      <a name="lvstart"></a>
+     </li>
+     <li>
+      LVSTART - Active la vis&eacute;e &eacute;cran d&rsquo;un APN (peut &ecirc;tre utilis&eacute; pour ajuster la correction d&rsquo;exposition) et affiche celle-ci sur l&rsquo;&eacute;cran de l&rsquo;ordinateur. Un seul APN simultan&eacute;ment.<br>
+      Attention &agrave; bien activer au pr&eacute;alable le r&eacute;glage &laquo;Autoriser le Live View avec un script charg&eacute;&raquo; dans les pr&eacute;f&eacute;rences g&eacute;n&eacute;rales.<br>
+      Exemple:&nbsp;<b><tt>LVSTART,U1,-,02:00.0,D300, , , , , , , ,Start Lv</tt></b>
+      <a name="lvstop"></a>
+     </li>
+     <li>
+      LVSTOP - Arr&ecirc;te la vis&eacute;e &eacute;cran d&rsquo;un APN.<br>
+      Exemple:&nbsp;<b><tt>LVSTOP,U1,-,01:30.0,D300, , , , , , , ,Stop Lv</tt></b>
+      <a name="lvpstart"></a>
+     </li>
+     <li>
+      LVPSTART - Active la photographie en vis&eacute;e &eacute;cran sur les APNs la supportant. Utilis&eacute; pour prendre une s&eacute;rie de photographies cons&eacute;cutives avec le miroir relev&eacute;. Les actions d&rsquo;exposition comprises entre les instructions <i>LVPSTART</i> et <i>LVPSTOP</i> doivent toutes avoir la valeur <i>0.0</i> au niveau du verrouillage miroir (c&rsquo;est &agrave; dire aucun verrouillage miroir).<br>
+      Attention &agrave; bien activer au pr&eacute;alable le r&eacute;glage &laquo;Autoriser le Live View avec un script charg&eacute;&raquo; dans les pr&eacute;f&eacute;rences g&eacute;n&eacute;rales.<br>
+      Les appareils compatibles sont les Nikon D3400, D5200, D5300, D5500, D5600, D7100, D7200, D7500, D500, D600, D610, D750, D800/D800E, D810/D810A, D850, Df, D4, D4s et D5, ainsi que les Canon 700D/Rebel T5i/Kiss X7i, 750D/Rebel T6i/Kiss X8i, 800D/Rebel T7i/Kiss X9i, 760D/Rebel T6s/8000D, 77D/9000D, 60D/60Da, 70D, 80D, 7D MkII, 6D, 6D MkII, 5D MkIII, 5D MkIV, 5Ds/5DsR, 1D X et 1D X MkII.<br>
+      Avec les appareils Canon poss&eacute;dant le r&eacute;glage <i>Pdv V&Eacute; silentieuse</i> v&eacute;rifiez bien que ce r&eacute;glage est soit sur 'D&eacute;sactiv&eacute;' ou alors 'Mode 1' car sinon l&rsquo;APN ne sera pas en mesure d&rsquo;effectuer des rafales.<br>
+      Avec les appareils Nikon D3xxx et D5xxx v&eacute;rifiez bien que le r&eacute;glage <i>Exposition vid&eacute;o manuelle</i> est bien d&eacute;sactiv&eacute; car sinon l&rsquo;APN ne pourra pas utiliser toute la plage de temps d&rsquo;exposition.<br>
+      Exemple:&nbsp;<b><tt>LVPSTART,U2,-,00:30.0,D800, , , , , , , ,D&eacute;bute la photographie en mode Lv</tt></b>
+      <a name="lvpstop"></a>
+     </li>
+     <li>
+      LVPSTOP - D&eacute;sactive la photographie en vis&eacute;e &eacute;cran sur les APNs la supportant.<br>
+      Attention &agrave; bien activer au pr&eacute;alable le r&eacute;glage &laquo;Autoriser le Live View avec un script charg&eacute;&raquo; dans les pr&eacute;f&eacute;rences g&eacute;n&eacute;rales.<br>
+      Les appareils compatibles sont les Nikon D3400, D5200, D5300, D5500, D5600, D7100, D7200, D7500, D500, D600, D610, D750, D800/D800E, D810/D810A, D850, Df, D4, D4s et D5, ainsi que les Canon 700D/Rebel T5i/Kiss X7i, 750D/Rebel T6i/Kiss X8i, 800D/Rebel T7i/Kiss X9i, 760D/Rebel T6s/8000D, 77D/9000D, 60D/60Da, 70D, 80D, 7D MkII, 6D, 6D MkII, 5D MkIII, 5D MkIV, 5Ds/5DsR, 1D X et 1D X MkII.<br>
+      Avec les appareils Canon poss&eacute;dant le r&eacute;glage <i>Pdv V&Eacute; silentieuse</i> v&eacute;rifiez bien que ce r&eacute;glage est soit sur 'D&eacute;sactiv&eacute;' ou alors 'Mode 1' car sinon l&rsquo;APN ne sera pas en mesure d&rsquo;effectuer des rafales.<br>
+      Avec les appareils Nikon D3xxx et D5xxx v&eacute;rifiez bien que le r&eacute;glage <i>Exposition vid&eacute;o manuelle</i> est bien d&eacute;sactiv&eacute; car sinon l&rsquo;APN ne pourra pas utiliser toute la plage de temps d&rsquo;exposition.<br>
+      Exemple:&nbsp;<b><tt>LVPSTOP,U3,+,00:30.0,D800, , , , , , , ,Arr&ecirc;te la photographie en mode Lv</tt></b>
+      <a name="lvmrec"></a>
+     </li>
+     <li>
+      LVMREC - D&eacute;bute l&rsquo;enregistrement vid&eacute;o d&rsquo;un APN depuis la vis&eacute;e &eacute;cran sur votre ordinateur (pour enregistrer sur la carte m&eacute;moire utilisez <i>MREC</i>). Un seul APN simultan&eacute;ment (seulement pour les Nikon).<br>
+      Exemple:&nbsp;<b><tt>LVMREC,U1,-,02:00.0,D300, , , , , , , ,D&eacute;bute l&rsquo;enregistrement Lv</tt></b>
+      <a name="lvmstop"></a>
+     </li>
+     <li>
+      LVMSTOP - Arr&ecirc;te l&rsquo;enregistrement vid&eacute;o de la vis&eacute;e &eacute;cran d&rsquo;un APN (seulement pour les Nikon).<br>
+      Exemple:&nbsp;<b><tt>LVMSTOP,U1,-,01:30.0,D300, , , , , , , ,Arr&ecirc;te l&rsquo;enregistrement Lv</tt></b>
+      <a name="mrec"></a>
+     </li>
+     <li>
+      MREC - D&eacute;bute l&rsquo;enregistrement vid&eacute;o directement sur la carte m&eacute;moire de l&rsquo;APN.<br>
+      Sachez qu&rsquo;il vous faut saisir manuellement les r&eacute;glages d&rsquo;enregistrement comme la taille et la vitesse. De plus si vous choisissez par exemple une vitesse de disons 60&nbsp;vps alors la vitesse de l&rsquo;obturateur devra n&eacute;cessairement &ecirc;tre plus rapide, ou &eacute;gale, que 1/60<sup>&egrave;me</sup> de seconde.<br>
+      Les appareils compatibles sont les Nikon D3200, D3300, D5100, D5200, D5300, D5500, D5600, D7100, D7200, D7500, D500, D600, D610, D750, D800/D800E, D810/D810A, D850, Df, D4, D4s et D5 ainsi que les Canon EOS 100D/Rebel SL1/Kiss X7, 200D/Rebel SL2/Kiss X9, 550D/Rebel T2i/Kiss X4, 600D/Rebel T3i/Kiss X5, 650D/Rebel T4i/Kiss X6i, 700D/Rebel T5i/Kiss X7i, 750D/Rebel T6i/Kiss X8i, 800D/Rebel T7i/Kiss X9i, 760D/Rebel T6s/8000D, 77D/9000D, 60D/60Da, 70D, 80D, 7D MkII, 6D, 6D MkII, 5D MkII, 5D MkIII, 5D MkIV, 5Ds/5DsR, 1D MkIV, 1D X et 1D X MkII.<br>
+      Sur les APNs Nikon poss&eacute;dant deux emplacements de carte m&eacute;moire, assurez-vous qu&rsquo;une seule carte m&eacute;moire est ins&eacute;r&eacute;e car sinon cette fonctionnalit&eacute; ne marchera pas &agrave; cause d&rsquo;un bogue du microprogramme de Nikon qui retourne une r&eacute;ponse 'access denied/acc&egrave;s refus&eacute;'.<br>
+      Si vous souhaitez &ecirc;tre capable de changer les r&eacute;glages d&rsquo;exposition sur les appareils Canon support&eacute;s depuis le script pendant l&rsquo;enregistrement du film, alors dans le premier onglet du menu rouge pr&eacute;positionnez manuellement <i>Expo. vid&eacute;o</i> sur <i>Manuelle</i>. Sur les APNs Canon poss&eacute;dant un s&eacute;lecteur Live View, assurez-vous qu&rsquo;il est positionn&eacute; sur <i>Vid&eacute;o</i>.<br>
+      Avec les APNs Sony il faut v&eacute;rifier le r&eacute;glage suivant car sinon dans le cas contraire la bascule entre les modes image et vid&eacute;o ne sera pas possible: Menu > R&eacute;glages&nbsp;de&nbsp;prise&nbsp;de&nbsp;vue&nbsp;2 > [Bouton&nbsp;MOVIE] > Toujours.<br>
+      Exemple:&nbsp;<b><tt>MREC,U1,-,02:00.0,D4, , , , , , , ,D&eacute;bute l&rsquo;enregistrement vid&eacute;o</tt></b>
+      <a name="mstop"></a>
+     </li>
+     <li>
+      MSTOP - Arr&ecirc;te l&rsquo;enregistrement vid&eacute;o sur la carte de l&rsquo;APN.<br>
+      Exemple:&nbsp;<b><tt>MSTOP,U1,-,01:30.0,D4, , , , , , , ,Arr&ecirc;te l&rsquo;enregistrement vid&eacute;o</tt></b>
+      <a name="expmodm"></a>
+     </li>
+     <li>
+      EXPMODM - Positionne le mode d&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique sur <i>Manuel</i> (<i>M</i>). Ne fonctionne pas avec les appareils Canon qui ont un s&eacute;lecteur rotatif. Aucune restriction n&rsquo;existe pour les appareils Nikon.<br>
+      Exemple:&nbsp;<b><tt>EXPMODM,U1,-,01:30.0,D300, , , , , , , ,Manuel (M)</tt></b>
+      <a name="expmodp"></a>
+     </li>
+     <li>
+      EXPMODP - Positionne le mode d&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique sur <i>Auto Programm&eacute;</i> (<i>P</i>). Ne fonctionne pas avec les appareils Canon qui ont un s&eacute;lecteur rotatif. Aucune restriction n&rsquo;existe pour les appareils Nikon.<br>
+      Exemple:&nbsp;<b><tt>EXPMODP,U1,-,01:30.0,D300, , , , , , , ,Auto Programm&eacute; (P)</tt></b>
+      <a name="expmoda"></a>
+     </li>
+     <li>
+      EXPMODA - Positionne le mode d&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique sur <i>Priorit&eacute; Ouverture</i> (<i>A</i>). Ne fonctionne pas avec les appareils Canon qui ont un s&eacute;lecteur rotatif. Aucune restriction n&rsquo;existe pour les appareils Nikon. Avec le Ricoh Theta&nbsp;S, dont l&rsquo;ouverture est constante, le mode s&eacute;lectionn&eacute; sera <i>Priorit&eacute; ISO</i>.<br>
+      Exemple:&nbsp;<b><tt>EXPMODA,U1,-,01:30.0,D300, , , , , , , ,Priorit&eacute; Ouverture (A)</tt></b>
+      <a name="expmods"></a>
+     </li>
+     <li>
+      EXPMODS - Positionne le mode d&rsquo;exposition de l&rsquo;appareil photo num&eacute;rique sur <i>Priorit&eacute; Vitesse</i> (<i>S</i>). Ne fonctionne pas avec les appareils Canon qui ont un s&eacute;lecteur rotatif. Aucune restriction n&rsquo;existe pour les appareils Nikon.<br>
+      Exemple:&nbsp;<b><tt>EXPMODS,U1,-,01:30.0,D300, , , , , , , ,Priorit&eacute; Vitesse (S)</tt></b>
+      <a name="release"></a>
+     </li>
+     <li>
+      RELEASE - Appuie sur le d&eacute;clencheur et prends une photo sans modifier un seul r&eacute;glage d&rsquo;exposition<!--. Modes <i>Manuel</i> (<i>M</i>) et <i>Auto&nbsp;Programm&eacute;</i> (<i>P</i>) seulement--><br>
+      Exemple:&nbsp;<b><tt>RELEASE,U1,-,00:01.0,D300, , , , , , , ,Appui sur le d&eacute;clencheur</tt></b>
+      <a name="chgfwp"></a><a name="setfwp"></a>
+     </li>
+     <li>
+      CHGFWP - Positionne la roue &agrave; filtres sur une cam&eacute;ra CCD SBIG<br>
+      Exemple:&nbsp;<b><tt>CHGFWP,U2,+,00:05.0,<span title="Nom de la cam&eacute;ra CCD SBIG">ST-8300</span>, , ,<span title="Position de la roue &agrave; filtres">4</span>, , , , ,Place la roue &agrave; filtres en position 4; disponible seulement pour les cam&eacute;ras CCD SBIG</tt></b><br>
+      Utiliser SETFWP est possible aussi.
+      <a name="chgtemp"></a><a name="settemp"></a>
+     </li>
+     <li>
+      CHGTEMP - R&egrave;gle la temp&eacute;rature de fonctionnement du capteur CCD sur une cam&eacute;ra CCD SBIG<br>
+      Exemple:&nbsp;<b><tt>CHGTEMP,<span title="Nom de la cam&eacute;ra CCD SBIG">ST-8300</span>,<span title="Temp&eacute;rature de fonctionnement du capteur CCD en degr&eacute;s Celsius">-5.0</span></tt></b><br>
+      Utiliser SETTEMP est possible aussi.
+      <a name="play"></a>
+     </li>
+     <li>
+      PLAY - Joue un fichier son au format wav. Voir les <a href="btoc6.html#sounds">sons disponibles</a>.<br>
+      Exemple:&nbsp;<b><tt>PLAY,MAX,+,00:00.0,Max_Eclipse.wav, , , , , , , ,Maximum eclipse</tt></b>
+      <a name="command"></a>
+     </li>
+<!--     <li>DOWNLOAD - Ignor&eacute;. T&eacute;l&eacute;chargez les donn&eacute;es m&eacute;t&eacute;o depuis une station Kestrel de poche</li>-->
+<!--     <li>SERIAL - Ignor&eacute;</li>-->
+     <li>
+      COMMAND - Ex&eacute;cution d&rsquo;une chaine en ligne de commande (shell) ou d&rsquo;une requ&ecirc;te HTTP, pour lancer une application externe ou ex&eacute;cuter une t&acirc;che.<br>
+      Exemple:&nbsp;<b><tt>COMMAND,U2,-,00:30.0, , , , , , , , ,D&eacute;placement Vixen Sphinx ;http://169.254.1.1/GOTORADEC?RA=12+34.5&amp;DEC=12+34.5</tt></b><br>
+      <span style="color: white;">Exemple:</span>&nbsp;<b><tt>COMMAND,U2,-,00:20.0, , , , , , , , ,Ouvre un fichier texte ;open -a /Applications/TextEdit.app ~/Documents/Scripts\ Lunar\ Eclipse\ Maestro/basic.txt</tt></b><br>
+      <span style="color: white;">Exemple:</span>&nbsp;<b><tt>COMMAND,P1,-,05:00.0, , , , , , , , ,Emp&ecirc;che la veille pendant 7 heures ;caffeinate -disu -t 25200 /Applications/Lunar\ Eclipse\ Maestro.app</tt></b><br>
+      Avec Yosemite et plus r&eacute;cent il est possible de lire un texte dans une des nombreuses langues support&eacute;es. Pour conna&icirc;tre les langues/voix disponibles lancez l&rsquo;application Terminal et ensuite tapez <tt>say -v ?</tt>. Ensuite vous pouvez faire<br>
+      <b><tt>COMMAND,U2,-,00:10.0, , , , , , , , ,'10 secondes' en anglais; say -v Victoria 10 seconds</tt></b><br>
+      <b><tt>COMMAND,U2,-,00:10.0, , , , , , , , ,'10 secondes' en fran&ccedil;ais; say -v Thomas 10 secondes</tt></b><br>
+      <b><tt>COMMAND,U2,-,00:10.0, , , , , , , , ,'10 secondes' en espagnol; say -v Monica 10 segundos</tt></b><br>
+      <b><tt>COMMAND,U2,-,00:10.0, , , , , , , , ,'10 secondes' en flamand; say -v Xander 10 seconden</tt></b>
+     </li>
+    </ul>
+    <h4>Ev&eacute;nement ou date de r&eacute;f&eacute;rence</h4>
+    Instants de r&eacute;f&eacute;rence:
+    <ul>
+     <li>RISE - Lever de Lune (attention&nbsp;: ne tient pas compte de la pente du terrain depuis votre lieu<!--calcul simpliste, pas tr&egrave;s fiable--> sauf pour la version Pro)</li>
+     <li>P1 - Premier contact externe de la p&eacute;nombre (d&eacute;but de l&rsquo;&eacute;clipse p&eacute;nombrale)</li>
+     <li>U1 - Premier contact de l&rsquo;ombre (d&eacute;but de l&rsquo;&eacute;clipse ombrale)</li>
+     <li>U2 - Second contact de l&rsquo;ombre (d&eacute;but de l&rsquo;&eacute;clipse totale)</li>
+     <li>MAX - Maximum de l&rsquo;&eacute;clipse</li>
+     <li>U3 - Troisi&egrave;me contact de l&rsquo;ombre (fin de l&rsquo;&eacute;clipse totale)</li>
+     <li>U4 - Quatri&egrave;me contact de l&rsquo;ombre (fin de l&rsquo;&eacute;clipse ombrale)</li>
+     <li>P4 - Second contact externe de la p&eacute;nombre (fin de l&rsquo;&eacute;clipse p&eacute;nombrale)</li>
+     <li>SET - Coucher de Lune (attention&nbsp;: ne tient pas compte de la pente du terrain depuis votre lieu<!--calcul simpliste, pas tr&egrave;s fiable--> sauf pour la version Pro)</li>
+    </ul>
+    Autres possibilit&eacute;s:
+    <ul>
+     <li>AAAA/MM/JJ - Date absolue au format Ann&eacute;e/Mois/Jour</li>
+     <li>MAGPREP xx - Grandeur de l&rsquo;&eacute;clipse p&eacute;nombrale &eacute;gale &agrave; xx pourcent, avant le maximum. Une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire est possible, voir l&rsquo;exemple dans les scripts.</li>
+     <li>MAGPOSTP xx - Grandeur de l&rsquo;&eacute;clipse p&eacute;nombrale &eacute;gale &agrave; xx pourcent, apr&egrave;s le maximum. Une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire est possible, voir l&rsquo;exemple dans les scripts.</li>
+     <li>MAGPREU xx - Grandeur de l&rsquo;&eacute;clipse ombrale &eacute;gale &agrave; xx pourcent, avant le maximum. Une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire est possible, voir l&rsquo;exemple dans les scripts.</li>
+     <li>MAGPOSTU xx - Grandeur de l&rsquo;&eacute;clipse ombrale &eacute;gale &agrave; xx pourcent, apr&egrave;s le maximum. Une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire est possible, voir l&rsquo;exemple dans les scripts.</li>
+<!--     <li><i>event1 percent event2</i> - Ignor&eacute;. Par exemple&nbsp;: "C1 50 C2" signifie &agrave; mi-chemin entre le premier et le second contact.</li>-->
+     <li>MAXPRE (VAR) - Pourcentage de la dur&eacute;e de l&rsquo;&eacute;clipse entre U2 et le maximum. A utiliser uniquement dans une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire, voir l&rsquo;exemple dans les scripts.</li>
+     <li>MAXPOST (VAR) - Pourcentage de la dur&eacute;e de l&rsquo;&eacute;clipse, entre le maximum et U3. A utiliser uniquement dans une <a href="btoc6.html#FOR_loop">boucle <i>FOR</i></a> rudimentaire, voir l&rsquo;exemple dans les scripts.</li>
+     <li>LAST - Se base sur l&rsquo;instant de r&eacute;f&eacute;rence de la ligne pr&eacute;c&eacute;dente du script.</li>
+     <li>EMERGENCY - Lors du lancement du script d&rsquo;urgence, les &eacute;v&eacute;nements sont r&eacute;f&eacute;renc&eacute;s depuis l&rsquo;instant o&ugrave; l&rsquo;urgence s&rsquo;est produite.</li>
+<!--     <li>(blank) - Execution imm&eacute;diate au chargement du script. Ne s&rsquo;ex&eacute;cute pas de nouveau au Rechargement; pour l&rsquo;ex&eacute;cuter de nouveau&nbsp;: relancer l&rsquo;application ou s&eacute;lectionner <i>Fichier &gt; Charger Script&hellip;</i>.</li>-->
+    </ul>
+    <h4>Signe du d&eacute;calage</h4>
+    <p>
+     Ignor&eacute; lorsqu&rsquo;une date absolue Ann&eacute;/Mois/Jour est sp&eacute;cifi&eacute;e.
+    </p>
+    <ul>
+     <li>+ (apr&egrave;s)</li>
+     <li>- (avant)</li>
+    </ul>
+    <h4>Heure</h4>
+    <p>
+     Repr&eacute;sente le d&eacute;calage horaire par rapport &agrave; l&rsquo;instant de r&eacute;f&eacute;rence, sauf quand une date absolue est sp&eacute;cifi&eacute;e auquel cas c&rsquo;est l&rsquo;heure UTC. Attention&nbsp;: le s&eacute;parateur d&eacute;cimal est le point et non la virgule. Il est important de faire en sorte que l&rsquo;espacement entre deux expositions successives soit suffisamment important pour votre APN et que cette temporisation inclue la dur&eacute;e de l&rsquo;exposition pr&eacute;c&eacute;dente: ce laps de temps peut aller d&rsquo;une demi seconde &agrave; une quinzaine de secondes pour des appareils datant d&rsquo;une dizaine d&rsquo;ann&eacute;es.
+    </p>
+    <ul>
+     <li>HH:MM:SS.S - heure:minute:seconde au format d&eacute;cimal</li>
+     <li>MM:SS.S - minute:seconde au format d&eacute;cimal</li>
+     <li>SS.S - seconde au format d&eacute;cimal</li>
+    </ul>
+    <h4>Nom de l&rsquo;appareil (APN)</h4>
+    <ul>
+     <li>D3X serait un bon nom court pour un Nikon D3X par exemple. Si vous poss&eacute;dez deux Nikon D3X alors vous pouvez les appeler respectivement D3X1 et D3X2. Doit &ecirc;tre identique &agrave; celui sp&eacute;cifi&eacute; dans la <a href="../pgs/c1sem7.html"><i>Configuration Mat&eacute;rielle</i></a>, y compris la casse, les espaces, tirets, etc. Par exemple&nbsp;: D3X et d3X sont diff&eacute;rents.</li>
+     <li>ALLCAMS pour ex&eacute;cuter une exposition sur tous les APNs connect&eacute;s.</li>
+     <li>...</li>
+    </ul>
+    <h4>Vitesse d&rsquo;exposition</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.
+    </p>
+    <ul>
+     <li>1/4000 - Fraction de seconde</li>
+     <li>0.5 - Secondes</li>
+     <li>355.0/113 - Autoris&eacute; mais est-ce bien raisonnable?!</li>
+     <li>...</li>
+    </ul>
+    <h4>Ouverture</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.
+    </p>
+    <ul>
+     <li>16</li>
+     <li>16.0</li>
+     <li>...</li>
+    </ul>
+    <h4>ISO</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.
+    </p>
+    <ul>
+     <li>100</li>
+     <li>200</li>
+     <li>...</li>
+    </ul>
+    <h4>Dur&eacute;e de verrouillage du miroir</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.<br>
+     Vous pouvez utiliser le verrouillage du miroir pour r&eacute;duire les vibrations engendr&eacute;es lors d&rsquo;une exposition.<br>
+     Note: avec <i>TAKEBST</i> cette valeur sp&eacute;cifie le nombre de photos &agrave; prendre en rafale (prioritaire sur le r&eacute;glage g&eacute;n&eacute;ral <i>BURSTNB</i>) et non la dur&eacute;e de verrouillage du miroir.
+    </p>
+    <ul>
+     <li>Nombre de secondes d&rsquo;attente apr&egrave;s l&rsquo;appui initial sur le d&eacute;clencheur. Le <i>Mode de Verrouillage du Miroir</i> (<i>MLU</i>) est activ&eacute; et d&eacute;sactiv&eacute; &agrave; la vol&eacute;e (pour les bo&icirc;tiers Canon fonctionne seulement avec ceux plus r&eacute;cents que les 50D et 5D MkII, c&rsquo;est-&agrave;-dire 1100D, 1200D, 1300D, 100D/Rebel SL1/Kiss X7, 200D/Rebel SL2/Kiss X9, 500D/Rebel T1i/Kiss X3, 550D/Rebel T2i/Kiss X4, 600D/Rebel T3i/Kiss X5, 650D/Rebel T4i/Kiss X6i, 700D/Rebel T5i/Kiss X7i, 750D/Rebel T6i/Kiss X8i, 800D/Rebel T7i/Kiss X9i, 760D/Rebel T6s/8000D, 77D/9000D, 50D, 60D/60Da, 70D, 80D, 7D, 7D MkII, 6D, 6D MkII, 5D MkII, 5D MkIII, 5D MkIV, 5Ds/5DsR, 1D MkIV, 1D X, 1D X MkII). <i>N</i> ou <i>0</i> dans le champ signifie aucun verrouillage du miroir.<!-- <i>N</i> dans le champ signifie aucun verrouillage du miroir, m&ecirc;me si l&rsquo;appareil est soit-disant configur&eacute; pour cela (attention &agrave; ceux qui pensent pouvoir activer/d&eacute;sactiver le MLU durant l&rsquo;&eacute;clipse).--> Attention &agrave; ne pas oublier que cette fonctionnalit&eacute; r&eacute;duit d&rsquo;autant le nombre d&rsquo;expositions dans un laps de temps donn&eacute;. La dur&eacute;e est artificiellement limit&eacute;e &agrave; 2 secondes, donc si vous en demandez 5 alors vous n&rsquo;en obtiendrez que 2 secondes.</li>
+     <li>Nombre entier de photos prises en rafale avec <i>TAKEBST</i> uniquement. Si &eacute;gal &agrave; 0, alors le r&eacute;glage g&eacute;n&eacute;ral <i>BURSTNB</i> est pris en compte.<br>Le nombre d&rsquo;images RAW qui peuvent &ecirc;tre prises avant que la cadence de l&rsquo;appareil chute est variable suivant les APNs et les cartes m&eacute;moire utilis&eacute;es. Le <a href="btoc6.html#burst">tableau indicatif</a> vous donnera une id&eacute;e.</li>
+    </ul>
+    <h4>Qualit&eacute; Image (Type de Fichier)</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.<br>
+<!--     Note: Ignor&eacute;.<br>
+     Le r&eacute;glage utilis&eacute; est celui de l&rsquo;appareil. Supporter tous les r&eacute;glages possibles pour chaque appareil est trop fastidieux.-->
+     Seules quatre valeurs parmi celles possibles sont utilis&eacute;es.
+    </p>
+    <ul>
+     <li>RAW - Image <i>Raw</i> (brute) afin de conserver tous les d&eacute;tails et la dynamique couleur</li>
+     <li>JPG-F - Image <i>Jpeg Fin</i> avec un taux de compression r&eacute;duit pour une meilleure qualit&eacute;</li>
+     <li>JPG-N - Image <i>Jpeg Normal</i> avec un taux de compression moyen</li>
+     <li>JPG-B - Image <i>Jpeg Basic</i> avec un taux de compression &eacute;lev&eacute; pour une taille r&eacute;duite de fichier</li>
+    </ul>
+<!--    <ul>
+     <li>RAW</li>
+     <li>ECONOMY - JPEG format</li>
+     <li>NORMAL - JPEG format</li>
+     <li>FINE - JPEG format</li>
+     <li>LOSSLESS - JPEG format</li>
+     <li>SUPERFINE - JPEG format</li>
+     <li>RAW+ECONOMY</li>
+     <li>RAW+NORMAL</li>
+     <li>RAW+FINE</li>
+     <li>RAW+SUPERFINE</li>
+    </ul>-->
+    <h4>Taille Image</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.<br>
+     Note: Ignor&eacute;.<br>
+     Le r&eacute;glage utilis&eacute; est celui de l&rsquo;appareil. Supporter tous les r&eacute;glages possibles pour chaque appareil est trop fastidieux et n&rsquo;apporte pas grand chose.
+    </p>
+<!--    <ul>
+     <li>None</li>
+     <li>LARGE</li>
+     <li>MEDIUM</li>
+     <li>SMALL</li>
+     <li>MEDIUM1</li>
+     <li>MEDIUM2</li>
+     <li>MEDIUM3</li>
+    </ul>-->
+    <h4>Incr&eacute;mental</h4>
+    <p>
+     Utilis&eacute; seulement pour les APNs.
+    </p>
+    <ul>
+     <li>Y - Lors de chaque exposition, mets &agrave; jour seulement le temps d&rsquo;exposition, l&rsquo;ouverture, la sensibilit&eacute; ISO, ou la qualit&eacute; d&rsquo;image (type de fichier) si le r&eacute;glage a chang&eacute; depuis la derni&egrave;re exposition. A utiliser pour r&eacute;duire le temps n&eacute;cessaire entre deux expositions successives.</li>
+     <li>N - Force la mise &agrave; jour du temps d&rsquo;exposition, de l&rsquo;ouverture, de la sensibilit&eacute; ISO et de la qualit&eacute; d&rsquo;image (type de fichier) &agrave; chaque exposition. Si vous utilisez presque syst&eacute;matiquement une mise &agrave; jour des param&egrave;tres d&rsquo;exposition par diff&eacute;rence, alors pour plus de suret&eacute; ajoutez en une de ce type de temps en temps pendant une p&eacute;riode de faible activit&eacute;.</li>
+    </ul>
+    <h4>Commentaire</h4>
+    <ul>
+     <li>(optionnel) texte libre, sans virgule. Jusqu&rsquo;&agrave; 1024 caract&egrave;res ASCII.</li>
+<!--     <li>Commande S&eacute;rie&nbsp;: ignor&eacute;e.</li>-->
+     <li>Commande avec ligne de commande: point-virgule suivi d&rsquo;une commande shell ou d&rsquo;une requ&ecirc;te HTTP.</li>
+    </ul>
+    <a name="FOR_loop"></a>
+    <h4>Boucles FOR</h4>
+    <ul>
+     <li>
+      FOR,(VAR),D&eacute;but,Incr&eacute;ment,Fin - Boucle entre une valeur de d&eacute;part et une de fin avec sp&eacute;cification de l&rsquo;incr&eacute;ment.<br>
+      Exemple:<br>
+      <b><tt>FOR,(VAR),<span title="Valeur de d&eacute;part">2.0</span>,<span title="Incr&eacute;ment">2.0</span>,<span title="Valeur de fin">99.9</span></tt></b><br>
+      <b><tt>TAKEPIC,<span title="Instant ou date de r&eacute;f&eacute;rence">MAGPRE (VAR)</span>,<span title="Signe du d&eacute;calage">+</span>,<span title="Horaire">00:00.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/100</span>,<span title="Ouverture">8.0</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir">0.0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">Partielle U1-U2</span></tt></b><br>
+      <b><tt>ENDFOR</tt></b>
+     </li>
+     <li>
+      FOR,(INTERVALOMETER),D&eacute;butant/Finissant &agrave;,Incr&eacute;ment temporel,It&eacute;rations - Boucle d&eacute;butant ou finissant &agrave; un instant de r&eacute;f&eacute;rence et permettant de sp&eacute;cifier un incr&eacute;ment temporel et un nombre d&rsquo;ex&eacute;cutions. Sp&eacute;cifiez 0 pour finir &agrave; et 1 pour d&eacute;buter &agrave;, puis l&rsquo;incr&eacute;ment temporel en secondes.<br>
+      Exemple:<br>
+      <b><tt>FOR,(INTERVALOMETER),<span title="D&eacute;butant (1) ou finissant (0) &agrave; l&rsquo;&eacute;v&eacute;nement sp&eacute;cifi&eacute;">0</span>,<span title="Incr&eacute;ment temporel">2.1</span>,<span title="Nombre d&rsquo;ex&eacute;cutions">5</span></tt></b><br>
+      <b><tt>TAKEPIC,<span title="Instant ou date de r&eacute;f&eacute;rence">U2</span>,<span title="Signe du d&eacute;calage">-</span>,<span title="Horaire">00:12.0</span>,<span title="Nom de l&rsquo;APN">D300</span>,<span title="Vitesse d&rsquo;exposition">1/10</span>,<span title="Ouverture">8.0</span>,<span title="Sensibilit&eacute; ISO">200</span>,<span title="Dur&eacute;e de verrouillage du miroir">0.0</span>,<span title="Qualit&eacute; d&rsquo;image ou type de fichier">RAW</span>,<span title="Taille d&rsquo;image">None</span>,<span title="R&eacute;glages d&rsquo;exposition par diff&eacute;rence">Y</span>,<span title="Commentaire">En route pour la totalit&eacute;</span></tt></b><br>
+      <b><tt>ENDFOR</tt></b>
+     </li>
+    </ul>
+    <br>
+    <a name="sounds"></a>
+    <span id="playsound"></span>
+    <h4>Fichiers son disponibles</h4>
+    Joel Moskowitz a aimablement pr&ecirc;t&eacute; sa voix.
+    <ul>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/Check_Focus.wav');">Check_Focus.wav</a> - A utiliser pour ne pas oublier de v&eacute;rifier la mise au point des diff&eacute;rents objectifs/t&eacute;lescopes</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/10_Minutes.wav');">10_Minutes.wav</a> - A utiliser pour indiquer que nous sommes dix minutes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/5_Minutes.wav');">5_Minutes.wav</a> - A utiliser pour indiquer que nous sommes cinq minutes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/2_Minutes.wav');">2_Minutes.wav</a> - A utiliser pour indiquer que nous sommes deux minutes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/1_Minute.wav');">1_Minute.wav</a> - A utiliser pour indiquer que nous sommes une minutes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/60_Seconds.wav');">60_Seconds.wav</a> - A utiliser pour indiquer que nous sommes soixante secondes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/30_Seconds.wav');">30_Seconds.wav</a> - A utiliser pour indiquer que nous sommes trente secondes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/10_Seconds.wav');">10_Seconds.wav</a> - A utiliser pour indiquer que nous sommes dix secondes avant le second contact avec l&rsquo;ombre</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/Max_Eclipse.wav');">Max_Eclipse.wav</a> - A utiliser pour marquer le maximum de l&rsquo;&eacute;clipse</li>
+     <li><a href="btoc6.html#sounds" onmouseover="DHTMLSound('../../../../site_mp3/SEM/Mid_Eclipse.wav');">Mid_Eclipse.wav</a> - A utiliser pour marquer le milieu de l&rsquo;&eacute;clipse</li>
+    </ul>
+    <br>
+    Des sons additionnels peuvent &ecirc;tre ajout&eacute;s en les pla&ccedil;ant directement dans le dossier utilisateur suivant:<br>
+    <i>~/Biblioth&egrave;que/Application&nbsp;Support/LunarEclipseMaestro/AdditionalSounds/</i><br>
+    Ce dossier est cr&eacute;&eacute; automatiquement par Lunar Eclipse Maestro. Ce dossier est automatiquement ouvert en s&eacute;lectionnant la ligne de menu correspondante dans le menu <i>Fen&ecirc;tre</i>.<br><br>
+    Pour que les sons additionnels soient disponibles pour tous les utilisateurs, il faut les placer directement dans le dossier suivant:<br>
+    <i>/Biblioth&egrave;que/Application&nbsp;Support/LunarEclipseMaestro/AdditionalSounds/</i><br>
+    <br><br>
+    <a name="burst"></a>
+    Ci-dessous le nombre maximum d&rsquo;images en m&eacute;moire tampon pour le mode rafale (<a href="btoc11.html">informations d&eacute;taill&eacute;es</a>):<br>
+    <div id="camera_buffer" style="text-align: center; overflow: auto; width: 1024px; height: auto; margin: 0 auto; padding: 0;">
+    <table border="0" cellspacing="1" cellpadding="5">
+     <tr align="center" valign="top" style="font-weight: bold; background-color: lightgrey;">
+      <td colspan="4" style="vertical-align: top;">
+       Nikon
+      </td>
+      <td colspan="5" style="vertical-align: top;">
+       Canon
+      </td>
+      <td colspan="5" style="vertical-align: top;">
+       Panasonic
+      </td>
+      <td colspan="5" style="vertical-align: top;">
+       Sony
+      </td>
+      <td colspan="5" style="vertical-align: top;">
+       Fuji
+      </td>
+      <td colspan="5" style="vertical-align: top;">
+       Olympus
+      </td>
+      <td colspan="4" style="vertical-align: top;">
+       Ricoh
+      </td>
+     </tr>
+     <tr align="center" valign="top" style="font-weight: bold; background-color: lightgrey;">
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+      <td colspan="2">
+       &nbsp;
+      </td>
+      <td style="vertical-align: top;">
+       Mod&egrave;le
+      </td>
+      <td style="vertical-align: top;">
+       RAW (**)
+      </td>
+      <td style="vertical-align: top;">
+       <a href="btoc7.html#speed">Vitesse</a><br>
+       Carte M&eacute;moire
+      </td>
+     </tr>
+     <tr align="left" valign="top">
+      <td style="vertical-align: top;" nowrap>
+       D6<br>
+       D5<br>
+       D4s<br>
+       D4<br>
+       D3X<br>
+       D3s<br>
+       D3<br>
+       D850<br>
+       D810, D810A<br>
+       D800, D800E<br>
+       D780<br>
+       D750<br>
+       D610<br>
+       D600<br>
+       D700<br>
+       D500<br>
+       D300, D300s<br>
+       D7500<br>
+       D7200<br>
+       D7100<br>
+       D7000<br>
+       D2Xs<br>
+       D200<br>
+       D90<br>
+       D5600<br>
+       D5500<br>
+       D5300<br>
+       D5200<br>
+       D5100<br>
+       D5000<br>
+       D3400<br>
+       D3300<br>
+       D3200<br>
+       D3100<br>
+       D3000<br>
+       D80<br>
+       D60<br>
+       D50<br>
+       D40, D40X<br>
+       D70, D70s<br>
+       Df<br>
+       Z9<br>
+       Z7&nbsp;II<br>
+       Z7<br>
+       Z6&nbsp;II<br>
+       Z6<br>
+       Z5<br>
+       Z50<br>
+       Z30
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       200<br>
+       200<br>
+       100<br>
+       80<br>
+       (38 DX) 25<br>
+       36<br>
+       17<br>
+       (200 DX) 51<br>
+       (96 DX) 28<br>
+       (34 DX) 18<br>
+       68<br>
+       (46 DX) 15<br>
+       (34 DX) 14<br>
+       (34 DX) 14<br>
+       (44 DX) 20<br>
+       80<br>
+       17<br>
+       50<br>
+       16<br>
+       6<br>
+       10<br>
+       15<br>
+       22<br>
+       10<br>
+       8<br>
+       8<br>
+       8<br>
+       8<br>
+       13<br>
+       11<br>
+       12<br>
+       12<br>
+       12<br>
+       16<br>
+       6<br>
+       6<br>
+       9<br>
+       4<br>
+       9<br>
+       4<br>
+       30<br>
+       1K+<br>
+       70<br>
+       20<br>
+       120<br>
+       45<br>
+       ??<br>
+       <br>
+       
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       <br>
+       UDMA-7<br>
+       UDMA-7<br>
+       UDMA-7<br>
+       UDMA-6<br>
+       UDMA-6<br>
+       UDMA-6<br>
+       UHS-II<br>
+       UDMA-7&nbsp;+&nbsp;UHS-I<br>
+       UDMA-7&nbsp;+&nbsp;UHS-I<br>
+       UHS-II&nbsp;+&nbsp;UHS-II<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UDMA-6<br>
+       UHS-II<br>
+       UDMA-6<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UDMA-6<br>
+       <br>
+       <br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       <br>
+       <br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       UHS-I<br>
+       <br>
+       UHS-II<br>
+       <br>
+       UHS-II<br>
+       <br>
+       UHS-II<br>
+       UHS-I<br>
+       UHS-I
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       EOS 1D C<br>
+       EOS 1D X Mark III<br>
+       EOS 1D X Mark II<br>
+       EOS 1D X<br>
+       EOS 1D Mark IV<br>
+       EOS 1Ds Mark III<br>
+       EOS 5Ds, 5DsR<br>
+       EOS 5D Mark IV<br>
+       EOS 5D Mark III<br>
+       EOS 5D Mark II<br>
+       EOS 5D<br>
+       EOS 6D Mark II<br>
+       EOS 6D<br>
+       EOS 7D Mark II<br>
+       EOS 7D<br>
+       EOS 90D<br>
+       EOS 80D<br>
+       EOS 70D<br>
+       EOS 60D, 60Da<br>
+       EOS 50D<br>
+       EOS 40D<br>
+       EOS 850D/Rebel T8i/Kiss X10i<br>
+       EOS 77D/9000D<br>
+       EOS 760D/Rebel T6s/8000D<br>
+       EOS 800D/Rebel T7i/Kiss X9i<br>
+       EOS 750D/Rebel T6i/Kiss X8i<br>
+       EOS 700D/Rebel T5i/Kiss X7i<br>
+       EOS 650D/Rebel T4i/Kiss X6i<br>
+       EOS 600D/Rebel T3i/Kiss X5<br>
+       EOS 550D/Rebel T2i/Kiss X4<br>
+       EOS 500D/Rebel T1i/Kiss X3<br>
+       EOS 450D/Rebel XSi/Kiss X2<br>
+       EOS 400D/Rebel XTi/Kiss X<br>
+       EOS 350D/Rebel XT/Kiss N<br>
+       EOS 250D/Rebel SL3/Kiss X10/200D II<br>
+       EOS 200D/Rebel SL2/Kiss X9<br>
+       EOS 100D/Rebel SL1/Kiss X7<br>
+       EOS 1300D/Rebel T6/Kiss X80<br>
+       EOS 1200D/Rebel T5/Kiss X70<br>
+       EOS 1100D/Rebel T3/Kiss X50<br>
+       EOS 1000D/Rebel XS/Kiss F<br>
+       EOS R3<br>
+       EOS R5C<br>
+       EOS R5<br>
+       EOS R6<br>
+       EOS R, Ra<br>
+       EOS RP<br>
+       EOS R7<br>
+       EOS R10
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       38<br>
+       1K+<br>
+       57-170<br>
+       38<br>
+       25<br>
+       12<br>
+       14<br>
+       16<br>
+       16<br>
+       14<br>
+       17<br>
+       21<br>
+       15<br>
+       30<br>
+       24<br>
+       27<br>
+       25<br>
+       16<br>
+       15<br>
+       16<br>
+       17<br>
+       27<br>
+       27<br>
+       8<br>
+       27<br>
+       8<br>
+       6<br>
+       6<br>
+       5<br>
+       6<br>
+       9<br>
+       6<br>
+       10<br>
+       6<br>
+       8<br>
+       7<br>
+       7<br>
+       6<br>
+       6<br>
+       3<br>
+       5<br>
+       150<br>
+       <br>
+       180<br>
+       240<br>
+       65<br>
+       50<br>
+       <br>
+       
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       UDMA-7<br>
+       <br>
+       UDMA-7<br>
+       UDMA-7<br>
+       UDMA-6<br>
+       UDMA-6<br>
+       UDMA-7&nbsp;+&nbsp;UHS-I<br>
+       UDMA-7&nbsp;+&nbsp;UHS-I<br>
+       UDMA-7<br>
+       UDMA-6<br>
+       UDMA-6<br>
+       UHS-I<br>
+       UHS-I<br>
+       UDMA-7&nbsp;+&nbsp;UHS-I<br>
+       UDMA-7<br>
+       UHS-II<br>
+       UHS-I<br>
+       UHS-I<br>
+       UDMA-6<br>
+       UDMA-6<br>
+       <br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       UHS-I<br>
+       <br>
+       <br>
+       <br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       S1R<br>
+       S1<br>
+       S1H<br>
+       S5<br>
+       GH5<br>
+       GH5s<br>
+       G9<br>
+       GH4<br>
+       GX8
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       40<br>
+       90<br>
+       70<br>
+       24<br>
+       60<br>
+       120<br>
+       83<br>
+       21<br>
+       36
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-I<br>
+       UHS-I
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       &alpha;1<br>
+       &alpha;9II<br>
+       &alpha;9<br>
+       &alpha;7RIV<br>
+       &alpha;7RIII<br>
+       &alpha;7sIII<br>
+       &alpha;7III<br>
+       RX10IV<br>
+       RX100VI
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       155<br>
+       150<br>
+       150<br>
+       60<br>
+       28<br>
+       1000<br>
+       36<br>
+       112<br>
+       109
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-I<br>
+       UHS-I
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       GFX 100S<br>
+       GFX 100<br>
+       GFX 50R<br>
+       GFX 50S<br>
+       X-T4<br>
+       X-T3<br>
+       X-T2<br>
+       X-T1<br>
+       X-H1<br>
+       X-Pro3<br>
+       X-Pro2
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       30<br>
+       14<br>
+       25<br>
+       21<br>
+       37<br>
+       36<br>
+       26<br>
+       23<br>
+       26<br>
+       36<br>
+       28
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       E-MX<br>
+       E-M1 Mark II<br>
+       E-M5 Mark II
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       66<br>
+       59<br>
+       13
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       UHS-II<br>
+       UHS-II<br>
+       UHS-II
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td style="vertical-align: top;" nowrap>
+       Theta S
+      </td>
+      <td style="text-align: right; vertical-align: top;" nowrap>
+       &nbsp;
+      </td>
+      <td style="text-align: left; vertical-align: top;" nowrap>
+       &nbsp;
+      </td>
+     </tr>
+    </table>
+    </div>
+    (**) valeurs indicatives (lorsque cela est possible, utiliser la compression sans perte et d&eacute;sactiver la r&eacute;duction du bruit pour une rapidit&eacute; accrue)
+   </td>
+  </tr>
+ </table>
+</div>
+
+</body>
+
+</html>

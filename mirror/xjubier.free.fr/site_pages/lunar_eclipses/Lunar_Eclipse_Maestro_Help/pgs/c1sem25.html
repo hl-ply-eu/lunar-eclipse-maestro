@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr-FR">
+
+<head>
+<!--[if IE]>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+ <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+ <meta http-equiv="Author" content="Xavier Jubier">
+ <meta http-equiv="Content-Language" content="fr">
+
+ <link rel="shortcut icon" href="../gfx/favicon.ico" type="image/x-icon">
+ <link rel="icon" href="../gfx/favicon.ico" type="image/ico">
+ <link rel="stylesheet" href="../sty/task_tbl_style.css" type="text/css" media="all">
+
+ <title>Fen&ecirc;tre Analyse de la s&eacute;quence de prises de vue</title>
+</head>
+
+<body>
+
+<div id="banner">
+ <div id="LunarEclipseMaestroHelp">
+  <a href="../LunarEclipseMaestroHelp.html" class="bread">Aide Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+  &nbsp;>&nbsp;
+  <a href="../pgs2/btoc1.html" class="bread">Utiliser Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+ </div>
+</div>
+<div id="mainbox">
+ <div id="icon">
+  <img src="../gfx/LunarEclipseMaestro32.png" width="32" height="32" alt="Ic&ocirc;ne Lunar Eclipse Maestro">
+ </div>
+ <div id="pagetitle">
+  <h1>Fen&ecirc;tre Analyse de la s&eacute;quence de prises de vue</h1>
+ </div>
+ <p>
+  Pour visualiser la s&eacute;quence compl&egrave;te de prises de vue de l&rsquo;&eacute;clipse courante, vous pouvez ouvrir la fen&ecirc;tre <i>Analyse de la S&eacute;quence de Prises de Vue</i> dans Lunar&nbsp;Eclipse&nbsp;Maestro. L&rsquo;information dans la colonne <i>Incr&eacute;ment</i> vous permet de savoir si la prochaine exposition a de bonne chance de pouvoir &ecirc;tre ex&eacute;cut&eacute;e correctement par l&rsquo;appareil photo num&eacute;rique concern&eacute;.
+ </p>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td>
+    <ol type="1">
+     <li value="1">
+      Dans le menu <i>APN</i> s&eacute;lectionnez <i>Analyseur de s&eacute;quence de prises de vue&hellip;</i><br>
+      Les informations disponibles dans cette fen&ecirc;tre sont automatiquement synchronis&eacute;es avec celles de la fen&ecirc;tre principale, c&rsquo;est-&agrave;-dire que si vous modifiez un script et le recharger sans fermer la fen&ecirc;tre, alors celle-ci sera mise &agrave; jour instantan&eacute;ment.<br>
+      <img src="../gfx/ExposureSequenceWindow.png" width="813" height="502" alt="Fen&ecirc;tre Analyse S&eacute;quence Prise Vue Exposition">
+     </li>
+     <li value="2">
+      La colonne <i>Temps Libre</i> indique le temps disponible entre l&rsquo;action courante et la pr&eacute;c&eacute;dente en tenant compte de la vitesse de l&rsquo;obturateur et &eacute;ventuellement du temps de verrouillage du miroir, mais aussi du temps de latence de l&rsquo;appareil num&eacute;rique (dur&eacute;e n&eacute;cessaire &agrave; l&rsquo;APN pour recevoir et ex&eacute;cuter l&rsquo;action).<br>
+      Une valeur inf&eacute;rieure &agrave; 1 ou 2 secondes peut &ecirc;tre consid&eacute;r&eacute;e comme suspecte. La valeur minimum acceptable d&eacute;pend principalement de l&rsquo;APN, de la r&eacute;solution de son capteur et de la vitesse en &eacute;criture de la carte m&eacute;moire utilis&eacute;e. Les appareils Canon sont g&eacute;n&eacute;ralement capables d&rsquo;atteindre la seconde et m&ecirc;me parfois moins. Par contre les bo&icirc;tiers Nikon demandent souvent pr&egrave;s de deux secondes, sauf le D4 qui lui se contente d&rsquo;une seconde.<br>
+      Afin de d&eacute;tecter ces erreurs, il vous est possible de sp&eacute;cifier une valeur minimum qui d&eacute;clenchera l&rsquo;affichage d&rsquo;un indicateur (signe danger ou stop) lorsque que l&rsquo;espacement entre deux expositions cons&eacute;cutives est trop faible.
+     </li>
+     <li value="3">
+      Un menu contextuel, disponible &agrave; l&rsquo;aide d&rsquo;un clic droit sur la s&eacute;quence des expositions, vous permet d&rsquo;enregistrer celle-ci dans un fichier texte.<br>
+      <img src="../gfx/ExposureSequenceAnalysis_ContextualMenu.png" width="383" height="61" alt="Menu Contextuel Analyse S&eacute;quence Exposition">
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </table>
+</div>
+
+</body>
+
+</html>

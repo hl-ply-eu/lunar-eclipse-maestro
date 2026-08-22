@@ -1,0 +1,31 @@
+# Environnement Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Artefacts de build et packaging
+build/
+dist/
+*.egg-info/
+
+# IDE et caches
+.idea/
+.vscode/
+.cache/
+
+# Miroir HTML tierce (volumineux, © Xavier Jubier — consulter via docs/ ou PDF)
+mirror/xjubier.free.fr/
+
+# Sorties générées (régénérables via build-pdf.sh / simulate_fov.py)
+output/
+
+# Secrets
+.env
+.env.*
+
+# Temporaires
+/tmp/

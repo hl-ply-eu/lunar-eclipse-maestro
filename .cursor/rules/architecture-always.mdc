@@ -1,0 +1,18 @@
+---
+alwaysApply: true
+---
+
+# lunar-eclipse-maestro — contexte permanent
+
+- Dépôt de **documentation locale** pour Lunar Eclipse Maestro (LEM) — application **macOS** uniquement, et **pas au-delà de Mojave** (KI-006).
+- Guide principal : `docs/getting-started-2026-france.md` (éclipse lunaire 28 août 2026, France, Canon 600D + 100D).
+- Miroir HTML officiel : `mirror/` (wget) ; PDF consolidé : `output/lem-help-complet.pdf`.
+- Scripts : `scripts/mirror.sh` (téléchargement), `scripts/build-pdf.sh` + `scripts/build-pdf.py` (PDF WeasyPrint), `scripts/simulate_fov.py` (trajectoire lunaire).
+- Décisions : `docs/decisions.md`. Tâches : `docs/todo.md`. Pièges : `docs/known-issues.md`. Index : `AGENTS.md`.
+- Environnement Python : `.venv/` à la racine — exécuter via `.venv/bin/python` ou `./scripts/build-pdf.sh`.
+- Ne pas modifier `.venv/`, ni éditer manuellement le HTML miroir tierce (`mirror/xjubier.free.fr/`).
+- Ne pas indexer ni refactorer le contenu HTML du miroir — c'est une copie © Xavier Jubier.
+- Branche dédiée pour toute session agent significative — pas de modifications directes sur `main` / `master`.
+- Décisions structurantes → `docs/decisions.md` (DEC-NNN), pas uniquement dans le chat.
+- Projet frère : `solar-eclipse-maestro` — éclipses **solaires** (SEM, HDR couronne). Périmètres distincts ; y reprendre méthodes FOV validées, pas le pipeline HDR.
+- Site d'observation France **placeholder Paris** jusqu'à GPS réel (KI-005).

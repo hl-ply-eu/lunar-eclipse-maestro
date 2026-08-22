@@ -1,0 +1,30 @@
+---
+description: "Conventions du projet lunar-eclipse-maestro — venv et git"
+alwaysApply: true
+---
+
+# Conventions de développement — lunar-eclipse-maestro
+
+## Environnement virtuel
+
+- **Chemin** : `${workspaceFolder}/.venv`
+- **Activation** : `source .venv/bin/activate`
+- **Exécution** : `.venv/bin/python scripts/build-pdf.py` ou `.venv/bin/python scripts/simulate_fov.py`
+- **Création** : `./scripts/build-pdf.sh` (installe les dépendances `requirements.txt` si absent)
+- **Python** : 3.12+ ; la rule `python-style.mdc` s'applique aux scripts Python
+
+## Git
+
+- Ne pas chercher/configurer de remote Git — les dépôts peuvent être locaux
+- Si un push échoue (pas de remote), informer sans proposer de solution
+
+## Mémoire projet
+
+- Décisions : `docs/decisions.md` (DEC-NNN). Tâches : `docs/todo.md`. Pièges : `docs/known-issues.md`.
+- Index agent : `AGENTS.md`. Clôture : `/session-summary`. Reprise : commande `resume-session`.
+
+## Règles de ce workspace
+
+- `architecture-always.mdc` : contexte permanent (always apply)
+- `python-style.mdc` : standards Python (globs `**/*.py`)
+- `project-conventions.mdc` : ce fichier

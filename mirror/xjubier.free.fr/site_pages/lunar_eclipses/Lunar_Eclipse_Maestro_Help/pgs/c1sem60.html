@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr-FR">
+
+<head>
+<!--[if IE]>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<![endif]-->
+ <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+ <meta http-equiv="Author" content="Xavier Jubier">
+ <meta http-equiv="Content-Language" content="fr">
+
+ <link rel="shortcut icon" href="../gfx/favicon.ico" type="image/x-icon">
+ <link rel="icon" href="../gfx/favicon.ico" type="image/ico">
+ <link rel="stylesheet" href="../sty/task_tbl_style.css" type="text/css" media="all">
+
+ <title>Cr&eacute;ation d&rsquo;un Fichier Maillage de Points</title>
+</head>
+
+<body>
+
+<div id="banner">
+ <div id="LunarEclipseMaestroHelp">
+  <a href="../LunarEclipseMaestroHelp.html" class="bread">Aide Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+  &nbsp;>&nbsp;
+  <a href="../pgs2/btoc1.html" class="bread">Utiliser Lunar&nbsp;Eclipse&nbsp;Maestro</a>
+ </div>
+</div>
+<div id="mainbox">
+ <div id="icon">
+  <img src="../gfx/LunarEclipseMaestro32.png" width="32" height="32" alt="Ic&ocirc;ne Lunar Eclipse Maestro">
+ </div>
+ <div id="pagetitle">
+  <h1>Cr&eacute;ation d&rsquo;un Fichier Maillage de Points</h1>
+ </div>
+ <p>
+  Pour cr&eacute;er un fichier texte contenant un maillage de points correspondant aux circonstances locales dans Lunar&nbsp;Eclipse&nbsp;Maestro vous devez ouvrir le dialogue <i>G&eacute;n&eacute;rateur Maillage de Points</i>. C&rsquo;est &agrave; partir de ce type de fichier que sont cr&eacute;&eacute;es les <a href="http://www.eclipse-maps.com/" target="_blank">cartes de Michael Zeiler</a>.
+ </p>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td>
+    <ol type="1">
+     <li value="1">
+      Dans le menu <i>Affichage</i>, s&eacute;lectionnez <i>G&eacute;n&eacute;rateur de fichier d&rsquo;un maillage de points&hellip;</i>
+     </li>
+     <li value="2">
+      S&eacute;lectionnez l&rsquo;&eacute;clipse de lune puis remplissez les diff&eacute;rents champs et s&eacute;lectionnez le format du fichier g&eacute;n&eacute;r&eacute;.<br>
+      <img src="../gfx/GriddedSetPointsFileGeneratorDlg.png" width="650" height="499" alt="Dialogue G&eacute;n&eacute;rateur Fichier Maillage Points"><br>
+      Le format de fichier utilis&eacute; par Michael Zeiler pour g&eacute;n&eacute;rer ses cartes d&rsquo;&eacute;clipses est optimis&eacute; pour simplifier le processus de mod&eacute;lisation des surfaces dans ArcGIS.<br>
+      La zone o&ugrave; les calculs seront effectu&eacute;s est indiqu&eacute;e par un cadre <span style="color: #FF00FF;">mauve</span> qui se remplira au fur et &agrave; mesure de la progression des calculs.<br>
+      Lorsque le &laquo;Mode global&raquo; est d&eacute;sactiv&eacute;, la r&eacute;solution est automatiquement accrue d&rsquo;un facteur quatre pour faciliter la production de cartes d&eacute;taill&eacute;es &agrave; grande &eacute;chelle.
+     </li>
+     <li value="3">
+      Cliquez ensuite sur le bouton <i>G&eacute;n&eacute;rer le fichier</i> pour cr&eacute;er le fichier contenant le maillage de points correspondant. Une fois les calculs termin&eacute;s, potentiellement au bout d&rsquo;environ une heure, le bouton <i>Enregistrer&hellip;</i> sera activ&eacute;: vous pouvez alors enregistrer votre fichier &agrave; l&rsquo;emplacement souhait&eacute;. Les calculs effectu&eacute;s sont tr&egrave;s intensifs et se font avec une grande pr&eacute;cision, la r&eacute;fraction atmosph&eacute;rique &eacute;tant recalcul&eacute;s en chaque point.<br>
+      Sur la droite de la carte de l&rsquo;&eacute;clipse, le statut des calculs en cours est mis &agrave; jour environ tous les un pourcent. Idem pour la barre de progression ainsi que le nombre de points d&eacute;j&agrave; calcul&eacute;s.<br>
+      Un son vous indiquera que les calculs sont termin&eacute;s et si Lunar&nbsp;Eclipse&nbsp;Maestro est en arri&egrave;re plan &agrave; ce moment alors son ic&ocirc;ne rebondira dans le Dock.<br>
+      Note: avec les r&eacute;glages standards les calculs prendront environ une heure pour g&eacute;n&eacute;rer un maillage de plus de quarante millions de points et un fichier de 5&nbsp;Go ou plus.
+     </li>
+    </ol>
+   </td>
+  </tr>
+ </table>
+ <p>
+  Les incr&eacute;ments en latitude et longitude doivent &ecirc;tre compris entre 0,000625 et 1,0 degr&eacute;.<br>
+  L&rsquo;altitude doit &ecirc;tre comprise entre 0 et 500000 m&egrave;tres.<br>
+  Le fichier temporaire contenant le r&eacute;sultat des calculs se trouve dans le dossier suivant: <i>~/Library/Caches/TemporaryItems/</i>
+ </p>
+</div>
+
+</body>
+
+</html>

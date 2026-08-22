@@ -1,0 +1,53 @@
+User-agent: *
+Disallow: /javascript/
+Disallow: /php/
+Disallow: /private/
+Disallow: /guestbook/
+Disallow: /formmailer/
+Disallow: /eclipser/
+Disallow: /tmp/
+Disallow: /captcha/
+Disallow: /sessions/
+Plan Sitemap : http://xjubier.free.fr/sitemap.xml
+
+User-agent: bingbot
+Crawl-delay: 5
+Disallow: /javascript/
+Disallow: /php/
+Disallow: /private/
+Disallow: /guestbook/
+Disallow: /formmailer/
+Disallow: /eclipser/
+Disallow: /tmp/
+Disallow: /captcha/
+Disallow: /sessions/
+
+User-agent: msnbot
+Crawl-delay: 5
+Disallow: /javascript/
+Disallow: /php/
+Disallow: /private/
+Disallow: /guestbook/
+Disallow: /formmailer/
+Disallow: /eclipser/
+Disallow: /tmp/
+Disallow: /captcha/
+Disallow: /sessions/
+
+User-agent: Yandex
+Crawl-delay: 5
+Disallow: /javascript/
+Disallow: /php/
+Disallow: /private/
+Disallow: /guestbook/
+Disallow: /formmailer/
+Disallow: /eclipser/
+Disallow: /tmp/
+Disallow: /captcha/
+Disallow: /sessions/
+
+# http://www.proximic.com/info/spider.php
+# IP 54.211.1.18
+# Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)
+User-agent: proximic
+Disallow: /

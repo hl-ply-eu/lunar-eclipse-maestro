@@ -1,0 +1,57 @@
+# Placeholder — Paris until the real observing site GPS is known (KI-005).
+# Contacts UTC are global; local CEST clock times. Moonset (set) is Paris-specific.
+# Recopy this file when the commune is known.
+
+site:
+  name: Paris (placeholder)
+  latitude_deg: 48.8566
+  longitude_deg: 2.3522
+  elevation_m: 35
+  timezone: Europe/Paris
+
+camera:
+  model: Canon EOS 600D
+  sensor_width_mm: 22.3
+  sensor_height_mm: 14.9
+  resolution_width_px: 5184
+  resolution_height_px: 3456
+
+optics:
+  - name: 70-200mm @ 280mm f/5.6 (x1.4)
+    focal_length_mm: 280
+    aperture_f: 5.6
+  - name: 70-200mm @ 200mm f/4
+    focal_length_mm: 200
+    aperture_f: 4.0
+  - name: EF-S 15-85mm @ 28mm
+    focal_length_mm: 28
+    aperture_f: 5.6
+
+simulation:
+  # P1 03:23 → moonset ~07:09 around MAX 06:12 → ±180 min covers the run.
+  window_minutes: 180
+  step_seconds: 30
+  tick_minutes: 15
+  overlay_stride_ticks: 2
+  ephemeris_path: de421.bsp
+  temperature_c: 15
+  pressure_mbar: 1013
+
+framing:
+  pointing_event: max
+  auto_top_margin_px: 0
+
+eclipse:
+  contacts_local:
+    p1: 2026-08-28T03:23:32
+    u1: 2026-08-28T04:33:25
+    max: 2026-08-28T06:12:55
+    u4: 2026-08-28T07:52:13
+    p4: 2026-08-28T09:02:03
+    set: 2026-08-28T07:09:00
+  # timeanddate.com Paris (approx.) — replace after first Skyfield run on the real site.
+  validation_altaz_deg:
+    p1: {alt: 26.5, az: 207.0}
+    u1: {alt: 20.2, az: 224.0}
+    max: {alt: 7.7, az: 245.0}
+    set: {alt: 0.0, az: 256.0}

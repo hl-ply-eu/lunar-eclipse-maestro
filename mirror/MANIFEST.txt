@@ -1,0 +1,78 @@
+Lunar Eclipse Maestro — local mirror manifest
+Generated: 2026-08-22T18:07:21Z
+Source: http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/
+Entry point: LunarEclipseMaestroHelp.html
+
+Statistics:
+  HTML pages: 65
+  Total files: 172
+
+Local help root:
+  /home/fr25262/Dev/Perso/Astro/lunar-eclipse-maestro/mirror/xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help
+
+Pages:
+  LunarEclipseMaestroHelp.html
+  pgs2/btoc10.html
+  pgs2/btoc11.html
+  pgs2/btoc1.html
+  pgs2/btoc2.html
+  pgs2/btoc3.html
+  pgs2/btoc4.html
+  pgs2/btoc5.html
+  pgs2/btoc6.html
+  pgs2/btoc7.html
+  pgs2/btoc8.html
+  pgs2/btoc9.html
+  pgs2/kbshortcuts.html
+  pgs2/ln.html
+  pgs2/tips.html
+  pgs2/wn.html
+  pgs/c0sem.html
+  pgs/c1sem10.html
+  pgs/c1sem11.html
+  pgs/c1sem12.html
+  pgs/c1sem14.html
+  pgs/c1sem15.html
+  pgs/c1sem16.html
+  pgs/c1sem17.html
+  pgs/c1sem18.html
+  pgs/c1sem19.html
+  pgs/c1sem21.html
+  pgs/c1sem22.html
+  pgs/c1sem23.html
+  pgs/c1sem24.html
+  pgs/c1sem25.html
+  pgs/c1sem26.html
+  pgs/c1sem28.html
+  pgs/c1sem2.html
+  pgs/c1sem30.html
+  pgs/c1sem31.html
+  pgs/c1sem32.html
+  pgs/c1sem33.html
+  pgs/c1sem34.html
+  pgs/c1sem37.html
+  pgs/c1sem38.html
+  pgs/c1sem39.html
+  pgs/c1sem3.html
+  pgs/c1sem40.html
+  pgs/c1sem42.html
+  pgs/c1sem44.html
+  pgs/c1sem45.html
+  pgs/c1sem46.html
+  pgs/c1sem47.html
+  pgs/c1sem48.html
+  pgs/c1sem4.html
+  pgs/c1sem50.html
+  pgs/c1sem52.html
+  pgs/c1sem53.html
+  pgs/c1sem57.html
+  pgs/c1sem58.html
+  pgs/c1sem5.html
+  pgs/c1sem60.html
+  pgs/c1sem67.html
+  pgs/c1sem68.html
+  pgs/c1sem6.html
+  pgs/c1sem7.html
+  pgs/c1sem8.html
+  pgs/c1sem9.html
+  pgs/c1sem.html

@@ -1,0 +1,22 @@
+.venv/
+venv/
+output/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Éphémérides JPL (Skyfield les télécharge au premier run)
+de421.bsp
+*.bsp
+
+# Cursor — rules/skills versionnés ; état local IDE ignoré
+.cursor/projects/
+
+# Secrets
+.env
+.env.*
+
+# Vendor local (aligné SEM ; inutilisé ici)
+scripts/vendor/

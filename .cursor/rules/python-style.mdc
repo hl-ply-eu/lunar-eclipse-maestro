@@ -1,0 +1,79 @@
+---
+description: "Standards Python globaux — PEP 8, types, erreurs, outils (tous projets)"
+globs:
+  - "**/*.py"
+alwaysApply: false
+---
+
+# Python — règles globales
+
+## Style
+
+- PEP 8 : 4 espaces, pas de tabs ; longueur de ligne 88 (Black/Ruff) ou 100 max
+- Nommage : `snake_case` (vars/fonctions/modules), `PascalCase` (classes), `UPPER_CASE` (constantes)
+- Formater avec **Ruff** (ou Black) ; virgules finales dans les collections multi-lignes
+
+## Types (obligatoires)
+
+- Annotations sur paramètres et valeurs de retour
+- Syntaxe moderne : `list[T]`, `dict[K, V]` (pas `List`, `Dict` sauf besoin legacy)
+- `from __future__ import annotations` en tête de fichier si références avant définition
+- `Protocol`, `Literal`, `TypedDict` quand pertinent ; éviter `Any`
+
+## Python moderne (3.12+)
+
+- f-strings, `pathlib.Path` (pas `os.path` pour les chemins)
+- `match/case` pour branches complexes ; dataclasses ou Pydantic pour les données
+- `enum.Enum` pour constantes nommées
+
+## Erreurs
+
+- Exceptions précises, jamais `except:` nu
+- Messages explicites : `raise ValueError("…")`
+- Ressources : `with` / `async with` ; `typing.NoReturn` si pas de retour
+
+## Documentation
+
+- Docstrings sur API publique (Google ou NumPy, un style par projet)
+- Commentaires rares — le code doit se lire seul
+
+## Qualité
+
+- Fonctions courtes (< 50 lignes), peu de nesting (3–4 max), early return
+- Composition > héritage ; pas de variables globales
+
+## Tests
+
+- `pytest` ; mocks via `pytest-mock` ou `unittest.mock`
+- Couvrir cas limites et erreurs ; viser une bonne couverture sans dogmatisme
+
+## Dépendances et venv
+
+- Toujours un environnement virtuel du projet (`.venv`, `venv`, ou celui indiqué dans `pyproject.toml` / README)
+- Exécuter avec le Python du venv : `.venv/bin/python` ou `venv/bin/python` après activation
+- Dépendances dans `pyproject.toml` ou `requirements.txt` ; versions épinglées ; paquets minimaux
+- `pip`, `uv` ou `poetry` selon le projet — ne pas installer en système
+
+## Imports
+
+- Absolus de préférence ; ordre : stdlib → third-party → local (lignes vides entre groupes)
+- Pas de `import *` sauf `__all__` explicite
+
+## Logging
+
+- Module `logging` en prod (pas `print`) ; niveaux adaptés ; config au niveau module
+
+## Outils
+
+- **Ruff** : lint + format (+ tri imports si configuré)
+- **mypy** ou **pyright** : vérification de types
+- pre-commit si le projet l'utilise déjà
+
+## Sécurité (rappels)
+
+- Pas de `eval`/`exec` sur entrée utilisateur ; secrets via variables d'environnement
+- Requêtes SQL paramétrées ; chemins via `pathlib`
+
+## Cible
+
+- Nouveaux projets : Python 3.12+ sauf contrainte documentée dans le repo
