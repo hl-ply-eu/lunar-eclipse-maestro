@@ -81,11 +81,11 @@ Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C** (600D, 750 mm ± 1,4×, HDR) + **forme A** (100D, time-lapse AEB peu avant U1 → moonset). LEM plutôt sur le 600D. Au MAX le Soleil est encore à −11° : l’umbra n’est pas noyée dans l’aube ([KI-014](known-issues.md)). Les 11,5 EV DxO du 600D **ne remplacent pas** le HDR disque ([formes §11](formes-prise-de-vue.md) : SNR labo ≠ dynamique propre ; croissant qui clippe ; fenêtre glissante ; span = (n−1)×pas).
 
-Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** (pas de l’intervallomètre, *pas* la durée du film → ~10 s à 12 fps) ; **600D en RAW**, rampe 7 × 2 EV **~20–25 s** sous LEM ; une **16 Go** tient **~65 rampes** avec marge, une **32 Go** permet de densifier. Le RAW AEB 100D sur 3 h **ne tient pas** en 16 Go ([KI-016](known-issues.md)). 2 batteries / boîtier.
+Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md), [DEC-014](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** ; **600D en RAW** sur **32 Go** (fenêtre ~04:20 → 07:20). Rampe 7 × 2 EV **~20–25 s** sous LEM ; 16 Go = filet **~65 rampes**. Le RAW AEB 100D sur 3 h **ne tient pas** en 16 Go ([KI-016](known-issues.md)). Pico 32 Go **80 Mo/s** vs 16 Go **95 Mo/s** : pas de re-calage des 3 s (bus 600D ≪ 80). **Swap LP-E8 10 min** vers 05:40 ([KI-022](known-issues.md)).
 
-ISO **800 sur les poses longues seulement** ([DEC-013](decisions.md)) : vues 1–5 à 100/200 (à U1, 1/4000 @ 800 **clippe** le limbe, [KI-017](known-issues.md)). DxO : ~0,5 EV de span 400→800, pas une grosse perte sur les RAW umbra. Rampe **7 vues** le plus souvent ; **étendue sombre** (9 vues, 1 s + 2 s @ 800) aux instants clés — on jette après, carte dans le boîtier.
+ISO **800 sur les poses longues seulement** ([DEC-013](decisions.md)) : vues 1–5 à 100/200 (à U1, 1/4000 @ 800 **clippe** le limbe, [KI-017](known-issues.md)). Rampe **7 vues** le plus souvent ; **étendue sombre** (9 vues) aux instants clés ; **3–5 vues** en pénombre (~04:20) ; **7 → 5 → 3** après 06:44. Au MAX, après l’étendue 9 : rampes diagnostic **ISO 100** puis **ISO 1600** ([DEC-015](decisions.md)) — pas un second HDR. Incremental **N** (Tv+Av+ISO) en tête des étendues et de chaque rampe MAX ([DEC-016](decisions.md)). Carte dans le boîtier, on jette après.
 
-Monture 600D : **taux Lune**, pas sidéral ([KI-008](known-issues.md)). Mise en station au viseur polaire **avant U1**. Le script séance rappellera ça à voix haute (`say` courts à ~1 s, [KI-021](known-issues.md)).
+Monture 600D : **taux Lune**, pas sidéral ([KI-008](known-issues.md)). Mise en station au viseur polaire **avant 04:20**. Le script séance rappellera ça à voix haute (`say` courts à ~1 s, [KI-021](known-issues.md)).
 
 **Déclenchement manuel dédié au MAX** sur le 600D ([KI-010](known-issues.md)), même si LEM tourne.
 
@@ -99,7 +99,7 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 - [ ] Horizon ouest–sud-ouest dégagé (moonset, azimut ~257°)
 - [ ] Optiques confirmées (focale wide U1→moonset)
 - [ ] Test LEM sur le Mac (démarrage + USB 600D) ; charger le bench rampe [`scripts/lem/essais-2026/`](../scripts/lem/essais-2026/)
-- [ ] Monture 750 mm en **taux Lune** (pas sidéral) ; station polaire avant U1
+- [ ] Monture 750 mm en **taux Lune** (pas sidéral) ; station polaire **avant 04:20**
 - [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M
 - [ ] Plan B 600D sans LEM (intervallomètre ou manuel)
-- [ ] Cartes formatées (100D **JPEG Fine** 16 Go, 600D **RAW** 16 ou 32 Go) ; 2 accus / boîtier ; horloges
+- [ ] Cartes formatées (100D **JPEG Fine** 16 Go, 600D **RAW 32 Go** ; 16 Go 600D = filet) ; 2 accus / boîtier ; **swap 600D prévu ~05:40** ; horloges

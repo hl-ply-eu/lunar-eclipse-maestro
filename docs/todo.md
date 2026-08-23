@@ -2,7 +2,8 @@
 
 ## En cours
 
-- [ ] **Scénario 150 mm f/5 + 600D** (prochain agent) — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
+- [ ] **Script séance LEM** (session suivante) — forme C, [formes §11](formes-prise-de-vue.md), [DEC-013](decisions.md)–[DEC-016](decisions.md) : ~04:20 rampe **3–5** ; **7** courante + **étendue 9** aux instants clés ; MAX puis diagnostics **ISO 100 / 1600** ; Incremental **N** en tête des étendues et des 3 rampes MAX, écarts Jubier ≥ 3 s / tampon 5 ; aube **7→5→3** ; trou **10 min** ~05:40 (`say` + Incremental **N**, [KI-022](known-issues.md)) ; ISO **100 / 200 / 800** ; `say` courts + rappel **taux Lune** avant 04:20 ([KI-021](known-issues.md)) ; pas `chapelet_exposure.py` solaire
+- [ ] **Scénario 150 mm f/5 + 600D** — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
 - [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage
 - [ ] **Déploiement LEM** — 1.3.3β1 Intel Y + 600D USB OK ; 100D optionnel ([KI-007](known-issues.md))
 
@@ -12,7 +13,7 @@ _(aucune tâche bloquée)_
 
 ## Backlog
 
-- [ ] Script séance LEM (forme C, [formes §11](formes-prise-de-vue.md), [DEC-013](decisions.md)) : rampe **7** courante + **étendue sombre** (9 vues) aux instants clés ; ISO **100 / 200 / 800** ; `say` courts à ~1 s + rappel **taux Lune** ([KI-021](known-issues.md)) ; pas `chapelet_exposure.py` solaire
+- [ ] Optionnel : rampe 7/7 sur la **32 Go** (80 Mo/s) pour confirmer le tampon — pas un re-calage des 3 s a priori ([KI-016](known-issues.md))
 - [ ] Essai AEB 100D de nuit + aube simulée (retardateur « C », KI-009) — caler t₀ et le plancher 60 vs 90 s
 - [ ] Analyseur de séquence hors ligne si le format de script LEM le justifie
 - [ ] Variantes météo / extinction à basse altitude (~10,5° au MAX à Tournefeuille ; Soleil déjà levé au moonset)
@@ -34,3 +35,6 @@ _(aucune tâche bloquée)_
 - [x] **Copie scripts LEM** (2026-08-23) — `basic.txt` / `deluxe.txt` depuis Pap → [`scripts/lem/`](../scripts/lem/) ; bench 7 × 2 EV dans `essais-2026/` ; KI-018 (exemples totalité, pas séance 2026)
 - [x] **Bench rampe 7 × 2 EV espacé 3 s** (2026-08-23) — `IMG_7685`–`7691` 7/7, vitesses exactes, gaps 3,00 s / 4,00 s, fenêtre 23,0 s ; `IMG_7684` = essai collé 1/15 (KI-020) ; LEM Benchmarks 1,1 s/vue
 - [x] **Suivi Lune + rampe étendue sombre + ISO 100/200/800** (2026-08-23) — DEC-013, KI-008/021 ; 7 vues partout, 9 vues aux instants clés (cas L=2, tri après) ; `say` courts à 1 s ([formes §11](formes-prise-de-vue.md))
+- [x] **Fenêtre 600D pénombre / aube + pause accu** (2026-08-23) — DEC-014, KI-022 ; 04:20 rampe courte, étendues 9, aube 7→5→3, swap 10 min ~05:40 Incremental N ; 32 Go 80 Mo/s vs 16 Go 95 Mo/s sans re-calage ([formes §11–13](formes-prise-de-vue.md))
+- [x] **Diagnostics MAX ISO 100 / 1600** (2026-08-24) — DEC-015 ; après l’étendue 9 seulement : rampe 100 (→ 4 s, suivi) puis 1600 (1/4000 → 1 s, figé) ; +14 CR2 ; pas un second HDR
+- [x] **Incremental N + écarts Jubier** (2026-08-24) — DEC-016 ; N en tête des étendues et des 3 rampes MAX ; Y ensuite ; ≥ 3 s / tampon 5

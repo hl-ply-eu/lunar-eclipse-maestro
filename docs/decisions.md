@@ -124,12 +124,12 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 
 ## DEC-011 : Volume de prises — JPEG 100D, RAW 600D, pas 60–90 s (2026-08-22)
 
-**Contexte :** cartes **16 Go** (et une **32 Go** pour densifier le 600D), **2 batteries par boîtier** ; produit 100D = time-lapse d’ambiance (forme A), 600D = HDR disque (forme C). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13. Complément 600D (durée de rampe / capacité) le **2026-08-23**.
+**Contexte :** cartes **16 Go** (filet / 100D) et une **32 Go** (séance 600D, DEC-014), **2 batteries par boîtier** ; produit 100D = time-lapse d’ambiance (forme A), 600D = HDR disque (forme C). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13. Compléments 600D (durée de rampe, fenêtre, accu) le **2026-08-23**.
 **Décision (étude, pas encore calage terrain) :**
 
 1. **Intervalle 60–90 s** = pas de l’intervallomètre 100D, **pas** la durée du film. 3 h à 90 s → ~120 images/couche → **~5 s** à 25 fps / **~10 s** à 12 fps. Un film cible de 60–90 s exigerait un pas de 5–7 s, incompatible avec AEB « C » = 2.
 2. **100D en JPEG Fine + AEB** (« C » = 2 → 6 JPEG / impulsion). Défaut **90 s** (~720 fichiers, ~5 Go, 2× LP-E12 sans swap). **60 s** seulement si l’essai AEB montre une centrale assez courte *et* avec changement d’accu (réarmer l’AEB, KI-009).
-3. **600D en RAW.** Une rampe 7 × 2 EV : obturation 5,3 s (ISO 100) ; LEM Benchmarks **1,1 s/vue** pose courte (2026-08-23) → rampe serrée **~13–16 s** ; script bench à 3 s entre départs **~23 s**. Manuel ~10–15 s. Une **16 Go** tient **~65 rampes** avec 20–25 % de marge (~620 CR2 plein ; ne pas remplir). Une **32 Go** est disponible si le pas descend sous ~2 min. Les 4 stacks nommés (U1+10, ~50 %, MAX, 06:30) + milieu 3–4 min (~60–90 CR2) restent un choix de *produit*, pas une limite carte. 2× LP-E8 sans enjeu.
+3. **600D en RAW.** Une rampe 7 × 2 EV : obturation 5,3 s (ISO 100) ; LEM Benchmarks **1,1 s/vue** pose courte (2026-08-23) → rampe serrée **~13–16 s** ; script bench à 3 s entre départs **~23 s**. Manuel ~10–15 s. Une **16 Go** tient **~65 rampes** avec 20–25 % de marge (~620 CR2 plein ; ne pas remplir). **Complément 2026-08-23 (DEC-014) :** la fenêtre ~04:20 → moonset (~07:20) à ~2 min dépasse ce plafond → carte de séance **32 Go**. Les 16 Go restent le filet / le 100D. Les 4 stacks nommés (U1+10, ~50 %, MAX, 06:30) restent un choix de *produit*. **Swap LP-E8 planifié** (pause 10 min), plus « 2× sans enjeu sur un seul accu ».
 4. Viser **~10–20 s de film** d’ambiance, pas une minute.
 
 **Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent 720 déclenchements (90 s), pas 1 080 (60 s). Sur le 600D, LEM Benchmarks donne **1,1 s/vue** (pose courte) ; le temps de séance (126 min) n’est pas le goulot — la carte 16 Go l’est dès ~84 rampes (pas 90 s). SEM : forfait analyseur **0,6 s** hors obturation (`DEFAULT_LAG_S`), pas un chrono 0,8 s dans le dépôt.
@@ -160,10 +160,65 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 **Contexte :** mise en station au **viseur polaire** (pas d’astrométrie) ; rampe 7 × 2 EV validée en 23 s (DEC-011) ; carte SD **dans le boîtier** pendant toute la séance (pas de tri sur le vif) ; leçon SEM KI-013 (`say` muet si le message est trop long). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [KI-008](known-issues.md), [KI-021](known-issues.md).
 **Décision (étude, à brancher dans le script séance) :**
 
-1. **Taux Lune** sur la monture, pas sidéral. Rappel oral dans le script LEM (avant U1, et avant la première rampe étendue).
+1. **Taux Lune** sur la monture, pas sidéral. Rappel oral dans le script LEM (avant **04:20**, et avant la première rampe étendue).
 2. **Rampe courante = 7 vues.** Aux **instants clés** (U1+10, ~50 %, MAX, éventuellement 06:30) : rampe **étendue d’éclipse sombre** — **deux vues de plus** (pas de 2 EV, ISO 800). Pas de choix L=3 / L=2 sur le vif : on programme le cas sombre, on jette après si l’umbra était claire.
 3. Grille ISO : **100** (vues 1–2), **200** (vues 3–5), **800** (vues 6–7 et les deux d’étendue). Pas 400 sur les poses longues. 800 n’est pas un ISO unique pour toute la rampe (DEC-012, limbe U1).
 4. Annonces vocales : **plusieurs `COMMAND ;say` courts**, **espacés d’~1 s**, ASCII, ≲ 60 caractères — **pas** un paragraphe unique (SEM : un message long invalidait `say`).
 
 **Justification :** on ne peut pas lire les CR2 pendant l’éclipse. DxO 600D : DR plate 100–400, descente **modérée** à 800 (~0,5 EV de span) — pas une grosse perte, et les poses umbra n’ont pas besoin des hautes lumières de *cette* RAW ; 800 est le seuil ISO-less (Sensorgen ~10,2). Quatre étendues à 9 RAW = +8 CR2.
 **Rejeté :** sidéral par défaut ; décider 8a/8b selon l’aspect visuel ; ISO 400 par défaut sur les poses longues ; ISO 800 dès les vues 1–2 ; une seule phrase `say` longue.
+
+**Complément :** fenêtre pénombre / aube et pause accu = [DEC-014](#dec-014--fenêtre-600d--pénombre-aube-pause-accu-2026-08-23). Diagnostics MAX (ISO 100 / 1600) = [DEC-015](#dec-015--max--rampes-diagnostic-iso-100-et-1600-2026-08-24). Incremental N + écarts Jubier = [DEC-016](#dec-016--incremental-n-aux-rampes-clés--proportions-jubier-2026-08-24).
+
+---
+
+## DEC-014 : Fenêtre 600D — pénombre, aube, pause accu (2026-08-23)
+
+**Contexte :** DEC-013 figeait la *grille* (7 / 9, ISO, taux Lune). L’observateur valide le *calendrier* de séance : référence pleine Lune, poursuite après 06:44, swap LP-E8. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §6, §8, §11, §13.
+**Décision (étude, à brancher dans le script séance) :**
+
+1. **Départ ~04:20** (pénombre, ~U1−14 min), pas P1 03:24. Rampe **courte 3–5 vues** côté 1/1000 (ISO 100/200) : référence **pleine Lune**. Les vues umbra 6–9 crameraient tout le disque — on ne les programme pas ici.
+2. **U1 → ~06:40** : inchangé (DEC-013) — rampe **7** courante ; **étendue 9** à U1+10, ~50 %, MAX, éventuellement 06:30.
+3. **Après 06:44 jusqu’au moonset (~07:20)** : on **continue**, rampes **raccourcies** (7 → 5 → 3) à mesure que le fond monte. À chaque palier on garde **une vue trop longue** (optimiste) ; on la jette après si le ciel l’a cramée. Plus d’étendue 9 après 06:30.
+4. **Pause accu 10 min** vers **05:40–05:55** (après l’étendue ~50 % à 05:23, avant le MAX 06:13). LP-E8 sous le boîtier = coupure + USB tombé. Script : trou sans `TAKEPIC` ; `say` courts ; premier `TAKEPIC` après reprise en Incremental **N** (config complète), pas **Y**. Vérifier que LEM revoit `600D-T150` avant de reprendre.
+5. Carte de séance 600D = **32 Go**. Pico d’écriture annoncé **80 Mo/s** vs **95 Mo/s** sur les 16 Go déjà benchées : **pas de re-calage** des 3 s entre départs ([KI-016](known-issues.md)) — le goulot mesuré est le USB 1,1 s/vue / le bus SD du 600D (~15–25 Mo/s), pas le débit marketing de la carte.
+
+**Justification :** 04:20 aligne le 600D sur le départ 100D et donne un stack uneclipsé. 06:44 n’est plus une coupure : le croissant reste posable, l’umbra non. Un LP-E8 (CIPA 440) + USB allumé 3 h ne couvre pas ~04:20→07:20 à 2 min ; le swap *avant* le MAX protège le produit. Volume élargi → 32 Go (16 Go ≈ 65 rampes de 7).
+**Rejeté :** partir à U1 pile sans référence pleine Lune ; couper le 600D à 06:44 ; swap « si le témoin clignote » au MAX ; Incremental **Y** juste après power cycle ; recaler la rampe à 3 s *parce que* 80 Mo/s < 95 Mo/s.
+
+---
+
+## DEC-015 : MAX — rampes diagnostic ISO 100 et 1600 (2026-08-24)
+
+**Contexte :** au MAX (06:13) la rampe **étendue 9** (DEC-013) est le *produit* HDR. Elle ne juge ni le suivi (plus longue = 2 s @ 800) ni le figé (plus courte = 1/1000 @ 100). Polar au viseur, taux Lune, PE inconnue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [KI-008](known-issues.md), [KI-010](known-issues.md).
+**Décision (étude, MAX seulement, après le produit) :**
+
+1. Ordre **figé** : (1) étendue nominale 9 vues — **ne pas la reculer** ; (2) rampe **ISO 100** constante, 7 × 2 EV, 1/1000 → **4 s** ; (3) rampe **ISO 1600** constante, 7 × 2 EV, **1/4000 → 1 s**. Pas aux autres instants clés.
+2. Chaque rampe commence en Incremental **N** ([DEC-016](#dec-016--incremental-n-aux-rampes-clés--proportions-jubier-2026-08-24)). Entre les trois : **~10 s** sans `TAKEPIC` (tampon RAW Jubier = 5 ; 9+7+7 = 23 CR2 d’affilée satureraient). `say` courts (`Rampe max` / `Iso 100` / `Iso 1600`). Écarts intra-rampe : durée de la vue précédente + USB, **≥ 3 s** entre départs tant que le serré n’est pas validé.
+3. Les deux rampes extra sont du **diagnostic**, pas un second HDR. On ne les merge pas avec l’étendue 9. ISO 1600 est **au-delà** du seuil ISO-less 800 (DEC-012) : le gain est la vitesse, pas la DR.
+4. Bloc MAX ≈ **90–110 s**. La rampe courante suivante à ~2 min est **sautée** (le bloc *est* le MAX dédié, KI-010). +14 CR2, négligeable en 32 Go.
+
+**Justification :** ISO 100 × 4 s montre la PE / la station (le 0,5 s @ 800 de la vue 7 nominale a les mêmes photons, 8× moins de filé). ISO 1600 × 1/4000 fige seeing + résidu de suivi ; au MAX le croissant supporte 1/4000 (DEC-012). Tout de suite après le produit, tant que le cadrage et le taux Lune sont encore ceux du MAX.
+**Rejeté :** substituer le diagnostic à l’étendue 9 ; intercaler 100/1600 *avant* le produit ; répéter 100/1600 à U1+10 / 50 % / 06:30 ; ISO 3200+ ; fusionner les 23 RAW en un seul HDR.
+
+---
+
+## DEC-016 : Incremental N aux rampes clés + proportions Jubier (2026-08-24)
+
+**Contexte :** Incremental **Y** n’envoie que le *delta* depuis le dernier `TAKEPIC`. Aux instants clés la grille ISO change (100/200/800 → 100 constant → 1600) ; un Y peut laisser Tv/ISO périmés ([KI-020](known-issues.md), [KI-022](known-issues.md)). Les exemples Jubier (`deluxe.txt`) mettent **N** en tête de chaque *bloc* de phase, **Y** ensuite. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-015](#dec-015--max--rampes-diagnostic-iso-100-et-1600-2026-08-24).
+**Décision (étude, script séance) :**
+
+1. **Config complète (Incremental N)** sur le *premier* `TAKEPIC` de :
+   - chaque rampe **étendue** (U1+10, ~50 %, MAX produit, éventuellement 06:30) ;
+   - **chacune** des 3 rampes du MAX (étendue 9, ISO 100, ISO 1600) ;
+   - la première rampe de la séance (~04:20) et la première après le swap accu (déjà DEC-014).
+   Les vues suivantes de *cette* rampe : **Y**. Pas N sur chaque fichier (lent, inutile).
+2. Rampes **courantes** à ~2 min : même schéma que le bench (1ʳᵉ vue **N**, suite **Y**) — déjà la « proportion » Jubier d’un bloc homogène.
+3. **Écarts (aide LEM / FAQ « skips exposures »)** — non négociables, même si on resserre plus tard :
+   - un horodatage **distinct** par vue (jamais 7 lignes au même MAX+0) ;
+   - écart ≥ **durée de la vue précédente + ~1,1 s** (Benchmarks) ; 600D : **≥ 3 s entre départs** tant que le serré n’est pas validé ; après une pose 1 s, +4 s avant une 4 s (bench) ;
+   - tampon RAW Jubier = **5** ; au MAX, **~10 s** sans `TAKEPIC` entre les 3 rampes (DEC-015) ;
+   - APN encore occupé + Incremental Y = vitesse X demandée / Y prise.
+
+**Justification :** N force Tv+Av+ISO avant un stack dont on ne relira pas les CR2. Y à l’intérieur d’une rampe évite de retéléverser l’ouverture muette à chaque vue (KI-019). Les 3 s / tampon 5 sont la recette Jubier déjà mesurée 7/7.
+**Rejeté :** Incremental Y en tête d’une étendue ou d’une des 3 rampes MAX ; N sur les 7/9 vues de chaque rampe ; coller les `TAKEPIC` au même instant ; ignorer le tampon 5 au MAX.

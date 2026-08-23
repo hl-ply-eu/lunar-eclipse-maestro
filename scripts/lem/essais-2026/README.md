@@ -16,12 +16,16 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 |---------------|------|-----|
 | `bench-rampe-7x2ev.txt` | Chrono d’**une** rampe 7 × 2 EV (forme C) | `600D-T150` |
 
-Pas encore de script séance (U1 → ~06:40). Recette à écrire ([DEC-013](../../../docs/decisions.md)) :
+Pas encore de script séance (~04:20 → moonset). Recette ([DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md)) :
 
-- rampe **7 vues** partout ; **étendue sombre** (9 vues : + 1 s et 2 s @ 800) aux instants clés — pas de tri sur le vif ;
+- ~04:20 : rampe **3–5 vues** (pleine Lune) ; rappel oral **taux Lune** ;
+- U1 → ~06:40 : rampe **7** ; **étendue 9** aux instants clés — pas de tri sur le vif ;
+- au **MAX**, après l’étendue 9 : rampes diagnostic **ISO 100** (→ 4 s) puis **ISO 1600** (1/4000 → 1 s), ~10 s de vidage entre les trois ([DEC-015](../../../docs/decisions.md)) ;
+- Incremental **N** (Tv+Av+ISO) en tête des étendues et de **chaque** rampe MAX ; Y ensuite ; écarts ≥ 3 s, tampon 5 ([DEC-016](../../../docs/decisions.md)) ;
+- ~05:40–05:55 : trou **10 min**, `say`, premier `TAKEPIC` Incremental **N** ([KI-022](../../../docs/known-issues.md)) ;
+- 06:44 → moonset : **7 → 5 → 3** (une vue trop longue gardée par palier) ;
 - ISO **100 / 200 / 800** (vues 1–2 / 3–5 / 6–9) ;
-- monture en **taux Lune** — rappel oral avant U1 ;
-- annonces : plusieurs `COMMAND ;say` **courts**, **+1 s** entre eux, ASCII, ≲ 60 car. ([KI-021](../../../docs/known-issues.md)). Un paragraphe unique invalidait `say` sous SEM.
+- annonces : plusieurs `COMMAND ;say` **courts**, **+1 s** entre eux, ASCII, ≲ 60 car. ([KI-021](../../../docs/known-issues.md)).
 
 Grammaire (ASCII, ~1 s d’écart) :
 

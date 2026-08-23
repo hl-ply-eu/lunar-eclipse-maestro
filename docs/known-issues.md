@@ -76,7 +76,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Symptôme (trépied fixe) :** à 280 mm APS-C, ~4,5 px/s (≈ 14″/s). Une pose umbra de 1–4 s produit 5–18 px de filé. À 60 mm : ~1 px/s ; à 15–25 mm : négligeable pour 1–4 s.
 **Action :** plafond de pose vs SNR uniquement sur le boîtier chapelet (trépied). Sur l’équatoriale : juger l’erreur périodique / mise en station, pas la dérive diurne. Le simulateur `simulate_fov.py` (caméra fixe) ne décrit **pas** le 750 mm suivi.
 
-**Viseur polaire (pas d’astrométrie) :** une erreur de station de ~0,5° ne fait qu’une fraction de pixel en 4 s à 750 mm. Le filé dominant **sans taux Lune** est le décalage lunaire vs sidéral (~0,55″/s → **~2″ / ~2 px en 4 s**, **~7 px en 15 s** à 750 mm APS-C). **DEC-013 : activer le suivi lunaire** (rappel oral dans le script). Avec ce taux, il reste l’erreur périodique / la station. Alignement dans la nuit, **avant U1**, pas à 06:13. Rampe courante : plus longue **1/2 s @ ISO 800**. Rampes **étendues** (1 s + 2 s @ 800, cas sombre) **uniquement** aux instants clés, taux Lune **on**. Pas de tri sur le vif (carte dans le boîtier).
+**Viseur polaire (pas d’astrométrie) :** une erreur de station de ~0,5° ne fait qu’une fraction de pixel en 4 s à 750 mm. Le filé dominant **sans taux Lune** est le décalage lunaire vs sidéral (~0,55″/s → **~2″ / ~2 px en 4 s**, **~7 px en 15 s** à 750 mm APS-C). **DEC-013 : activer le suivi lunaire** (rappel oral dans le script). Avec ce taux, il reste l’erreur périodique / la station. Alignement dans la nuit, **avant 04:20**, pas à 06:13. Rampe courante : plus longue **1/2 s @ ISO 800**. Rampes **étendues** (1 s + 2 s @ 800, cas sombre) **uniquement** aux instants clés, taux Lune **on**. Pas de tri sur le vif (carte dans le boîtier).
 
 ---
 
@@ -96,7 +96,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 **Statut :** Transféré de SEM KI-018 (totalité solaire tombée dans un trou de 239 s).
 **Symptôme :** un intervallomètre calé « pile » sur un contact échoue dès que le run part en retard.
-**Action :** prévoir un **déclenchement manuel dédié au maximum** (et autour de U1 si besoin). Noter l'heure de départ réelle. L'intervalle du chapelet ne doit pas être le seul filet pour l'instant critique.
+**Action :** prévoir un **déclenchement manuel dédié au maximum** (et autour de U1 si besoin). Noter l'heure de départ réelle. L'intervalle du chapelet ne doit pas être le seul filet pour l'instant critique. Sous LEM, le MAX 600D est le **bloc** étendue 9 + diagnostics ISO 100 / 1600 ([DEC-015](decisions.md)) : ne pas y superposer une rampe courante à +2 min.
 
 ---
 
@@ -120,7 +120,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 **Statut :** Géométrie Tournefeuille 28 août 2026 (Skyfield DE421).
 **Symptôme :** le MAX est à 06:13 CEST, proche de l’aube calendaire, ce qui suggère un ciel trop clair pour des poses umbra. En réalité le Soleil est encore à **−11,2°** (crépuscule nautique), à 179° d’azimut de la Lune.
-**Action :** poser l’umbra **U1 → ~06:40**. Dès le crépuscule civil (06:44, Lune à 5,6°) les poses longues ramassent l’aube. Après le lever (07:15) l’umbra est perdue ; le 100D AEB continue jusqu’au moonset pour l’ambiance. Ne pas conclure « MAX = jour ».
+**Action :** poser l’umbra **U1 → ~06:40**. Dès le crépuscule civil (06:44, Lune à 5,6°) les poses longues ramassent l’aube. Après le lever (07:15) l’umbra est perdue. Le **600D continue** jusqu’au moonset avec des rampes **raccourcies** (croissant / silhouette, [DEC-014](decisions.md)) ; le 100D AEB aussi, pour l’ambiance. Ne pas conclure « MAX = jour ».
 
 ---
 
@@ -134,9 +134,10 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-016 : 16 Go — le RAW AEB 100D ne tient pas 3 h
 
-**Statut :** Contrainte matériel observateur (cartes **16 Go**, une **32 Go** pour densifier le 600D, 2 accus / boîtier).
-**Symptôme :** 100D, « C » = 2 → 6 fichiers / impulsion. Sur 16 Go : ~620 CR2 vs ~2 470 JPEG Fine. À 90 s pendant 3 h : 720 fichiers (~17 Go en RAW, ~5 Go en JPEG). À 60 s : 1 080 fichiers, encore pire en RAW. Deux accus CIPA (380 × 2 = 760) couvrent 720 déclenchements (90 s), pas 1 080 (60 s). 600D : ~88 rampes de 7 RAW rempliraient une 16 Go ; une carte **pleine** ralentit l’énumération USB (leçon SEM).
-**Action :** 100D en **JPEG Fine + AEB** ; défaut **90 s** ; 60 s seulement avec swap d’accu **et** AEB réarmé (KI-009). 600D : RAW ; viser **~65 rampes / 16 Go** (marge 20–25 %) ; **32 Go** si le pas LEM < ~2 min ; ne pas remplir. Ne pas régler l’intervallomètre sur la *durée de film* voulue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13, [DEC-011](decisions.md).
+**Statut :** Contrainte matériel observateur (cartes **16 Go**, une **32 Go** carte de séance 600D, 2 accus / boîtier).
+**Symptôme :** 100D, « C » = 2 → 6 fichiers / impulsion. Sur 16 Go : ~620 CR2 vs ~2 470 JPEG Fine. À 90 s pendant 3 h : 720 fichiers (~17 Go en RAW, ~5 Go en JPEG). À 60 s : 1 080 fichiers, encore pire en RAW. Deux accus CIPA (380 × 2 = 760) couvrent 720 déclenchements (90 s), pas 1 080 (60 s). 600D : ~88 rampes de 7 RAW rempliraient une 16 Go ; une carte **pleine** ralentit l’énumération USB (leçon SEM). Fenêtre DEC-014 (~04:20 → 07:20 à ~2 min) ≈ 500+ CR2 → **au-delà du plafond 16 Go avec marge**.
+**Débit annoncé 32 Go vs 16 Go :** 32 Go **80 Mo/s**, 16 Go benchées **95 Mo/s** (pics marketing, souvent UHS-I « jusqu’à »). Un CR2 ~24,5 Mo à 80 Mo/s ≈ 0,3 s/fichier vs 0,26 s à 95 Mo/s (~50 ms). Le 600D (2011) n’alimente le bus SD qu’à **~15–25 Mo/s** ; LEM Benchmarks = **1,1 s/vue** USB. Les deux cartes sont au-dessus du plafond boîtier. Tampon RAW Jubier = 5 ; espacement 3 s entre départs déjà largement > vidage d’un CR2. **Pas de re-calage** des timings de rampe. Inconnu : Speed Class réelle (U1/V10 vs U3/V30) — si la 32 Go n’était que U1, le plancher *garanti* (10 Mo/s) resterait sous le bus 600D. Optionnel : une rampe 7/7 sur la 32 Go pour confirmer le tampon, pas pour changer les 3 s a priori.
+**Action :** 100D en **JPEG Fine + AEB** ; défaut **90 s** ; 60 s seulement avec swap d’accu **et** AEB réarmé (KI-009). 600D : RAW sur **32 Go** (séance élargie, DEC-014) ; 16 Go = filet / plafond **~65 rampes** si on restait U1→06:40 ; ne pas remplir. Ne pas régler l’intervallomètre sur la *durée de film* voulue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13, [DEC-011](decisions.md), [DEC-014](decisions.md).
 
 ---
 
@@ -144,7 +145,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 **Statut :** Confusion de métriques (DxO *Low-Light* / ISO-less DSO vs span de scène).
 **Symptôme :** prendre 793 / 843 (DxO Sports) ou le « best ISO 800 » ciel profond comme ISO de travail unique, et en déduire qu’on peut raccourcir le 7 × 2 EV — sauf si 1/4000 s clippe le croissant.
-**Action :** le contraste croissant/umbra ne dépend pas de l’ISO ; 800 **raccourcit les temps**, pas le nombre de vues. **800 n’est pas l’ISO des vues courtes** (DEC-013) : 100/200 sur 1–5 (limbe U1), **800 sur les poses longues**. 400→800 n’est pas une grosse perte RAW umbra. 1/4000 est trop lent à ISO 800 · f/5 **à U1**, pas au MAX. 100D : 800 aide le cycle AEB. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-012](decisions.md).
+**Action :** le contraste croissant/umbra ne dépend pas de l’ISO ; 800 **raccourcit les temps**, pas le nombre de vues. **800 n’est pas l’ISO des vues courtes** (DEC-013) : 100/200 sur 1–5 (limbe U1), **800 sur les poses longues**. 400→800 n’est pas une grosse perte RAW umbra. 1/4000 est trop lent à ISO 800 · f/5 **à U1**, pas au MAX. ISO **1600** = diagnostic MAX seulement ([DEC-015](decisions.md)), au-delà de l’ISO-less : figé, pas DR. 100D : 800 aide le cycle AEB. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-012](decisions.md).
 
 ---
 
@@ -169,7 +170,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 **Statut :** Constaté 2026-08-23, bench 600D-T150 (`IMG_7684` : 1 CR2 à **1/15 s**). Contre-essai espacé **7/7** (`IMG_7685`–`7691`, gaps 3,00 s / 4,00 s, fenêtre 23,0 s).
 **Symptôme :** sept `TAKEPIC,MAX,+,00:00.0,…` collés. LEM les traite comme dus *en même temps* ; le 600D n’en prend qu’une (ici la 4ᵉ vitesse de la rampe). Aide format : l’écart entre deux poses doit **inclure la durée de la précédente**. FAQ dépannage : *« My camera skips exposures »* → espacer ; APN lents **≥ 3 s**.
-**Action :** un horodatage **distinct** par vue. Bench : départs MAX+0 / +3 / +6 / +9 / +12 / +15 / +19 s. Temps simulé **avant** MAX (−30 s) et **laisser courir** jusqu’à MAX+30 s (ne pas sauter pile sur MAX : les actions à +0 sont alors déjà « passées »). Recopier le `.txt` sur le Mac après chaque edit.
+**Action :** un horodatage **distinct** par vue. Bench : départs MAX+0 / +3 / +6 / +9 / +12 / +15 / +19 s. Temps simulé **avant** MAX (−30 s) et **laisser courir** jusqu’à MAX+30 s (ne pas sauter pile sur MAX : les actions à +0 sont alors déjà « passées »). Recopier le `.txt` sur le Mac après chaque edit. Script séance : Incremental **N** en tête des étendues et de **chaque** rampe MAX ([DEC-016](decisions.md)) ; écarts = durée précédente + ~1,1 s, plancher 3 s ; tampon 5 → ~10 s entre les 3 blocs MAX.
 
 **Trop serré mais horodatages distincts** (pas le cas MAX+0) : LEM n’empile pas. Chaque `TAKEPIC` part à *son* instant. Si le 600D est encore en pose / USB / vidage, FAQ : vue **sautée**, ou vitesse **X demandée / Y prise** (surtout Incremental **Y** : le changement de réglage n’est pas passé). Tampon RAW Jubier = **5** : au-delà le boîtier décroche. Analyseur : Temps libre &lt; 1–2 s = suspect. Règle d’écart : **durée de la vue précédente + ~1,1 s** (Benchmarks) + marge.
 
@@ -180,3 +181,11 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Mesuré sur **SEM** le 2026-08-12 (même famille d’appli, même Mac). Pas encore benché sous LEM ; on applique la même recette au script séance ([DEC-013](decisions.md)).
 **Symptôme :** `COMMAND ;say` s’exécute, mais un message trop long reste **muet**. SEM : « Controle. Mise au point. Niveau du trepied. Filtre en place. Cadrage dans quatre minutes. » = silence ; la même phrase sans la dernière clause = OK. Seuil pratique ≈ **60 caractères**. Accents UTF-8 : scripts en **ASCII pur** (SEM KI-013).
 **Action (script LEM final) :** plusieurs annonces **courtes**, **espacées d’~1 s**, plutôt qu’un paragraphe. Ex. rappel suivi : `say "Suivi Lune"` puis +1 s `say "Pas sideral"` — pas « Verifier le taux lunaire de la monture, pas le sideral. ». Repli SEM (`PLAY FR_*.wav` dans `AdditionalSounds/`) seulement si `say` est muet aussi sous LEM. Détail : [scripts/lem/essais-2026/README.md](../scripts/lem/essais-2026/README.md).
+
+---
+
+## KI-022 : Swap LP-E8 600D — USB tombé, Incremental Y périmé
+
+**Statut :** Décision de séance ([DEC-014](decisions.md)) ; pas encore répété sous LEM (le bench 23 août n’a pas coupé l’accu).
+**Symptôme :** le LP-E8 s’extrait par le **fond** du 600D. Couper l’accu = extinction + **renumérotation USB**. LEM peut garder en cache les derniers Tv/Av/ISO. Un `TAKEPIC` Incremental **Y** n’envoie que le *delta* : vitesses fausses ou vues sautées (voisin de [KI-020](known-issues.md)). Ce n’est pas l’AEB qui s’efface ([KI-009](known-issues.md), 100D).
+**Action :** trou script **10 min** (~05:40–05:55, après étendue ~50 %, avant MAX). `say` courts (T−2 min, T−1 min, début de trou, reprise). Premier `TAKEPIC` après reprise : Incremental **N**. Même **N** en tête de chaque étendue et de chaque rampe MAX ([DEC-016](decisions.md)). Vérifier l’icône `600D-T150` avant de laisser courir. Ne pas swapper au MAX ni pendant une étendue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13.
