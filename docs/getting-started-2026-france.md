@@ -81,7 +81,7 @@ Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C** (600D, 750 mm ± 1,4×, HDR) + **forme A** (100D, time-lapse AEB peu avant U1 → moonset). LEM plutôt sur le 600D. Au MAX le Soleil est encore à −11° : l’umbra n’est pas noyée dans l’aube ([KI-014](known-issues.md)). Les 11,5 EV DxO du 600D **ne remplacent pas** le HDR disque ([formes §11](formes-prise-de-vue.md) : SNR labo ≠ dynamique propre ; croissant qui clippe ; fenêtre glissante ; span = (n−1)×pas).
 
-Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** (pas de l’intervallomètre, *pas* la durée du film → ~10 s à 12 fps) ; **600D en RAW**, ~70–90 vues. Cartes **16 Go** : le RAW AEB 100D sur 3 h **ne tient pas** ([KI-016](known-issues.md)). 2 batteries / boîtier.
+Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** (pas de l’intervallomètre, *pas* la durée du film → ~10 s à 12 fps) ; **600D en RAW**, rampe 7 × 2 EV **~20–25 s** sous LEM ; une **16 Go** tient **~65 rampes** avec marge, une **32 Go** permet de densifier. Le RAW AEB 100D sur 3 h **ne tient pas** en 16 Go ([KI-016](known-issues.md)). 2 batteries / boîtier.
 
 ISO **800 n’est pas l’ISO optimal de dynamique** (DxO Sports = plafond SNR 30 dB). Ça **raccourcit** la rampe (4 s → 0,5 s), ça ne coupe pas de vues du 7 × 2 EV. À U1, 1/4000 s à ISO 800 · f/5 **clippe** le limbe encore plein ([DEC-012](decisions.md), [KI-017](known-issues.md)).
 
@@ -99,4 +99,4 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 - [ ] Test LEM sur le Mac (démarrage + USB 600D)
 - [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M
 - [ ] Plan B 600D sans LEM (intervallomètre ou manuel)
-- [ ] Cartes 16 Go formatées (100D **JPEG Fine**, 600D **RAW**) ; 2 accus / boîtier ; horloges
+- [ ] Cartes formatées (100D **JPEG Fine** 16 Go, 600D **RAW** 16 ou 32 Go) ; 2 accus / boîtier ; horloges

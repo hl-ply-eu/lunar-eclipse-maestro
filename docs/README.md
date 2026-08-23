@@ -16,7 +16,7 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   Étude : ambiance, HDR disque, aube, 600D vs 100D (DxO), OM-3 / OM-5 II,
   pourquoi 11,5 EV labo n’éliminent pas la rampe 7 × 2 EV ; ISO 800 décale
   les temps, pas le nombre de vues ; volume (§13) : JPEG 100D vs RAW 600D,
-  intervalle ≠ durée de film.
+  intervalle ≠ durée de film ; rampe 600D ~20–25 s, ~65 rampes / 16 Go.
 
 ## Mémoire projet
 

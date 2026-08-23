@@ -420,7 +420,8 @@ sain vers 06:13–06:40 (KI-014). Si l’umbra est un L=2 sombre, ajouter une
 
 Pas un stack toutes les 30 s : **aux instants clés** (U1+10 min, ~50 %, MAX,
 éventuellement 06:30). Entre les stacks, une vue « milieu » ou la rampe LEM
-suffit. Le 600D AEB ne remplace pas cette séquence : LEM ou bracketing manuel
+suffit. Durée et capacité carte : [§13](#600d--durée-dune-rampe-capacité-carte).
+Le 600D AEB ne remplace pas cette séquence : LEM ou bracketing manuel
 (MAX dédié, KI-010).
 
 ### ISO 800 : ça raccourcit les temps, pas le nombre de vues
@@ -492,7 +493,8 @@ balance plutôt « lumière du jour », pas un WB trop chaud.
 ## 13. Volume de prises (deux boîtiers)
 
 Pas un script LEM, pas un plan d’expo Jubier. Ordre de grandeur + intervalle de
-travail, avec le matériel annoncé : **cartes 16 Go**, **2 batteries par boîtier**.
+travail, avec le matériel annoncé : **cartes 16 Go** (et une **32 Go** pour le
+600D si l’on densifie), **2 batteries par boîtier**.
 Le protocole 7 × 2 EV (span, DxO, liseré) reste au §11.
 
 Hypothèse : [DEC-011](decisions.md). Piège cartes : [KI-016](known-issues.md).
@@ -587,12 +589,45 @@ vers 05:30–05:40, AEB réarmé, ne plus éteindre ensuite.
 MAX manuel sur le wide si le trou d’intervalle est large ([KI-010](known-issues.md))
 — à 90 s ce n’est plus critique, une impulsion tombera à ±45 s du MAX.
 
-### 600D — stacks + vues entre les stacks
+### 600D — durée d’une rampe, capacité carte
 
 Fenêtre umbra **U1 04:34 → ~06:40** (~126 min). Après 06:44 : croissant /
-silhouette seulement (KI-014). RAW, 16 Go largement suffisant.
+silhouette seulement (KI-014). RAW.
 
-**4 stacks** × 7 RAW aux instants du §11 :
+**Durée d’une rampe 7 × 2 EV.** L’obturation (ISO 100, f/5, 1/1000 → 4 s,
+§11) ne fait que **5,3 s**. Le cycle 600D et LEM dominent :
+
+- Cycle RAW ~0,46 s/vue ; tampon **6 RAW** (la 7ᵉ attend déjà le vidage).
+- Espacement type SEM `TAKEPIC` Incremental : ~**2,5 s** entre *départs* de
+  vues courtes (script Frías).
+- Vidage tampon après la dernière : +3–5 s.
+
+| Pilotage | Durée d’une rampe (ordre de grandeur) |
+|----------|----------------------------------------|
+| Manuel, vue par vue | **~10–15 s** |
+| LEM USB (`TAKEPIC`) | **~20–25 s** |
+
+ISO 800 raccourcit la plus longue (4 s → 0,5 s) mais **pas** l’horloge LEM :
+les 6 premières restent calées sur ~2,5 s. À chronométrer sur l’essai LEM.
+
+**Capacité.** Canon : CR2 ~24,5 Mo, **~620 RAW / 16 Go** (KI-016). Les CR2
+Frías du même 600D font ~19 Mo (ciel sombre) ; à 750 mm le disque remplit plus
+le cadre, et l’ISO 800 gonfle le fichier → rester sur 24,5 Mo pour
+dimensionner. Ne **pas** remplir (SEM : carte pleine = APN lent à apparaître).
+
+| Carte | Plein (~24,5 Mo) | Marge 20–25 % (**retenu**) |
+|-------|------------------|----------------------------|
+| **16 Go** | ~88 rampes (620 / 7) | **~65–70 rampes** (~455–490 CR2, ~11–12 Go) |
+| **32 Go** (disponible) | ~170 rampes | **~130 rampes** — si l’on densifie au-delà de 16 Go |
+
+2× LP-E8 : 65 × 7 = 455 déclenchements ≪ 440 CIPA × 2.
+
+Sur 126 min, le **temps n’est pas le goulot** (une rampe = 20–25 s). Une rampe
+toutes les **2 min** → 63 rampes / 441 CR2 / ~11 Go : tient en 16 Go. Toutes
+les **90 s** (~84 rampes) collerait trop au plafond 16 Go — là, **32 Go**.
+
+**Produit (étude).** Les 4 instants du §11 restent les stacks *nommés* ; ce
+n’est **pas** une contrainte carte.
 
 | Instant | CEST (approx.) |
 |---------|----------------|
@@ -601,12 +636,9 @@ silhouette seulement (KI-014). RAW, 16 Go largement suffisant.
 | MAX | 06:13 |
 | 06:30 (encore nautique) | 06:30 |
 
-= **28 RAW**. Entre les stacks, **1 vue « milieu »** toutes les **3–4 min**
-(ou la rampe LEM si le Mac suit) : ~30 RAW. Total forme C : **~60–90 RAW**
-(~1,5–2 Go). 2× LP-E8 : sans enjeu (≪ 440 CIPA × 2).
-
-Pas un stack toutes les 30 s. Le MAX reste un déclenchement **dédié**
-(KI-010), même sous LEM.
+Entre les stacks, une vue « milieu » / 3–4 min *ou* la rampe LEM. Plan sparse
+(4 × 7 + ~30 milieu) ≈ **60–90 RAW**, ~15 % d’une 16 Go. Pas un stack toutes
+les 30 s. Le MAX reste un déclenchement **dédié** (KI-010), même sous LEM.
 
 ### Fourchette de séance
 
@@ -614,15 +646,18 @@ Pas un stack toutes les 30 s. Le MAX reste un déclenchement **dédié**
 |--|----------|--------|-------|
 | 100D JPEG Fine, **90 s**, « C » = 2 | ~720 | ~5 Go / 16 Go | 2 packs, sans swap |
 | 600D RAW, 4 stacks + milieu 3–4 min | ~70–90 | ~2 Go / 16 Go | 2 packs, large |
-| **Total** | **~800** | **~7 Go** (une 16 Go / boîtier) | 2+2 accus |
+| 600D RAW, rampe LEM / 2 min (plafond 16 Go) | ~440 | ~11 Go / 16 Go | 2 packs, large |
+| **Total sparse** | **~800** | **~7 Go** (une 16 Go / boîtier) | 2+2 accus |
 
-(À 60 s sur le 100D : ~1 080 JPEG / ~7 Go, et un swap d’accu.)
+(À 60 s sur le 100D : ~1 080 JPEG / ~7 Go, et un swap d’accu. Sur le 600D,
+une **32 Go** si le pas LEM descend sous ~2 min.)
 
 Ce n’est pas encore un script LEM ni un calage de t₀. L’essai AEB 100D
 nuit + aube décide si 60 s est tenable (pose centrale assez courte) ou si
 90 s reste le plancher. ISO 800 sur ce run (si la centrale nuit le permet)
 raccourcit surtout la vue +2 EV, donc le *cycle*, pas le nombre de fichiers
 ([§11, ISO 800](#iso-800--ça-raccourcit-les-temps-pas-le-nombre-de-vues)).
+L’essai rampe LEM sur le 600D chronomètre la durée réelle (vs ~20–25 s).
 
 ---
 
@@ -631,7 +666,9 @@ raccourcit surtout la vue +2 EV, donc le *cycle*, pas le nombre de fichiers
 - [ ] Essai AEB 100D de nuit + aube simulée (même chaîne « C » que Frías) ;
       caler la vue centrale pour la nuit, laisser ±2 EV absorber l’aube ;
       mesurer le plancher d’intervalle réel (60 vs 90 s).
-- [ ] Test Mac LEM + USB 600D ; tenter le 1,4× sur le 750 mm (dérive).
+- [ ] Déploiement LEM Mac (install, prise en main, USB 600D) ; **scénario de
+      benchmark** : chronométrer une rampe 7 × 2 EV (estimation §13 : ~20–25 s),
+      tampon / vidage ; tenter le 1,4× sur le 750 mm (dérive).
 - [ ] Brancher la calculatrice LEM / Jubier sur la séquence **7 × 2 EV** (f/5),
       ISO mixte 100–200 (vues courtes, U1) / 400–800 (umbra).
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200).

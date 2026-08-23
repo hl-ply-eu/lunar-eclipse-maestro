@@ -124,15 +124,15 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 
 ## DEC-011 : Volume de prises — JPEG 100D, RAW 600D, pas 60–90 s (2026-08-22)
 
-**Contexte :** cartes **16 Go**, **2 batteries par boîtier** ; produit 100D = time-lapse d’ambiance (forme A), 600D = HDR disque (forme C). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13.
+**Contexte :** cartes **16 Go** (et une **32 Go** pour densifier le 600D), **2 batteries par boîtier** ; produit 100D = time-lapse d’ambiance (forme A), 600D = HDR disque (forme C). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13. Complément 600D (durée de rampe / capacité) le **2026-08-23**.
 **Décision (étude, pas encore calage terrain) :**
 
 1. **Intervalle 60–90 s** = pas de l’intervallomètre 100D, **pas** la durée du film. 3 h à 90 s → ~120 images/couche → **~5 s** à 25 fps / **~10 s** à 12 fps. Un film cible de 60–90 s exigerait un pas de 5–7 s, incompatible avec AEB « C » = 2.
 2. **100D en JPEG Fine + AEB** (« C » = 2 → 6 JPEG / impulsion). Défaut **90 s** (~720 fichiers, ~5 Go, 2× LP-E12 sans swap). **60 s** seulement si l’essai AEB montre une centrale assez courte *et* avec changement d’accu (réarmer l’AEB, KI-009).
-3. **600D en RAW** : 4 stacks 7 × 2 EV (U1+10, ~50 %, MAX, 06:30) + 1 vue milieu / 3–4 min → **~60–90 CR2**. 16 Go et 2× LP-E8 largement suffisants.
+3. **600D en RAW.** Une rampe 7 × 2 EV dure **~20–25 s** sous LEM (~10–15 s en manuel) : l’obturation (5,3 s à ISO 100) n’est pas le poste. Une **16 Go** tient **~65 rampes** avec 20–25 % de marge (~620 CR2 plein ; ne pas remplir). Une **32 Go** est disponible si le pas descend sous ~2 min. Les 4 stacks nommés (U1+10, ~50 %, MAX, 06:30) + milieu 3–4 min (~60–90 CR2) restent un choix de *produit*, pas une limite carte. 2× LP-E8 sans enjeu.
 4. Viser **~10–20 s de film** d’ambiance, pas une minute.
 
-**Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent ~720 déclenchements (90 s), pas 1 080 (60 s).
+**Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent ~720 déclenchements (90 s), pas 1 080 (60 s). Sur le 600D, l’horloge LEM (~2,5 s entre départs `TAKEPIC`, tampon 6 RAW) fixe la durée de rampe ; le temps de séance (126 min) n’est pas le goulot — la carte 16 Go l’est dès ~84 rampes (pas 90 s).
 **Rejeté :** RAW+JPEG sur le 100D ; RAW 100D à cadence time-lapse ; chasing un film de 60 s avec AEB nuit ; stacks 600D toutes les 30 s.
 
 ---

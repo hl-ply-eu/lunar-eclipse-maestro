@@ -132,9 +132,9 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-016 : 16 Go — le RAW AEB 100D ne tient pas 3 h
 
-**Statut :** Contrainte matériel observateur (2 cartes 16 Go, 2 accus / boîtier).
-**Symptôme :** 100D, « C » = 2 → 6 fichiers / impulsion. Sur 16 Go : ~620 CR2 vs ~2 470 JPEG Fine. À 90 s pendant 3 h : 720 fichiers (~17 Go en RAW, ~5 Go en JPEG). À 60 s : 1 080 fichiers, encore pire en RAW. Deux accus CIPA (380 × 2 = 760) couvrent 720 déclenchements (90 s), pas 1 080 (60 s).
-**Action :** 100D en **JPEG Fine + AEB** ; défaut **90 s** ; 60 s seulement avec swap d’accu **et** AEB réarmé (KI-009). 600D : RAW, ~70–90 CR2, 16 Go OK. Ne pas régler l’intervallomètre sur la *durée de film* voulue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13, [DEC-011](decisions.md).
+**Statut :** Contrainte matériel observateur (cartes **16 Go**, une **32 Go** pour densifier le 600D, 2 accus / boîtier).
+**Symptôme :** 100D, « C » = 2 → 6 fichiers / impulsion. Sur 16 Go : ~620 CR2 vs ~2 470 JPEG Fine. À 90 s pendant 3 h : 720 fichiers (~17 Go en RAW, ~5 Go en JPEG). À 60 s : 1 080 fichiers, encore pire en RAW. Deux accus CIPA (380 × 2 = 760) couvrent 720 déclenchements (90 s), pas 1 080 (60 s). 600D : ~88 rampes de 7 RAW rempliraient une 16 Go ; une carte **pleine** ralentit l’énumération USB (leçon SEM).
+**Action :** 100D en **JPEG Fine + AEB** ; défaut **90 s** ; 60 s seulement avec swap d’accu **et** AEB réarmé (KI-009). 600D : RAW ; viser **~65 rampes / 16 Go** (marge 20–25 %) ; **32 Go** si le pas LEM < ~2 min ; ne pas remplir. Ne pas régler l’intervallomètre sur la *durée de film* voulue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13, [DEC-011](decisions.md).
 
 ---
 
