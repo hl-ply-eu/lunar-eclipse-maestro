@@ -15,16 +15,22 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 | Fichier local | Rôle | APN |
 |---------------|------|-----|
 | `bench-rampe-7x2ev.txt` | Chrono d’**une** rampe 7 × 2 EV (forme C) | `600D-T150` |
+| `seance-600d-t150.txt` | Séance 04:20 → moonset (généré) | `600D-T150` |
 
-Pas encore de script séance (~04:20 → moonset). Recette ([DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md)) :
+Script séance : [DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md). Régénérer :
 
-- ~04:20 : rampe **3–5 vues** (pleine Lune) ; rappel oral **taux Lune** ;
-- U1 → ~06:40 : rampe **7** ; **étendue 9** aux instants clés — pas de tri sur le vif ;
-- au **MAX**, après l’étendue 9 : rampes diagnostic **ISO 100** (→ 4 s) puis **ISO 1600** (1/4000 → 1 s), ~10 s de vidage entre les trois ([DEC-015](../../../docs/decisions.md)) ;
-- Incremental **N** (Tv+Av+ISO) en tête des étendues et de **chaque** rampe MAX ; Y ensuite ; écarts ≥ 3 s, tampon 5 ([DEC-016](../../../docs/decisions.md)) ;
-- ~05:40–05:55 : trou **10 min**, `say`, premier `TAKEPIC` Incremental **N** ([KI-022](../../../docs/known-issues.md)) ;
-- 06:44 → moonset : **7 → 5 → 3** (une vue trop longue gardée par palier) ;
-- ISO **100 / 200 / 800** (vues 1–2 / 3–5 / 6–9) ;
+```bash
+.venv/bin/python scripts/generate_lem_seance.py
+```
+
+- ~04:20 : rampe **5 vues** (pleine Lune) ; rappel oral **taux Lune** ;
+- cadence **2 min ancrée sur MAX** ;
+- U1 → ~06:40 : rampe **7** ; **étendue 9** à U1+10, ~50 %, MAX, **06:30** (4ᵉ HDR umbra, pas le bloc MAX) ;
+- au **MAX**, après l’étendue 9 : rampes diagnostic **ISO 100** (→ 4 s) puis **ISO 1600** (1/4000 → 1 s), ~10 s de vidage entre les trois ([DEC-015](../../../docs/decisions.md)) ; saut MAX+2 min ;
+- Incremental **N** en tête de **chaque** rampe ; Y ensuite ; écarts ≥ 3 s, tampon 5 ([DEC-016](../../../docs/decisions.md)) ;
+- ~05:40–05:55 : trou **10 min**, `say`, reprise 05:56:55 Incremental **N** ([KI-022](../../../docs/known-issues.md)) ;
+- 06:44 → moonset : **5 puis 3** (une vue trop longue gardée par palier) ;
+- ISO **100 / 200 / 800** (vues 1–2 / 3–5 / 6–9) ; colonne Av **5,6** (USB) ; expo **f/5** ;
 - annonces : plusieurs `COMMAND ;say` **courts**, **+1 s** entre eux, ASCII, ≲ 60 car. ([KI-021](../../../docs/known-issues.md)).
 
 Grammaire (ASCII, ~1 s d’écart) :

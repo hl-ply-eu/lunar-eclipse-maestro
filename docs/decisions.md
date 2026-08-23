@@ -175,13 +175,15 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 ## DEC-014 : Fenêtre 600D — pénombre, aube, pause accu (2026-08-23)
 
 **Contexte :** DEC-013 figeait la *grille* (7 / 9, ISO, taux Lune). L’observateur valide le *calendrier* de séance : référence pleine Lune, poursuite après 06:44, swap LP-E8. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §6, §8, §11, §13.
-**Décision (étude, à brancher dans le script séance) :**
+**Décision (étude, branchée dans [`seance-600d-t150.txt`](../scripts/lem/essais-2026/seance-600d-t150.txt)) :**
 
-1. **Départ ~04:20** (pénombre, ~U1−14 min), pas P1 03:24. Rampe **courte 3–5 vues** côté 1/1000 (ISO 100/200) : référence **pleine Lune**. Les vues umbra 6–9 crameraient tout le disque — on ne les programme pas ici.
-2. **U1 → ~06:40** : inchangé (DEC-013) — rampe **7** courante ; **étendue 9** à U1+10, ~50 %, MAX, éventuellement 06:30.
+1. **Départ ~04:20** (pénombre, ~U1−14 min), pas P1 03:24. Rampe **courte 5 vues** (1–5, côté 1/1000, ISO 100/200) : référence **pleine Lune**. Les vues umbra 6–9 crameraient tout le disque — on ne les programme pas ici.
+2. **U1 → ~06:40** : inchangé (DEC-013) — rampe **7** courante ; **étendue 9** à U1+10, ~50 %, MAX, **et 06:30**. L’étendue 06:30 est un **4ᵉ stack HDR umbra** (~17 min après le MAX), pas le bloc MAX (produit 9 + diagnostics ISO 100 / 1600, DEC-015).
 3. **Après 06:44 jusqu’au moonset (~07:20)** : on **continue**, rampes **raccourcies** (7 → 5 → 3) à mesure que le fond monte. À chaque palier on garde **une vue trop longue** (optimiste) ; on la jette après si le ciel l’a cramée. Plus d’étendue 9 après 06:30.
 4. **Pause accu 10 min** vers **05:40–05:55** (après l’étendue ~50 % à 05:23, avant le MAX 06:13). LP-E8 sous le boîtier = coupure + USB tombé. Script : trou sans `TAKEPIC` ; `say` courts ; premier `TAKEPIC` après reprise en Incremental **N** (config complète), pas **Y**. Vérifier que LEM revoit `600D-T150` avant de reprendre.
 5. Carte de séance 600D = **32 Go**. Pico d’écriture annoncé **80 Mo/s** vs **95 Mo/s** sur les 16 Go déjà benchées : **pas de re-calage** des 3 s entre départs ([KI-016](known-issues.md)) — le goulot mesuré est le USB 1,1 s/vue / le bus SD du 600D (~15–25 Mo/s), pas le débit marketing de la carte.
+6. Cadence courante **2 min, ancrée sur MAX** (06:12:55 CEST). Saut du cran MAX+2 min (bloc MAX ~90 s, DEC-015).
+7. Colonne Av du script = **5,6** (USB LEM, même valeur que le bench 15-85). La grille Tv/ISO est celle du **f/5** réel : le T-ring n’applique pas 5,6 ([KI-019](known-issues.md)).
 
 **Justification :** 04:20 aligne le 600D sur le départ 100D et donne un stack uneclipsé. 06:44 n’est plus une coupure : le croissant reste posable, l’umbra non. Un LP-E8 (CIPA 440) + USB allumé 3 h ne couvre pas ~04:20→07:20 à 2 min ; le swap *avant* le MAX protège le produit. Volume élargi → 32 Go (16 Go ≈ 65 rampes de 7).
 **Rejeté :** partir à U1 pile sans référence pleine Lune ; couper le 600D à 06:44 ; swap « si le témoin clignote » au MAX ; Incremental **Y** juste après power cycle ; recaler la rampe à 3 s *parce que* 80 Mo/s < 95 Mo/s.

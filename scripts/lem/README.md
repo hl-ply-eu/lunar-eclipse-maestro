@@ -39,7 +39,7 @@ Pas d’équivalent LEM de `Burst_Test.txt` / `Exposure_Ramping_Test.txt` / MMV 
 
 On s’en sert comme **grammaire** (`TAKEPIC`, `FOR`, `PLAY`, `COMMAND`, contacts `P1`/`U1`/`MAX`/`SET`), pas comme scénario jour J.
 
-Script séance (pas encore écrit) : [DEC-013](../../docs/decisions.md) — rampe 7 / étendue sombre (9 vues), ISO **100 / 200 / 800**, **taux Lune**, `COMMAND ;say` **courts à ~1 s** ([KI-021](../../docs/known-issues.md) ; leçon SEM : un message long reste muet).
+Script séance : [`essais-2026/seance-600d-t150.txt`](essais-2026/seance-600d-t150.txt) (généré par [`scripts/generate_lem_seance.py`](../generate_lem_seance.py)). Recette [DEC-013](../../docs/decisions.md)–[DEC-016](../../docs/decisions.md) : rampe 7 / étendue 9, ISO **100 / 200 / 800**, **taux Lune**, `COMMAND ;say` **courts à ~1 s** ([KI-021](../../docs/known-issues.md) ; leçon SEM : un message long reste muet).
 
 Aide : [format des scripts](http://xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs2/btoc6.html) (contacts lunaires, pas `C1`/`C2` solaires). Ne pas porter un script SEM en changeant le nom d’appli.
 

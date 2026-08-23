@@ -2,7 +2,6 @@
 
 ## En cours
 
-- [ ] **Script séance LEM** (session suivante) — forme C, [formes §11](formes-prise-de-vue.md), [DEC-013](decisions.md)–[DEC-016](decisions.md) : ~04:20 rampe **3–5** ; **7** courante + **étendue 9** aux instants clés ; MAX puis diagnostics **ISO 100 / 1600** ; Incremental **N** en tête des étendues et des 3 rampes MAX, écarts Jubier ≥ 3 s / tampon 5 ; aube **7→5→3** ; trou **10 min** ~05:40 (`say` + Incremental **N**, [KI-022](known-issues.md)) ; ISO **100 / 200 / 800** ; `say` courts + rappel **taux Lune** avant 04:20 ([KI-021](known-issues.md)) ; pas `chapelet_exposure.py` solaire
 - [ ] **Scénario 150 mm f/5 + 600D** — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
 - [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage
 - [ ] **Déploiement LEM** — 1.3.3β1 Intel Y + 600D USB OK ; 100D optionnel ([KI-007](known-issues.md))
@@ -38,3 +37,4 @@ _(aucune tâche bloquée)_
 - [x] **Fenêtre 600D pénombre / aube + pause accu** (2026-08-23) — DEC-014, KI-022 ; 04:20 rampe courte, étendues 9, aube 7→5→3, swap 10 min ~05:40 Incremental N ; 32 Go 80 Mo/s vs 16 Go 95 Mo/s sans re-calage ([formes §11–13](formes-prise-de-vue.md))
 - [x] **Diagnostics MAX ISO 100 / 1600** (2026-08-24) — DEC-015 ; après l’étendue 9 seulement : rampe 100 (→ 4 s, suivi) puis 1600 (1/4000 → 1 s, figé) ; +14 CR2 ; pas un second HDR
 - [x] **Incremental N + écarts Jubier** (2026-08-24) — DEC-016 ; N en tête des étendues et des 3 rampes MAX ; Y ensuite ; ≥ 3 s / tampon 5
+- [x] **Script séance LEM** (2026-08-24) — [`seance-600d-t150.txt`](../scripts/lem/essais-2026/seance-600d-t150.txt) ; générateur `scripts/generate_lem_seance.py` ; 5 vues pénombre ; 9 étendue à U1+10 / 50 % / MAX / 06:30 ; diagnostics MAX ; cadence 2 min ; Av 5,6 / f/5
