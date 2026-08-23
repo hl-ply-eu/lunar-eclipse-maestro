@@ -9,7 +9,7 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
 - **[Méthode FOV / trajectoire](methode-fov.md)**  
   Noyau Skyfield DE421 + projection gnomonique transféré depuis SEM ; overlay ombre.
 - **[Leçons chapelet 100D (SEM)](chapelet-lecons-sem.md)**  
-  Ce qui se réutilise (AEB, intervallomètre, KI-018) ; ce qui ne se copie pas (ND solaire).
+  Ce qui se réutilise (AEB, intervallomètre, [KI-010](known-issues.md)) ; ce qui ne se copie pas (ND solaire).
 - **[Tournefeuille 2026](lieux/tournefeuille-2026.md)**  
   GPS, contacts UTC/CEST, altitudes Skyfield, cadrage indicatif (DEC-008).
 - **[Formes de prise de vue](formes-prise-de-vue.md)**  
@@ -17,6 +17,10 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   pourquoi 11,5 EV labo n’éliminent pas la rampe 7 × 2 EV ; ISO 800 décale
   les temps, pas le nombre de vues ; volume (§13) : JPEG 100D vs RAW 600D,
   intervalle ≠ durée de film ; rampe 600D ~20–25 s, ~65 rampes / 16 Go.
+
+## Scripts LEM
+
+- **[scripts/lem/](../scripts/lem/)** — copie Pap des exemples Jubier (`basic` / `deluxe`) + bench rampe 7 × 2 EV (`essais-2026/`). Grammaire seulement : [KI-018](known-issues.md).
 
 ## Mémoire projet
 

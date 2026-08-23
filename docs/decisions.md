@@ -129,10 +129,10 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 
 1. **Intervalle 60–90 s** = pas de l’intervallomètre 100D, **pas** la durée du film. 3 h à 90 s → ~120 images/couche → **~5 s** à 25 fps / **~10 s** à 12 fps. Un film cible de 60–90 s exigerait un pas de 5–7 s, incompatible avec AEB « C » = 2.
 2. **100D en JPEG Fine + AEB** (« C » = 2 → 6 JPEG / impulsion). Défaut **90 s** (~720 fichiers, ~5 Go, 2× LP-E12 sans swap). **60 s** seulement si l’essai AEB montre une centrale assez courte *et* avec changement d’accu (réarmer l’AEB, KI-009).
-3. **600D en RAW.** Une rampe 7 × 2 EV dure **~20–25 s** sous LEM (~10–15 s en manuel) : l’obturation (5,3 s à ISO 100) n’est pas le poste. Une **16 Go** tient **~65 rampes** avec 20–25 % de marge (~620 CR2 plein ; ne pas remplir). Une **32 Go** est disponible si le pas descend sous ~2 min. Les 4 stacks nommés (U1+10, ~50 %, MAX, 06:30) + milieu 3–4 min (~60–90 CR2) restent un choix de *produit*, pas une limite carte. 2× LP-E8 sans enjeu.
+3. **600D en RAW.** Une rampe 7 × 2 EV : obturation 5,3 s (ISO 100) ; LEM Benchmarks **1,1 s/vue** pose courte (2026-08-23) → rampe serrée **~13–16 s** ; script bench à 3 s entre départs **~23 s**. Manuel ~10–15 s. Une **16 Go** tient **~65 rampes** avec 20–25 % de marge (~620 CR2 plein ; ne pas remplir). Une **32 Go** est disponible si le pas descend sous ~2 min. Les 4 stacks nommés (U1+10, ~50 %, MAX, 06:30) + milieu 3–4 min (~60–90 CR2) restent un choix de *produit*, pas une limite carte. 2× LP-E8 sans enjeu.
 4. Viser **~10–20 s de film** d’ambiance, pas une minute.
 
-**Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent ~720 déclenchements (90 s), pas 1 080 (60 s). Sur le 600D, l’horloge LEM (~2,5 s entre départs `TAKEPIC`, tampon 6 RAW) fixe la durée de rampe ; le temps de séance (126 min) n’est pas le goulot — la carte 16 Go l’est dès ~84 rampes (pas 90 s).
+**Justification :** une 16 Go tient ~620 CR2 vs ~2 470 JPEG Fine ; 3 h d’AEB RAW à 60–90 s déborde (KI-016). Le JPEG 18 Mpx reste au-dessus d’une Full HD ; l’AEB ±2 EV est le filet aube. Deux accus CIPA (380 × 2) couvrent 720 déclenchements (90 s), pas 1 080 (60 s). Sur le 600D, LEM Benchmarks donne **1,1 s/vue** (pose courte) ; le temps de séance (126 min) n’est pas le goulot — la carte 16 Go l’est dès ~84 rampes (pas 90 s). SEM : forfait analyseur **0,6 s** hors obturation (`DEFAULT_LAG_S`), pas un chrono 0,8 s dans le dépôt.
 **Rejeté :** RAW+JPEG sur le 100D ; RAW 100D à cadence time-lapse ; chasing un film de 60 s avec AEB nuit ; stacks 600D toutes les 30 s.
 
 ---
@@ -148,5 +148,22 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 4. **1/4000 s** : trop lent pour le limbe encore plein à ISO 800 · f/5 (~1,3 IL de trop) → ISO **100–200** sur les vues courtes à **U1**. Au **MAX** (+4–5 EV vs pleine Lune) 1/4000 suffit ; ISO 400–800 tenable sur l’umbra.
 5. 100D AEB : ISO 800 aide le **plancher d’intervalle** (vue +2 EV plus courte), pas les 6 JPEG / impulsion.
 
+**Complément 2026-08-23 (DEC-013) :** 800 n’est **pas** une cible *de toute la rampe*. Les vues 1–5 restent 100/200 (limbe U1). Les **poses longues** (6–7 et étendue) sont à **ISO 800** : pas de grosse perte RAW 400→800 sur le 600D (~0,5 EV de span DxO après le plateau 100–400 ; 800 = seuil ISO-less). On ne choisit pas 400 vs 800 le soir.
+
 **Justification :** le span HDR est une propriété de la *scène* (Jubier / Espenak), pas du gain analogique. Les deux Rebel plafonnent à 1/4000 s.
 **Rejeté :** « ISO optimal 800 ⇒ moins de brackets » ; ISO 800 dès U1 sur les vues courtes du 750 mm.
+
+---
+
+## DEC-013 : Suivi Lune, rampe 7 / étendue sombre, ISO 100 / 200 / 800 (2026-08-23)
+
+**Contexte :** mise en station au **viseur polaire** (pas d’astrométrie) ; rampe 7 × 2 EV validée en 23 s (DEC-011) ; carte SD **dans le boîtier** pendant toute la séance (pas de tri sur le vif) ; leçon SEM KI-013 (`say` muet si le message est trop long). Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [KI-008](known-issues.md), [KI-021](known-issues.md).
+**Décision (étude, à brancher dans le script séance) :**
+
+1. **Taux Lune** sur la monture, pas sidéral. Rappel oral dans le script LEM (avant U1, et avant la première rampe étendue).
+2. **Rampe courante = 7 vues.** Aux **instants clés** (U1+10, ~50 %, MAX, éventuellement 06:30) : rampe **étendue d’éclipse sombre** — **deux vues de plus** (pas de 2 EV, ISO 800). Pas de choix L=3 / L=2 sur le vif : on programme le cas sombre, on jette après si l’umbra était claire.
+3. Grille ISO : **100** (vues 1–2), **200** (vues 3–5), **800** (vues 6–7 et les deux d’étendue). Pas 400 sur les poses longues. 800 n’est pas un ISO unique pour toute la rampe (DEC-012, limbe U1).
+4. Annonces vocales : **plusieurs `COMMAND ;say` courts**, **espacés d’~1 s**, ASCII, ≲ 60 caractères — **pas** un paragraphe unique (SEM : un message long invalidait `say`).
+
+**Justification :** on ne peut pas lire les CR2 pendant l’éclipse. DxO 600D : DR plate 100–400, descente **modérée** à 800 (~0,5 EV de span) — pas une grosse perte, et les poses umbra n’ont pas besoin des hautes lumières de *cette* RAW ; 800 est le seuil ISO-less (Sensorgen ~10,2). Quatre étendues à 9 RAW = +8 CR2.
+**Rejeté :** sidéral par défaut ; décider 8a/8b selon l’aspect visuel ; ISO 400 par défaut sur les poses longues ; ISO 800 dès les vues 1–2 ; une seule phrase `say` longue.

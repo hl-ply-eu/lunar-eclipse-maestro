@@ -50,7 +50,7 @@ Le Mac qui a piloté Solar Eclipse Maestro le 12 août 2026 peut donc **ne pas**
 2. Brancher le 600D, vérifier qu’il apparaît ([KI-007](known-issues.md)).
 3. **Si LEM ne part pas** : le 600D passe en intervallomètre / manuel, comme le 100D.
 
-Ne pas copier un script SEM en changeant le nom de l’application : contacts (`P1`/`U1`/`MAX`…), calculatrice d’exposition et liste APN sont ceux de LEM.
+Ne pas copier un script SEM en changeant le nom de l’application : contacts (`P1`/`U1`/`MAX`/`SET`), calculatrice d’exposition et liste APN sont ceux de LEM. Les exemples livrés `basic.txt` / `deluxe.txt` visent une **totalité** ([KI-018](known-issues.md)) — copie locale : [`scripts/lem/`](../scripts/lem/). Le bench 600D est [`bench-rampe-7x2ev.txt`](../scripts/lem/essais-2026/bench-rampe-7x2ev.txt) (nom APN **`600D-T150`**, 15-85 @ f/5,6 ; à copier dans `~/Documents/Scripts Lunar Eclipse Maestro/` sur le Mac). Optique muette au télescope : [KI-019](known-issues.md).
 
 ---
 
@@ -83,7 +83,9 @@ Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C**
 
 Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** (pas de l’intervallomètre, *pas* la durée du film → ~10 s à 12 fps) ; **600D en RAW**, rampe 7 × 2 EV **~20–25 s** sous LEM ; une **16 Go** tient **~65 rampes** avec marge, une **32 Go** permet de densifier. Le RAW AEB 100D sur 3 h **ne tient pas** en 16 Go ([KI-016](known-issues.md)). 2 batteries / boîtier.
 
-ISO **800 n’est pas l’ISO optimal de dynamique** (DxO Sports = plafond SNR 30 dB). Ça **raccourcit** la rampe (4 s → 0,5 s), ça ne coupe pas de vues du 7 × 2 EV. À U1, 1/4000 s à ISO 800 · f/5 **clippe** le limbe encore plein ([DEC-012](decisions.md), [KI-017](known-issues.md)).
+ISO **800 sur les poses longues seulement** ([DEC-013](decisions.md)) : vues 1–5 à 100/200 (à U1, 1/4000 @ 800 **clippe** le limbe, [KI-017](known-issues.md)). DxO : ~0,5 EV de span 400→800, pas une grosse perte sur les RAW umbra. Rampe **7 vues** le plus souvent ; **étendue sombre** (9 vues, 1 s + 2 s @ 800) aux instants clés — on jette après, carte dans le boîtier.
+
+Monture 600D : **taux Lune**, pas sidéral ([KI-008](known-issues.md)). Mise en station au viseur polaire **avant U1**. Le script séance rappellera ça à voix haute (`say` courts à ~1 s, [KI-021](known-issues.md)).
 
 **Déclenchement manuel dédié au MAX** sur le 600D ([KI-010](known-issues.md)), même si LEM tourne.
 
@@ -96,7 +98,8 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 - [x] Commune / GPS renseignés, YAML recalé, FOV relancé (Tournefeuille)
 - [ ] Horizon ouest–sud-ouest dégagé (moonset, azimut ~257°)
 - [ ] Optiques confirmées (focale wide U1→moonset)
-- [ ] Test LEM sur le Mac (démarrage + USB 600D)
+- [ ] Test LEM sur le Mac (démarrage + USB 600D) ; charger le bench rampe [`scripts/lem/essais-2026/`](../scripts/lem/essais-2026/)
+- [ ] Monture 750 mm en **taux Lune** (pas sidéral) ; station polaire avant U1
 - [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M
 - [ ] Plan B 600D sans LEM (intervallomètre ou manuel)
 - [ ] Cartes formatées (100D **JPEG Fine** 16 Go, 600D **RAW** 16 ou 32 Go) ; 2 accus / boîtier ; horloges

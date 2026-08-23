@@ -1,0 +1,35 @@
+#
+# LEM — bench d'une rampe 7x2 EV (forme C, 600D).
+# Usage personnel. Pas un plan de seance.
+#
+# Protocole expo : docs/formes-prise-de-vue.md §11
+# Duree visee : ~20-25 s sous LEM USB (formes §13, DEC-011)
+#
+# Nom APN Configuration materielle : 600D-T150 (casse exacte)
+# Bench : 15-85 a f/5.6 (diaph electronique). Telescope muet = KI-019.
+#
+# Espacement 3.0 s entre DEPARS (FAQ Jubier : APN lent >= 3 s ; KI-020).
+# Apres la pose 1 s : +4.0 s avant la 4 s (duree + USB).
+# Ne pas empiler 7 TAKEPIC au meme MAX+0 : LEM n'en execute qu'un.
+#
+# Mac : Temps simule = MAX moins ~30 s puis LAISSER COURIR jusqu'a MAX+30 s.
+# Recopier ce fichier dans ~/Documents/Scripts Lunar Eclipse Maestro/
+# Voir essais-2026/README.md
+#
+# Script seance (pas ce fichier) : DEC-013 / KI-021 — taux Lune, rampe
+# etendue aux instants cles seulement, say courts espaces d'1 s.
+#
+
+#Action,Date/Ref,Offset sign,Time (offset),Camera,Exposure,Aperture,ISO,MLU,Quality,Size,Incremental,Comment
+
+PLAY,MAX,-,00:10.0,10_Seconds.wav, , , , , , , ,Depart rampe dans 10 s
+
+TAKEPIC,MAX,+,00:00.0,600D-T150,1/1000,5.6,100,0.0,RAW,None,N,Rampe 1/1000
+TAKEPIC,MAX,+,00:03.0,600D-T150,1/250,5.6,100,0.0,RAW,None,Y,Rampe 1/250
+TAKEPIC,MAX,+,00:06.0,600D-T150,1/60,5.6,100,0.0,RAW,None,Y,Rampe 1/60
+TAKEPIC,MAX,+,00:09.0,600D-T150,1/15,5.6,100,0.0,RAW,None,Y,Rampe 1/15
+TAKEPIC,MAX,+,00:12.0,600D-T150,1/4,5.6,100,0.0,RAW,None,Y,Rampe 1/4
+TAKEPIC,MAX,+,00:15.0,600D-T150,1,5.6,100,0.0,RAW,None,Y,Rampe 1 s
+TAKEPIC,MAX,+,00:19.0,600D-T150,4,5.6,100,0.0,RAW,None,Y,Rampe 4 s
+
+PLAY,MAX,+,00:30.0,Max_Eclipse.wav, , , , , , , ,Fin de rampe

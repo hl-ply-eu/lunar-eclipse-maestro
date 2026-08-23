@@ -31,6 +31,7 @@ lunar-eclipse-maestro/
 │   ├── mirror.sh
 │   ├── build-pdf.sh + build-pdf.py
 │   ├── simulate_fov.py                 # Trajectoire lunaire dans le champ (Skyfield DE421)
+│   ├── lem/                            # Exemples Jubier + essais scripts (copie Pap)
 │   └── config/tournefeuille-600d.yaml
 ├── AGENTS.md
 └── .cursor/                            # Rules, skills, commands Cursor
@@ -42,6 +43,7 @@ lunar-eclipse-maestro/
 | `mirror/` | Aide officielle LEM hors ligne (HTML wget) |
 | `scripts/build-pdf.py` | Assemble les pages prioritaires en PDF imprimable |
 | `scripts/simulate_fov.py` | Trajectoire de la Lune + ombre umbrale/pénombrale sur capteur fixe |
+| `scripts/lem/` | Exemples Jubier (`basic`/`deluxe`) + bench rampe 600D |
 
 ## Commandes
 

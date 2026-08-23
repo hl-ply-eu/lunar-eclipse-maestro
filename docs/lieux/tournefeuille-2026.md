@@ -39,7 +39,7 @@ et contraste umbra dégradés en fin de run.
 
 Trajet angulaire **U1 → moonset ≈ 39,7°** (beaucoup plus long que C1→SET solaire à Frías).
 
-**600D + télescope 150 mm f/5 (750 mm), monture équatoriale** — suivi : la Lune reste au centre, l’ombre traverse le disque. `simulate_fov.py` (caméra fixe) **ne s’applique pas** à ce corps. FOV APS-C approx. : 1,70° × 1,14° (750 mm) ; 1,22° × 0,81° (1050 mm) ; 0,85° × 0,57° (1500 mm). Disque lunaire ~0,51°. Comparaison visuelle : [astronomy_tools_fov.png](../figures/astronomy_tools_fov.png).
+**600D + télescope 150 mm f/5 (750 mm), monture équatoriale** — **taux Lune** (pas sidéral, [DEC-013](../decisions.md), [KI-008](../known-issues.md)) : la Lune reste au centre, l’ombre traverse le disque. `simulate_fov.py` (caméra fixe) **ne s’applique pas** à ce corps. FOV APS-C approx. : 1,70° × 1,14° (750 mm) ; 1,22° × 0,81° (1050 mm) ; 0,85° × 0,57° (1500 mm). Disque lunaire ~0,51°. Comparaison visuelle : [astronomy_tools_fov.png](../figures/astronomy_tools_fov.png).
 
 **Chapelet trépied fixe** — U1→moonset, marges ≥ 10 %, APS-C paysage, EF-S 15-85 :
 

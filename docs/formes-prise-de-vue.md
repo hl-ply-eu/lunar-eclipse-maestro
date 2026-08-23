@@ -1,6 +1,7 @@
 # Formes de prise de vue — 28 août 2026, Tournefeuille
 
-Étude (branche `docs/formes-prise-de-vue`). Hypothèses de travail : [DEC-010](decisions.md).
+Étude (branche `docs/formes-prise-de-vue`). Hypothèses de travail : [DEC-010](decisions.md),
+cadence / ISO / suivi Lune : [DEC-013](decisions.md).
 Parc optique : [DEC-009](decisions.md). Site : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 Ce n’est **pas** encore un plan de séance. Pas de scripts LEM, pas de tables d’expo
@@ -413,14 +414,39 @@ espacées il y a **n − 1** intervalles :
 | **Retenu** | **7** | **2 EV** | **12 EV** | Couvre ~500× d’Espenak + une marge Danjon |
 | Chasse au liseré | **9** | 1,5–2 EV | 12–16 EV | Plus de tons moyens sur le *bord* d’ombre |
 
-Exemple au foyer f/5, ISO 100, base 1/1000 (pleine Lune) : 1/1000, 1/250,
-1/60, 1/15, 1/4, 1 s, **4 s**. À ISO 200, la plus longue tombe à 2 s — plus
-sain vers 06:13–06:40 (KI-014). Si l’umbra est un L=2 sombre, ajouter une
-8ᵉ vue (~8–15 s) **seulement** tant que le ciel nautique le permet.
+**Deux cadences** ([DEC-013](decisions.md)) — la carte **reste dans le 600D**,
+pas de tri pendant l’éclipse :
 
-Pas un stack toutes les 30 s : **aux instants clés** (U1+10 min, ~50 %, MAX,
-éventuellement 06:30). Entre les stacks, une vue « milieu » ou la rampe LEM
-suffit. Durée et capacité carte : [§13](#600d--durée-dune-rampe-capacité-carte).
+| | Quand | Contenu |
+|--|-------|---------|
+| **Courante** | le reste de U1 → ~06:40 | **7 vues**, span 12 EV |
+| **Étendue** | instants clés : U1+10, ~50 %, MAX, éventuellement 06:30 | les 7 **+ 2 vues** (cas **sombre**, L≈2). On jette après si l’umbra était claire. |
+
+Pas de choix 8a/8b sur le vif. Monture en **taux Lune** ([KI-008](known-issues.md)).
+
+**Grille retenue** (foyer f/5, pas de 2 EV = vitesse × ISO).
+ISO 100 sur 1–2 (limbe U1) ; **ISO 200 sur 3–5** (vent / tube) ; **ISO 800 sur
+6–7 et l’étendue**. Pas une grosse perte RAW 400→800 : DxO DR plate 100–400,
+puis ~**0,5 EV** de span en moins à 800 — et ces vues servent l’umbra (ombres),
+pas le croissant. 800 = seuil ISO-less du 600D (Sensorgen ~10,2).
+
+| # | Vitesse | ISO | Équiv. ISO 100 | ΔEV | |
+|---|---------|-----|----------------|-----|--|
+| 1 | 1/1000 | 100 | 1/1000 | 0 | courante |
+| 2 | 1/250 | 100 | 1/250 | +2 | |
+| 3 | 1/125 | 200 | 1/60 | +4 | |
+| 4 | 1/30 | 200 | 1/15 | +6 | |
+| 5 | 1/8 | 200 | 1/4 | +8 | |
+| 6 | 1/8 | **800** | 1 s | +10 | |
+| 7 | **1/2 s** | **800** | 4 s | +12 | fin rampe 7 |
+| 8 | **1 s** | **800** | 8 s | +14 | étendue (L≈3) |
+| 9 | **2 s** | **800** | 16 s | +16 | étendue (L≈2, sombre) |
+
+Fenêtre LEM ~3 s entre départs : standard **~19–21 s** (plus longue = 0,5 s) ;
+étendue **~26–30 s**. Quatre étendues = **+8 CR2**.
+
+Pas un stack toutes les 30 s. Entre les étendues, la rampe **7 vues** suffit.
+Durée et capacité carte : [§13](#600d--durée-dune-rampe-capacité-carte).
 Le 600D AEB ne remplace pas cette séquence : LEM ou bracketing manuel
 (MAX dédié, KI-010).
 
@@ -442,11 +468,9 @@ On garde **7 vues × 2 EV**. ISO 800 n’offre pas plus de dynamique par RAW
 (il en offre moins) : on ne passe pas à 5 vues « parce que le capteur est
 optimal à 800 ».
 
-Ce que ISO 800 **fait** : la plus longue du stack passe de 4 s à **0,5 s** —
-meilleur contre le ciel qui blanchit (KI-014) et plus rapide à enchaîner.
-LEM a le droit de **mélanger ISO et vitesse** le long de la rampe (c’est
-même le cas d’usage de la calculatrice Jubier) ; ce n’est pas « tout verrouiller
-à 800 et couper des brackets ».
+**On ne vise pas 800 sur toute la rampe.** Les vues 1–5 restent 100/200 (limbe).
+Les poses umbra (6–7 et étendue) sont à **800** ([DEC-013](decisions.md)) :
+raccourcit le mur (4 s → 0,5 s en bout de rampe 7) sans grosse perte RAW.
 
 **Exception 1/4000 s** — les deux Rebel plafonnent là. Jubier, pleine Lune,
 ISO 100 · f/5,6 : **1/1000 s**. Au foyer f/5, ≈ 1/1250. À ISO 800 : ≈ **1/10 000 s**.
@@ -458,9 +482,19 @@ partielle) **clippe**. L’exception est donc vraie **tôt**, pas au MAX :
 | U1 (~pleine Lune + bite) | ~0 EV | 1/4000 **crame** (~1 IL de trop) → ISO **100–200** sur les vues courtes |
 | MAX (reliquat mag. 0,93) | +4 à +5 EV (Jubier 1/60–1/30 @ ISO 100) | 1/500–1/250 — **1/4000 suffit** ; ISO 400–800 tenable |
 
-Recette d’étude, forme C : **vues courtes à ISO 100–200 tant que le croissant
-est éblouissant** ; **vues umbra à ISO 400–800** pour rester sous ~1–2 s après
-06:13. Ce n’est pas une séquence plus courte, c’est la même à temps décalés.
+Recette d’étude, forme C ([DEC-013](decisions.md)) : grille ci-dessus
+(**100 / 200 / 800**). Pas de tri pendant la séance (carte dans le boîtier) :
+les étendues sont **toujours** le cas sombre (vues 8–9). On jette après.
+
+Équivalents umbra (foyer f/5, vs 4 s @ ISO 100 en bout de rampe 7) :
+
+| ISO umbra | Bout de rampe 7 | +1 vue (8 s @ ISO 100) | +2 vues (16 s @ ISO 100) |
+|-----------|-----------------|------------------------|--------------------------|
+| 400 | 1 s | 2 s | 4 s |
+| **800 (retenu)** | **0,5 s** | **1 s** | **2 s** |
+
+Les deux vues d’étendue (1 s et 2 s @ 800) sont **les deux** aux instants clés,
+pas un choix. Suivi **Lune** dès que le mur dépasse ~0,5–1 s.
 
 Sur le **100D** (AEB, ISO *fixe*, la vitesse varie) : ISO 800 **raccourcit le
 cycle** (la vue +2 EV n’est plus à 16 s si la centrale était à 4 s), donc aide
@@ -595,20 +629,46 @@ Fenêtre umbra **U1 04:34 → ~06:40** (~126 min). Après 06:44 : croissant /
 silhouette seulement (KI-014). RAW.
 
 **Durée d’une rampe 7 × 2 EV.** L’obturation (ISO 100, f/5, 1/1000 → 4 s,
-§11) ne fait que **5,3 s**. Le cycle 600D et LEM dominent :
+§11) ne fait que **5,3 s**. Le cycle USB + tampon dominent.
 
-- Cycle RAW ~0,46 s/vue ; tampon **6 RAW** (la 7ᵉ attend déjà le vidage).
-- Espacement type SEM `TAKEPIC` Incremental : ~**2,5 s** entre *départs* de
-  vues courtes (script Frías).
-- Vidage tampon après la dernière : +3–5 s.
+Mesure LEM **APN → Benchmarks…** (2026-08-23, 600D-T150, 15-85) :
+**1,1 s par vue** (pose courte). Ce n’est pas le 3,7 i/s du boîtier en rafale
+(~0,27–0,46 s/vue JPEG) : c’est `TAKEPIC` USB (commande + obturation courte +
+ack).
 
-| Pilotage | Durée d’une rampe (ordre de grandeur) |
-|----------|----------------------------------------|
+Côté SEM, le dépôt **n’a pas** de chrono 0,8 s. Ce qui est écrit :
+
+| Chiffre | Origine | Ce que c’est |
+|---------|---------|----------------|
+| **1,1 s/vue** | LEM Benchmarks, ce Mac + 600D | Cycle USB pose courte, mesuré |
+| **0,6 s** | `sem_sequence_check.py` `DEFAULT_LAG_S` | Forfait latence USB *en plus* de la pose ; **non mesuré** sur carte (KI-006 SEM) |
+| **~2,5–3 s** | Scripts Frías (`MAGPRE` +0 / +3 / +6…) | Pas d’horloge USB : marge volontaire entre *départs* |
+| **2,72 s/vue** | 32 vues / 86,9 s de totalité | Densité du scénario B, pas le cycle |
+
+1,1 s LEM vs 0,6 s SEM : pas contradictoire (l’un est un cycle complet, l’autre
+un forfait *hors* obturation). Un souvenir « 0,8 s SEM » n’est pas dans
+`docs/` — possible Benchmarks SEM jamais recopié, ou 0,6 arrondi.
+
+Rampe **serrée** (départ = pose + 1,1 s) : 5,3 + 7×1,1 ≈ **13 s**, plus un
+peu de vidage (tampon RAW Jubier = **5** vues, la 6ᵉ–7ᵉ attendent). Ordre
+**13–16 s**. Avec 3 s entre départs (FAQ « APN lent », [KI-020](known-issues.md))
+on reste vers **~23 s** (MAX+19 + 4 s) : plus lent, plus sûr tant que les
+7 CR2 ne sont pas validés.
+
+| Pilotage | Durée d’une rampe |
+|----------|-------------------|
 | Manuel, vue par vue | **~10–15 s** |
-| LEM USB (`TAKEPIC`) | **~20–25 s** |
+| LEM USB, cycle 1,1 s (serré) | **~13–16 s** |
+| LEM USB, script bench à 3 s | **~23 s** |
 
-ISO 800 raccourcit la plus longue (4 s → 0,5 s) mais **pas** l’horloge LEM :
-les 6 premières restent calées sur ~2,5 s. À chronométrer sur l’essai LEM.
+ISO 800 raccourcit la plus longue (4 s → 0,5 s) : on gagne ~3,5 s sur la
+dernière vue, pas 7 × 1,1 s.
+
+**Mesuré 2026-08-23** (script à 3 s, `IMG_7685`–`7691`, EXIF UTC + centièmes) :
+7/7 vues, vitesses exactes, gaps 3,00 s puis 4,00 s avant la 4 s. Fenêtre
+première ouverture → fin de la 4 s = **23,0 s**. Confirme l’horaire LEM, pas
+le plancher USB (1,1 s). Le 1er essai collé = `IMG_7684` seule à 1/15 s
+([KI-020](known-issues.md)).
 
 **Capacité.** Canon : CR2 ~24,5 Mo, **~620 RAW / 16 Go** (KI-016). Les CR2
 Frías du même 600D font ~19 Mo (ciel sombre) ; à 750 mm le disque remplit plus
@@ -622,30 +682,31 @@ dimensionner. Ne **pas** remplir (SEM : carte pleine = APN lent à apparaître).
 
 2× LP-E8 : 65 × 7 = 455 déclenchements ≪ 440 CIPA × 2.
 
-Sur 126 min, le **temps n’est pas le goulot** (une rampe = 20–25 s). Une rampe
+Sur 126 min, le **temps n’est pas le goulot** (une rampe serrée ~13–16 s, bench 3 s ~23 s). Une rampe
 toutes les **2 min** → 63 rampes / 441 CR2 / ~11 Go : tient en 16 Go. Toutes
 les **90 s** (~84 rampes) collerait trop au plafond 16 Go — là, **32 Go**.
 
-**Produit (étude).** Les 4 instants du §11 restent les stacks *nommés* ; ce
-n’est **pas** une contrainte carte.
+**Produit (étude).** Les 4 instants du §11 restent les stacks *nommés* (rampes
+**étendues**, DEC-013) ; ce n’est **pas** une contrainte carte. Quatre étendues
+à 9 RAW au lieu de 7 = **+8 CR2**. Pas de tri pendant la séance.
 
-| Instant | CEST (approx.) |
-|---------|----------------|
-| U1+10 min | 04:44 |
-| ~50 % (milieu U1–MAX) | 05:23 |
-| MAX | 06:13 |
-| 06:30 (encore nautique) | 06:30 |
+| Instant | CEST (approx.) | Rampe |
+|---------|----------------|-------|
+| U1+10 min | 04:44 | étendue |
+| ~50 % (milieu U1–MAX) | 05:23 | étendue |
+| MAX | 06:13 | étendue |
+| 06:30 (encore nautique) | 06:30 | étendue |
 
-Entre les stacks, une vue « milieu » / 3–4 min *ou* la rampe LEM. Plan sparse
-(4 × 7 + ~30 milieu) ≈ **60–90 RAW**, ~15 % d’une 16 Go. Pas un stack toutes
-les 30 s. Le MAX reste un déclenchement **dédié** (KI-010), même sous LEM.
+Entre les étendues, la rampe **7 vues** (pas une seule vue « milieu »). Plan
+LEM dense / 2 min ≈ 63 × 7 RAW ; les +2 vues sur 4 instants ne changent pas
+la carte. Le MAX reste un déclenchement **dédié** (KI-010), même sous LEM.
 
 ### Fourchette de séance
 
 | | Fichiers | Volume | Accus |
 |--|----------|--------|-------|
 | 100D JPEG Fine, **90 s**, « C » = 2 | ~720 | ~5 Go / 16 Go | 2 packs, sans swap |
-| 600D RAW, 4 stacks + milieu 3–4 min | ~70–90 | ~2 Go / 16 Go | 2 packs, large |
+| 600D RAW, 4 étendues + rampes 7 (cadence large) | ~70–90 | ~2 Go / 16 Go | 2 packs, large |
 | 600D RAW, rampe LEM / 2 min (plafond 16 Go) | ~440 | ~11 Go / 16 Go | 2 packs, large |
 | **Total sparse** | **~800** | **~7 Go** (une 16 Go / boîtier) | 2+2 accus |
 
@@ -657,7 +718,8 @@ nuit + aube décide si 60 s est tenable (pose centrale assez courte) ou si
 90 s reste le plancher. ISO 800 sur ce run (si la centrale nuit le permet)
 raccourcit surtout la vue +2 EV, donc le *cycle*, pas le nombre de fichiers
 ([§11, ISO 800](#iso-800--ça-raccourcit-les-temps-pas-le-nombre-de-vues)).
-L’essai rampe LEM sur le 600D chronomètre la durée réelle (vs ~20–25 s).
+L’essai rampe LEM sur le 600D chronomètre la durée réelle (vs ~20–25 s)
+([`scripts/lem/essais-2026/bench-rampe-7x2ev.txt`](../scripts/lem/essais-2026/bench-rampe-7x2ev.txt)).
 
 ---
 
@@ -666,10 +728,15 @@ L’essai rampe LEM sur le 600D chronomètre la durée réelle (vs ~20–25 s).
 - [ ] Essai AEB 100D de nuit + aube simulée (même chaîne « C » que Frías) ;
       caler la vue centrale pour la nuit, laisser ±2 EV absorber l’aube ;
       mesurer le plancher d’intervalle réel (60 vs 90 s).
-- [ ] Déploiement LEM Mac (install, prise en main, USB 600D) ; **scénario de
-      benchmark** : chronométrer une rampe 7 × 2 EV (estimation §13 : ~20–25 s),
-      tampon / vidage ; tenter le 1,4× sur le 750 mm (dérive).
-- [ ] Brancher la calculatrice LEM / Jubier sur la séquence **7 × 2 EV** (f/5),
-      ISO mixte 100–200 (vues courtes, U1) / 400–800 (umbra).
+- [ ] Déploiement LEM Mac (USB 600D) ; **benchmark** :
+      [`scripts/lem/essais-2026/bench-rampe-7x2ev.txt`](../scripts/lem/essais-2026/bench-rampe-7x2ev.txt)
+      (`600D-T150`, 15-85 @ f/5,6) — chronométrer une rampe 7 × 2 EV
+      (estimation §13 : ~20–25 s), tampon / vidage ; puis **optique muette**
+      au 150 mm ([KI-019](known-issues.md)) ; tenter le 1,4× (dérive).
+- [ ] Script séance LEM : rampe **7** partout, **étendue sombre** (9 vues)
+      aux instants clés (DEC-013) ; grille ISO **100 / 200 / 800** ;
+      `COMMAND ;say` **courts à ~1 s** (KI-021) ; rappel **taux Lune** avant U1.
+      Calculatrice Jubier / Espenak pour caler les vitesses, pas
+      `chapelet_exposure.py` solaire.
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200).
 - [ ] Confirmer l’horizon réel (clôture de la fenêtre umbra vers 06:44).

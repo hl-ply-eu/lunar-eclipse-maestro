@@ -64,9 +64,9 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-007 : Support 600D / 100D dans LEM non vérifié
 
-**Statut :** À confirmer au premier test Mac.
+**Statut :** **600D OK** (2026-08-23, LEM 1.3.3β1 Intel Y, nom `600D-T150`, bench 7/7). **100D** encore optionnel / non testé.
 **Symptôme :** la page de téléchargement LEM 1.3.3β1 cite une plage Canon (« 1D Mark III up to 6D Mark II and 200D ») qui n'est pas un inventaire exhaustif. SEM a piloté le 600D ; LEM est plus ancien.
-**Action :** au test USB, vérifier que le 600D (et éventuellement le 100D) apparaissent dans Configuration matérielle. Ne pas copier un script SEM en changeant seulement le nom d'appli.
+**Action :** 100D seulement si on le met sous LEM (DEC-010 le laisse autonome). Ne pas copier un script SEM en changeant seulement le nom d'appli.
 
 ---
 
@@ -75,6 +75,8 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Valable pour les **chapelets** sur trépied fixe (DEC-009). Le gros plan 600D est désormais sur **monture équatoriale** (750 mm) : le filé sidéral ne s’applique plus à ce corps, sous réserve de mise en station.
 **Symptôme (trépied fixe) :** à 280 mm APS-C, ~4,5 px/s (≈ 14″/s). Une pose umbra de 1–4 s produit 5–18 px de filé. À 60 mm : ~1 px/s ; à 15–25 mm : négligeable pour 1–4 s.
 **Action :** plafond de pose vs SNR uniquement sur le boîtier chapelet (trépied). Sur l’équatoriale : juger l’erreur périodique / mise en station, pas la dérive diurne. Le simulateur `simulate_fov.py` (caméra fixe) ne décrit **pas** le 750 mm suivi.
+
+**Viseur polaire (pas d’astrométrie) :** une erreur de station de ~0,5° ne fait qu’une fraction de pixel en 4 s à 750 mm. Le filé dominant **sans taux Lune** est le décalage lunaire vs sidéral (~0,55″/s → **~2″ / ~2 px en 4 s**, **~7 px en 15 s** à 750 mm APS-C). **DEC-013 : activer le suivi lunaire** (rappel oral dans le script). Avec ce taux, il reste l’erreur périodique / la station. Alignement dans la nuit, **avant U1**, pas à 06:13. Rampe courante : plus longue **1/2 s @ ISO 800**. Rampes **étendues** (1 s + 2 s @ 800, cas sombre) **uniquement** aux instants clés, taux Lune **on**. Pas de tri sur le vif (carte dans le boîtier).
 
 ---
 
@@ -142,4 +144,39 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 **Statut :** Confusion de métriques (DxO *Low-Light* / ISO-less DSO vs span de scène).
 **Symptôme :** prendre 793 / 843 (DxO Sports) ou le « best ISO 800 » ciel profond comme ISO de travail unique, et en déduire qu’on peut raccourcir le 7 × 2 EV — sauf si 1/4000 s clippe le croissant.
-**Action :** le contraste croissant/umbra ne dépend pas de l’ISO ; 800 **raccourcit les temps**, pas le nombre de vues. 1/4000 est trop lent à ISO 800 · f/5 **à U1**, pas au MAX. 100D : 800 aide le cycle AEB. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-012](decisions.md).
+**Action :** le contraste croissant/umbra ne dépend pas de l’ISO ; 800 **raccourcit les temps**, pas le nombre de vues. **800 n’est pas l’ISO des vues courtes** (DEC-013) : 100/200 sur 1–5 (limbe U1), **800 sur les poses longues**. 400→800 n’est pas une grosse perte RAW umbra. 1/4000 est trop lent à ISO 800 · f/5 **à U1**, pas au MAX. 100D : 800 aide le cycle AEB. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11, [DEC-012](decisions.md).
+
+---
+
+## KI-018 : `basic.txt` / `deluxe.txt` LEM = totalité, pas la séance 2026
+
+**Statut :** Copie Pap 2026-08-23 (`scripts/lem/`).
+**Symptôme :** les exemples livrés avec LEM (15 déc. 2010, APN `D300`) programment **U2 / U3 / MAXPRE / MAXPOST**, de la pénombre jusqu’à P4, et une vitesse par phase. Le 28 août 2026 n’a **pas de totalité** ; à Tournefeuille U4 et P4 sont **sous l’horizon** ; le protocole retenu est **7 × 2 EV** (DEC-010), pas une vue toutes les 1–5 % de magnitude.
+**Action :** s’en servir comme grammaire (`TAKEPIC`, `FOR`, contacts `P1`/`U1`/`MAX`/`SET`). Ne pas les charger tels quels. Ne pas porter un script SEM (`C1`/`C2`) en changeant le nom d’appli. Bench : [`scripts/lem/essais-2026/`](../scripts/lem/essais-2026/).
+
+---
+
+## KI-019 : Télescope / optique muette — LEM et le champ ouverture
+
+**Statut :** À tester au foyer (après le bench 15-85). L’aide Jubier **ne documente pas** le cas.
+**Ce que dit LEM :** Configuration initiale / préparatifs : régler le boîtier **et l’objectif** en MAP manuelle — *« does not apply to a non-AF lens or telescope »*. Dépannage : si l’AF est encore armé et que la MAP échoue, **la vue n’est pas prise**. Rien sur un T-ring / bague EF sans contacts (pas de diaphragme, pas de puce).
+**Conséquence attendue (non vérifiée) :** `TAKEPIC` envoie quand même une ouverture (colonne obligatoire). Le 600D peut ignorer, renvoyer une erreur EDSDK, ou bloquer la vue. Incremental **N** (1ʳᵉ vue du bench) force vitesse + ouverture + ISO ; **Y** ne retéléverse l’ouverture que si elle change — notre rampe est à f/5,6 constant donc les 6 suivantes ne retouchent pas le diaph.
+**Action :** bench actuel = **15-85 @ f/5,6**, nom APN **`600D-T150`**. Ensuite une rampe (ou un `TAKEPIC` isolé) au 150 mm f/5 : noter le log LEM, si les 7 CR2 sortent, et l’EXIF ouverture (`00` / absent / f/5,6 fantôme). Sur le boîtier : confirmer qu’un déclenchement **manuel** au T-ring fonctionne avant d’incriminer LEM.
+
+---
+
+## KI-020 : `TAKEPIC` au même horodatage — LEM n’en exécute qu’un
+
+**Statut :** Constaté 2026-08-23, bench 600D-T150 (`IMG_7684` : 1 CR2 à **1/15 s**). Contre-essai espacé **7/7** (`IMG_7685`–`7691`, gaps 3,00 s / 4,00 s, fenêtre 23,0 s).
+**Symptôme :** sept `TAKEPIC,MAX,+,00:00.0,…` collés. LEM les traite comme dus *en même temps* ; le 600D n’en prend qu’une (ici la 4ᵉ vitesse de la rampe). Aide format : l’écart entre deux poses doit **inclure la durée de la précédente**. FAQ dépannage : *« My camera skips exposures »* → espacer ; APN lents **≥ 3 s**.
+**Action :** un horodatage **distinct** par vue. Bench : départs MAX+0 / +3 / +6 / +9 / +12 / +15 / +19 s. Temps simulé **avant** MAX (−30 s) et **laisser courir** jusqu’à MAX+30 s (ne pas sauter pile sur MAX : les actions à +0 sont alors déjà « passées »). Recopier le `.txt` sur le Mac après chaque edit.
+
+**Trop serré mais horodatages distincts** (pas le cas MAX+0) : LEM n’empile pas. Chaque `TAKEPIC` part à *son* instant. Si le 600D est encore en pose / USB / vidage, FAQ : vue **sautée**, ou vitesse **X demandée / Y prise** (surtout Incremental **Y** : le changement de réglage n’est pas passé). Tampon RAW Jubier = **5** : au-delà le boîtier décroche. Analyseur : Temps libre &lt; 1–2 s = suspect. Règle d’écart : **durée de la vue précédente + ~1,1 s** (Benchmarks) + marge.
+
+---
+
+## KI-021 : `COMMAND ;say` — messages longs muets (leçon SEM)
+
+**Statut :** Mesuré sur **SEM** le 2026-08-12 (même famille d’appli, même Mac). Pas encore benché sous LEM ; on applique la même recette au script séance ([DEC-013](decisions.md)).
+**Symptôme :** `COMMAND ;say` s’exécute, mais un message trop long reste **muet**. SEM : « Controle. Mise au point. Niveau du trepied. Filtre en place. Cadrage dans quatre minutes. » = silence ; la même phrase sans la dernière clause = OK. Seuil pratique ≈ **60 caractères**. Accents UTF-8 : scripts en **ASCII pur** (SEM KI-013).
+**Action (script LEM final) :** plusieurs annonces **courtes**, **espacées d’~1 s**, plutôt qu’un paragraphe. Ex. rappel suivi : `say "Suivi Lune"` puis +1 s `say "Pas sideral"` — pas « Verifier le taux lunaire de la monture, pas le sideral. ». Repli SEM (`PLAY FR_*.wav` dans `AdditionalSounds/`) seulement si `say` est muet aussi sous LEM. Détail : [scripts/lem/essais-2026/README.md](../scripts/lem/essais-2026/README.md).
