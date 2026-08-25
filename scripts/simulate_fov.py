@@ -3,7 +3,9 @@
 
 Fixed-tripod lunar-eclipse framing:
 - the camera is pointed once, then remains fixed (no tracking),
-- the Moon is centered at the configured pointing event (typically MAX),
+- default: Moon centered at the configured pointing event (typically MAX),
+- composition ``horizon_thirds``: horizon on the lower third, azimuth of the
+  pointing event (MAX), so the disk sits near the upper third at maximum,
 - Earth's umbra/penumbra are overlaid on the lunar disk for a bite preview.
 """
 
@@ -12,6 +14,7 @@ from __future__ import annotations
 import argparse
 import math
 import re
+import textwrap
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -86,10 +89,19 @@ class SimulationConfig:
     pressure_mbar: float
 
 
+COMPOSITION_MOON_CENTERED = "moon_centered"
+COMPOSITION_HORIZON_THIRDS = "horizon_thirds"
+VALID_COMPOSITIONS = frozenset(
+    {COMPOSITION_MOON_CENTERED, COMPOSITION_HORIZON_THIRDS}
+)
+
+
 @dataclass(frozen=True)
 class FramingConfig:
     pointing_event: str
     auto_top_margin_px: float
+    composition: str = COMPOSITION_MOON_CENTERED
+    horizon_alt_deg: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -234,12 +246,70 @@ def load_config(path: Path) -> AppConfig:
         framing=FramingConfig(
             pointing_event=str(data["framing"]["pointing_event"]).lower(),
             auto_top_margin_px=float(data["framing"].get("auto_top_margin_px", 0.0)),
+            composition=_parse_composition(data["framing"]),
+            horizon_alt_deg=float(data["framing"].get("horizon_alt_deg", 0.0)),
         ),
         eclipse=EclipseConfig(
             contacts_local=contacts,
             validation_altaz_deg=validation,
         ),
     )
+
+
+def _parse_composition(framing_raw: dict[str, object]) -> str:
+    """Return a validated framing composition mode."""
+    composition = str(framing_raw.get("composition", COMPOSITION_MOON_CENTERED)).lower()
+    if composition not in VALID_COMPOSITIONS:
+        allowed = ", ".join(sorted(VALID_COMPOSITIONS))
+        raise ValueError(f"Unknown framing composition '{composition}'. Use: {allowed}")
+    return composition
+
+
+def horizon_thirds_aim_alt_deg(
+    camera: CameraConfig,
+    optic: OpticConfig,
+    horizon_alt_deg: float,
+) -> float:
+    """Optical-axis altitude that puts ``horizon_alt_deg`` on the lower third."""
+    offset_rad = math.atan(
+        (camera.sensor_height_mm / 6.0) / optic.focal_length_mm
+    )
+    return horizon_alt_deg + math.degrees(offset_rad)
+
+
+def resolve_forward(
+    pointing_sample: EphemerisSample,
+    config: AppConfig,
+    optic: OpticConfig,
+) -> np.ndarray:
+    """Camera forward vector: moon-centered, or horizon-thirds sky aim."""
+    if config.framing.composition == COMPOSITION_HORIZON_THIRDS:
+        aim_alt = horizon_thirds_aim_alt_deg(
+            config.camera,
+            optic,
+            config.framing.horizon_alt_deg,
+        )
+        return altaz_to_unit_vector(aim_alt, pointing_sample.moon_az_deg)
+    return altaz_to_unit_vector(
+        pointing_sample.moon_alt_deg,
+        pointing_sample.moon_az_deg,
+    )
+
+
+def auto_top_limb(composition: str) -> str:
+    """Which lunar limb defines the top-edge lock time."""
+    if composition == COMPOSITION_HORIZON_THIRDS:
+        return "upper"
+    return "lower"
+
+
+def limb_edge_y_px(sample: ProjectedSample, limb: str, margin_px: float) -> float:
+    """Image y of the chosen limb (y increases downward)."""
+    if limb == "upper":
+        return sample.moon_y_px - sample.moon_radius_px - margin_px
+    if limb == "lower":
+        return sample.moon_y_px + sample.moon_radius_px - margin_px
+    raise ValueError(f"Unknown auto-top limb '{limb}'")
 
 
 def normalize(vec: np.ndarray) -> np.ndarray:
@@ -513,8 +583,9 @@ def find_auto_top_time(
     projected_samples: list[ProjectedSample],
     pointing_time_local: datetime,
     margin_px: float,
+    limb: str = "lower",
 ) -> datetime | None:
-    """Find when the lower lunar limb crosses the top sensor edge (y=0)."""
+    """Find when the chosen lunar limb crosses the top sensor edge (y=0)."""
     pre_pointing = [
         sample for sample in projected_samples if sample.when_local <= pointing_time_local
     ]
@@ -522,7 +593,7 @@ def find_auto_top_time(
         return None
 
     times = [sample.when_local for sample in pre_pointing]
-    values = [sample.moon_y_px + sample.moon_radius_px - margin_px for sample in pre_pointing]
+    values = [limb_edge_y_px(sample, limb, margin_px) for sample in pre_pointing]
     return interpolate_zero_crossing(times, values, target=0.0)
 
 
@@ -530,6 +601,7 @@ def find_closest_top_time(
     projected_samples: list[ProjectedSample],
     pointing_time_local: datetime,
     margin_px: float,
+    limb: str = "lower",
 ) -> datetime | None:
     """Pick the pre-pointing sample closest to top-limb contact."""
     pre_pointing = [
@@ -538,7 +610,7 @@ def find_closest_top_time(
     if not pre_pointing:
         return None
     scored = [
-        (abs(sample.moon_y_px + sample.moon_radius_px - margin_px), sample.when_local)
+        (abs(limb_edge_y_px(sample, limb, margin_px)), sample.when_local)
         for sample in pre_pointing
     ]
     scored.sort(key=lambda item: item[0])
@@ -618,6 +690,67 @@ def validate_reference_points(engine: EphemerisEngine, config: AppConfig) -> lis
     return lines
 
 
+def draw_composition_guides(ax: plt.Axes, camera: CameraConfig) -> None:
+    """Rule-of-thirds lines and landscape band (horizon on the lower third)."""
+    width = camera.resolution_width_px
+    height = camera.resolution_height_px
+    ax.add_patch(
+        Rectangle(
+            (0, 2.0 * height / 3.0),
+            width,
+            height / 3.0,
+            facecolor="#6b4f2a",
+            alpha=0.14,
+            edgecolor="none",
+            zorder=0,
+        )
+    )
+    ax.axvline(width / 3.0, color="#8a8a8a", linestyle=":", linewidth=0.8, zorder=1)
+    ax.axvline(2.0 * width / 3.0, color="#8a8a8a", linestyle=":", linewidth=0.8, zorder=1)
+    ax.axhline(height / 3.0, color="#0077b6", linestyle="--", linewidth=1.1, zorder=1)
+    ax.axhline(2.0 * height / 3.0, color="#6b4f2a", linestyle="--", linewidth=1.1, zorder=1)
+    ax.annotate(
+        "tiers haut",
+        (width - 12, height / 3.0),
+        ha="right",
+        va="bottom",
+        fontsize=7,
+        color="#0077b6",
+        zorder=3,
+    )
+    ax.annotate(
+        "horizon / tiers bas",
+        (width - 12, 2.0 * height / 3.0),
+        ha="right",
+        va="top",
+        fontsize=7,
+        color="#5c3d1a",
+        zorder=3,
+    )
+
+
+def field_instruction(
+    auto_top_sample: ProjectedSample,
+    camera: CameraConfig,
+    optic: OpticConfig,
+    composition: str,
+) -> str:
+    """One-line field recipe: when and where to put the Moon on the top edge."""
+    x_pct = 100.0 * auto_top_sample.moon_x_px / camera.resolution_width_px
+    when = auto_top_sample.when_local.strftime("%H:%M:%S")
+    if composition == COMPOSITION_HORIZON_THIRDS:
+        return (
+            f"Terrain {optic.focal_length_mm:.0f} mm paysage : trépied nivelé, "
+            f"horizon visuel sur le tiers inférieur. À {when}, placer la Lune "
+            f"tangente au bord haut, à {x_pct:.0f} % depuis la gauche. "
+            "Verrouiller jusqu'au moonset."
+        )
+    return (
+        f"À {when}, limbe lunaire (côté horizon) tangent au bord haut "
+        f"({x_pct:.0f} % depuis la gauche)."
+    )
+
+
 def render_optic(
     config: AppConfig,
     optic: OpticConfig,
@@ -629,8 +762,10 @@ def render_optic(
 ) -> None:
     """Render one PNG for one optic."""
     camera = config.camera
-    fig = plt.figure(figsize=(14, 7))
-    grid = fig.add_gridspec(1, 2, width_ratios=[3.2, 1.7])
+    show_thirds = config.framing.composition == COMPOSITION_HORIZON_THIRDS
+    fig_h = 8.0 if show_thirds else 7.0
+    fig = plt.figure(figsize=(14, fig_h))
+    grid = fig.add_gridspec(1, 2, width_ratios=[3.2, 1.7], bottom=0.16 if show_thirds else 0.08)
     ax = fig.add_subplot(grid[0, 0])
     zoom_ax = fig.add_subplot(grid[0, 1])
 
@@ -641,6 +776,8 @@ def render_optic(
     ax.set_xlim(0, camera.resolution_width_px)
     ax.set_ylim(camera.resolution_height_px, 0)
     ax.set_aspect("equal")
+    if show_thirds:
+        draw_composition_guides(ax, camera)
     ax.add_patch(
         Rectangle(
             (0, 0),
@@ -702,7 +839,34 @@ def render_optic(
     for sample in overlay_candidates:
         draw_eclipsed_moon(ax, sample, zorder=6)
 
-    zoom_ax.set_title("Panneau cadrage (entrée haut de champ)")
+    x_pct = 100.0 * auto_top_sample.moon_x_px / camera.resolution_width_px
+    ax.scatter(
+        auto_top_sample.moon_x_px,
+        0.0,
+        marker="v",
+        color="#ef476f",
+        s=70,
+        zorder=8,
+        clip_on=False,
+    )
+    ax.annotate(
+        f"lock {auto_top_sample.when_local.strftime('%H:%M:%S')}\n"
+        f"{x_pct:.0f} % depuis la gauche",
+        (auto_top_sample.moon_x_px, 0.0),
+        xytext=(8, 18),
+        textcoords="offset points",
+        fontsize=8,
+        color="#ef476f",
+        zorder=8,
+        clip_on=False,
+    )
+
+    zoom_title = (
+        "Panneau cadrage (Lune tangente au bord haut)"
+        if show_thirds
+        else "Panneau cadrage (entrée haut de champ)"
+    )
+    zoom_ax.set_title(zoom_title)
     draw_eclipsed_moon(zoom_ax, auto_top_sample, zorder=6)
     zoom_ax.scatter(
         auto_top_sample.moon_x_px,
@@ -715,7 +879,10 @@ def render_optic(
     )
     zoom_ax.axhline(y=0.0, color="#ef476f", linestyle="--", linewidth=1.2, zorder=2)
     zoom_ax.annotate(
-        auto_top_sample.when_local.strftime("Pointage auto-top: %H:%M:%S"),
+        (
+            auto_top_sample.when_local.strftime("Pointage auto-top: %H:%M:%S")
+            + f"\n{x_pct:.0f} % depuis la gauche"
+        ),
         (auto_top_sample.moon_x_px, auto_top_sample.moon_y_px),
         xytext=(0, -18),
         textcoords="offset points",
@@ -742,6 +909,21 @@ def render_optic(
     zoom_ax.set_xlabel("x [px]")
     zoom_ax.set_ylabel("y [px]")
     zoom_ax.grid(color="#bbb", linestyle=":", linewidth=0.7, alpha=0.6)
+
+    instruction = field_instruction(
+        auto_top_sample,
+        camera,
+        optic,
+        config.framing.composition,
+    )
+    fig.text(
+        0.04,
+        0.035,
+        textwrap.fill(instruction, width=118),
+        fontsize=9,
+        color="#1d3557",
+        va="bottom",
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=160, bbox_inches="tight")
@@ -789,10 +971,21 @@ def run(config: AppConfig, output_dir: Path, selected_optics: list[str]) -> int:
     sampled = compute_ephemeris_samples(engine, time_grid)
     tick_ephemeris = compute_ephemeris_samples(engine, tick_times)
     pointing_sample = engine.sample(pointing_time_local)
-    forward = altaz_to_unit_vector(pointing_sample.moon_alt_deg, pointing_sample.moon_az_deg)
-    basis = build_camera_basis(forward)
+    limb = auto_top_limb(config.framing.composition)
 
     for optic in pick_optics(config, selected_optics):
+        forward = resolve_forward(pointing_sample, config, optic)
+        basis = build_camera_basis(forward)
+        if config.framing.composition == COMPOSITION_HORIZON_THIRDS:
+            aim_alt = horizon_thirds_aim_alt_deg(
+                config.camera,
+                optic,
+                config.framing.horizon_alt_deg,
+            )
+            print(
+                f"Composition horizon_thirds | {optic.name} | "
+                f"aim_alt={aim_alt:.2f}° az={pointing_sample.moon_az_deg:.2f}°"
+            )
         projected = project_samples(sampled, basis, config.camera, optic)
         projected_ticks = project_samples(tick_ephemeris, basis, config.camera, optic)
         if len(projected) < 2:
@@ -816,12 +1009,14 @@ def run(config: AppConfig, output_dir: Path, selected_optics: list[str]) -> int:
             projected_samples=projected,
             pointing_time_local=pointing_time_local,
             margin_px=config.framing.auto_top_margin_px,
+            limb=limb,
         )
         if auto_top_time is None:
             auto_top_time = find_closest_top_time(
                 projected_samples=projected,
                 pointing_time_local=pointing_time_local,
                 margin_px=config.framing.auto_top_margin_px,
+                limb=limb,
             )
             if auto_top_time is None:
                 raise RuntimeError(f"Could not infer framing time for optic '{optic.name}'")

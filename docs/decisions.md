@@ -116,7 +116,9 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 5. **Umbra vs aube** : au MAX le Soleil est à **−11°** (crépuscule nautique, azimut opposé). Poses umbra réalistes jusqu’au crépuscule civil (~06:44). Ensuite le fond de ciel noie les poses longues. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §8.
 
 **Justification :** hypothèses observateur du 22 août au soir ; géométrie Skyfield Tournefeuille (soleil −11,2° au MAX, lever 07:15, moonset 07:20). Capteurs 600D / 100D **équivalents** en RAW DxO (65 vs 63, DR 11,5 vs 11,3 EV) : le split est ergonomique, pas un écart de silicium. Voir [formes-prise-de-vue.md](formes-prise-de-vue.md) §9. Les 11,5 EV labo **ne remplacent pas** le HDR disque : SNR DxO ≠ dynamique propre, croissant qui clippe, fenêtre glissante ; protocole **7 × 2 EV → span 12 EV** *(n−1)×pas*. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §11.
-**Rejeté :** expo unique sans AEB sur le 100D (l’aube casse le run) ; doubleur comme plan A ; P1 dans le plan privilégié ; LEM sur le 100D comme plan A ; choisir le boîtier au foyer « parce qu’il est meilleur au DxO » ; une seule RAW « parce que 11,5 EV ».
+**Rejeté :** expo unique sans AEB sur le 100D (l’aube casse le run) ; doubleur comme plan A ; P1 dans le plan privilégié ; LEM sur le 100D comme plan A *pour un HDR disque* ; choisir le boîtier au foyer « parce qu’il est meilleur au DxO » ; une seule RAW « parce que 11,5 EV ».
+
+**Complément 2026-08-25 :** LEM sur le 100D n’est plus rejeté pour *suivre l’aube* (centrale qui recule, 3 puis 5 vues) — [DEC-018](#dec-018--100d-sous-lem--test-2-apn-puis-aube-2026-08-25), conditionné au test USB. Ce n’est pas un second 7 × 2 EV. Tant que ce test n’est pas OK, le 100D reste autonome (AEB).
 
 **Note OM System (2026-08-22) :** OM-3 / OM-5 II **sans test DxO publié**. Proxy labo = E-M1 II (80 / 12,8 EV / ISO 1312) ; PDR PhotonsToPhotos OM-3 9,64 / OM-5 II 9,79. Gain RAW ~+1 EV vs Rebel, poids surtout sur les zooms, **perte LEM**. Pas un changement *pour* le 28 août. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §10.
 
@@ -224,3 +226,51 @@ Format DEC-NNN. Décisions actives uniquement ; archiver ou supprimer quand obso
 
 **Justification :** N force Tv+Av+ISO avant un stack dont on ne relira pas les CR2. Y à l’intérieur d’une rampe évite de retéléverser l’ouverture muette à chaque vue (KI-019). Les 3 s / tampon 5 sont la recette Jubier déjà mesurée 7/7.
 **Rejeté :** Incremental Y en tête d’une étendue ou d’une des 3 rampes MAX ; N sur les 7/9 vues de chaque rampe ; coller les `TAKEPIC` au même instant ; ignorer le tampon 5 au MAX.
+
+---
+
+## DEC-017 : 100D 24 mm — horizon au tiers bas, MAX au ciel (2026-08-25)
+
+**Contexte :** forme A (time-lapse d’ambiance). Le 18–21 mm de la fiche lieu maximise U1→moonset dans le cadre. L’observateur retient une composition **paysage** : horizon sur le tiers inférieur, maximum d’éclipse vers le tiers supérieur, avec un peu de marge au-dessus du disque (27 mm serait pile, 28 mm trop juste).
+**Décision :**
+
+1. Focale forme A : **24 mm** paysage sur l’EF-S 15-85, Canon **100D**, trépied fixe.
+2. Pointage : `composition: horizon_thirds` — axe optique à **5,91°**, azimut du MAX (**245,3°**). Le YAML [tournefeuille-100d-24mm.yaml](../scripts/config/tournefeuille-100d-24mm.yaml) ne centre plus la Lune.
+3. **Recette terrain** (même famille que SEM DEC-009, Soleil tangent au bord haut) : trépied nivelé, horizon *visuel* sur le tiers inférieur. À **04:52:44** CEST, placer la Lune **tangente au bord supérieur**, à **20 % depuis la gauche**. Verrouiller jusqu’au moonset (07:20).
+4. U1 (04:34, 24,5°) est **hors cadre**. Le film d’ambiance commence visuellement à l’entrée ~04:53 ; l’intervallomètre peut partir à 04:20 (ciel vide puis entrée). MAX à 63 % de la hauteur (tiers haut = 67 %). Moonset sur la ligne d’horizon, à ~73 % depuis la gauche. Disque ~50 px.
+5. Schéma : [fov-100d-24mm-tiers.png](figures/fov-100d-24mm-tiers.png) (régénérer via `simulate_fov.py --config scripts/config/tournefeuille-100d-24mm.yaml`). Variante U1→SET encore dans [tournefeuille-100d-u1-set.yaml](../scripts/config/tournefeuille-100d-u1-set.yaml) (18–21 mm).
+
+**Justification :** 24 mm laisse ~4° de ciel au-dessus du MAX et tolère un pointage un peu haut / un horizon réel un peu au-dessus de 0°. 18 mm garde U1 mais pose le MAX trop bas pour cette composition.
+**Rejeté :** 28 mm (MAX pile sur le tiers, peu d’air) ; 18 mm comme plan A de *cette* composition ; portrait 35–40 mm (HFOV trop étroit pour le trajet azimutal).
+
+---
+
+## DEC-018 : 100D sous LEM — test 2 APN puis aube (2026-08-25)
+
+**Contexte :** l’AEB ±2 du 100D (DEC-010) est un écart *fixe* autour d’un M figé. L’éclairement de scène à Tournefeuille (ciel clair, modèle crépuscule + plancher suburban ~0,03 lx) reste plat jusqu’~06:00, puis ~**+2 EV** au MAX, **~+5** à 06:30, **~+7** au civil (06:44), **~+14** au moonset. Le 100D vise l’ouest : borne haute, le ciel anti-solaire peut monter 1–2 EV moins vite. LEM gagnerait à **reculer la centrale** (et passer à 5 vues), pas à copier le 7 × 2 EV du 750 mm. Le 100D n’a jamais été vu sous LEM 1.3.3β1 ([KI-007](known-issues.md)). Mac crash ignoré pour cette piste.
+**Décision (séquentielle — pas de script aube tant que le test 2 APN n’est pas OK) :**
+
+1. Nom APN Configuration matérielle : **`100D-W24`** (wide 24 mm), même esprit que `600D-T150`.
+2. **Prochain essai :** scénario **simple** deux boîtiers USB (quelques `TAKEPIC`, temps simulé) — protocole [essais-2026/README.md](../scripts/lem/essais-2026/README.md). Inclure un volet **allumage tardif** ([KI-023](known-issues.md)).
+3. **Si le 100D est vu et le dual USB tient :** script 100D qui **accompagne le jour** (grille ci-dessous, JPEG Fine, intervalle **90 s**, f/4) + `COMMAND ;say` **courts** (KI-021) pour le cadrage DEC-017 (**04:52:44**, bord haut, 20 % gauche, horizon au tiers).
+4. **Repli :** AEB + intervallomètre ; un cran M à la main ~06:40 (sans éteindre, KI-009) si LEM ne voit pas le 100D. Le 600D USB reste prioritaire.
+
+**Grille aube (étude ; centrale nuit 4 s · ISO 800 = placeholder, non mesurée) :**
+
+| Fenêtre CEST | Soleil | ΔEV scène vs 04:20 | Vues | Centrale vs nuit | Exemple Tv / ISO |
+|--------------|--------|---------------------|------|------------------|------------------|
+| 04:20 – 06:10 | < −12° | 0 → +2 | **3** (±2 EV) | 0 | 1 s / 4 s / 16 s · 800 |
+| 06:10 – 06:25 | −12 → −9° | +2 → +4 | **5 × 2 EV** | −2 EV | 1/4 … 4 s · 800 |
+| 06:25 – 06:40 | −9 → −7° | +4 → +6 | 5 × 2 EV | −5 EV | 1/15 … 1 s · 800 |
+| 06:40 – 06:55 | −7 → −4° | +6 → +9 | 5 × 2 EV | −8 EV | 1/60 … 1/4 · 400 |
+| 06:55 – 07:10 | −4 → −1,5° | +9 → +12 | 5 × 2 EV | −11 EV | 1/250 … 1/15 · 200 |
+| 07:10 – 07:20 | −1,5 → +0,7° | +12 → +14 | 5 × 2 EV | −13 EV | 1/1000 … 1/60 · 100 |
+
+Cinq vues × 2 EV = 8 EV de filet autour d’une centrale qui suit le ciel. Recouvrement ~2 EV entre paliers (nuage, ouest plus sombre). ~450 JPEG uniques vs ~720 doublons AEB « C » = 2. Le 100D plafonne à 1/4000 : sans baisser l’ISO, le moonset est pile au plafond si le modèle est juste.
+
+**Allumage en cours de route (ménager le LP-E12) :** oui **en principe**. FAQ LEM *« batterie vide »* : l’appli continue ; on remet un accu, on **allume**, *« les prochaines actions seront automatiquement exécutées »* — pas de rechargement mentionné. Premier `TAKEPIC` après reconnexion : Incremental **N** (analogue [KI-022](known-issues.md)). **Recharger le script (⌘R)** seulement si les lignes `100D-W24` ont été **sautées au chargement** (souvenir observateur ; option non retrouvée dans l’aide miroir — [KI-023](known-issues.md)). Ne pas recharger pendant une rampe 600D (actions déjà passées, [KI-020](known-issues.md)).
+
+**Justification :** le levier utile est l’horloge, pas un HDR de 50 px. Dual USB = aussi un test de robustesse Mac. L’allumage tardif n’a de sens que si les lignes 100D sont *dans* le script en cours.
+**Rejeté :** écrire le script aube avant le test 2 APN ; rampe 7 × 2 EV disque sur le 24 mm ; éteindre le 600D pour ménager le 100D.
+
+---

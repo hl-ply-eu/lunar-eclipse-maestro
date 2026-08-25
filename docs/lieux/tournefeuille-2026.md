@@ -15,7 +15,8 @@ Parc optique : [DEC-009](../decisions.md). Formes de prise de vue encore à étu
 | Horizon critique | Ouest–sud-ouest (azimut moonset ~257°) |
 
 YAML : [`scripts/config/tournefeuille-600d.yaml`](../../scripts/config/tournefeuille-600d.yaml)
-(chapelet wide : [`tournefeuille-100d-u1-set.yaml`](../../scripts/config/tournefeuille-100d-u1-set.yaml)).
+(forme A 24 mm : [`tournefeuille-100d-24mm.yaml`](../../scripts/config/tournefeuille-100d-24mm.yaml) ;
+variante U1→SET : [`tournefeuille-100d-u1-set.yaml`](../../scripts/config/tournefeuille-100d-u1-set.yaml)).
 
 ## Circonstances locales (UTC fournis → CEST)
 
@@ -41,14 +42,14 @@ Trajet angulaire **U1 → moonset ≈ 39,7°** (beaucoup plus long que C1→SET 
 
 **600D + télescope 150 mm f/5 (750 mm), monture équatoriale** — **taux Lune** (pas sidéral, [DEC-013](../decisions.md), [KI-008](../known-issues.md)) : la Lune reste au centre, l’ombre traverse le disque. `simulate_fov.py` (caméra fixe) **ne s’applique pas** à ce corps. FOV APS-C approx. : 1,70° × 1,14° (750 mm) ; 1,22° × 0,81° (1050 mm) ; 0,85° × 0,57° (1500 mm). Disque lunaire ~0,51°. Comparaison visuelle : [astronomy_tools_fov.png](../figures/astronomy_tools_fov.png).
 
-**Chapelet trépied fixe** — U1→moonset, marges ≥ 10 %, APS-C paysage, EF-S 15-85 :
+**Chapelet trépied fixe** — deux cadrages, APS-C paysage, EF-S 15-85 :
 
-| Pointage | Focale max ≥ 10 % | 24 mm | 28 mm | 60 mm | 70–200 |
-|----------|-------------------|-------|-------|-------|--------|
-| MAX (06:12:55) | **21 mm** | limbe haut ~5 % | sort | sort | sort |
-| Milieu U1–SET (05:57:09) | **25 mm** | OK (~12 % vertical) | marge ~6 % | sort | sort |
+| Intention | Focale | Pointage | Lune dans le cadre |
+|-----------|--------|----------|-------------------|
+| **Forme A (DEC-017)** — horizon au tiers bas, MAX au ciel | **24 mm** | `horizon_thirds`, az. MAX | Entrée **04:52:44** (bord haut, 20 % gauche) → moonset. **U1 hors cadre**. Schéma [fov-100d-24mm-tiers.png](../figures/fov-100d-24mm-tiers.png) |
+| Trajet complet U1→SET (marge ≥ 10 %) | 18–21 mm | milieu U1–SET | 04:20 → moonset ; MAX trop bas pour les tiers |
 
-60 mm et 70–200 restent utiles pour un chapelet **plus court** (autour du MAX) ou avec recentrages — à chiffrer sur la branche « formes de prise de vue ».
+60 mm et 70–200 restent utiles pour un chapelet **plus court** (autour du MAX) ou avec recentrages.
 
 Les PNG `output/fov/fov-70-200mm-*.png` datent encore de l’hypothèse Frías 280 mm fixe ; ne pas s’en servir pour le 750 mm suivi.
 
@@ -59,6 +60,11 @@ Les PNG `output/fov/fov-70-200mm-*.png` datent encore de l’hypothèse Frías 2
   --config scripts/config/tournefeuille-600d.yaml \
   --out output/fov
 
+.venv/bin/python scripts/simulate_fov.py \
+  --config scripts/config/tournefeuille-100d-24mm.yaml \
+  --out output/fov
+
+# Variante trajet U1→SET (18–21 mm), pas la composition tiers :
 .venv/bin/python scripts/simulate_fov.py \
   --config scripts/config/tournefeuille-100d-u1-set.yaml \
   --out output/fov

@@ -77,11 +77,26 @@ humaine » du disque. Ce HDR appartient au **600D @ 750 mm**, pas au wide.
 
 ### Forme A — Ambiance (time-lapse 100D, **privilégiée**)
 
-- **100D** + EF-S 15-85 @ **15–20 mm**, trépied fixe, intervallomètre + **AEB**
-  (leçon Frías : retardateur « C », AEB en dernier).
-- Fenêtre : **peu avant U1 → moonset** (viser ~04:20–07:20). Pas P1 (03:24).
+- **100D** + EF-S 15-85 @ **24 mm** paysage ([DEC-017](decisions.md)), trépied fixe.
+  **Aujourd’hui :** intervallomètre + **AEB** (leçon Frías : retardateur « C »,
+  AEB en dernier). **Candidat** ([DEC-018](decisions.md)) : LEM USB, nom
+  **`100D-W24`**, 3 vues la nuit puis 5 qui suivent l’aube — seulement si le
+  test 2 APN est OK. Repli = AEB.
+- Composition : horizon visuel sur le **tiers inférieur**, MAX vers le **tiers
+  supérieur**. U1 hors cadre. Recette : à **04:52:44**, Lune tangente au bord
+  haut, **20 % depuis la gauche** — schéma ci-dessous ([DEC-017](decisions.md)).
+  Sous LEM : `say` courts à cet instant (KI-021), pas un paragraphe.
+
+![Cadrage 100D 24 mm, Tournefeuille](figures/fov-100d-24mm-tiers.png)
+
+- Fenêtre d’intervallomètre : **~04:20 → moonset** (viser 04:20–07:20). Pas P1
+  (03:24). La Lune n’entre dans l’image que vers 04:53.
 - L’AEB (±2 EV, 6 vues via « C ») sert trois choses : nuit qui change, **lever
   du Soleil** dans le même run, **choix** des vues en post (pas un HDR disque).
+  Il **ne suit pas** l’aube : ~+2 EV au MAX (couche −2 encore juste), ~+5 à
+  06:30 (les 3 couches crament), ~+7 au civil, ~+14 au moonset — [DEC-018](decisions.md).
+  LEM sur ce corps, si USB OK, recule la centrale ; ce n’est pas un 7 × 2 EV
+  de 50 px.
 - Pour un time-lapse « histoire de lumière », se tenir à **une** couche du
   bracket (ou à une règle fixe). Mélanger les couches normalise l’aube et
   efface l’ambiance.
@@ -96,7 +111,7 @@ humaine » du disque. Ce HDR appartient au **600D @ 750 mm**, pas au wide.
 - Produit : chapelet U1→set. **Détruit** l’ambiance si on n’a qu’une expo par
   position. Viable seulement si brackets larges (plutôt LEM que AEB ±2).
 - Condition : LEM démarre et voit le 100D ([KI-006](known-issues.md), [KI-007](known-issues.md)).
-- Disque à 18–25 mm : ~80–120 px — chapelet « position dans le paysage », pas
+- Disque à 24 mm : **~50 px** — chapelet « position dans le paysage », pas
   le détail de l’ombre.
 
 ### Forme C — HDR disque 600D (privilégiée)
@@ -142,12 +157,14 @@ C’est le schéma Cannat, adapté à DEC-009 :
 | | Boîtier | Forme | Expo | Automatisation |
 |--|---------|-------|------|----------------|
 | Gros plan | **600D** @ 750 mm EQ (± 1,4×) | **C** (HDR disque) | Rampe / brackets | LEM si le Mac le permet, sinon manuel aux contacts |
-| Paysage | **100D** @ 15-85 15–20 mm | **A** (ambiance) | **AEB** ±2 EV | Intervallomètre + « C » |
+| Paysage | **100D** @ 15-85 **24 mm** | **A** (ambiance) | **AEB** ±2 EV, ou LEM 3→5 si USB OK | Intervallomètre + « C », ou LEM (`100D-W24`) |
 
 Pourquoi LEM sur le 600D plutôt que sur le wide : c’est là que la dynamique
-umbra/croissant exige une rampe ; le 100D gagne à rester autonome (leçon SEM
-DEC-013). Si LEM ne part pas, la forme C survit en manuel ; la forme A ne
-dépend déjà pas du Mac.
+umbra/croissant exige une rampe. Le 100D **autonome** reste le plan sûr
+(leçon SEM). LEM sur le wide n’apporte pas un second HDR : il apporte une
+**centrale qui suit le jour** ([DEC-018](decisions.md)), conditionné au test
+2 APN. Si LEM ne voit que le 600D, la forme C survit ; la forme A retombe
+sur l’AEB.
 
 Le split n’est **pas** un choix de capteur. Mesures DxOMark (RAW) : les deux
 boîtiers sont équivalents (voir §9).
@@ -213,7 +230,11 @@ gardée par palier (jetée si le ciel l’a cramée). L’umbra cuivrée n’est
 l’objectif — le croissant l’est.
 
 Le 100D AEB, lui, *doit* aller jusqu’au moonset : c’est là que l’aube entre
-dans le cadre, et c’est pour ça que le bracket existe.
+dans le cadre, et c’est pour ça que le bracket existe. L’AEB **fixe** ne
+couvre plus dès ~06:30 (~+5 EV vs 04:20). Grille LEM candidate (3 vues
+nuit, 5 × 2 EV ensuite, ISO qui descend) : [DEC-018](decisions.md). Centrale
+nuit **4 s · ISO 800** = placeholder, pas une mesure de jardin. Le 100D vise
+l’ouest : le modèle (éclairement horizontal) est une **borne haute**.
 
 ---
 
@@ -761,21 +782,30 @@ raccourcit surtout la vue +2 EV, donc le *cycle*, pas le nombre de fichiers
 L’essai rampe LEM sur le 600D chronomètre la durée réelle (vs ~20–25 s)
 ([`scripts/lem/essais-2026/bench-rampe-7x2ev.txt`](../scripts/lem/essais-2026/bench-rampe-7x2ev.txt)).
 
+**Si** le 100D passe sous LEM (DEC-018) : ~450 JPEG uniques (3 vues ~110 min
+nuit + 5 vues ~70 min aube, pas 90 s) vs ~720 doublons AEB — toujours en
+16 Go Fine. Accu : USB 3 h draine plus que l’intervallomètre ; allumage
+tardif possible **si** les lignes sont dans le script ([KI-023](known-issues.md)).
+
 ---
 
 ## 14. Ouvert (prochaine passe)
 
-- [ ] Essai AEB 100D de nuit + aube simulée (même chaîne « C » que Frías) ;
-      caler la vue centrale pour la nuit, laisser ±2 EV absorber l’aube ;
-      mesurer le plancher d’intervalle réel (60 vs 90 s).
+- [ ] **Test 2 APN LEM** ([DEC-018](decisions.md), [KI-007](known-issues.md),
+      [KI-023](known-issues.md)) : `600D-T150` + **`100D-W24`**, scénario
+      simple (pas le script aube). Trois passes : les deux allumés ;
+      100D éteint au chargement puis allumé **sans** ⌘R ; ⌘R seulement si
+      (b) est muet. Si OK → script aube 3→5 + `say` cadrage 04:52:44.
+- [ ] Essai AEB 100D de nuit + aube simulée (même chaîne « C » que Frías) —
+      **repli** et calage de la centrale 4 s · ISO 800 ; plancher 60 vs 90 s.
 - [ ] Déploiement LEM Mac (USB 600D) ; **benchmark** :
       [`scripts/lem/essais-2026/bench-rampe-7x2ev.txt`](../scripts/lem/essais-2026/bench-rampe-7x2ev.txt)
       (`600D-T150`, 15-85 @ f/5,6) — chronométrer une rampe 7 × 2 EV
       (estimation §13 : ~20–25 s), tampon / vidage ; puis **optique muette**
       au 150 mm ([KI-019](known-issues.md)) ; tenter le 1,4× (dérive).
-- [ ] Script séance LEM : [DEC-014](decisions.md)–[DEC-016](decisions.md) — ~04:20 rampe **3–5** ; **7** / **étendue 9** (DEC-013) ; MAX puis **ISO 100 + 1600** ; Incremental **N** en tête des étendues et des 3 rampes MAX ; écarts Jubier ≥ 3 s / tampon 5 ; aube **7→5→3** ; trou accu 10 min ~05:40 Incremental **N** ([KI-022](known-issues.md)) ; ISO **100 / 200 / 800** (produit) ; `COMMAND ;say` **courts à ~1 s** (KI-021) ; rappel **taux Lune** avant 04:20.
+- [ ] Script séance LEM 600D : [DEC-014](decisions.md)–[DEC-016](decisions.md) — ~04:20 rampe **3–5** ; **7** / **étendue 9** (DEC-013) ; MAX puis **ISO 100 + 1600** ; Incremental **N** en tête des étendues et des 3 rampes MAX ; écarts Jubier ≥ 3 s / tampon 5 ; aube **7→5→3** ; trou accu 10 min ~05:40 Incremental **N** ([KI-022](known-issues.md)) ; ISO **100 / 200 / 800** (produit) ; `COMMAND ;say` **courts à ~1 s** (KI-021) ; rappel **taux Lune** avant 04:20.
       Calculatrice Jubier / Espenak pour caler les vitesses, pas
-      `chapelet_exposure.py` solaire.
+      `chapelet_exposure.py` solaire. Script 100D aube : **après** le test 2 APN.
 - [ ] Optionnel : 7/7 sur la 32 Go (80 Mo/s) pour le tampon ([KI-016](known-issues.md)).
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200).
 - [ ] Confirmer l’horizon réel (clôture de la fenêtre umbra vers 06:44).

@@ -36,7 +36,7 @@ Capteur **équivalent** sur les deux boîtiers (APS-C 22,3 × 14,9 mm, 5184 × 3
 
 Le 70–200 n’est plus le télé 600D par défaut. U1→moonset (~40°) ne tient que sur le **15-85 vers 18–25 mm** ; 60 mm et 70–200 = chapelet plus court ou recentré. Filé sidéral : [KI-008](known-issues.md) (trépied seulement).
 
-Hypothèse actuelle (DEC-010) : 600D @ 750 mm = HDR disque ; 100D @ 15-85 = time-lapse d’ambiance à expo fixe. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md).
+Hypothèse actuelle (DEC-010) : 600D @ 750 mm = HDR disque ; 100D @ 15-85 = time-lapse d’ambiance. LEM plutôt sur le 600D. **Candidat** ([DEC-018](decisions.md)) : 100D aussi sous LEM (`100D-W24`) pour suivre l’aube — seulement après un test 2 APN simple. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md).
 
 ---
 
@@ -64,13 +64,14 @@ Noyau géométrique validé sur l’éclipse solaire : [methode-fov.md](methode-
   --out output/fov
 
 .venv/bin/python scripts/simulate_fov.py \
-  --config scripts/config/tournefeuille-100d-u1-set.yaml \
+  --config scripts/config/tournefeuille-100d-24mm.yaml \
   --out output/fov
 ```
 
-- Pointage 600D = **Lune** au MAX ; chapelet 100D = milieu U1–SET (`u1set_aim`).
+- Pointage 600D = **Lune** au MAX (suivi EQ, pas le simulateur fixe).
+- 100D forme A = **24 mm**, composition `horizon_thirds` ([DEC-017](decisions.md)) :
+  à **04:52:44**, Lune tangente au bord haut, 20 % depuis la gauche.
 - Overlay = disque lunaire + umbra/pénombre (pas croissant solaire).
-- Auto-top = limbe lunaire inférieur au bord haut du capteur (~06:01 CEST à 280 mm).
 - Fenêtre longue autour du MAX (P1 → moonset).
 
 Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
@@ -79,7 +80,7 @@ Détail numérique : [tournefeuille-2026.md](lieux/tournefeuille-2026.md).
 
 ## 5. Formes (étude — DEC-010)
 
-Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C** (600D, 750 mm ± 1,4×, HDR) + **forme A** (100D, time-lapse AEB peu avant U1 → moonset). LEM plutôt sur le 600D. Au MAX le Soleil est encore à −11° : l’umbra n’est pas noyée dans l’aube ([KI-014](known-issues.md)). Les 11,5 EV DxO du 600D **ne remplacent pas** le HDR disque ([formes §11](formes-prise-de-vue.md) : SNR labo ≠ dynamique propre ; croissant qui clippe ; fenêtre glissante ; span = (n−1)×pas).
+Voir [formes-prise-de-vue.md](formes-prise-de-vue.md). En résumé : **forme C** (600D, 750 mm ± 1,4×, HDR) + **forme A** (100D @ **24 mm**, time-lapse AEB, horizon au tiers — [DEC-017](decisions.md)). LEM plutôt sur le 600D. Si le test 2 APN (`100D-W24`) est OK, le 100D peut passer sous LEM pour **suivre l’aube** (3 vues puis 5, pas un 7 × 2 EV — [DEC-018](decisions.md)) ; sinon AEB + cran M ~06:40. Au MAX le Soleil est encore à −11° : l’umbra n’est pas noyée dans l’aube ([KI-014](known-issues.md)). Les 11,5 EV DxO du 600D **ne remplacent pas** le HDR disque ([formes §11](formes-prise-de-vue.md) : SNR labo ≠ dynamique propre ; croissant qui clippe ; fenêtre glissante ; span = (n−1)×pas).
 
 Volume ([formes §13](formes-prise-de-vue.md), [DEC-011](decisions.md), [DEC-014](decisions.md)) : **100D en JPEG Fine**, intervalle **90 s** ; **600D en RAW** sur **32 Go** (fenêtre ~04:20 → 07:20). Rampe 7 × 2 EV **~20–25 s** sous LEM ; 16 Go = filet **~65 rampes**. Le RAW AEB 100D sur 3 h **ne tient pas** en 16 Go ([KI-016](known-issues.md)). Pico 32 Go **80 Mo/s** vs 16 Go **95 Mo/s** : pas de re-calage des 3 s (bus 600D ≪ 80). **Swap LP-E8 10 min** vers 05:40 ([KI-022](known-issues.md)).
 
@@ -99,7 +100,8 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 - [ ] Horizon ouest–sud-ouest dégagé (moonset, azimut ~257°)
 - [ ] Optiques confirmées (focale wide U1→moonset)
 - [ ] Test LEM sur le Mac (démarrage + USB 600D) ; charger le bench rampe [`scripts/lem/essais-2026/`](../scripts/lem/essais-2026/)
+- [ ] **Test 2 APN** `600D-T150` + **`100D-W24`** (scénario simple, [DEC-018](decisions.md) ; allumage tardif [KI-023](known-issues.md)) — avant tout script aube 100D
 - [ ] Monture 750 mm en **taux Lune** (pas sidéral) ; station polaire **avant 04:20**
-- [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M
+- [ ] Intervallomètre 100D + piles ; AEB vérifié en mode M (**repli** si LEM ne voit pas le 100D)
 - [ ] Plan B 600D sans LEM (intervallomètre ou manuel)
 - [ ] Cartes formatées (100D **JPEG Fine** 16 Go, 600D **RAW 32 Go** ; 16 Go 600D = filet) ; 2 accus / boîtier ; **swap 600D prévu ~05:40** ; horloges

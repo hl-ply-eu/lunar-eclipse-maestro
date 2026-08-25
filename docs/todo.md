@@ -4,7 +4,7 @@
 
 - [ ] **Scénario 150 mm f/5 + 600D** — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
 - [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage
-- [ ] **Déploiement LEM** — 1.3.3β1 Intel Y + 600D USB OK ; 100D optionnel ([KI-007](known-issues.md))
+- [ ] **Déploiement LEM** — 1.3.3β1 Intel Y + 600D USB OK ; **test 2 APN** `100D-W24` ([DEC-018](decisions.md), [KI-007](known-issues.md), [KI-023](known-issues.md)) — avant tout script aube
 
 ## Bloqué
 
@@ -13,7 +13,7 @@ _(aucune tâche bloquée)_
 ## Backlog
 
 - [ ] Optionnel : rampe 7/7 sur la **32 Go** (80 Mo/s) pour confirmer le tampon — pas un re-calage des 3 s a priori ([KI-016](known-issues.md))
-- [ ] Essai AEB 100D de nuit + aube simulée (retardateur « C », KI-009) — caler t₀ et le plancher 60 vs 90 s
+- [ ] Essai AEB 100D de nuit + aube simulée (retardateur « C », KI-009) — caler t₀, la centrale **4 s · ISO 800** (placeholder DEC-018) et le plancher 60 vs 90 s ; **repli** si LEM ne voit pas le 100D
 - [ ] Analyseur de séquence hors ligne si le format de script LEM le justifie
 - [ ] Variantes météo / extinction à basse altitude (~10,5° au MAX à Tournefeuille ; Soleil déjà levé au moonset)
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200)
@@ -38,3 +38,5 @@ _(aucune tâche bloquée)_
 - [x] **Diagnostics MAX ISO 100 / 1600** (2026-08-24) — DEC-015 ; après l’étendue 9 seulement : rampe 100 (→ 4 s, suivi) puis 1600 (1/4000 → 1 s, figé) ; +14 CR2 ; pas un second HDR
 - [x] **Incremental N + écarts Jubier** (2026-08-24) — DEC-016 ; N en tête des étendues et des 3 rampes MAX ; Y ensuite ; ≥ 3 s / tampon 5
 - [x] **Script séance LEM** (2026-08-24) — [`seance-600d-t150.txt`](../scripts/lem/essais-2026/seance-600d-t150.txt) ; générateur `scripts/generate_lem_seance.py` ; 5 vues pénombre ; 9 étendue à U1+10 / 50 % / MAX / 06:30 ; diagnostics MAX ; cadence 2 min ; Av 5,6 / f/5
+- [x] **Cadrage 100D 24 mm / composition tiers** (2026-08-25) — DEC-017 ; horizon au tiers bas, MAX au ciel ; lock **04:52:44** bord haut 20 % gauche ; schéma `docs/figures/fov-100d-24mm-tiers.png`
+- [x] **100D sous LEM — plan** (2026-08-25) — DEC-018, KI-023 ; nom `100D-W24` ; test 2 APN simple d’abord ; grille aube 3→5 (4 s · ISO 800 non mesurée) ; allumage tardif FAQ + Incremental N ; script aube **après** le test

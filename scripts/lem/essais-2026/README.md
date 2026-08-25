@@ -6,7 +6,7 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 
 | | |
 |--|--|
-| **Nom APN** | `600D-T150` — doit matcher **exactement** la Configuration matérielle (casse, tiret) |
+| **Noms APN** | `600D-T150` (télescope 150 mm) ; candidat 100D **`100D-W24`** (wide 24 mm) — matcher **exactement** la Configuration matérielle (casse, tiret) |
 | **Éclipse** | 28 août 2026, lieu Tournefeuille (fuseau **UTC+2**, CEST) |
 | **Optique du bench** | EF-S **15-85 mm @ f/5,6** (diaphragme électronique). Le télescope 150 mm f/5 est le corps de séance ; optique **muette** = [KI-019](../../../docs/known-issues.md). |
 
@@ -15,6 +15,7 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 | Fichier local | Rôle | APN |
 |---------------|------|-----|
 | `bench-rampe-7x2ev.txt` | Chrono d’**une** rampe 7 × 2 EV (forme C) | `600D-T150` |
+| `bench-2apn.txt` | Test **simple** deux USB (DEC-018) ; pas l’aube | `600D-T150` + `100D-W24` |
 | `seance-600d-t150.txt` | Séance 04:20 → moonset (généré) | `600D-T150` |
 
 Script séance : [DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md). Régénérer :
@@ -38,6 +39,29 @@ Grammaire (ASCII, ~1 s d’écart) :
 ```
 COMMAND,U1,-,10:00.0, , , , , , , , ,Suivi Lune ;say "Suivi Lune"
 COMMAND,U1,-,09:59.0, , , , , , , , ,Pas sideral ;say "Pas sideral"
+```
+
+## Test 2 APN — `bench-2apn.txt` (DEC-018)
+
+Pas le script aube. Vérifier que LEM **voit** le 100D et tient deux USB. Nom **`100D-W24`**.
+
+**Passe (a) — les deux allumés.** Configuration matérielle : 600D déjà `600D-T150` ; 100D → nom `100D-W24`, modèle EOS 100D, **Déclencher** une vue. ⌘L `bench-2apn.txt`. Temps simulé **MAX − 40 s**, laisser courir. Compter **3 RAW** 600D + **3 JPEG** 100D. Visualiseur : les six `TAKEPIC` sont là.
+
+**Passe (b) — allumage tardif, sans ⌘R.** Décharger. 100D **éteint**. Recharger le même fichier. Noter si les lignes `100D-W24` restent dans le Visualiseur (souvenir : ignorées au chargement — option non retrouvée dans l’aide, [KI-023](../../../docs/known-issues.md)). Temps simulé MAX − 40 s. Allumer le 100D vers MAX − 15 s. **Ne pas** recharger. Les `TAKEPIC` 100D à −5 / +5 / +20 doivent partir tout seuls (FAQ batterie). Premier cliché : Incremental **N** déjà dans ce bench.
+
+**Passe (c) — ⌘R seulement si (b) est muet.** Une fois l’icône `100D-W24` visible, **Recharger script** hors des `TAKEPIC` 600D (après MAX+10 s, ou nouveau run). Les actions déjà « passées » sont sautées ([KI-020](../../../docs/known-issues.md)).
+
+**Si (a) échoue :** 100D = AEB, ne pas écrire le script aube. Si (a) OK et (b) OK : allumage ~04:15 le jour J tenable. Si (a) OK et (b) KO : allumer le 100D **avant** ⌘L, ou recharger dans un trou.
+
+### `say` cadrage (script aube, **après** ce test)
+
+ASCII, ≲ 60 car., **+1 s** (KI-021). Recette DEC-017, **04:52:44** = U1+18:52 :
+
+```
+COMMAND,U1,+,18:50.0, , , , , , , , ,Cadrage Lune ;say "Cadrage Lune"
+COMMAND,U1,+,18:51.0, , , , , , , , ,Bord haut ;say "Bord haut"
+COMMAND,U1,+,18:52.0, , , , , , , , ,Vingt pct gauche ;say "Vingt pct gauche"
+COMMAND,U1,+,18:53.0, , , , , , , , ,Horizon tiers ;say "Horizon tiers"
 ```
 
 ## Résultat 2026-08-23 — `bench-rampe-7x2ev.txt` (espacé 3 s)

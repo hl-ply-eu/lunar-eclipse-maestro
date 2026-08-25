@@ -64,9 +64,9 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-007 : Support 600D / 100D dans LEM non vérifié
 
-**Statut :** **600D OK** (2026-08-23, LEM 1.3.3β1 Intel Y, nom `600D-T150`, bench 7/7). **100D** encore optionnel / non testé.
-**Symptôme :** la page de téléchargement LEM 1.3.3β1 cite une plage Canon (« 1D Mark III up to 6D Mark II and 200D ») qui n'est pas un inventaire exhaustif. SEM a piloté le 600D ; LEM est plus ancien.
-**Action :** 100D seulement si on le met sous LEM (DEC-010 le laisse autonome). Ne pas copier un script SEM en changeant seulement le nom d'appli.
+**Statut :** **600D OK** (2026-08-23, LEM 1.3.3β1 Intel Y, nom `600D-T150`, bench 7/7). **100D** encore optionnel / non testé — prochain essai : scénario simple 2 APN, nom **`100D-W24`** ([DEC-018](decisions.md)).
+**Symptôme :** la page de téléchargement LEM 1.3.3β1 cite une plage Canon (« 1D Mark III up to 6D Mark II and 200D ») qui n'est pas un inventaire exhaustif. SEM a piloté le 600D ; LEM est plus ancien. Le 100D est listé dans l’aide Configuration APN (EOS 100D / Rebel SL1 / Kiss X7, USB, tampon RAW 6).
+**Action :** ne pas écrire le script aube 100D tant que LEM n’a pas vu le boîtier et tenu deux USB. Repli = AEB autonome (DEC-010). Ne pas copier un script SEM en changeant seulement le nom d'appli. Si LEM ne voit qu’un corps, garder le 600D.
 
 ---
 
@@ -189,3 +189,26 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Statut :** Décision de séance ([DEC-014](decisions.md)) ; pas encore répété sous LEM (le bench 23 août n’a pas coupé l’accu).
 **Symptôme :** le LP-E8 s’extrait par le **fond** du 600D. Couper l’accu = extinction + **renumérotation USB**. LEM peut garder en cache les derniers Tv/Av/ISO. Un `TAKEPIC` Incremental **Y** n’envoie que le *delta* : vitesses fausses ou vues sautées (voisin de [KI-020](known-issues.md)). Ce n’est pas l’AEB qui s’efface ([KI-009](known-issues.md), 100D).
 **Action :** trou script **10 min** (~05:40–05:55, après étendue ~50 %, avant MAX). `say` courts (T−2 min, T−1 min, début de trou, reprise). Premier `TAKEPIC` après reprise : Incremental **N**. Même **N** en tête de chaque étendue et de chaque rampe MAX ([DEC-016](decisions.md)). Vérifier l’icône `600D-T150` avant de laisser courir. Ne pas swapper au MAX ni pendant une étendue. Détail : [formes-prise-de-vue.md](formes-prise-de-vue.md) §13.
+
+---
+
+## KI-023 : APN éteint au chargement / allumé en cours de script
+
+**Statut :** Aide officielle claire pour un *accu vide en cours de run* ; le cas « jamais vu au chargement » n’est **pas** documenté dans le miroir. À trancher au test 2 APN ([DEC-018](decisions.md)).
+**Ce que dit LEM :**
+
+- FAQ *« Que dois-je faire quand la batterie de l’APN est vide ? »* ([Dépannage](../mirror/xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs2/btoc8.html)) : LEM **continue**. On met un autre accu, on **allume** ; *« les prochaines actions seront automatiquement exécutées normalement. »* Aucun *Recharger script* dans cette réponse.
+- Configuration matérielle ([c1sem7](../mirror/xjubier.free.fr/site_pages/lunar_eclipses/Lunar_Eclipse_Maestro_Help/pgs/c1sem7.html)) : un APN apparaît dès qu’il est allumé sur USB (comme un GPS ouvert après le dialogue).
+- Nouveautés : *Simulation des APNs* — APN **absent pendant l’exécution** → bruit d’obturateur (les lignes sont donc *dans* le script, pas forcément exécutées sur le boîtier).
+- **Recharger script (⌘R)** : relit le fichier après **édition**. Un offset vide s’exécute au **chargement**, pas au rechargement. Une mise à jour GPS **recharge** le script en cours. Relire en cours de séance saute les actions déjà « passées » ([KI-020](known-issues.md)).
+
+**Souvenir observateur (SEM/LEM) :** par défaut, au *chargement*, les lignes d’un APN **non connecté** seraient ignorées ; une **option** permettrait de charger quand même. **Non retrouvée** dans l’aide miroir (préférences `c1sem9` très lacunaires, menus `btoc3`, dépannage). Possible dialogue à ⌘L, case non listée, ou confusion avec la simulation. À noter tel quel au test : Visualiseur de script, lignes `100D-W24` présentes ou non.
+
+**Conséquence pour ménager le LP-E12 :**
+
+1. **Oui on peut l’allumer plus tard** si les lignes 100D sont *déjà* dans le script en cours (FAQ batterie). Premier `TAKEPIC` : Incremental **N** (cache Tv/Av/ISO, [KI-022](known-issues.md)).
+2. Si le 100D n’était **pas** dans la Configuration matérielle au ⌘L et que ses lignes ont disparu : l’allumer ne suffit pas — **recharger** une fois l’icône `100D-W24` visible, **hors rampe 600D** (trou, ou avant 04:20). Ne pas recharger au milieu d’une étendue 9.
+3. Ne pas éteindre / rallumer le **600D** pour ça (swap déjà prévu ~05:40).
+4. USB 3 h + LEM draine plus qu’un intervallomètre : l’allumage tardif (~04:15) n’a d’intérêt que si le volet 2 du bench 2 APN le confirme.
+
+**Action :** au test simple, trois passes — (a) les deux allumés au chargement ; (b) 100D éteint au ⌘L, allumé pendant le temps simulé, **sans** ⌘R ; (c) si (b) est muet, ⌘R une fois reconnu. Noter l’option / le dialogue s’il apparaît. Repli AEB si (a) échoue.

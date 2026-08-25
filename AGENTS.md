@@ -43,7 +43,7 @@ lunar-eclipse-maestro/
 | `mirror/` | Aide officielle LEM hors ligne (HTML wget) |
 | `scripts/build-pdf.py` | Assemble les pages prioritaires en PDF imprimable |
 | `scripts/simulate_fov.py` | Trajectoire de la Lune + ombre umbrale/pénombrale sur capteur fixe |
-| `scripts/lem/` | Exemples Jubier (`basic`/`deluxe`) + bench rampe 600D |
+| `scripts/lem/` | Exemples Jubier (`basic`/`deluxe`) + bench rampe 600D + bench 2 APN (`100D-W24`) |
 
 ## Commandes
 
@@ -57,6 +57,11 @@ lunar-eclipse-maestro/
 # Simulation FOV (Tournefeuille, DEC-008)
 .venv/bin/python scripts/simulate_fov.py \
   --config scripts/config/tournefeuille-600d.yaml \
+  --out output/fov
+
+# 100D 24 mm, composition tiers (DEC-017)
+.venv/bin/python scripts/simulate_fov.py \
+  --config scripts/config/tournefeuille-100d-24mm.yaml \
   --out output/fov
 
 # Tests unitaires (géométrie FOV, pas de CR2)

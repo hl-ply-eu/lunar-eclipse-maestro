@@ -1,0 +1,52 @@
+# Tournefeuille — 100D ambiance 24 mm, composition tiers (DEC-017).
+# Horizon géométrique sur le tiers inférieur ; azimut = Lune au MAX.
+# U1 sort du cadre : le time-lapse visuel commence à l'entrée haut de champ.
+
+site:
+  name: Tournefeuille
+  latitude_deg: 43.582389
+  longitude_deg: 1.350944
+  elevation_m: 155
+  timezone: Europe/Paris
+
+camera:
+  model: Canon EOS 100D
+  sensor_width_mm: 22.3
+  sensor_height_mm: 14.9
+  resolution_width_px: 5184
+  resolution_height_px: 3456
+
+optics:
+  - name: EF-S 15-85mm @ 24mm
+    focal_length_mm: 24
+    aperture_f: 4.0
+
+simulation:
+  # ±120 min autour du MAX 06:13 → couvre 04:13→08:13 (départ 04:20, moonset 07:20).
+  window_minutes: 120
+  step_seconds: 30
+  tick_minutes: 10
+  overlay_stride_ticks: 2
+  ephemeris_path: de421.bsp
+  temperature_c: 18
+  pressure_mbar: 995
+
+framing:
+  pointing_event: max
+  composition: horizon_thirds
+  horizon_alt_deg: 0.0
+  auto_top_margin_px: 0
+
+eclipse:
+  contacts_local:
+    p1: 2026-08-28T03:23:59
+    u1: 2026-08-28T04:33:52
+    max: 2026-08-28T06:12:55
+    u4: 2026-08-28T07:52:03
+    p4: 2026-08-28T09:01:47
+    set: 2026-08-28T07:20:26
+  validation_altaz_deg:
+    p1: {alt: 31.58, az: 207.67}
+    u1: {alt: 24.49, az: 225.00}
+    max: {alt: 10.51, az: 245.26}
+    set: {alt: -0.05, az: 257.17}

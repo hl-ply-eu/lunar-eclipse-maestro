@@ -21,7 +21,7 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
 
 ## Scripts LEM
 
-- **[scripts/lem/](../scripts/lem/)** — copie Pap des exemples Jubier (`basic` / `deluxe`) + bench rampe 7 × 2 EV (`essais-2026/`). Grammaire seulement : [KI-018](known-issues.md).
+- **[scripts/lem/](../scripts/lem/)** — copie Pap des exemples Jubier (`basic` / `deluxe`) + bench rampe 7 × 2 EV + bench 2 APN `100D-W24` (`essais-2026/`). Grammaire seulement : [KI-018](known-issues.md). Script aube 100D : après le test 2 APN ([DEC-018](decisions.md)).
 
 ## Mémoire projet
 

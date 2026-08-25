@@ -45,8 +45,9 @@ Canon 600D et 100D : **22,3 × 14,9 mm**, 5184 × 3456 px. Même FOV en degrés 
 ### Cadrage
 
 - `framing.pointing_event` = n’importe quelle clé de `eclipse.contacts_local` (pas seulement un contact). SEM s’en est servi pour une visée `tl60_aim` hors C2/MAX/C3.
-- Auto-top : limbe inférieur (côté horizon, \(y + r\)) au bord haut \(y = 0\) ; sinon fallback « instant le plus proche ».
-- Fenêtre large + visée personnalisée pour un time-lapse C1→événement (DEC-009/010). Ici : analogie **U1→moonset**.
+- `framing.composition` : `moon_centered` (défaut, Lune au centre à l’événement) ou **`horizon_thirds`** (axe à `atan((h/6)/f)` au-dessus de `horizon_alt_deg`, azimut de l’événement — MAX au ciel, horizon au tiers bas, [DEC-017](decisions.md)).
+- Auto-top : `moon_centered` → limbe inférieur (côté horizon, \(y + r\)) au bord haut \(y = 0\) ; `horizon_thirds` → limbe **haut** (disque entier tangent, \(y - r\)) — recette terrain « poser la Lune sur le bord supérieur ».
+- Fenêtre large + visée personnalisée pour un time-lapse C1→événement (DEC-009/010). Ici : analogie **U1→moonset**, ou entrée haut de champ → moonset si composition tiers.
 
 ### Dérive
 

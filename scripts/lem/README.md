@@ -32,7 +32,7 @@ Pas d’équivalent LEM de `Burst_Test.txt` / `Exposure_Ramping_Test.txt` / MMV 
 |-------|---------|
 | Totalité | Les deux scripts s’appuient sur **U2 / U3 / MAXPRE / MAXPOST**. Le 28 août 2026 est une **partielle** (pas de U2/U3). |
 | Horizon Tournefeuille | **U4 et P4 sous l’horizon** ([fiche lieu](../../docs/lieux/tournefeuille-2026.md)). Les `TAKEPIC,P4,…` et `TAKEPIC,U4,…` sont hors séance. |
-| APN | Nom **`D300`** — à remplacer **exactement** par le nom de la Configuration matérielle (`600D-T150`). |
+| APN | Nom **`D300`** — à remplacer **exactement** par le nom de la Configuration matérielle (`600D-T150`, et `100D-W24` si dual USB). |
 | Expo | Une vitesse par phase (1/160, 1 s, 4 s…), **pas** le protocole 7 × 2 EV (DEC-010 / formes §11). |
 | Densité | Boucles `FOR` tous les 1–5 % de magnitude → des centaines de RAW ; incompatible 16 Go / tampon 600D. |
 | MLU | 1–2 s par vue (plafonné à 2 s par LEM) : une rampe de 7 vues y passerait ~15 s de miroir **en plus** de l’horloge USB. |

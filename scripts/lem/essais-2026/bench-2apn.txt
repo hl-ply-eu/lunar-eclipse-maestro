@@ -1,0 +1,32 @@
+#
+# LEM -- bench simple 2 APN (DEC-018). Usage personnel. Pas le script aube.
+#
+# Noms Configuration materielle (casse exacte) :
+#   600D-T150  -- deja valide 2026-08-23
+#   100D-W24   -- wide 24 mm ; a creer au premier branchement
+#
+# Qualite 100D : colonne Fine -- verifier APN -> Proprietes disponibles
+# (chaine exacte JPEG Fine L). 600D : RAW comme le bench rampe.
+#
+# Mac : Temps simule = MAX moins ~40 s, LAISSER COURIR jusqu'a MAX+40 s.
+# Recopier dans ~/Documents/Scripts Lunar Eclipse Maestro/
+# Protocole : essais-2026/README.md (passes a / b / c, KI-023).
+#
+# Ne pas charger seance-600d-t150.txt en meme temps.
+#
+
+#Action,Date/Ref,Offset sign,Time (offset),Camera,Exposure,Aperture,ISO,MLU,Quality,Size,Incremental,Comment
+
+COMMAND,MAX,-,00:20.0, , , , , , , , ,Deux APN ;say "Deux APN"
+COMMAND,MAX,-,00:19.0, , , , , , , , ,600D et 100D ;say "600D et 100D"
+
+TAKEPIC,MAX,-,00:10.0,600D-T150,1/200,5.6,100,0.0,RAW,None,N,600D avant MAX
+TAKEPIC,MAX,-,00:05.0,100D-W24,1/200,4.0,800,0.0,Fine,None,N,100D avant MAX
+
+TAKEPIC,MAX,+,00:00.0,600D-T150,1/200,5.6,100,0.0,RAW,None,N,600D MAX
+TAKEPIC,MAX,+,00:05.0,100D-W24,1/200,4.0,800,0.0,Fine,None,N,100D MAX
+
+TAKEPIC,MAX,+,00:15.0,600D-T150,1/200,5.6,100,0.0,RAW,None,N,600D apres
+TAKEPIC,MAX,+,00:20.0,100D-W24,1/200,4.0,800,0.0,Fine,None,N,100D apres
+
+PLAY,MAX,+,00:30.0,Max_Eclipse.wav, , , , , , , ,Fin bench 2 APN
