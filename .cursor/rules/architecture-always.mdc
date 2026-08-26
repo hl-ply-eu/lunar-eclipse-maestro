@@ -8,7 +8,7 @@ alwaysApply: true
 - Guide principal : `docs/getting-started-2026-france.md` (éclipse lunaire 28 août 2026, France, Canon 600D + 100D).
 - Miroir HTML officiel : `mirror/` (wget) ; PDF consolidé : `output/lem-help-complet.pdf`.
 - Scripts : `scripts/mirror.sh` (téléchargement), `scripts/build-pdf.sh` + `scripts/build-pdf.py` (PDF WeasyPrint), `scripts/simulate_fov.py` (trajectoire lunaire), `scripts/lem/` (exemples Jubier + bench 600D).
-- Décisions : `docs/decisions.md`. Tâches : `docs/todo.md`. Pièges : `docs/known-issues.md`. Propriétés script APN : `docs/lem-apn-scripting.md` (+ dumps `scripts/lem/proprietes/`). Index : `AGENTS.md`.
+- Décisions : `docs/decisions.md`. Tâches : `docs/todo.md`. Pièges : `docs/known-issues.md`. Propriétés script APN : `docs/lem-apn-scripting.md` (+ dumps `docs/lem/camera-properties/`). Index : `AGENTS.md`.
 - Environnement Python : `.venv/` à la racine — exécuter via `.venv/bin/python` ou `./scripts/build-pdf.sh`.
 - Ne pas modifier `.venv/`, ni éditer manuellement le HTML miroir tierce (`mirror/xjubier.free.fr/`).
 - Ne pas indexer ni refactorer le contenu HTML du miroir — c'est une copie © Xavier Jubier.
