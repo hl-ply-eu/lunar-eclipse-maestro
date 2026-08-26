@@ -18,6 +18,8 @@ lunar-eclipse-maestro/
 │   ├── methode-fov.md                  # Noyau géométrique transféré depuis SEM
 │   ├── chapelet-lecons-sem.md          # Leçons 100D / intervallomètre (pas le plan d'expo solaire)
 │   ├── formes-prise-de-vue.md          # Étude des formes (DEC-010)
+│   ├── lem-apn-scripting.md            # Propriétés LEM 600D/100D (scripts)
+│   ├── lem/camera-properties/          # Dumps bruts LEM
 │   ├── decisions.md
 │   ├── todo.md
 │   ├── known-issues.md
@@ -31,7 +33,7 @@ lunar-eclipse-maestro/
 │   ├── mirror.sh
 │   ├── build-pdf.sh + build-pdf.py
 │   ├── simulate_fov.py                 # Trajectoire lunaire dans le champ (Skyfield DE421)
-│   ├── lem/                            # Exemples Jubier + essais scripts (copie Pap)
+│   ├── lem/                            # Exemples Jubier + benches essais-2026/
 │   └── config/tournefeuille-600d.yaml
 ├── AGENTS.md
 └── .cursor/                            # Rules, skills, commands Cursor
@@ -40,10 +42,11 @@ lunar-eclipse-maestro/
 | Composant | Rôle |
 |-----------|------|
 | `docs/getting-started-2026-france.md` | Workflow chronologique LEM pour l'éclipse du 28 août 2026 en France |
+| `docs/lem-apn-scripting.md` | Crans Tv/ISO/qualité pour scripts (`600D-T150`, `100D-W24`) |
 | `mirror/` | Aide officielle LEM hors ligne (HTML wget) |
 | `scripts/build-pdf.py` | Assemble les pages prioritaires en PDF imprimable |
 | `scripts/simulate_fov.py` | Trajectoire de la Lune + ombre umbrale/pénombrale sur capteur fixe |
-| `scripts/lem/` | Exemples Jubier (`basic`/`deluxe`) + bench rampe 600D + bench 2 APN (`100D-W24`) |
+| `scripts/lem/` | Exemples Jubier (`basic`/`deluxe`) + benches `essais-2026/` |
 
 ## Commandes
 
@@ -81,6 +84,7 @@ Injecter explicitement en ouverture de session via `@Files` :
 | `docs/decisions.md` | Décisions techniques actives (DEC-NNN) |
 | `docs/todo.md` | Registre En cours / Bloqué / Terminé |
 | `docs/known-issues.md` | Bugs et pièges connus (KI-NNN) |
+| `docs/lem-apn-scripting.md` | Propriétés LEM 600D / 100D pour scripts |
 | `docs/memory/` | Instantanés immuables par session |
 | `docs/getting-started-2026-france.md` | Guide opérationnel principal |
 

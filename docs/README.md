@@ -19,13 +19,15 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
   intervalle ≠ durée de film ; rampe 600D ~20–25 s ; séance 32 Go (~04:20–07:20),
   16 Go ≈ 65 rampes ; pause accu 10 min (DEC-014).
 
-## Scripts LEM
-
-- **[scripts/lem/](../scripts/lem/)** — copie Pap des exemples Jubier (`basic` / `deluxe`) + bench rampe 7 × 2 EV + bench 2 APN `100D-W24` (`essais-2026/`). Grammaire seulement : [KI-018](known-issues.md). Script aube 100D : après le test 2 APN ([DEC-018](decisions.md)).
+- **[Scripts LEM / propriétés APN](lem-apn-scripting.md)**  
+  Noms `600D-T150` / `100D-W24`, jetons `RAW`/`JPG-F`, enum Tv/ISO ; dumps bruts
+  dans [lem/camera-properties/](lem/camera-properties/).
+- **[scripts/lem/](../scripts/lem/)** — exemples Jubier + benches `essais-2026/`. Grammaire :
+  [KI-018](known-issues.md). Script aube 100D : après le test 2 APN ([DEC-018](decisions.md)).
 
 ## Mémoire projet
 
-- [Décisions](decisions.md) · [Tâches](todo.md) · [Problèmes connus](known-issues.md) · [memory/](memory/)
+- [Décisions](decisions.md) · [Tâches](todo.md) · [Problèmes connus](known-issues.md) · [Scripts APN LEM](lem-apn-scripting.md) · [memory/](memory/)
 
 ## Aide officielle (miroir)
 

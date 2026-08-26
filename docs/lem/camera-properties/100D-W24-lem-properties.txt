@@ -1,0 +1,453 @@
+##############################
+#   Lunar Eclipse Maestro    #
+# Camera Properties Analysis #
+##############################
+
+Camera model: Canon EOS 100D (camera #1)
+USB Vendor ID: 0x04a9
+USB Product ID: 0x3270
+Version: 1.00
+Firmware: 1.0.0
+SN: 213073004083
+Functional mode: 0
+
+Operations
+0x1001 -> 'get device info'
+0x1002 -> 'open session'
+0x1003 -> 'close session'
+0x1014 -> 'get device property description'
+0x1015 -> 'get device property value'
+0x1016 -> 'set device property value'
+0x91D5 -> ****
+0x9801 -> 'get object properties supported'
+0x9802 -> 'get object property description'
+0x9803 -> 'get object property value'
+0x9804 -> 'set object property value'
+0x9805 -> 'get object property list'
+0x1006 -> 'get num objects'
+0x1004 -> 'get storage IDs'
+0x9101 -> 'Canon get storage IDs'
+0x1005 -> 'get storage info'
+0x9102 -> 'Canon get storage info'
+0x1007 -> 'get object handles'
+0x1008 -> 'get object info'
+0x9103 -> 'Canon get object info'
+0x1009 -> 'get object'
+0x9104 -> 'Canon get object'
+0x100A -> 'get thumbnail'
+0x101B -> 'get partial object'
+0x9107 -> 'Canon get partial object'
+0x100C -> 'send object info'
+0x100D -> 'send object'
+0x100B -> 'delete object'
+0x9105 -> 'Canon delete object'
+0x100F -> 'format storage'
+0x9106 -> 'Canon format storage'
+0x9110 -> 'Canon set device property value extended'
+0x9127 -> 'Canon get device property value'
+0x910B -> 'Canon send partial object'
+0x9108 -> 'Canon get device info extended'
+0x9109 -> 'Canon get object info extended'
+0x910C -> 'Canon set object attributes'
+0x910E -> 'Canon set object time'
+0x910F -> 'Canon remote release'
+0x9117 -> 'Canon transfer complete'
+0x9120 -> 'Canon transfer complete DT'
+0x91F0 -> 'Canon transfer complete 2'
+0x9118 -> 'Canon cancel transfer'
+0x9121 -> 'Canon cancel transfer DT'
+0x91F1 -> 'Canon cancel transfer 2'
+0x911D -> 'Canon keep device on'
+0x910A -> 'Canon get thumbnail extended'
+0x911B -> 'Canon set UI lock'
+0x911C -> 'Canon reset UI lock'
+0x911E -> 'Canon set null packet mode'
+0x911A -> 'Canon PC HD capacity'
+0x9141 -> 'Canon request inner develop start'
+0x9142 -> 'Canon request inner develop param change'
+0x9143 -> 'Canon request inner develop end'
+0x9144 -> 'Canon GPS logging data mode'
+0x9145 -> 'Canon get GPS log current handle'
+0x9140 -> 'Canon set rating'
+0x9153 -> 'Canon get viewfinder data'
+0x9154 -> 'Canon do AF'
+0x9160 -> 'Canon AF cancel'
+0x9155 -> 'Canon drive lens'
+0x9157 -> 'Canon click WB'
+0x9158 -> 'Canon zoom'
+0x9159 -> 'Canon zoom position'
+0x915A -> 'Canon set live AF frame'
+0x911F -> 'Canon update firmware'
+0x91FE -> 'Canon F API message transmit'
+0x91FF -> 'Canon F API message receive'
+0x9128 -> 'Canon remote release on'
+0x9129 -> 'Canon remote release off'
+0x912D -> ****
+0x912E -> ****
+0x912F -> ****
+0x912C -> 'Canon get partial object extended'
+0x9130 -> 'Canon reset mirror lock-up state'
+0x9131 -> 'Canon popup built-in flash'
+0x9132 -> 'Canon end get partial object extended'
+0x9133 -> 'Canon movie select SW on'
+0x9134 -> 'movie select SW off'
+0x912B -> 'Canon change photo studio mode'
+0x9135 -> 'Canon get CTG info'
+0x9136 -> 'Canon get lens adjust'
+0x9137 -> 'Canon set lens adjust'
+0x9138 -> 'Canon get music info'
+0x9139 -> 'Canon create handle'
+0x913A -> 'Canon send partial object extended'
+0x913B -> 'Canon end send partial object extended'
+0x913C -> 'Canon set CTG info'
+0x913D -> 'Canon set request OLC info group'
+0x913F -> 'Canon get camera support'
+0x91DA -> ****
+0x91DB -> ****
+0x91DC -> ****
+0x91DD -> ****
+0x91DE -> ****
+0x91D8 -> ****
+0x91D9 -> ****
+0x91D7 -> ****
+0x913E -> 'Canon set request rolling pitching level'
+0x9113 -> 'Canon get remote mode'
+0x9114 -> 'Canon set remote mode'
+0x9115 -> 'Canon set event mode'
+0x9116 -> 'Canon get event'
+0x915B -> 'Canon touch AF position'
+0x91C0 -> ****
+0x91C1 -> ****
+0x91C2 -> ****
+0x91C3 -> ****
+0x91C4 -> ****
+0x91C5 -> ****
+0x91C6 -> ****
+0x91C7 -> ****
+0x91C8 -> ****
+0x91C9 -> ****
+0x91CA -> ****
+0x91CB -> ****
+0x91CC -> ****
+0x91CE -> ****
+0x91CF -> ****
+0x91D0 -> ****
+0x91D1 -> ****
+0x91D2 -> ****
+0x91E1 -> ****
+0x91E2 -> ****
+0x91E3 -> ****
+0x91E4 -> ****
+0x91E5 -> ****
+0x91E6 -> ****
+0x91E7 -> ****
+0x91E8 -> 'Canon notify network error'
+0x91E9 -> 'Canon adapter transfer progress'
+0x91EA -> ****
+0x91EB -> ****
+0x91EC -> ****
+0x91ED -> ****
+0x91EE -> ****
+0x91EF -> ****
+0x91F8 -> ****
+0x91F9 -> ****
+0x91F2 -> ****
+0x91F3 -> ****
+0x91F4 -> ****
+0x91F7 -> ****
+0x91DF -> ****
+0x91FB -> ****
+0x91FC -> ****
+0x91FD -> ****
+0x9122 -> 'Canon set Wft profile'
+0x9123 -> 'Canon get Wft profile'
+0x9124 -> 'Canon set profile to Wft'
+0x91F5 -> ****
+0x91F6 -> ****
+0x9033 -> 'Canon get MAC address'
+0x9068 -> 'Canon get Web service spec'
+0x9069 -> 'Canon get Web service data'
+0x906A -> ****
+0x906B -> 'Canon set Web service data'
+0x906C -> 'Canon get root certificate spec'
+0x906D -> 'Canon get root certificate data'
+0x906E -> ****
+0x906F -> 'Canon set root certificate data'
+0x902F -> ****
+0x9052 -> ****
+0x9053 -> ****
+0x9057 -> ****
+0x9058 -> ****
+0x9059 -> ****
+0x905A -> ****
+0x905F -> ****
+
+Events
+0x4009 -> 'request object transfer'
+0x4004 -> 'store added'
+0x4005 -> 'store removed'
+0x4003 -> 'object removed'
+0x4002 -> 'object added'
+0x4007 -> 'object info changed'
+0xC101 -> 'Canon request get event'
+
+Proprietary events
+0xC181 -> 'Canon object added'
+0xC182 -> 'Canon object removed'
+0xC183 -> 'Canon request get object info extended'
+0xC184 -> 'Canon storage status changed'
+0xC185 -> 'Canon storage info changed'
+0xC186 -> 'Canon request object transfer'
+0xC187 -> 'Canon object info changed extended'
+0xC188 -> 'Canon object content changed'
+0xC189 -> 'Canon property value changed'
+0xC18A -> 'Canon available list changed'
+0xC18B -> 'Canon camera status changed'
+0xC18D -> 'Canon will soon shutdown'
+0xC18E -> 'Canon shutdown timer updated'
+0xC18F -> 'Canon request cancel transfer'
+0xC190 -> 'Canon request object transfer DT'
+0xC191 -> 'Canon request cancel transfer DT'
+0xC1A0 -> ****
+0xC1A1 -> ****
+
+General properties
+0xD049 -> 'Canon model ID' [UINT32 RO value: 2147484486 (2147484486)]
+0xD402 -> 'device friendly name' [STR RO value: Canon EOS 100D (Canon EOS 100D)]
+0xD407 -> 'device type' [UINT32 RO value: 1 (1)]
+0xD406 -> 'host information' [STR RW value: Unknown Initiator (Unknown Initiator)]
+0xD303 -> **** [UINT8 RO value: 1 (1)]
+0x5001 -> 'battery level' [UINT8 RO Enum (100,0,75,0,50) value: 100 (100)]
+
+Proprietary properties (hidden)
+0xD105 -> 'Canon auto exposure mode' [UINT16 RW Enum () value: 3 (3)]
+0xD108 -> 'Canon focus mode' [UINT32 RO Enum (0,2,1) value: 3 (3)]
+0xD106 -> 'Canon drive mode' [UINT32 RW Enum (0,1,19,20,16,17,7) value: 40 (40)]
+0xD107 -> 'Canon metering mode' [UINT32 RW Enum (3,4,1,5) value: 3 (3)]
+0xD109 -> 'Canon white balance' [UINT32 RW Enum (0,1,8,2,3,4,5,6) value: 1 (1)]
+0xD10A -> 'Canon color temperature' [UINT32 RW Enum (2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300,6400,6500,6600,6700,6800,6900,7000,7100,7200,7300,7400,7500,7600,7700,7800,7900,8000,8100,8200,8300,8400,8500,8600,8700,8800,8900,9000,9100,9200,9300,9400,9500,9600,9700,9800,9900,10000) value: 5200 (5200)]
+0xD10B -> 'Canon white balance adjust A' [INT32 RW Enum (-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9) value: 0 (0)]
+0xD10C -> 'Canon white balance adjust B' [INT32 RW Enum (-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9) value: 0 (0)]
+0xD10D -> 'Canon white balance XA' [UINT32 RW Enum (0,1,2,3) value: 0 (0)]
+0xD10E -> 'Canon white balance XB' [UINT32 RW Enum (0,1,2,3) value: 0 (0)]
+0xD10F -> 'Canon color space' [UINT32 RW Enum (1,2) value: 1 (1)]
+0xD11B -> 'Canon available shots' [UINT32 RO value: 1994 (1994)]
+0xD114 -> 'Canon auto power off' [UINT32 RW value: 120 (120)]
+0xD116 -> 'Canon model ID' [UINT32 RO value: 2147484486 (2147484486)]
+0xD119 -> 'Canon PTP extension version' [UINT32 RO value: 256 (256)]
+0xD11A -> 'Canon DPOF version' [UNDEF RO length: 0 bytes]
+0xD110 -> 'Canon picture style' [UINT32 RW Enum (135,129,130,131,132,133,134,33,34,35) value: 135 (135)]
+0xD115 -> 'Canon owner' [STR RW length: 1 bytes]
+0xD101 -> 'Canon aperture' [UINT32 RW Enum (350,400,450,500,560,630,710,800,900,1000,1100,1300,1400,1600,1800,2000,2200) value: 40 (40)]
+0xD102 -> 'Canon shutter speed' [UINT32 RW Enum (100,30,25,20,15,13,10,8,6,5,4,3.2,2.5,2,1.6,1.3,1,1/1.3 0.8,1/1.6 0.6,1/2,1/2.5 0.4,1/3,1/4,1/5,1/6,1/8,1/10,1/13,1/15,1/20,1/25,1/30,1/40,1/50,1/60,1/80,1/100,1/125,1/160,1/200,1/250,1/320,1/400,1/500,1/640,1/800,1/1000,1/1250,1/1600,1/2000,1/2500,1/3200,1/4000) value: 4 (4)]
+0xD103 -> 'Canon ISO speed' [UINT32 RW Enum (0,100,200,400,800,1600,3200,6400,12800) value: 40 (40)]
+0xD104 -> 'Canon exposure compensation' [UINT32 RW Enum () value: 0 (0)]
+0xD11D -> 'Canon bracket mode' [UINT32 RW value: 0 (0)]
+0xD111 -> 'Canon transfer option' [UINT32 RO value: 2 (2)]
+0xD112 -> 'Canon battery select' [UINT32 RO value: 0 (0)]
+0xD113 -> 'Canon camera time' [UINT32 RW value: 2026-Aug-26 18:30:19 (2026-Aug-26 18:30:19)]
+0xD17C -> 'Canon UTC time' [UINT32 RW value: 2026-Aug-26 18:30:17 UTC (2026-Aug-26 18:30:17 UTC)]
+0xD17D -> 'Canon timezone' [UINT32 RW Enum (12,33,780,12,1,765,12,2,720,12,3,660,12,4,600,12,5,570,12,6,540,12,7,480,12,8,420,12,9,390,12,10,360) value: 12 (12)]
+0xD17E -> 'Canon summer time' [UINT32 RW Enum (0,1) value: 1 (1)]
+0xD120 -> 'Canon image format' [UINT16 RW Enum (768,512,4864,4608,54016,53760,58112,62208,1027,1024) value: 768 (768)]
+0xD121 -> 'Canon image format CF' [UINT16 RW Enum (768,512,4864,4608,54016,53760,58112,62208,1027,1024) value: 768 (768)]
+0xD122 -> 'Canon image format SD' [UINT16 RW Enum (768,512,4864,4608,54016,53760,58112,62208,1027,1024) value: 768 (768)]
+0xD156 -> 'Canon picture style auto' [UINT32 RW value: 28 (28)]
+0xD150 -> 'Canon picture style standard' [UINT32 RW value: 28 (28)]
+0xD151 -> 'Canon picture style portrait' [UINT32 RW value: 28 (28)]
+0xD152 -> 'Canon picture style landscape' [UINT32 RW value: 28 (28)]
+0xD153 -> 'Canon picture style neutral' [UINT32 RW value: 28 (28)]
+0xD154 -> 'Canon picture style faithful' [UINT32 RW value: 28 (28)]
+0xD155 -> 'Canon picture style BW' [UINT32 RW value: 28 (28)]
+0xD160 -> 'Canon picture style user set 1' [UINT32 RW value: 32 (32)]
+0xD161 -> 'Canon picture style user set 2' [UINT32 RW value: 32 (32)]
+0xD162 -> 'Canon picture style user set 3' [UINT32 RW value: 32 (32)]
+0xD170 -> 'Canon picture style param 1' [UNDEF RO length: 0 bytes]
+0xD171 -> 'Canon picture style param 2' [UNDEF RO length: 0 bytes]
+0xD172 -> 'Canon picture style param 3' [UNDEF RO length: 0 bytes]
+0xD11C -> 'Canon capture destination' [UINT32 RW Enum (2,6,4) value: 2 (2)]
+0xD1A0 -> 'Canon custom function Ex' [STR RW value: 98,4,1,20,2,101,1,0,103,1,0,2,14,1,203,1,0,3,20,2,50e,1,0,60f,1,0,4,2c,3,701,1,0,704,1,0,811,1,0, (98,4,1,20,2,101,1,0,103,1,0,2,14,1,203,1,0,3,20,2,50e,1,0,60f,1,0,4,2c,3,701,1,0,704,1,0,811,1,0,)]
+0xD1A1 -> 'Canon my menu' [UINT32 RO value: 8 (8)]
+0xD1A2 -> 'Canon my menu list' [UNDEF RO length: 0 bytes]
+0xD1A5 -> 'Canon HD directory structure' [UNDEF RO length: 0 bytes]
+0xD1A8 -> 'Canon lens status' [UINT32 RO value: 1 (1)]
+0xD1A7 -> 'Canon adapter info' [UINT32 RO value: 0 (0)]
+0xD1AB -> 'Canon temp status' [UINT32 RO value: 0 (0)]
+0xD1B0 -> 'Canon EVF output device' [UINT32 RW Enum (0,1,2,3,4,5,6,7) value: 0 (0)]
+0xD1B1 -> 'Canon EVF mode' [UINT32 RW Enum (1,0) value: 1 (1)]
+0xD1B2 -> 'Canon depth of field preview' [UINT32 RO value: 0 (0)]
+0xD1B3 -> 'Canon EVF sharpness' [UINT32 RW value: 0 (0)]
+0xD1B4 -> 'Canon EVF white balance mode' [UINT32 RW Enum (0,1,8,2,3,4,5,6,32768) value: 1 (1)]
+0xD1B5 -> 'Canon EVF click white balance coeffs' [UINT32 RW value: 48 (48)]
+0xD1B6 -> 'Canon EVF color temp' [UINT32 RW Enum (2500,2600,2700,2800,2900,3000,3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,4100,4200,4300,4400,4500,4600,4700,4800,4900,5000,5100,5200,5300,5400,5500,5600,5700,5800,5900,6000,6100,6200,6300,6400,6500,6600,6700,6800,6900,7000,7100,7200,7300,7400,7500,7600,7700,7800,7900,8000,8100,8200,8300,8400,8500,8600,8700,8800,8900,9000,9100,9200,9300,9400,9500,9600,9700,9800,9900,10000) value: 5200 (5200)]
+0xD1A9 -> 'Canon quick review time' [UINT32 RW Enum (0,2,4,8,255) value: 2 (2)]
+0xD146 -> 'Canon M white balance extended' [UINT32 RW value: 48 (48)]
+0xD1AC -> 'Canon shutter counter' [UINT32 RO value: 23981 (23981)]
+0xD1AD -> 'Canon special option' [UNDEF RO length: 0 bytes]
+0xD1AE -> 'Canon photo studio mode' [UNDEF RO length: 0 bytes]
+0xD1AA -> 'Canon card extension' [UINT32 RO value: 0 (0)]
+0xD11E -> 'Canon current storage' [UINT32 RO value: 131073 (131073)]
+0xD11F -> 'Canon current folder' [UINT32 RO value: 2442133504 (2442133504)]
+0xD1AF -> 'Canon serial number' [STR RO value: 213073004083 (213073004083)]
+0xD1D0 -> 'Canon artist' [STR RW length: 1 bytes]
+0xD1D1 -> 'Canon copyright' [STR RW length: 1 bytes]
+0xD1D9 -> 'Canon AEB' [UINT32 RW Enum (0,3,5,8,11,13,16) value: 0 (0)]
+0xD1BA -> 'Canon Lv Af system' [UINT32 RO Enum (2,3,1,0) value: 1 (1)]
+0xD1CC -> 'Canon movie param 3' [UINT32 RW value: 36 (36)]
+0xD1BC -> 'Canon Lv exposure simulation' [UINT32 RW Enum (1,0,3) value: 1 (1)]
+0xD1B8 -> 'Canon EVF record status' [UINT32 RO value: 0 (0)]
+0xD1D3 -> 'Canon focus info ex' [STR RO value: eosversion=0,size=5184x3456,size2=5184x3456,points={{0,0,223,223},{0,730,119,181},{0,-730,119,181},{-821,388,172,128},{821,388,172,128},{-821,-388,172,128},{821,-388,172,128},{-1370,0,172,128},{1370,0,172,128}},select={},unknown={ff01000000000000ffff} (eosversion=0,size=5184x3456,size2=5184x3456,points={{0,0,223,223},{0,730,119,181},{0,-730,119,181},{-821,388,172,128},{821,388,172,128},{-821,-388,172,128},{821,-388,172,128},{-1370,0,172,128},{1370,0,172,128}},select={},unknown={ff01000000000000ffff})]
+0xD1D8 -> 'Canon lens name' [STR RO value: EF-S18-135mm f/3.5-5.6 IS STM (EF-S18-135mm f/3.5-5.6 IS STM)]
+0xD17F -> 'Canon flavor LUT params' [UNDEF RO length: 0 bytes]
+0xD1B7 -> 'Canon exposure simulation mode' [UINT32 RW value: 0 (0)]
+0xD1CB -> 'Canon strobo setting exposure composition' [UINT32 RW value: 52 (52)]
+0xD1DB -> 'Canon strobo wireless setting' [UINT32 RW value: 0 (0)]
+0xD1DC -> 'Canon strobo firing' [UINT32 RW Enum (0,1) value: 0 (0)]
+0xD1A3 -> 'Canon WFT status' [UINT32 RW value: 0 (0)]
+0xD1A4 -> 'Canon WFT input transmission' [UINT32 RW value: 484 (484)]
+0xD1DF -> 'Canon CA dark bright' [UINT32 RW value: 0 (0)]
+0xD1BD -> 'Canon mirror down status' [UINT32 RW value: 0 (0)]
+0xD1C1 -> 'Canon alo mode' [UINT32 RW Enum (3) value: 4278256131 (4278256131)]
+0xD1C0 -> 'Canon flash charging state' [UINT32 RW value: 0 (0)]
+0xD1BF -> 'Canon mirror lockup state' [UINT32 RW value: 0 (0)]
+0xD1C4 -> 'Canon error for display' [UINT32 RW value: 0 (0)]
+0xD1C2 -> 'Canon fixed movie' [UINT32 RW value: 0 (0)]
+0xD1C5 -> 'Canon AE mode movie' [UINT32 RW value: 3 (3)]
+0xD194 -> 'Canon multi aspect' [UINT32 RW Enum (0,2,7,1) value: 0 (0)]
+0xD195 -> 'Canon movie sound record' [UINT32 RW value: 2 (2)]
+0xD196 -> 'Canon movie record volume' [UINT32 RW value: 47 (47)]
+0xD197 -> 'Canon wind cut' [UINT32 RW value: 0 (0)]
+0xD198 -> 'Canon extender type' [UINT32 RW value: 255 (255)]
+0xD1DD -> 'Canon lens ID' [UINT32 RO value: 4142 (4142)]
+0xD1C7 -> 'Canon strobo display state' [UINT32 RW value: 0 (0)]
+0xD199 -> 'Canon OLC info version' [UINT32 RW value: 7 (7)]
+0xD138 -> 'Canon AE mode dial' [UINT32 RW value: 3 (3)]
+0xD139 -> 'Canon AE mode custom' [UINT32 RW value: 0 (0)]
+0xD13A -> 'Canon mirror up setting' [UINT32 RW Enum (0,1) value: 0 (0)]
+0xD13C -> 'Canon AF select focus area' [UINT32 RW value: 3 (3)]
+0xD13D -> 'Canon HDR setting' [UINT32 RW value: 24 (24)]
+0xD14D -> **** [UINT32 RW value: 60 (60)]
+0xD19D -> **** [UNDEF RO length: 0 bytes]
+0xD19A -> **** [UINT32 RW value: 0 (0)]
+0xD19C -> **** [UINT32 RW value: 1 (1)]
+0xD1C6 -> 'Canon built-in strobo mode' [UINT32 RW Enum (0,1,2) value: 0 (0)]
+0xD1C8 -> 'Canon strobo ETTL2 metering' [UINT32 RW Enum (0,1) value: 0 (0)]
+0xD178 -> 'Canon high ISO noise reduction' [UINT32 RW Enum (3,1,0,2,4) value: 2 (2)]
+0xD179 -> 'Canon movie servo AF' [UINT32 RW value: 1 (1)]
+0xD17A -> **** [UINT32 RW Enum (1,0) value: 4294967041 (4294967041)]
+0xD17B -> 'Canon attenuator' [UINT32 RW value: 0 (0)]
+0xD1C9 -> 'Canon continuous AF mode' [UINT32 RW Enum (1,0) value: 0 (0)]
+0xD19F -> **** [UINT32 RW value: 1 (1)]
+0xD137 -> **** [UINT32 RW value: 0 (0)]
+
+PTP Object Format Codes
+0x3801 -> 'JPEG'
+
+Default shutter speed: 0x00000028 -> 4
+Current shutter speed: 0x00000028 -> 4
+Elements: 53
+Shutter speed: 0x0000000C -> 100
+Shutter speed: 0x00000010 -> 30
+Shutter speed: 0x00000013 -> 25
+Shutter speed: 0x00000015 -> 20
+Shutter speed: 0x00000018 -> 15
+Shutter speed: 0x0000001B -> 13
+Shutter speed: 0x0000001D -> 10
+Shutter speed: 0x00000020 -> 8
+Shutter speed: 0x00000023 -> 6
+Shutter speed: 0x00000025 -> 5
+Shutter speed: 0x00000028 -> 4
+Shutter speed: 0x0000002B -> 3.2
+Shutter speed: 0x0000002D -> 2.5
+Shutter speed: 0x00000030 -> 2
+Shutter speed: 0x00000033 -> 1.6
+Shutter speed: 0x00000035 -> 1.3
+Shutter speed: 0x00000038 -> 1
+Shutter speed: 0x0000003B -> 1/1.3
+Shutter speed: 0x0000003D -> 1/1.6
+Shutter speed: 0x00000040 -> 1/2
+Shutter speed: 0x00000043 -> 1/2.5
+Shutter speed: 0x00000045 -> 1/3
+Shutter speed: 0x00000048 -> 1/4
+Shutter speed: 0x0000004B -> 1/5
+Shutter speed: 0x0000004D -> 1/6
+Shutter speed: 0x00000050 -> 1/8
+Shutter speed: 0x00000053 -> 1/10
+Shutter speed: 0x00000055 -> 1/13
+Shutter speed: 0x00000058 -> 1/15
+Shutter speed: 0x0000005B -> 1/20
+Shutter speed: 0x0000005D -> 1/25
+Shutter speed: 0x00000060 -> 1/30
+Shutter speed: 0x00000063 -> 1/40
+Shutter speed: 0x00000065 -> 1/50
+Shutter speed: 0x00000068 -> 1/60
+Shutter speed: 0x0000006B -> 1/80
+Shutter speed: 0x0000006D -> 1/100
+Shutter speed: 0x00000070 -> 1/125
+Shutter speed: 0x00000073 -> 1/160
+Shutter speed: 0x00000075 -> 1/200
+Shutter speed: 0x00000078 -> 1/250
+Shutter speed: 0x0000007B -> 1/320
+Shutter speed: 0x0000007D -> 1/400
+Shutter speed: 0x00000080 -> 1/500
+Shutter speed: 0x00000083 -> 1/640
+Shutter speed: 0x00000085 -> 1/800
+Shutter speed: 0x00000088 -> 1/1000
+Shutter speed: 0x0000008B -> 1/1250
+Shutter speed: 0x0000008D -> 1/1600
+Shutter speed: 0x00000090 -> 1/2000
+Shutter speed: 0x00000093 -> 1/2500
+Shutter speed: 0x00000095 -> 1/3200
+Shutter speed: 0x00000098 -> 1/4000
+
+
+DeviceInfo 555 bytes hexdump:
+64 00 06 00 00 00 64 00  00 00 00 A9 00 00 00 01  |  d.....d.........
+10 02 10 03 10 14 10 15  10 16 10 D5 91 01 98 02  |  ................
+98 03 98 04 98 05 98 06  10 04 10 01 91 05 10 02  |  ................
+91 07 10 08 10 03 91 09  10 04 91 0A 10 1B 10 07  |  ................
+91 0C 10 0D 10 0B 10 05  91 0F 10 06 91 10 91 27  |  ...............'
+91 0B 91 08 91 09 91 0C  91 0E 91 0F 91 17 91 20  |  ............... 
+91 F0 91 18 91 21 91 F1  91 1D 91 0A 91 1B 91 1C  |  .....!..........
+91 1E 91 1A 91 41 91 42  91 43 91 44 91 45 91 40  |  .....A.B.C.D.E.@
+91 53 91 54 91 60 91 55  91 57 91 58 91 59 91 5A  |  .S.T.`.U.W.X.Y.Z
+91 1F 91 FE 91 FF 91 28  91 29 91 2D 91 2E 91 2F  |  .......(.).-.../
+91 2C 91 30 91 31 91 32  91 33 91 34 91 2B 91 35  |  .,.0.1.2.3.4.+.5
+91 36 91 37 91 38 91 39  91 3A 91 3B 91 3C 91 3D  |  .6.7.8.9.:.;.<.=
+91 3F 91 DA 91 DB 91 DC  91 DD 91 DE 91 D8 91 D9  |  .?..............
+91 D7 91 3E 91 13 91 14  91 15 91 16 91 5B 91 C0  |  ...>.........[..
+91 C1 91 C2 91 C3 91 C4  91 C5 91 C6 91 C7 91 C8  |  ................
+91 C9 91 CA 91 CB 91 CC  91 CE 91 CF 91 D0 91 D1  |  ................
+91 D2 91 E1 91 E2 91 E3  91 E4 91 E5 91 E6 91 E7  |  ................
+91 E8 91 E9 91 EA 91 EB  91 EC 91 ED 91 EE 91 EF  |  ................
+91 F8 91 F9 91 F2 91 F3  91 F4 91 F7 91 DF 91 FB  |  ................
+91 FC 91 FD 91 22 91 23  91 24 91 F5 91 F6 91 33  |  .....".#.$.....3
+90 68 90 69 90 6A 90 6B  90 6C 90 6D 90 6E 90 6F  |  .h.i.j.k.l.m.n.o
+90 2F 90 52 90 53 90 57  90 58 90 59 90 5A 90 5F  |  ./.R.S.W.X.Y.Z._
+90 07 00 00 00 09 40 04  40 05 40 03 40 02 40 07  |  ......@.@.@.@.@.
+40 01 C1 06 00 00 00 49  D0 02 D4 07 D4 06 D4 03  |  @......I........
+D3 01 50 01 00 00 00 01  38 0C 00 00 00 01 30 02  |  ..P.....8.....0.
+30 06 30 0A 30 08 30 01  38 01 B1 03 B1 02 BF 00  |  0.0.0.0.8.......
+38 04 B1 05 B1 0B 43 00  61 00 6E 00 6F 00 6E 00  |  8.....C.a.n.o.n.
+20 00 49 00 6E 00 63 00  2E 00 00 00 0F 43 00 61  |   .I.n.c......C.a
+00 6E 00 6F 00 6E 00 20  00 45 00 4F 00 53 00 20  |  .n.o.n. .E.O.S. 
+00 31 00 30 00 30 00 44  00 00 00 08 33 00 2D 00  |  .1.0.0.D....3.-.
+31 00 2E 00 30 00 2E 00  30 00 00 00 1F 64 00 39  |  1...0...0....d.9
+00 37 00 62 00 65 00 39  00 62 00 31 00 62 00 61  |  .7.b.e.9.b.1.b.a
+00 62 00 30 00 34 00 65  00 62 00 66 00 38 00 36  |  .b.0.4.e.b.f.8.6
+00 66 00 31 00 62 00 62  00 35 00 62 00 63 00 63  |  .f.1.b.b.5.b.c.c
+00 63 00 30 00 33 00 37  00 00 00                 |  .c.0.3.7...
+
+Custom Functions
+CFn 257 0x00000101 Exposure Stop Increment: 0x00000000
+CFn 259 0x00000103 ISO Expansion: 0x00000000
+CFn 515 0x00000203 Highlight Tone Priority: 0x00000000
+CFn 1294 0x0000050E Af Assist Beam Firing: 0x00000000
+CFn 1551 0x0000060F Mirror Lock-up: 0x00000000
+CFn 1793 0x00000701 Af and Metering Buttons: 0x00000000
+CFn 1796 0x00000704 Assign SET Button: 0x00000000
+CFn 2065 0x00000811 LCD Display When Power On: 0x00000000
+
+Test for hidden Canon properties:
+cameraDevice = 0x00002033 (ED-SDK canonCamera = 0x00947A00) [Session ID 0x00631290]
+0xD049 -> 'Canon model ID' [UINT32 RO value: 2147484486 (2147484486)]

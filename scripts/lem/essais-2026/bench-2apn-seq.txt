@@ -1,0 +1,68 @@
+#
+# LEM -- bench sequentiel 2 APN (~12 min). Usage personnel. Pas le script aube.
+# Genere par scripts/generate_lem_bench_2apn_seq.py -- ne pas editer a la main.
+#
+# Noms Configuration materielle (casse exacte) :
+#   600D-T150  -- RAW
+#   100D-W24   -- JPG-F (pas Fine ; JPG-L = mauvaise lecture)
+#
+# Cadence 2 min entre departs (comme seance 600D). Une rampe a la fois.
+# Vitesses = crans Canon. Incremental N en tete de rampe et si pose >= 1 s.
+# Pas d'allumage tardif.
+#
+# Optique bench : 15-85 diaph electronique (KI-019 si 150 mm muet).
+# Mac : Temps simule = MAX moins ~30 s, LAISSER COURIR jusqu'au PLAY (~MAX+10:30).
+# Cartes formatees vides. Attendu : 21 CR2 (600D) + 11 JPG (100D).
+# Recopier dans ~/Documents/Scripts Lunar Eclipse Maestro/
+# Protocole : essais-2026/README.md
+#
+
+#Action,Date/Ref,Offset sign,Time (offset),Camera,Exposure,Aperture,ISO,MLU,Quality,Size,Incremental,Comment
+
+COMMAND,MAX,-,00:00:20.0, , , , , , , , ,Deux APN ;say "Deux APN"
+COMMAND,MAX,-,00:00:19.0, , , , , , , , ,Sequentiel ;say "Sequentiel"
+
+COMMAND,MAX,-,00:00:10.0, , , , , , , , ,Rampe 5 ;say "Rampe 5"
+TAKEPIC,MAX,+,00:00:00.0,600D-T150,1/1000,5.6,100,0.0,RAW,None,N,Pen5 1/1000 ISO100
+TAKEPIC,MAX,+,00:00:03.0,600D-T150,1/250,5.6,100,0.0,RAW,None,Y,Pen5 1/250 ISO100
+TAKEPIC,MAX,+,00:00:06.0,600D-T150,1/125,5.6,200,0.0,RAW,None,Y,Pen5 1/125 ISO200
+TAKEPIC,MAX,+,00:00:09.0,600D-T150,1/30,5.6,200,0.0,RAW,None,Y,Pen5 1/30 ISO200
+TAKEPIC,MAX,+,00:00:12.0,600D-T150,1/8,5.6,200,0.0,RAW,None,Y,Pen5 1/8 ISO200
+
+COMMAND,MAX,+,00:01:50.0, , , , , , , , ,Trois vues ;say "Trois vues"
+TAKEPIC,MAX,+,00:02:00.0,100D-W24,1,4.0,800,0.0,JPG-F,None,N,Nuit3 1 ISO800
+TAKEPIC,MAX,+,00:02:04.0,100D-W24,4,4.0,800,0.0,JPG-F,None,N,Nuit3 4 ISO800
+TAKEPIC,MAX,+,00:02:09.1,100D-W24,15,4.0,800,0.0,JPG-F,None,N,Nuit3 15 ISO800
+
+COMMAND,MAX,+,00:03:50.0, , , , , , , , ,Rampe 7 ;say "Rampe 7"
+TAKEPIC,MAX,+,00:04:00.0,600D-T150,1/1000,5.6,100,0.0,RAW,None,N,Cour7 1/1000 ISO100
+TAKEPIC,MAX,+,00:04:03.0,600D-T150,1/250,5.6,100,0.0,RAW,None,Y,Cour7 1/250 ISO100
+TAKEPIC,MAX,+,00:04:06.0,600D-T150,1/125,5.6,200,0.0,RAW,None,Y,Cour7 1/125 ISO200
+TAKEPIC,MAX,+,00:04:09.0,600D-T150,1/30,5.6,200,0.0,RAW,None,Y,Cour7 1/30 ISO200
+TAKEPIC,MAX,+,00:04:12.0,600D-T150,1/8,5.6,200,0.0,RAW,None,Y,Cour7 1/8 ISO200
+TAKEPIC,MAX,+,00:04:15.0,600D-T150,1/8,5.6,800,0.0,RAW,None,Y,Cour7 1/8 ISO800
+TAKEPIC,MAX,+,00:04:18.0,600D-T150,1/2,5.6,800,0.0,RAW,None,Y,Cour7 1/2 ISO800
+
+COMMAND,MAX,+,00:05:50.0, , , , , , , , ,Cinq vues ;say "Cinq vues"
+TAKEPIC,MAX,+,00:06:00.0,100D-W24,1/15,4.0,800,0.0,JPG-F,None,N,Aube5 1/15 ISO800
+TAKEPIC,MAX,+,00:06:03.0,100D-W24,1/4,4.0,800,0.0,JPG-F,None,Y,Aube5 1/4 ISO800
+TAKEPIC,MAX,+,00:06:06.0,100D-W24,1,4.0,800,0.0,JPG-F,None,N,Aube5 1 ISO800
+TAKEPIC,MAX,+,00:06:10.0,100D-W24,4,4.0,800,0.0,JPG-F,None,N,Aube5 4 ISO800
+TAKEPIC,MAX,+,00:06:15.1,100D-W24,15,4.0,800,0.0,JPG-F,None,N,Aube5 15 ISO800
+
+COMMAND,MAX,+,00:07:50.0, , , , , , , , ,Rampe 9 ;say "Rampe 9"
+TAKEPIC,MAX,+,00:08:00.0,600D-T150,1/1000,5.6,100,0.0,RAW,None,N,Etd9 1/1000 ISO100
+TAKEPIC,MAX,+,00:08:03.0,600D-T150,1/250,5.6,100,0.0,RAW,None,Y,Etd9 1/250 ISO100
+TAKEPIC,MAX,+,00:08:06.0,600D-T150,1/125,5.6,200,0.0,RAW,None,Y,Etd9 1/125 ISO200
+TAKEPIC,MAX,+,00:08:09.0,600D-T150,1/30,5.6,200,0.0,RAW,None,Y,Etd9 1/30 ISO200
+TAKEPIC,MAX,+,00:08:12.0,600D-T150,1/8,5.6,200,0.0,RAW,None,Y,Etd9 1/8 ISO200
+TAKEPIC,MAX,+,00:08:15.0,600D-T150,1/8,5.6,800,0.0,RAW,None,Y,Etd9 1/8 ISO800
+TAKEPIC,MAX,+,00:08:18.0,600D-T150,1/2,5.6,800,0.0,RAW,None,Y,Etd9 1/2 ISO800
+TAKEPIC,MAX,+,00:08:21.0,600D-T150,1,5.6,800,0.0,RAW,None,N,Etd9 1 ISO800
+TAKEPIC,MAX,+,00:08:25.0,600D-T150,2,5.6,800,0.0,RAW,None,N,Etd9 2 ISO800
+
+COMMAND,MAX,+,00:09:50.0, , , , , , , , ,Trois vues ;say "Trois vues"
+TAKEPIC,MAX,+,00:10:00.0,100D-W24,1,4.0,800,0.0,JPG-F,None,N,Nuit3b 1 ISO800
+TAKEPIC,MAX,+,00:10:04.0,100D-W24,4,4.0,800,0.0,JPG-F,None,N,Nuit3b 4 ISO800
+TAKEPIC,MAX,+,00:10:09.1,100D-W24,15,4.0,800,0.0,JPG-F,None,N,Nuit3b 15 ISO800
+PLAY,MAX,+,00:10:29.1,Max_Eclipse.wav, , , , , , , ,Fin bench 2apn seq

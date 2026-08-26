@@ -11,6 +11,8 @@ Copie locale pour analyse (branche courante), **usage personnel**.
 
 Même recette que [`solar-eclipse-maestro/scripts/sem/`](../../../solar-eclipse-maestro/scripts/sem/) : exemples Jubier en racine, essais 2026 dans [`essais-2026/`](essais-2026/).
 
+Dumps LEM **Propriétés disponibles** (2026-08-26) : [`proprietes/`](proprietes/) — synthèse agent [`docs/lem-apn-scripting.md`](../../docs/lem-apn-scripting.md).
+
 > Les dates de modification sur le volume sont **anciennes** (15 décembre 2010 — éclipse totale de Lune). Ce n’est **pas** un plan de séance Tournefeuille.
 
 ---

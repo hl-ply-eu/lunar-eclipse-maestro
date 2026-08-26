@@ -2,9 +2,10 @@
 
 ## En cours
 
+- [ ] **Marge allumage 100D 60 s** — reporter dans générateur aube / interlace (`say` + trou avant 1ʳᵉ vue) ([KI-025](known-issues.md), [REX](memory/2026-08-26-rex-bench-2apn-interlace.md))
+- [ ] **Script aube 100D 3→5** — après dual OK ([DEC-018](decisions.md)) ; JPG-F ; crans Tv LEM
 - [ ] **Scénario 150 mm f/5 + 600D** — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
 - [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage
-- [ ] **Déploiement LEM** — 1.3.3β1 Intel Y + 600D USB OK ; **test 2 APN** `100D-W24` ([DEC-018](decisions.md), [KI-007](known-issues.md), [KI-023](known-issues.md)) — avant tout script aube
 
 ## Bloqué
 
@@ -18,6 +19,8 @@ _(aucune tâche bloquée)_
 - [ ] Variantes météo / extinction à basse altitude (~10,5° au MAX à Tournefeuille ; Soleil déjà levé au moonset)
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200)
 - [ ] Confirmer l’horizon réel (clôture fenêtre umbra vers 06:44)
+- [ ] Re-mesure délai reconnexion 100D (à froid vs chaud)
+- [ ] **`say` progression de rampe** — avant chaque séquence : boîtier + « rampe N sur M » + nb vues, en 2–3 fragments ASCII (KI-021) ; générateurs séance / aube / interlace
 
 ## Terminé
 
@@ -40,3 +43,4 @@ _(aucune tâche bloquée)_
 - [x] **Script séance LEM** (2026-08-24) — [`seance-600d-t150.txt`](../scripts/lem/essais-2026/seance-600d-t150.txt) ; générateur `scripts/generate_lem_seance.py` ; 5 vues pénombre ; 9 étendue à U1+10 / 50 % / MAX / 06:30 ; diagnostics MAX ; cadence 2 min ; Av 5,6 / f/5
 - [x] **Cadrage 100D 24 mm / composition tiers** (2026-08-25) — DEC-017 ; horizon au tiers bas, MAX au ciel ; lock **04:52:44** bord haut 20 % gauche ; schéma `docs/figures/fov-100d-24mm-tiers.png`
 - [x] **100D sous LEM — plan** (2026-08-25) — DEC-018, KI-023 ; nom `100D-W24` ; test 2 APN simple d’abord ; grille aube 3→5 (4 s · ISO 800 non mesurée) ; allumage tardif FAQ + Incremental N ; script aube **après** le test
+- [x] **Test 2 APN + entrelacé** (2026-08-26) — JPG-F ; seq OK ; interlace 33/33 CR2 + 69/72 JPG ; boot sans scénario ; reconnexion ~30 s (KI-025) ; [REX](memory/2026-08-26-rex-bench-2apn-interlace.md)

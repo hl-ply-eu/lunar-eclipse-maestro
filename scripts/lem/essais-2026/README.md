@@ -16,12 +16,16 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 |---------------|------|-----|
 | `bench-rampe-7x2ev.txt` | Chrono d’**une** rampe 7 × 2 EV (forme C) | `600D-T150` |
 | `bench-2apn.txt` | Test **simple** deux USB (DEC-018) ; pas l’aube | `600D-T150` + `100D-W24` |
+| `bench-2apn-seq.txt` | Bench **séquentiel** ~12 min, rampes 5/7/9 + 3/5 (généré) | `600D-T150` + `100D-W24` |
+| `bench-2apn-interlace.txt` | Bench **entrelacé** : 600D×2 puis 100D @ 20 s (généré) | `600D-T150` + `100D-W24` |
 | `seance-600d-t150.txt` | Séance 04:20 → moonset (généré) | `600D-T150` |
 
 Script séance : [DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md). Régénérer :
 
 ```bash
 .venv/bin/python scripts/generate_lem_seance.py
+.venv/bin/python scripts/generate_lem_bench_2apn_seq.py
+.venv/bin/python scripts/generate_lem_bench_2apn_interlace.py
 ```
 
 - ~04:20 : rampe **5 vues** (pleine Lune) ; rappel oral **taux Lune** ;
@@ -45,13 +49,79 @@ COMMAND,U1,-,09:59.0, , , , , , , , ,Pas sideral ;say "Pas sideral"
 
 Pas le script aube. Vérifier que LEM **voit** le 100D et tient deux USB. Nom **`100D-W24`**.
 
-**Passe (a) — les deux allumés.** Configuration matérielle : 600D déjà `600D-T150` ; 100D → nom `100D-W24`, modèle EOS 100D, **Déclencher** une vue. ⌘L `bench-2apn.txt`. Temps simulé **MAX − 40 s**, laisser courir. Compter **3 RAW** 600D + **3 JPEG** 100D. Visualiseur : les six `TAKEPIC` sont là.
+**Passe (a) — les deux allumés.** Configuration matérielle : 600D déjà `600D-T150` ; 100D → nom `100D-W24`, modèle EOS 100D, **Déclencher** une vue. ⌘L `bench-2apn.txt`. Temps simulé **MAX − 40 s**, laisser courir. Compter **3 RAW** 600D + **3 JPEG** 100D. Visualiseur : les six `TAKEPIC` sont là. Colonne qualité 100D = **`JPG-F`** ([KI-024](../../../docs/known-issues.md)) — pas `Fine` (bascule RAW) ; `JPG-L` était une mauvaise lecture. Incremental **N** doit imposer JPG-F même si le boîtier était resté en RAW. Vitesses = crans Canon uniquement.
 
 **Passe (b) — allumage tardif, sans ⌘R.** Décharger. 100D **éteint**. Recharger le même fichier. Noter si les lignes `100D-W24` restent dans le Visualiseur (souvenir : ignorées au chargement — option non retrouvée dans l’aide, [KI-023](../../../docs/known-issues.md)). Temps simulé MAX − 40 s. Allumer le 100D vers MAX − 15 s. **Ne pas** recharger. Les `TAKEPIC` 100D à −5 / +5 / +20 doivent partir tout seuls (FAQ batterie). Premier cliché : Incremental **N** déjà dans ce bench.
 
 **Passe (c) — ⌘R seulement si (b) est muet.** Une fois l’icône `100D-W24` visible, **Recharger script** hors des `TAKEPIC` 600D (après MAX+10 s, ou nouveau run). Les actions déjà « passées » sont sautées ([KI-020](../../../docs/known-issues.md)).
 
 **Si (a) échoue :** 100D = AEB, ne pas écrire le script aube. Si (a) OK et (b) OK : allumage ~04:15 le jour J tenable. Si (a) OK et (b) KO : allumer le 100D **avant** ⌘L, ou recharger dans un trou.
+
+## Bench séquentiel ~12 min — `bench-2apn-seq.txt`
+
+Après la passe (a) simple OK (dont **JPG-F**). Pas d’allumage tardif. Une rampe à la fois, **départ toutes les 2 min** (cadence séance).
+
+Régénérer :
+
+```bash
+.venv/bin/python scripts/generate_lem_bench_2apn_seq.py
+```
+
+| Départ vs MAX | APN | Rampe | Qualité |
+|---------------|-----|-------|---------|
+| +0:00 | `600D-T150` | **5** pénombre | RAW |
+| +2:00 | `100D-W24` | **3** nuit (1 / 4 / **15** s · ISO 800) | JPG-F |
+| +4:00 | `600D-T150` | **7** courante | RAW |
+| +6:00 | `100D-W24` | **5** aube (**1/15** … **15** s · ISO 800) | JPG-F |
+| +8:00 | `600D-T150` | **9** étendue | RAW |
+| +10:00 | `100D-W24` | **3** nuit (reprise) | JPG-F |
+
+**Conditions :** les deux allumés USB ; 15-85 diaphragme électronique ; cartes **formatées vides** ; Image Capture / EOS Utility fermés ; mode M, MAP manuelle, AEB off.
+
+1. ⌘L `bench-2apn-seq.txt` (recharger après copie).
+2. Temps simulé **MAX − 30 s** ; laisser courir jusqu’au `PLAY` (~MAX+10:30).
+3. Comptage : **21 CR2** (600D) + **11 JPG** (100D).
+4. EXIF : t₀ des rampes espacés de **120 s** ; Incremental N en tête **et** si pose ≥ 1 s ([KI-024](../../../docs/known-issues.md)) ; vitesses = script (crans Canon) ; gaps intra-rampe ≥ 3 s.
+
+Ne pas charger `seance-600d-t150.txt` en même temps.
+
+## Bench entrelacé ~12 min — `bench-2apn-interlace.txt`
+
+600D démarre seul (2 rampes), puis le 100D enchaîne des brackets JPEG **entrelacés** avec la suite des rampes 600D.
+
+**Cadence 100D (film) :** fenêtre U1→moonset Tournefeuille ≈ **9974 s**. Cible **20 s** de time-lapse à **25 fps** → 500 keyframes → pas ≈ **20 s** entre cycles (une couche du bracket = une image du film). Variante 15 s @ 25 fps → 375 frames → pas ≈ **27 s** (changer `INTERVAL_100D_S` dans le générateur).
+
+Les Tv 100D du bench sont **courts** (1/60 · 1/15 · 1/4 · ISO 800) pour tenir dans le créneau de 20 s ; les placeholders nuit 1/4/15 s du seq ne passent pas à cette densité.
+
+Régénérer :
+
+```bash
+.venv/bin/python scripts/generate_lem_bench_2apn_interlace.py
+```
+
+| Phase | Horloge | Contenu |
+|-------|---------|---------|
+| 1 | +0:00 / +2:00 | 600D seul : **5** puis **7** |
+| 2 | +2:40 → +10:20 | 100D : bracket **3** JPG-F toutes les **20 s** (24 cycles) |
+| 3 | +4:00 / +6:00 / +8:00 | 600D **7** pendant les brackets 100D (collision USB volontaire) |
+
+**Attendu :** **33 CR2** (5+7×4) + **72 JPG** (24×3). Temps simulé **MAX − 30 s** → `PLAY` ~MAX+10:35. Cartes vides. Vérifier EXIF : t₀ 100D ≈ 20,0 s ; aux créneaux +4/+6/+8 les deux boîtiers tirent dans la même fenêtre.
+
+**Boot LEM :** sans scénario ; APN allumés à 15–20 s d’écart ; charger le script **après** reconnaissance ([KI-025](../../../docs/known-issues.md)).
+
+### Résultat 2026-08-26
+
+REX : [memory/2026-08-26-rex-bench-2apn-interlace.md](../../../docs/memory/2026-08-26-rex-bench-2apn-interlace.md).
+
+| | Résultat |
+|--|----------|
+| 600D | **33/33** CR2 ; rampes +0/+2/+4/+6/+8 min OK |
+| 100D | **69/72** JPG ; Tv exacts ; cadence **20,00 s** |
+| Manqué | **TL01** (3 vues) — 100D rallumé ~1–2 s après `say` « Cent D » |
+| Reprise USB | 1ʳᵉ vue à **~30 s** après le say / **~29 s** après power-on |
+| Dual USB | OK aux +4/+6/+8 (7 CR2 + ~8 JPG dans ±25 s) |
+
+Marge séance retenue : **60 s** entre allumage 100D et premier `TAKEPIC` (à reporter dans le générateur aube).
 
 ### `say` cadrage (script aube, **après** ce test)
 
