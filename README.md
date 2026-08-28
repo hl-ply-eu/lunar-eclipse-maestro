@@ -9,6 +9,7 @@ Copie locale et guides pratiques pour [Lunar Eclipse Maestro](http://xjubier.fre
 | Ressource | Description |
 |-----------|-------------|
 | [Getting Started — 28 août 2026, France](docs/getting-started-2026-france.md) | Guide de découverte LEM, duo Canon 600D + 100D |
+| [Checklist terrain Tournefeuille](docs/checklist-tournefeuille-2026.html) | HTML téléphone : horloge, compte à rebours, boot LEM sans scénario |
 | [Méthode FOV](docs/methode-fov.md) | Noyau géométrique transféré depuis SEM (DE421, gnomonique) |
 | [Leçons chapelet 100D](docs/chapelet-lecons-sem.md) | AEB, intervallomètre, pas de coïncidence horaire |
 | [Miroir HTML](mirror/index.html) | Aide complète LEM, navigable hors ligne |

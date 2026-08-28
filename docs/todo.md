@@ -2,10 +2,11 @@
 
 ## En cours
 
-- [ ] **Marge allumage 100D 60 s** — reporter dans générateur aube / interlace (`say` + trou avant 1ʳᵉ vue) ([KI-025](known-issues.md), [REX](memory/2026-08-26-rex-bench-2apn-interlace.md))
-- [ ] **Script aube 100D 3→5** — après dual OK ([DEC-018](decisions.md)) ; JPG-F ; crans Tv LEM
+_(préparation logicielle terminée — v1.0 — en attente séance terrain 28 août 2026)_
+
+- [ ] **Séance terrain Tournefeuille** — checklist [`checklist-tournefeuille-2026.html`](checklist-tournefeuille-2026.html) ; script [`seance-2apn-interlace.txt`](../scripts/lem/essais-2026/seance-2apn-interlace.txt) ; boot LEM §2c (KI-025) ; ~04:20→07:20 CEST
 - [ ] **Scénario 150 mm f/5 + 600D** — optique muette au T-ring ([KI-019](known-issues.md)) : `TAKEPIC` isolé ou rampe au foyer ; log LEM / CR2 / EXIF ouverture ; déclenchement manuel d’abord. Grille [DEC-013](decisions.md) ([formes §11](formes-prise-de-vue.md)).
-- [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage
+- [ ] **Rampe LEM serrée** — resserrer sous 3 s (vers pose + 1,1 s) maintenant que le 7/7 à 3 s est validé ; tampon / vidage — **après** séance ou bench post-terrain
 
 ## Bloqué
 
@@ -20,7 +21,6 @@ _(aucune tâche bloquée)_
 - [ ] Repérage premier plan Ouest–SO : déclenche ou non la forme D (70–200)
 - [ ] Confirmer l’horizon réel (clôture fenêtre umbra vers 06:44)
 - [ ] Re-mesure délai reconnexion 100D (à froid vs chaud)
-- [ ] **`say` progression de rampe** — avant chaque séquence : boîtier + « rampe N sur M » + nb vues, en 2–3 fragments ASCII (KI-021) ; générateurs séance / aube / interlace
 
 ## Terminé
 
@@ -44,3 +44,6 @@ _(aucune tâche bloquée)_
 - [x] **Cadrage 100D 24 mm / composition tiers** (2026-08-25) — DEC-017 ; horizon au tiers bas, MAX au ciel ; lock **04:52:44** bord haut 20 % gauche ; schéma `docs/figures/fov-100d-24mm-tiers.png`
 - [x] **100D sous LEM — plan** (2026-08-25) — DEC-018, KI-023 ; nom `100D-W24` ; test 2 APN simple d’abord ; grille aube 3→5 (4 s · ISO 800 non mesurée) ; allumage tardif FAQ + Incremental N ; script aube **après** le test
 - [x] **Test 2 APN + entrelacé** (2026-08-26) — JPG-F ; seq OK ; interlace 33/33 CR2 + 69/72 JPG ; boot sans scénario ; reconnexion ~30 s (KI-025) ; [REX](memory/2026-08-26-rex-bench-2apn-interlace.md)
+- [x] **Scripts séance 100D + dual** (2026-08-28) — [`seance-100d-w24.txt`](../scripts/lem/essais-2026/seance-100d-w24.txt) 3→5 JPG-F ; [`seance-2apn-interlace.txt`](../scripts/lem/essais-2026/seance-2apn-interlace.txt) (600D prioritaire, gap 2 s, DEC-019) ; marge allumage 60 s ; `say` sparses (KI-021)
+- [x] **Checklist terrain HTML** (2026-08-28) — [`checklist-tournefeuille-2026.html`](checklist-tournefeuille-2026.html) (modèle Frías) : boot LEM (vider → quitter → APN 15–20 s → relancer → 10 s → reset 20 s), horloge CEST, compte à rebours, mode nuit
+- [x] **Revue scripts Opus 4.8** (2026-08-28) — validation 600D / 100D / entrelacé (DEC-019, KI-020/021/025) ; 45 pytest ; tag v1.0

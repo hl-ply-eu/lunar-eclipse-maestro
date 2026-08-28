@@ -273,4 +273,21 @@ Cinq vues × 2 EV = 8 EV de filet autour d’une centrale qui suit le ciel. Reco
 **Justification :** le levier utile est l’horloge, pas un HDR de 50 px. Dual USB = aussi un test de robustesse Mac. L’allumage tardif n’a de sens que si les lignes 100D sont *dans* le script en cours.
 **Rejeté :** écrire le script aube avant le test 2 APN ; rampe 7 × 2 EV disque sur le 24 mm ; éteindre le 600D pour ménager le 100D.
 
+**Complément 2026-08-28 :** test 2 APN OK → scripts [`seance-100d-w24.txt`](../scripts/lem/essais-2026/seance-100d-w24.txt) et [`seance-2apn-interlace.txt`](../scripts/lem/essais-2026/seance-2apn-interlace.txt). Tv `15` s (pas `16`). Marge allumage 60 s. Écart inter-boîtiers = [DEC-019](#dec-019--écart-inter-boîtiers-2-s--600d-prioritaire-2026-08-28).
+
+---
+
+## DEC-019 : Écart inter-boîtiers 2 s, 600D prioritaire (2026-08-28)
+
+**Contexte :** LEM est USB série. Deux `TAKEPIC` au **même horodatage** n’en exécutent qu’un ([KI-020](known-issues.md), observé sur un seul boîtier). Le bench entrelacé du 26 août a *tenu* un chevauchement 7 CR2 + ~8 JPG dans ±25 s, mais un skip le jour J est trop cher.
+**Décision :**
+
+1. **600D jamais décalé** — horodatages = [`seance-600d-t150.txt`](../scripts/lem/essais-2026/seance-600d-t150.txt).
+2. **100D glisse (≤ 60 s) ou saute** le cycle si la fenêtre est prise. Cadence nominale 90 s = grille, pas horloge figée.
+3. **Écart :** ne pas démarrer le boîtier B avant la fin de (pose A + USB 1,1 s) **+ 2 s**. Pas deux `TAKEPIC` dans la même seconde.
+4. Script jour J dual = [`seance-2apn-interlace.txt`](../scripts/lem/essais-2026/seance-2apn-interlace.txt). Les scripts solo restent le repli un boîtier / AEB.
+
+**Justification :** 2 s au-delà du USB Benchmarks laisse le bus changer d’EDSDK sans coller les horodatages. Un cycle 100D sauté au bloc MAX (~90 s occupés) vaut mieux qu’un JPEG dans l’étendue 9.
+**Rejeté :** chevauchement USB « parce que le bench l’a tenu » ; décaler le 600D ; intercaler le 100D dans les 10 s de tampon MAX.
+
 ---

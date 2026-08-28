@@ -64,9 +64,9 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 
 ## KI-007 : Support 600D / 100D dans LEM non vérifié
 
-**Statut :** **600D OK** (2026-08-23). **100D OK** sous LEM 1.3.3β1 (2026-08-26) : benches simple, séquentiel et entrelacé ; JPG-F ; dual USB tenu. Suite : script aube + marge allumage ([KI-025](known-issues.md)).
+**Statut :** **600D OK** (2026-08-23). **100D OK** sous LEM 1.3.3β1 (2026-08-26) : benches simple, séquentiel et entrelacé ; JPG-F ; dual USB tenu. Scripts séance 100D + dual écrits (2026-08-28, [DEC-019](decisions.md)).
 **Symptôme :** la page de téléchargement LEM 1.3.3β1 cite une plage Canon (« 1D Mark III up to 6D Mark II and 200D ») qui n'est pas un inventaire exhaustif. SEM a piloté le 600D ; LEM est plus ancien. Le 100D est listé dans l’aide Configuration APN (EOS 100D / Rebel SL1 / Kiss X7, USB, tampon RAW 6).
-**Action :** ne pas écrire le script aube 100D tant que LEM n’a pas vu le boîtier et tenu deux USB. Repli = AEB autonome (DEC-010). Ne pas copier un script SEM en changeant seulement le nom d'appli. Si LEM ne voit qu’un corps, garder le 600D.
+**Action :** ne pas copier un script SEM en changeant seulement le nom d'appli. Si LEM ne voit qu’un corps, garder le 600D (`seance-600d-t150.txt`) ; 100D = AEB autonome. Jour J dual : `seance-2apn-interlace.txt`.
 
 ---
 
@@ -182,15 +182,7 @@ Format KI-NNN. Bugs et pièges pour éviter les fausses pistes en session agent.
 **Symptôme :** `COMMAND ;say` s’exécute, mais un message trop long reste **muet**. SEM : « Controle. Mise au point. Niveau du trepied. Filtre en place. Cadrage dans quatre minutes. » = silence ; la même phrase sans la dernière clause = OK. Seuil pratique ≈ **60 caractères**. Accents UTF-8 : scripts en **ASCII pur** (SEM KI-013).
 **Action (script LEM final) :** plusieurs annonces **courtes**, **espacées d’~1 s**, plutôt qu’un paragraphe. Ex. rappel suivi : `say "Suivi Lune"` puis +1 s `say "Pas sideral"` — pas « Verifier le taux lunaire de la monture, pas le sideral. ». Repli SEM (`PLAY FR_*.wav` dans `AdditionalSounds/`) seulement si `say` est muet aussi sous LEM. Détail : [scripts/lem/essais-2026/README.md](../scripts/lem/essais-2026/README.md).
 
-**Idée (2026-08-26) — progression de rampe :** accompagner chaque début de séquence par des `say` du type *boîtier / rang / taille*, en **2–3 fragments ASCII** (≲ 60 car. chacun, +1 s), pas une seule phrase longue. Ex. générateur :
-
-```
-say "600D"
-say "Rampe 12 sur 35"
-say "7 vues"
-```
-
-Même schéma pour le 100D (`100D` / `Cycle 40 sur 500` / `3 vues`). À brancher dans `generate_lem_seance.py` / benches quand on écrit le script aube. Backlog todo.
+**Idée (2026-08-26) — progression de rampe :** accompagné dans les scripts séance (2026-08-28) : fragments *boîtier / rang / taille*, **tous les 20 rampes 600D** et **15 cycles 100D**, plus les paliers aube et les contacts — pas une phrase par rampe. ASCII, ≲ 60 car., +1 s.
 
 ---
 
@@ -242,11 +234,11 @@ Même schéma pour le 100D (`100D` / `Cycle 40 sur 500` / `3 vues`). À brancher
 **Statut :** confirmé 2026-08-26 (bench entrelacé).
 **Symptôme / procédure :**
 
-1. **Ordre boot :** LEM doit démarrer **sans scénario**. Allumer les deux APN **consécutivement** (espacement **15–20 s**), attendre la reconnaissance des deux icônes, **ensuite** charger le script. Un scénario déjà chargé au lancement gêne la reconnaissance.
+1. **Ordre boot (corrigé 2026-08-28) :** (1) lancer LEM, vérifier qu’**aucun scénario n’est chargé** — sinon le **décharger** ; (2) **quitter LEM** (il redémarrera propre) ; (3) allumer les deux APN **à 15–20 s d’intervalle** (jamais ensemble) ; (4) **relancer LEM** et **attendre ~10 s** ; (5) contrôler la reconnaissance des deux icônes — sinon vérifier les câbles, **éteindre/rallumer** les APN et attendre **20 s** ; (6) **ensuite seulement** charger le script. Un scénario déjà chargé au lancement gêne la reconnaissance.
 2. **Allumage en cours de run** (après extinction) : FAQ batterie ([KI-023](known-issues.md)) reste vraie *en principe*, mais l’USB n’est pas instantané. Bench interlace : `say` « Cent D » à MAX+150 s ; power-on ~1–2 s après ; **premier JPG à MAX+180,3 s** (cycle TL02). **TL01** (3 vues, +160…+166 s) entièrement manqué. Latence power-on → 1ʳᵉ vue ≈ **29 s** ; say → 1ʳᵉ vue ≈ **30 s**. Ensuite 23 cycles stables, cadence 20 s, Tv exacts, dual USB OK pendant les rampes 600D.
 
 **Action :**
 
 - Documenter l’ordre boot dans [lem-apn-scripting.md](lem-apn-scripting.md) et le README essais.
-- Pour un allumage tardif le jour J : prévoir **≥ 45 s** de marge (retenu **60 s**) entre allumage et premier `TAKEPIC` 100D ; `say` en avance ; Incremental **N** sur la 1ʳᵉ vue. Ne pas compter sur les créneaux dans les ~30 s suivant le power-on.
-- Générateurs aube / interlace : décaler le 1ʳᵉ bracket 100D d’autant (prochaine itération).
+- Pour un allumage tardif le jour J : **60 s** entre allumage et premier `TAKEPIC` 100D (`say` « Allume » / « Cent D » puis trou) ; Incremental **N** sur la 1ʳᵉ vue. Déjà dans `generate_lem_seance_100d.py` / interlace.
+- Ne pas compter sur les créneaux dans les ~30 s suivant le power-on.

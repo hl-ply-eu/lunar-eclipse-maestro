@@ -4,8 +4,9 @@ Ressources locales dérivées de l’[aide officielle](http://xjubier.free.fr/si
 
 ## Guides
 
-- **[Getting Started — éclipse 28 août 2026, France](getting-started-2026-france.md)**  
-  Premier parcours LEM : contraintes macOS, duo 600D/100D, cadrage, chapelet.
+- **[Checklist terrain Tournefeuille](checklist-tournefeuille-2026.html)**  
+  HTML autonome (téléphone, hors ligne) : horloge CEST, compte à rebours, mode nuit,
+  boot LEM **sans scénario** avant d’allumer les APN.
 - **[Méthode FOV / trajectoire](methode-fov.md)**  
   Noyau Skyfield DE421 + projection gnomonique transféré depuis SEM ; overlay ombre.
 - **[Leçons chapelet 100D (SEM)](chapelet-lecons-sem.md)**  

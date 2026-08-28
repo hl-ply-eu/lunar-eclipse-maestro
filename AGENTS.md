@@ -67,8 +67,13 @@ lunar-eclipse-maestro/
   --config scripts/config/tournefeuille-100d-24mm.yaml \
   --out output/fov
 
-# Tests unitaires (géométrie FOV, pas de CR2)
+# Tests unitaires (géométrie FOV + générateurs LEM, pas de CR2)
 .venv/bin/python -m pytest -q
+
+# Scripts séance LEM (600D, 100D, dual)
+.venv/bin/python scripts/generate_lem_seance.py
+.venv/bin/python scripts/generate_lem_seance_100d.py
+.venv/bin/python scripts/generate_lem_seance_interlace.py
 ```
 
 Dépendances Python : `requirements.txt` (installées automatiquement par `build-pdf.sh`).

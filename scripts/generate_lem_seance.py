@@ -25,6 +25,8 @@ USB_S = 1.1
 BUFFER_S = 10.0
 MIN_GAP_S = 3.0
 LONG_GAP_S = 4.0
+SAY_MAX_CHARS = 60
+PROGRESS_EVERY = 20
 
 MAX_CEST = datetime(2026, 8, 28, 6, 12, 55, tzinfo=TZ)
 U1_CEST = datetime(2026, 8, 28, 4, 33, 52, tzinfo=TZ)
@@ -205,9 +207,51 @@ def takepic(when: datetime, frame: Frame, incremental: str, comment: str) -> Lin
 
 
 def command_say(when: datetime, spoken: str) -> Line:
+    spoken.encode("ascii")
+    if len(spoken) > SAY_MAX_CHARS:
+        raise ValueError(f"say too long ({len(spoken)} > {SAY_MAX_CHARS}): {spoken!r}")
     sign, offset = ref_from_max(when)
     rest = f" , , , , , , , ,{spoken} ;say \"{spoken}\""
     return Line("COMMAND", sign, offset, rest, when)
+
+
+def max_block_free() -> datetime:
+    iso100_start = after_buffer(MAX_CEST, EXTENDED)
+    iso1600_start = after_buffer(iso100_start, DIAG_ISO100)
+    return ramp_free_at(iso1600_start, DIAG_ISO1600)
+
+
+def session_busy_windows() -> list[tuple[datetime, datetime]]:
+    """Wall-clock intervals where the 600D is exposing or dumping USB."""
+    windows: list[tuple[datetime, datetime]] = []
+    for when in slot_times():
+        kind = slot_kind(when)
+        if kind is None:
+            continue
+        if kind == "max":
+            windows.append((MAX_CEST, max_block_free()))
+            continue
+        frames = frames_for(kind)
+        windows.append((when, ramp_free_at(when, frames)))
+    return windows
+
+
+def session_ramp_starts() -> list[tuple[datetime, str]]:
+    """Start time and kind for each 600D ramp (MAX splits into three)."""
+    starts: list[tuple[datetime, str]] = []
+    for when in slot_times():
+        kind = slot_kind(when)
+        if kind is None:
+            continue
+        if kind == "max":
+            iso100_start = after_buffer(MAX_CEST, EXTENDED)
+            iso1600_start = after_buffer(iso100_start, DIAG_ISO100)
+            starts.append((MAX_CEST, "max"))
+            starts.append((iso100_start, "iso100"))
+            starts.append((iso1600_start, "iso1600"))
+            continue
+        starts.append((when, kind))
+    return starts
 
 
 def emit_ramp(start: datetime, frames: tuple[Frame, ...], tag: str) -> list[Line]:
@@ -245,11 +289,19 @@ def emit_max_block() -> list[Line]:
 def announce_lines() -> list[Line]:
     first = FIRST_SLOT
     u1_ext, mid_ext, last_ext = sorted(extended_slots())
-    return [
+    starts = session_ramp_starts()
+    n_ramps = len(starts)
+    last_when = starts[-1][0]
+    lines = [
         command_say(first - timedelta(seconds=55), "Suivi Lune"),
         command_say(first - timedelta(seconds=54), "Pas sideral"),
+        command_say(first - timedelta(seconds=12), "Six cents D"),
+        command_say(first - timedelta(seconds=11), "Penombre"),
+        command_say(U1_CEST, "U un"),
+        command_say(U1_CEST + timedelta(seconds=1), "Umbra"),
         command_say(u1_ext - timedelta(seconds=30), "Rampe etendue"),
-        command_say(mid_ext - timedelta(seconds=30), "Rampe etendue"),
+        command_say(mid_ext - timedelta(seconds=30), "Cinquante pct"),
+        command_say(mid_ext - timedelta(seconds=29), "Rampe etendue"),
         command_say(HOLE_START - timedelta(minutes=2), "Pause accu 2 min"),
         command_say(HOLE_START, "Swap accu"),
         command_say(HOLE_END - timedelta(minutes=1), "Reprise 1 min"),
@@ -257,7 +309,17 @@ def announce_lines() -> list[Line]:
         command_say(last_ext - timedelta(seconds=30), "Rampe etendue"),
         command_say(DAWN_5, "Aube 5 vues"),
         command_say(DAWN_3, "Aube 3 vues"),
+        command_say(last_when - timedelta(seconds=12), "Derniere rampe"),
     ]
+    skip_kinds = {"max", "iso100", "iso1600", "extended"}
+    for index, (when, kind) in enumerate(starts, start=1):
+        if index % PROGRESS_EVERY != 0 or kind in skip_kinds:
+            continue
+        lines.append(command_say(when - timedelta(seconds=12), "Six cents D"))
+        lines.append(
+            command_say(when - timedelta(seconds=11), f"Rampe {index} sur {n_ramps}")
+        )
+    return lines
 
 
 def session_lines() -> list[Line]:
@@ -311,7 +373,8 @@ def header() -> str:
 # Reprise 05:56:55 Incremental N. Aube 5 vues des 06:44, 3 vues des 07:00.
 # Incremental N en tete de CHAQUE rampe, Y ensuite (DEC-016).
 # Ecarts >= 3 s ; +4 s apres une pose >= 1 s. Tampon 5 -> 10 s entre blocs MAX.
-# COMMAND ;say courts, ASCII, ~1 s (KI-021). Taux Lune, pas sideral (KI-008).
+# COMMAND ;say courts, ASCII, ~1 s (KI-021). Progression tous les 20 rampes.
+# Taux Lune, pas sideral (KI-008). Dual : seance-2apn-interlace.txt (DEC-019).
 # Ne pas charger basic.txt / deluxe.txt (totalite, KI-018).
 #
 # ~{n_pic} TAKEPIC. Regenerer : .venv/bin/python scripts/generate_lem_seance.py

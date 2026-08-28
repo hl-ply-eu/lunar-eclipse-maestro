@@ -95,10 +95,12 @@ l’enum peut différer ou le diaph USB être ignoré).
 3. Attendre les deux icônes reconnues.
 4. **Puis** charger le script.
 
-Allumage **en cours de run** : compter **~30 s** avant la 1ʳᵉ vue utile (mesuré 2026-08-26) ; marge script **60 s** recommandée entre power-on et premier `TAKEPIC`.
+Allumage **en cours de run** : compter **~30 s** avant la 1ʳᵉ vue utile (mesuré 2026-08-26) ; marge script **60 s** entre power-on et premier `TAKEPIC` (générateurs séance 100D / interlace).
 
-## Annonces vocales (idée)
+Dual USB jour J : ne pas lancer deux `TAKEPIC` la même seconde ; 600D prioritaire ; 100D glisse ou saute ([DEC-019](decisions.md)).
 
-Avant chaque rampe / cycle : progression en fragments courts ([KI-021](known-issues.md)), ex. `600D` → `Rampe 12 sur 35` → `7 vues` (pas une seule phrase longue).
+## Annonces vocales
 
-Benches : [scripts/lem/essais-2026/README.md](../scripts/lem/essais-2026/README.md).
+Fragments courts ([KI-021](known-issues.md)), pas une annonce par rampe : contacts (U1, MAX, cadrage 04:52), paliers aube, progression **tous les 20 rampes 600D** / **15 cycles 100D**. ASCII, ≲ 60 car., +1 s.
+
+Benches et scripts séance : [scripts/lem/essais-2026/README.md](../scripts/lem/essais-2026/README.md).

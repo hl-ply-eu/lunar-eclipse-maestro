@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d10">
+<title>Tournefeuille 28/08/2026 — checklist</title>
+<style>
+:root{
+  --bg:#0b0d10; --card:#161a20; --line:#2a313b; --tx:#e8ecf1; --dim:#98a2b0;
+  --hi:#ffb84d; --ok:#3ddc84; --warn:#ff6b6b; --acc:#5aa9ff;
+}
+html.night{ --bg:#0a0000; --card:#180404; --line:#3a0e0e; --tx:#ff6a6a; --dim:#a83b3b;
+  --hi:#ff5252; --ok:#ff5252; --warn:#ff8a8a; --acc:#ff5252; }
+html.night img,html.night .flag{filter:grayscale(1) sepia(1) hue-rotate(-50deg) saturate(6)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding-bottom:4rem}
+header{position:sticky;top:0;z-index:9;background:var(--bg);
+  border-bottom:1px solid var(--line);padding:.6rem .8rem;
+  box-shadow:0 6px 14px -8px #000}
+.clock{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.clock b{font-size:1.9rem;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.clock span{color:var(--dim);font-size:.85rem}
+.next{margin-top:.25rem;font-size:.95rem;color:var(--hi)}
+.next b{font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap}
+button{background:var(--card);color:var(--tx);border:1px solid var(--line);
+  border-radius:.5rem;padding:.45rem .7rem;font-size:.85rem;font-family:inherit}
+button:active{background:var(--line)}
+main{padding:.8rem}
+h2{font-size:1rem;margin:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:.7rem;
+  margin-bottom:.7rem;overflow:hidden}
+summary{padding:.85rem .9rem;cursor:pointer;list-style:none;display:flex;
+  justify-content:space-between;align-items:center;gap:.5rem;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▾";color:var(--dim);transition:transform .15s}
+details[open] summary::after{transform:rotate(180deg)}
+.count{font-size:.75rem;color:var(--dim);font-weight:400;margin-left:auto;margin-right:.4rem}
+.body{padding:0 .9rem .8rem}
+ul{list-style:none;margin:0;padding:0}
+li{border-top:1px solid var(--line)}
+label{display:flex;gap:.7rem;align-items:flex-start;padding:.7rem .1rem;cursor:pointer}
+input[type=checkbox]{appearance:none;flex:0 0 auto;width:1.5rem;height:1.5rem;
+  margin-top:.05rem;border:2px solid var(--dim);border-radius:.35rem;position:relative}
+input[type=checkbox]:checked{border-color:var(--ok);background:var(--ok)}
+input[type=checkbox]:checked::after{content:"";position:absolute;left:.42rem;top:.12rem;
+  width:.35rem;height:.7rem;border:solid var(--bg);border-width:0 3px 3px 0;transform:rotate(45deg)}
+input:checked + .t{color:var(--dim);text-decoration:line-through}
+.t{flex:1}
+.t em{font-style:normal;color:var(--hi);font-weight:600}
+.t small{display:block;color:var(--dim);font-size:.82rem;margin-top:.15rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.3rem 0 .6rem}
+th,td{text-align:left;padding:.4rem .3rem;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:500}
+td:first-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.big td:first-child{font-weight:700;color:var(--hi)}
+.note{background:#1d1206;border-left:3px solid var(--hi);padding:.6rem .7rem;
+  border-radius:.3rem;font-size:.88rem;margin:.5rem 0}
+html.night .note{background:#200}
+.danger{background:#210d0d;border-left:3px solid var(--warn)}
+.hero{background:var(--card);border:1px solid var(--warn);border-radius:.7rem;
+  padding:.9rem;margin-bottom:.7rem}
+.hero h2{color:var(--warn);margin-bottom:.5rem}
+.hero p{margin:.4rem 0;font-size:.93rem}
+.hero ol{margin:.4rem 0 .2rem 1.2rem;padding:0;font-size:.93rem}
+.hero li{margin:.25rem 0}
+.hero .look{font-size:1.15rem;font-weight:700;color:var(--hi);text-align:center;
+  padding:.6rem;border:1px dashed var(--hi);border-radius:.5rem;margin-top:.7rem}
+code{background:var(--line);padding:.1rem .35rem;border-radius:.25rem;font-size:.85em}
+.gps{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--acc);text-align:center;padding:.5rem;letter-spacing:.5px}
+.sub{font-size:.9rem;font-weight:600;margin:.8rem 0 .3rem;color:var(--acc)}
+.sub:first-child{margin-top:.6rem}
+.dim{font-size:.88rem;color:var(--dim);margin:0 0 .5rem}
+footer{color:var(--dim);font-size:.78rem;text-align:center;padding:1rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="clock"><b id="now">--:--:--</b><span id="tz"></span></div>
+  <div class="next" id="next">…</div>
+  <div class="tools">
+    <button id="bNight">Mode nuit</button>
+    <button id="bWake">Écran allumé</button>
+    <button id="bOpen">Tout ouvrir</button>
+    <button id="bReset">Décocher tout</button>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <h2>Boot LEM — non négociable</h2>
+  <p>Un scénario déjà chargé au lancement <b>empêche la reconnaissance dual USB</b>
+  (bench 26 août). Ordre figé :</p>
+  <ol>
+    <li>Lancer LEM. <b>Aucun scénario chargé</b> ? Sinon, le <b>décharger</b>.</li>
+    <li><b>Quitter LEM.</b></li>
+    <li>Allumer les APN <b>à 15–20 s d’intervalle</b> (pas ensemble).</li>
+    <li><b>Relancer LEM</b>, attendre <b>~10 s</b>.</li>
+    <li>Deux boîtiers reconnus ? Sinon : câbles, <b>éteindre/rallumer</b> les APN, attendre <b>20 s</b>.</li>
+    <li><b>Puis</b> Fichier → Charger <code>seance-2apn-interlace.txt</code>.</li>
+  </ol>
+  <p>Pas de filtre solaire — on <b>regarde</b> l’éclipse. Umbra encore posable au MAX
+  (Soleil −11°). Ne <b>pas</b> swapper l’accu 600D au MAX.</p>
+  <div class="look">06:12:55 — MAX<br>poser les mains et REGARDER</div>
+</div>
+
+<details open>
+<summary>1 · L'éclipse à Tournefeuille<span class="count"></span></summary>
+<div class="body">
+<table class="big">
+<tr><th>Phase</th><th>Heure</th><th>Alt</th><th>Azi</th></tr>
+<tr><td>P1 pénombre</td><td>03:24</td><td>31,6°</td><td>208°</td></tr>
+<tr><td>U1 umbra</td><td>04:33:52</td><td>24,5°</td><td>225°</td></tr>
+<tr><td>MAX</td><td>06:12:55</td><td>10,5°</td><td>245°</td></tr>
+<tr><td>Crép. civil</td><td>06:44</td><td>5,6°</td><td>—</td></tr>
+<tr><td>Lever soleil</td><td>07:15</td><td>—</td><td>—</td></tr>
+<tr><td>Moonset</td><td>07:20:26</td><td>0°</td><td>257°</td></tr>
+<tr><td>U4 / P4</td><td>07:52 / 09:02</td><td colspan="2">sous l'horizon</td></tr>
+</table>
+<p class="dim">Partielle profonde, magnitude umbrale <b style="color:var(--tx)">0,93</b> ·
+pas de totalité · séance <b style="color:var(--tx)">~04:20 → 07:20</b> (pas P1).
+Soleil déjà levé au moonset.</p>
+<div class="note danger"><b>Horizon Ouest–SO (azimut 257°) dégagé jusqu’à 0°</b> — le moonset
+est la fin de séance. À vérifier <b>en arrivant</b>, boussole du téléphone en main.</div>
+<ul id="s1">
+<li><label><input type="checkbox"><span class="t">Horizon Ouest–SO dégagé vérifié à la boussole <small>azimut moonset 257°, pas de toiture / bosquet sur la ligne d’horizon</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Les trois horloges concordent <small>Mac, 600D, 100D — c’est le Mac qui fait foi pour LEM</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Filtres ND solaires du 12 août <em>rangés</em> <small>aucun ND sur le 750 mm ni le 24 mm</small></span></label></li>
+</ul>
+</div>
+</details>
+
+<details open>
+<summary>2 · Mac + LEM — avant de connecter<span class="count"></span></summary>
+<div class="body">
+<p class="dim">D’après KI-025 (bench 26 août) et
+<code>lem-apn-scripting.md</code>. À faire <b>avant</b> d’allumer les boîtiers.</p>
+
+<p class="sub">Mac</p>
+<ul id="s2a">
+<li><label><input type="checkbox"><span class="t">Mise en veille et économiseur d’écran <em>désactivés</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Apps concurrentes neutres <small>Transfert d’images / Photos / EOS Utility : aucune app à la connexion USB · Dropbox etc. désactivés</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Volume Mac au maximum <small>les <code>say</code> rappellent suivi Lune, cadrage, pause accu, MAX</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Script copié dans <code>~/Documents/Scripts Lunar Eclipse Maestro/</code> <small><code>seance-2apn-interlace.txt</code> — pas <code>basic.txt</code> / <code>deluxe.txt</code> (totalité, KI-018)</small></span></label></li>
+</ul>
+
+<p class="sub">Position GPS (sur place)</p>
+<div class="note"><b>Observateur → Localisation… → Copier GPS</b> (ou saisie manuelle).
+Les offsets du script sont ancrés sur le MAX local (06:12:55).</div>
+<div class="gps">43.582389 · 1.350944 · 155 m</div>
+<ul id="s2b">
+<li><label><input type="checkbox"><span class="t">GPS téléphone relevé (&lt; 10 m) puis <em>Copier GPS</em> dans LEM</span></label></li>
+<li><label><input type="checkbox"><span class="t">Table des circonstances relue <small>si MAX s’écarte de plus de ~10 s de 06:12:55 → coordonnées fausses</small></span></label></li>
+</ul>
+
+<p class="sub">LEM — ordre boot (KI-025)</p>
+<div class="note danger"><b>APN allumés seulement quand LEM est vide et fermé.</b>
+Un scénario chargé au lancement gêne la reconnaissance des deux USB.</div>
+<ul id="s2c">
+<li><label><input type="checkbox"><span class="t"><b>1.</b> Lancer LEM · <em>aucun scénario chargé</em> ? <small>Visualiseur vide — sinon Fichier → Décharger le script</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><b>2.</b> <em>Quitter LEM</em> <small>il redémarrera propre</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><b>3.</b> Allumer les APN <em>à 15–20 s d’intervalle</em> <small>600D puis 100D (ou l’inverse), jamais ensemble</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><b>4.</b> <em>Relancer LEM</em> · attendre <em>~10 s</em></span></label></li>
+<li><label><input type="checkbox"><span class="t"><b>5.</b> Deux boîtiers reconnus ? <small>noms exacts <code>600D-T150</code> et <code>100D-W24</code> · sinon : câbles, éteindre/rallumer les APN, attendre 20 s</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><b>6.</b> <em>Puis</em> charger <code>seance-2apn-interlace.txt</code> <small>recharger après copie · pas les deux solos en même temps</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><em>Observateur → Heure courante…</em> <small>pas de temps simulé le jour J</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><em>Configuration matérielle…</em> : Synchroniser cochée → Valider <small>à recocher à chaque session — non mémorisée</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Test <em>Déclencher</em> OK sur chaque corps <small>1 CR2 600D · 1 JPG-F 100D · EOS Utility toujours fermé</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><em>APN → Analyseur de séquence…</em> OK <small>temps libre confortable · pas de collés à la même seconde</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Câbles USB fixés (monture + trépied) · témoins carte éteints avant de compter sur LEM</span></label></li>
+</ul>
+</div>
+</details>
+
+<details open>
+<summary>3 · 600D — monture, boîtier, foyer<span class="count"></span></summary>
+<div class="body">
+<div class="note"><b>LEM ne change pas le mode M</b> sur un Canon à molette. Réglages
+<b>à la main</b> avant de charger le script. Colonne Av USB = 5,6 ; le tube est
+<b>f/5</b> (T-ring muet, KI-019).</div>
+
+<p class="sub">Monture (avant 04:20)</p>
+<ul id="s3a">
+<li><label><input type="checkbox"><span class="t">Mise en station au <em>viseur polaire</em> <small>pas d’astrométrie — avant 04:20, pas à 06:13</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Taux <em>Lune</em>, pas sidéral <small>LEM dira « Suivi Lune / Pas sideral » vers 04:20</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Lune au centre du cadre 750 mm · rotules / vis de serrage OK</span></label></li>
+</ul>
+
+<p class="sub">Mode &amp; options</p>
+<ul id="s3b">
+<li><label><input type="checkbox"><span class="t">Mode exposition <em>M</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Mise au point <em>MF</em> · Live View sur un cratère · bague / T-ring inchangé ensuite</span></label></li>
+<li><label><input type="checkbox"><span class="t">Qualité <em>RAW seul</em> (pas RAW+JPEG)</span></label></li>
+<li><label><input type="checkbox"><span class="t">Bracketing AEB / BdB <em>désactivé</em> <small>c’est LEM qui varie Tv/ISO</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Correction d’exposition <em>à zéro</em> · incrément <em>⅓ EV</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Flash <em>OFF</em> · Wi‑Fi <em>OFF</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Réduction bruit longue pose <em>OFF</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Carte <em>32 Go</em> vide, formatée dans le boîtier <small>16 Go = filet (~65 rampes) — trop juste pour 04:20→07:20</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">LP-E8 confortable + <em>rechange accessible</em> pour 05:40 <small>swap par le fond = USB tombé — trou script 10 min déjà prévu</small></span></label></li>
+</ul>
+
+<table>
+<tr><th>Rampe courante</th><td>7 × 2 EV · ISO 100 / 200 / 800 · ~2 min</td></tr>
+<tr><th>Étendue 9</th><td>U1+10, ~50 %, MAX, 06:30</td></tr>
+<tr><th>Bloc MAX</th><td>étendue 9 + ISO 100 (→ 4 s) + ISO 1600 (1/4000 → 1 s)</td></tr>
+<tr><th>Fenêtre</th><td>04:20:55 → 07:18:55 · 519 CR2</td></tr>
+</table>
+</div>
+</details>
+
+<details open>
+<summary>4 · 100D — 24 mm, cadrage tiers<span class="count"></span></summary>
+<div class="body">
+<p class="dim">Forme A, trépied fixe. Plan A = LEM (<code>JPG-F</code>, 90 s, 3 puis 5 vues).
+Repli = AEB + intervallomètre si LEM ne voit pas le 100D.</p>
+
+<p class="sub">Mode &amp; options (LEM)</p>
+<ul id="s4a">
+<li><label><input type="checkbox"><span class="t">Mode <em>M</em> · Av <em>f/4</em> · BdB <em>Lumière du jour</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Qualité <em>JPEG Fine</em> (LEM : <code>JPG-F</code>) <small>pas RAW, pas Fine mal orthographié — bascule RAW</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">MF · 24 mm scotché · IS OFF · AF OFF</span></label></li>
+<li><label><input type="checkbox"><span class="t">AEB <em>off</em> tant que LEM pilote <small>LEM varie déjà Tv/ISO</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Carte 16 Go formatée · LP-E12 plein + rechange <small>~450 JPEG sous LEM, ~720 en repli AEB 90 s</small></span></label></li>
+</ul>
+
+<p class="sub">Cadrage (DEC-017) — verrouiller à 04:52:44</p>
+<div class="note danger"><b>04:52:44 — Lune tangente au bord haut, 20 % depuis la gauche.</b>
+Horizon visuel sur le tiers inférieur. U1 (04:34) est hors cadre : c’est voulu.
+Ensuite on ne touche plus au trépied jusqu’au moonset.</div>
+<ul id="s4b">
+<li><label><input type="checkbox"><span class="t">Trépied <em>nivelé à la bulle</em> · paysage · azimut MAX (~245°)</span></label></li>
+<li><label><input type="checkbox"><span class="t">Horizon visuel sur le <em>tiers inférieur</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">À 04:52:44 : Lune <em>tangente bord haut</em>, 20 % gauche · <em>verrouiller</em></span></label></li>
+</ul>
+
+<p class="sub">Repli AEB (seulement si LEM ne voit pas le 100D)</p>
+<ul id="s4c">
+<li><label><input type="checkbox"><span class="t">Entraînement <em>retardateur « C » = 2</em> → 6 vues <small>ni rafale ni 2 s</small></span></label></li>
+<li><label><input type="checkbox"><span class="t"><em>En tout dernier : AEB ±2 EV</em> · 3 repères · <em>ne plus éteindre</em> <small>l’AEB s’efface à chaque extinction, en silence (KI-009)</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Intervallomètre 90 s, jack 2,5 mm · test 1 impulsion = 6 JPEG</span></label></li>
+</ul>
+</div>
+</details>
+
+<details open>
+<summary>5 · Chronologie<span class="count"></span></summary>
+<div class="body">
+<table class="big">
+<tr><th>Heure</th><th>Geste</th></tr>
+<tr><td>avant 04:20</td><td>Station polaire · taux Lune · LEM booté sans scénario, script chargé</td></tr>
+<tr><td>04:19</td><td>LEM : « Allume / Cent D » — 100D déjà allumé (marge 60 s)</td></tr>
+<tr><td><b>04:20</b></td><td><b>Premières vues</b> — 100D time-lapse · 600D rampe 5 (pleine Lune)</td></tr>
+<tr><td>04:33:52</td><td>U1 — rampes 7 sur le 600D</td></tr>
+<tr><td>04:42</td><td>600D : première étendue 9 (U1+10)</td></tr>
+<tr><td><b>04:52:44</b></td><td><b>100D : VERROUILLER</b> — Lune bord haut, 20 % gauche</td></tr>
+<tr><td>05:23</td><td>600D : étendue ~50 %</td></tr>
+<tr><td>05:38</td><td>« Pause accu 2 min »</td></tr>
+<tr><td><b>05:40–05:55</b></td><td><b>Swap LP-E8</b> — aucun TAKEPIC 600D · 100D continue</td></tr>
+<tr><td>05:56</td><td>Icône <code>600D-T150</code> revenue · reprise Incremental N</td></tr>
+<tr><td><b>06:12:55</b></td><td><b>MAX</b> — étendue 9 puis ISO 100 / 1600 · <em>regarder</em></td></tr>
+<tr><td>06:30</td><td>600D : dernière étendue 9 (4ᵉ HDR umbra)</td></tr>
+<tr><td>06:44</td><td>Aube : 600D 5 vues · 100D déjà en 5 × 2 EV</td></tr>
+<tr><td>07:00</td><td>600D : 3 vues</td></tr>
+<tr><td>07:15</td><td>Lever du soleil — umbra perdue, croissant / silhouette</td></tr>
+<tr><td>07:20:26</td><td>Moonset — fin</td></tr>
+</table>
+</div>
+</details>
+
+<details>
+<summary>6 · Pause accu 05:40<span class="count"></span></summary>
+<div class="body">
+<p class="dim">Le LP-E8 s’extrait par le <b>fond</b> du 600D : coupure + USB renuméroté.
+Le script a un trou 05:40–05:55. Ne pas swapper au MAX ni pendant une étendue 9.</p>
+<ul id="s6">
+<li><label><input type="checkbox"><span class="t">Accu de rechange <em>déjà hors sac</em> avant 05:38</span></label></li>
+<li><label><input type="checkbox"><span class="t">05:40 — éteindre, swapper, rallumer · <em>ne pas</em> recharger le script (⌘R)</span></label></li>
+<li><label><input type="checkbox"><span class="t">Icône <code>600D-T150</code> visible avant 05:56 <small>premier TAKEPIC après reprise = Incremental N (déjà dans le script)</small></span></label></li>
+<li><label><input type="checkbox"><span class="t">Ne pas recharger pendant une rampe 600D <small>les actions déjà « passées » sont sautées (KI-020)</small></span></label></li>
+</ul>
+<div class="note">Le 100D continue pendant le trou (time-lapse). Si le 100D a été éteint :
+marge <b>60 s</b> avant la 1ʳᵉ vue utile (mesuré ~30 s à chaud).</div>
+</div>
+</details>
+
+<details>
+<summary>7 · Si ça tourne mal<span class="count"></span></summary>
+<div class="body">
+<table>
+<tr><th>LEM plante / Mac freeze</th><td>600D en M, rampe à la main 1/1000 → 2 s (grille 7 × 2 EV). 100D : AEB « C » = 2. Le 600D reste prioritaire.</td></tr>
+<tr><th>LEM ne voit qu’un corps</th><td>Garder le 600D USB. 100D = AEB autonome. Ne pas éteindre le 600D pour « ménager » le 100D.</td></tr>
+<tr><th>100D muet après allumage</th><td>Attendre 60 s. Ne pas ⌘R au milieu d’une rampe 600D. Repli AEB.</td></tr>
+<tr><th>Une seule expo sort du 100D (AEB)</th><td>L’AEB est tombé. Réarmer, 3 repères. Ne plus éteindre.</td></tr>
+<tr><th>Batterie 600D avant 05:40</th><td>Avancer le swap dans un trou entre deux rampes courantes, jamais au MAX.</td></tr>
+<tr><th>USB / Incremental Y faux</th><td>Prochain TAKEPIC en N (étendues et reprise le sont déjà). Vérifier l’icône.</td></tr>
+<tr><th>En retard</th><td>Le 600D au 750 mm est le produit. Abandonner le 100D sans hésiter.</td></tr>
+</table>
+<div class="note danger"><b>Règle d’or :</b> si quelque chose résiste après 06:05, on laisse
+LEM courir et on <b>regarde</b> le MAX. Ce n’est pas une totalité de 87 s, mais le croissant
+à 10,5° ne se recadre pas en panique.</div>
+</div>
+</details>
+
+<details>
+<summary>8 · Matériel<span class="count"></span></summary>
+<div class="body">
+<ul id="s8">
+<li><label><input type="checkbox"><span class="t">Monture EQ + viseur polaire · trépied 100D · niveau à bulle</span></label></li>
+<li><label><input type="checkbox"><span class="t">600D + télescope 150 mm f/5 (T-ring) · 100D + 15-85 @ 24 mm</span></label></li>
+<li><label><input type="checkbox"><span class="t">Mac Mojave + <em>2 câbles USB</em> + alimentation</span></label></li>
+<li><label><input type="checkbox"><span class="t">Carte <em>32 Go</em> 600D (RAW) · <em>16 Go</em> 100D (JPEG Fine) · 16 Go filet</span></label></li>
+<li><label><input type="checkbox"><span class="t">2× LP-E8 + 2× LP-E12 · accu 600D de swap <em>identifié</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Script <code>seance-2apn-interlace.txt</code> sur le Mac (copie vérifiée)</span></label></li>
+<li><label><input type="checkbox"><span class="t">Repli 100D : intervallomètre + piles AAA de rechange</span></label></li>
+<li><label><input type="checkbox"><span class="t">Gaffer, scotch MAP, lampe frontale <em>rouge</em></span></label></li>
+<li><label><input type="checkbox"><span class="t">Téléphone chargé + cette page en local · de quoi boire</span></label></li>
+</ul>
+</div>
+</details>
+
+</main>
+
+<footer>Tournefeuille · 28 août 2026 · LEM dual USB<br>
+Hors ligne — cocher se mémorise sur cet appareil</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Instants en UTC : la page reste juste quel que soit le fuseau du téléphone.
+  var EV = [
+    ["02:19:00","LEM : Allume / Cent D (marge 60 s)"],
+    ["02:20:00","Premières vues — 100D + 600D pénombre"],
+    ["02:33:52","U1 — umbra, rampes 7"],
+    ["02:42:55","600D : première étendue 9"],
+    ["02:52:44","100D : VERROUILLER — Lune bord haut"],
+    ["03:22:55","600D : étendue ~50 %"],
+    ["03:38:00","Pause accu dans 2 min"],
+    ["03:40:00","Swap LP-E8 600D"],
+    ["03:55:00","Reprise 600D — icône USB"],
+    ["04:12:55","MAX — regarder (étendue 9 + diagnostics)"],
+    ["04:30:55","600D : dernière étendue 9"],
+    ["04:44:00","Aube — 600D 5 vues"],
+    ["05:00:00","600D : 3 vues"],
+    ["05:15:00","Lever du soleil"],
+    ["05:20:26","Moonset — fin"]
+  ].map(function(e){ return { t: Date.parse("2026-08-28T"+e[0]+"Z"), l: e[1] }; });
+
+  var $ = function(s){ return document.querySelector(s); };
+  var pad = function(n){ return (n<10?"0":"")+n; };
+
+  var mem = {};
+  var store = {
+    get: function(k){ try { return localStorage.getItem(k); } catch(e){ return mem[k] || null; } },
+    set: function(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k] = v; } }
+  };
+
+  function cest(d){
+    return pad(d.getUTCHours()+2)+":"+pad(d.getUTCMinutes())+":"+pad(d.getUTCSeconds());
+  }
+
+  function tick(){
+    var d = new Date();
+    $("#now").textContent = cest(d);
+    var nxt = null;
+    for (var i=0;i<EV.length;i++){ if (EV[i].t > d.getTime()){ nxt = EV[i]; break; } }
+    if (!nxt){ $("#next").textContent = "Séance terminée."; return; }
+    var s = Math.round((nxt.t - d.getTime())/1000);
+    var h = Math.floor(s/3600), m = Math.floor(s%3600/60);
+    var cd = h ? h+" h "+pad(m) : (s>=60 ? m+" min "+pad(s%60) : s+" s");
+    $("#next").innerHTML = "dans <b>"+cd+"</b> — "+nxt.l;
+  }
+
+  $("#tz").textContent = "heure de Tournefeuille (UTC+2)";
+  tick(); setInterval(tick, 1000);
+
+  var boxes = [];
+  document.querySelectorAll("ul[id]").forEach(function(ul){
+    ul.querySelectorAll("input[type=checkbox]").forEach(function(b,i){
+      b.dataset.k = "lem28:"+ul.id+":"+i;
+      b.checked = store.get(b.dataset.k) === "1";
+      b.addEventListener("change", function(){
+        store.set(b.dataset.k, b.checked ? "1" : "0");
+        counts();
+      });
+      boxes.push(b);
+    });
+  });
+
+  function counts(){
+    document.querySelectorAll("details").forEach(function(d){
+      var bs = d.querySelectorAll("input[type=checkbox]");
+      var el = d.querySelector(".count");
+      if (!el) return;
+      if (!bs.length){ el.textContent = ""; return; }
+      var n = 0;
+      bs.forEach(function(b){ if (b.checked) n++; });
+      el.textContent = n+"/"+bs.length;
+      el.style.color = (n === bs.length) ? "var(--ok)" : "var(--dim)";
+    });
+  }
+  counts();
+
+  $("#bReset").addEventListener("click", function(){
+    if (!confirm("Décocher toute la checklist ?")) return;
+    boxes.forEach(function(b){ b.checked = false; store.set(b.dataset.k,"0"); });
+    counts();
+  });
+
+  $("#bOpen").addEventListener("click", function(){
+    var ds = document.querySelectorAll("details");
+    var allOpen = Array.prototype.every.call(ds, function(d){ return d.open; });
+    ds.forEach(function(d){ d.open = !allOpen; });
+  });
+
+  var night = store.get("lem28:night") === "1";
+  function applyNight(){
+    document.documentElement.classList.toggle("night", night);
+    $("#bNight").textContent = night ? "Mode normal" : "Mode nuit";
+  }
+  applyNight();
+  $("#bNight").addEventListener("click", function(){
+    night = !night; store.set("lem28:night", night?"1":"0"); applyNight();
+  });
+
+  var lock = null;
+  $("#bWake").addEventListener("click", async function(){
+    if (!("wakeLock" in navigator)){ alert("Non supporté : régler la mise en veille dans Android."); return; }
+    try {
+      if (lock){ await lock.release(); lock = null; $("#bWake").textContent = "Écran allumé"; }
+      else { lock = await navigator.wakeLock.request("screen"); $("#bWake").textContent = "Veille rétablie";
+             lock.addEventListener("release", function(){ lock=null; $("#bWake").textContent="Écran allumé"; }); }
+    } catch(e){ alert("Impossible : "+e.message); }
+  });
+})();
+</script>
+</body>
+</html>

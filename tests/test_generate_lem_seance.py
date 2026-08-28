@@ -125,6 +125,15 @@ def test_cadence_anchored_on_max() -> None:
         assert abs(delta_min - round(delta_min / 2) * 2) < 1e-6, line.when
 
 
+def test_say_is_short_ascii() -> None:
+    for line in gen.session_lines():
+        if line.action != "COMMAND":
+            continue
+        spoken = line.rest.split(';say "', 1)[1].rstrip('"')
+        spoken.encode("ascii")
+        assert len(spoken) <= 60, spoken
+
+
 def test_dawn_shortens() -> None:
     dawn5 = [
         line

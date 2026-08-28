@@ -18,6 +18,8 @@ YAML : [`scripts/config/tournefeuille-600d.yaml`](../../scripts/config/tournefeu
 (forme A 24 mm : [`tournefeuille-100d-24mm.yaml`](../../scripts/config/tournefeuille-100d-24mm.yaml) ;
 variante U1→SET : [`tournefeuille-100d-u1-set.yaml`](../../scripts/config/tournefeuille-100d-u1-set.yaml)).
 
+Checklist jour J (HTML téléphone) : [`checklist-tournefeuille-2026.html`](../checklist-tournefeuille-2026.html).
+
 ## Circonstances locales (UTC fournis → CEST)
 
 Contacts **topocentriques** saisis par l’observateur. Skyfield DE421 au même instant

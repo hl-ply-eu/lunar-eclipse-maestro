@@ -19,11 +19,15 @@ Scripts écrits dans ce dépôt (pas un export Mac). À copier vers
 | `bench-2apn-seq.txt` | Bench **séquentiel** ~12 min, rampes 5/7/9 + 3/5 (généré) | `600D-T150` + `100D-W24` |
 | `bench-2apn-interlace.txt` | Bench **entrelacé** : 600D×2 puis 100D @ 20 s (généré) | `600D-T150` + `100D-W24` |
 | `seance-600d-t150.txt` | Séance 04:20 → moonset (généré) | `600D-T150` |
+| `seance-100d-w24.txt` | Séance 100D 24 mm, 3→5 JPG-F (généré) | `100D-W24` |
+| `seance-2apn-interlace.txt` | Séance dual : 600D prioritaire, 100D glissé (DEC-019) | les deux |
 
 Script séance : [DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs/decisions.md). Régénérer :
 
 ```bash
 .venv/bin/python scripts/generate_lem_seance.py
+.venv/bin/python scripts/generate_lem_seance_100d.py
+.venv/bin/python scripts/generate_lem_seance_interlace.py
 .venv/bin/python scripts/generate_lem_bench_2apn_seq.py
 .venv/bin/python scripts/generate_lem_bench_2apn_interlace.py
 ```
@@ -36,7 +40,9 @@ Script séance : [DEC-013](../../../docs/decisions.md)–[DEC-016](../../../docs
 - ~05:40–05:55 : trou **10 min**, `say`, reprise 05:56:55 Incremental **N** ([KI-022](../../../docs/known-issues.md)) ;
 - 06:44 → moonset : **5 puis 3** (une vue trop longue gardée par palier) ;
 - ISO **100 / 200 / 800** (vues 1–2 / 3–5 / 6–9) ; colonne Av **5,6** (USB) ; expo **f/5** ;
-- annonces : plusieurs `COMMAND ;say` **courts**, **+1 s** entre eux, ASCII, ≲ 60 car. ([KI-021](../../../docs/known-issues.md)).
+- annonces : plusieurs `COMMAND ;say` **courts**, **+1 s** entre eux, ASCII, ≲ 60 car. ([KI-021](../../../docs/known-issues.md)) — progression tous les 20 rampes, pas chaque rampe.
+
+**Jour J (deux USB) :** charger **`seance-2apn-interlace.txt`** seulement (pas les deux solos en même temps). 600D inchangé ; 100D glisse ≤ 60 s ou saute ([DEC-019](../../../docs/decisions.md)). Repli un boîtier : `seance-600d-t150.txt` ou `seance-100d-w24.txt`.
 
 Grammaire (ASCII, ~1 s d’écart) :
 

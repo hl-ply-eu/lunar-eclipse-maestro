@@ -96,6 +96,10 @@ Le plan d’exposition lunaire (rampe umbra, calculatrice Jubier / Espenak) n’
 
 ## 6. Checklist minimale avant le 28 août
 
+**Jour J (téléphone) :** [checklist-tournefeuille-2026.html](checklist-tournefeuille-2026.html) —
+hors ligne, cases mémorisées, compte à rebours. Copier sur le téléphone et l’ouvrir **avant**
+la nuit (comme Frías le 12 août).
+
 - [x] Commune / GPS renseignés, YAML recalé, FOV relancé (Tournefeuille)
 - [ ] Horizon ouest–sud-ouest dégagé (moonset, azimut ~257°)
 - [ ] Optiques confirmées (focale wide U1→moonset)
